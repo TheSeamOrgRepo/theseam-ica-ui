@@ -1,0 +1,9 @@
+<main role="main">
+  <ng-container *ngIf="icaLoginService.loggedInState | async">
+    <ica-navigation></ica-navigation>
+    <section class="section section--top-bar">
+      Top Bar
+    </section>
+  </ng-container>
+  <router-outlet></router-outlet>
+</main>

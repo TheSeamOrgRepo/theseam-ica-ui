@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@theseam/ica-ui": [
+        "dist/ica-ui"
+      ],
+      "@theseam/ica-ui/*": [
+        "dist/ica-ui/*"
+      ]
+    }
   }
 }

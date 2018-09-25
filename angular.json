@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-ica-ui": {
+    "theseam-ica-ui": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-ica-ui",
+            "outputPath": "dist/theseam-ica-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -54,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-ica-ui:build"
+            "browserTarget": "theseam-ica-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-ica-ui:build:production"
+              "browserTarget": "theseam-ica-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-ica-ui:build"
+            "browserTarget": "theseam-ica-ui:build"
           }
         },
         "test": {
@@ -99,7 +99,7 @@
         }
       }
     },
-    "ngx-ica-ui-e2e": {
+    "theseam-ica-ui-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -107,11 +107,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-ica-ui:serve"
+            "devServerTarget": "theseam-ica-ui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-ica-ui:serve:production"
+              "devServerTarget": "theseam-ica-ui:serve:production"
             }
           }
         },
@@ -125,7 +125,147 @@
           }
         }
       }
+    },
+    "ica-navigation": {
+      "root": "projects/ica-navigation",
+      "sourceRoot": "projects/ica-navigation/src",
+      "projectType": "library",
+      "prefix": "ica",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ica-navigation/tsconfig.lib.json",
+            "project": "projects/ica-navigation/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ica-navigation/src/test.ts",
+            "tsConfig": "projects/ica-navigation/tsconfig.spec.json",
+            "karmaConfig": "projects/ica-navigation/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ica-navigation/tsconfig.lib.json",
+              "projects/ica-navigation/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ica-login": {
+      "root": "projects/ica-login",
+      "sourceRoot": "projects/ica-login/src",
+      "projectType": "library",
+      "prefix": "ica",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ica-login/tsconfig.lib.json",
+            "project": "projects/ica-login/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ica-login/src/test.ts",
+            "tsConfig": "projects/ica-login/tsconfig.spec.json",
+            "karmaConfig": "projects/ica-login/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ica-login/tsconfig.lib.json",
+              "projects/ica-login/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ica-common": {
+      "root": "projects/ica-common",
+      "sourceRoot": "projects/ica-common/src",
+      "projectType": "library",
+      "prefix": "ica",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ica-common/tsconfig.lib.json",
+            "project": "projects/ica-common/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ica-common/src/test.ts",
+            "tsConfig": "projects/ica-common/tsconfig.spec.json",
+            "karmaConfig": "projects/ica-common/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ica-common/tsconfig.lib.json",
+              "projects/ica-common/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ica-ui": {
+      "root": "projects/ica-ui",
+      "sourceRoot": "projects/ica-ui/src",
+      "projectType": "library",
+      "prefix": "ica",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ica-ui/tsconfig.lib.json",
+            "project": "projects/ica-ui/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ica-ui/src/test.ts",
+            "tsConfig": "projects/ica-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ica-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ica-ui/tsconfig.lib.json",
+              "projects/ica-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "ngx-ica-ui"
+  "defaultProject": "theseam-ica-ui"
 }

@@ -1,0 +1,107 @@
+// Buttons
+// ------------------------
+.btn,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    display: inline-block;
+    color: $white;
+    line-height: 1;
+    font-size: rem-calc(14);
+    font-weight: $font-weight-bold;
+    padding: 1rem 1.5rem 0.9rem;
+    text-align: center;
+    font-family: $font;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background-color: $primary;
+    border: 1px solid $primary;
+    border-radius: 3px;
+    transition: 0.15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:hover {
+        color: $white;
+        text-decoration: none;
+        box-shadow: 0 10px 10px 0 rgba(0,0,0,0.22),
+                    0 11px 33px 0 rgba(0,0,0,0.14);
+    }
+
+    &:active,
+    &:focus {
+        background-color: $primary-light;
+        border-color: $primary-light;
+        box-shadow: none;
+    }
+
+    // Secondary button
+    &.btn--secondary {
+        background-color: $secondary;
+        border-color: $secondary;
+
+        &:active,
+        &:focus {
+            background-color: $secondary-dark;
+            border-color: $secondary-dark;
+        }
+    }
+
+    // White button
+    &.btn--white {
+        background-color: $white;
+        border-color: $white;
+        color: $primary;
+
+        &:hover {
+            color: $primary;
+        }
+
+        &:active,
+        &:focus {
+            background-color: $gray-light;
+            border-color: $gray-light;
+        }
+    }
+
+    // Green button
+    &.btn--green {
+        background-color: $green;
+        border-color: $green;
+
+        &:active,
+        &:focus {
+            background-color: $green-dark;
+            border-color: $green-dark;
+        }
+    }
+}
+
+// Small button
+.btn--icon {
+    $icon-size: 20px;
+
+    span {
+        position: relative;
+        padding-left: $icon-size + 10px;
+    }
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        max-width: $icon-size;
+        max-height: $icon-size;
+        transform: translateY(-50%);
+    }
+}
+
+// Full width button
+.btn--full {
+    display: block;
+    width: 100%;
+}
