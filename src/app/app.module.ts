@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
 import { APP_BASE_HREF, CommonModule } from '@angular/common'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 
 import { IcaNavigationModule } from '@theseam/ica-ui'
 import { IcaLoginModule } from '@theseam/ica-ui'
@@ -23,6 +25,7 @@ import { routing } from './app.routing'
    imports: [
       CommonModule,
       BrowserModule,
+      BrowserAnimationsModule,
       IcaNavigationModule,
       IcaLoginModule,
       IcaCommonModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { IcaNavigationService } from '@theseam/ica-ui'
+import { IcaNavigationService, IcaLoginService } from '@theseam/ica-ui'
 
 @Component({
   selector: 'app-home',
@@ -10,10 +10,14 @@ import { IcaNavigationService } from '@theseam/ica-ui'
 export class HomeComponent implements OnInit {
 
   constructor(
-    public icaNavigationService: IcaNavigationService
+    public icaNavigationService: IcaNavigationService,
+    public icaLoginService: IcaLoginService
   ) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.icaLoginService.setLoggedInStateState(true)
+    })
   }
 
 }

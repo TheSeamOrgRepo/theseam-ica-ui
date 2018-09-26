@@ -69,7 +69,8 @@ h1, .h1 {
 .login {
     &.to-dashboard {
         .login__left {
-            width: 80px;
+            overflow: hidden; // Added to avoid scrollbar flash during animation
+            // width: 80px; // Removed, because not needed with navbar
             transition-delay: 0.6s;
 
             &:before {

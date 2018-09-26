@@ -1,12 +1,33 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
 import { Router } from '@angular/router'
+import { trigger, animate, style, query, transition } from '@angular/animations'
+
+export const loginTransition = trigger('loginTransition', [
+  transition(':enter', [
+    query('.login__left', [
+      style({ transform: 'translateX(-100%)' }),
+      animate('500ms ease-in-out', style({ transform: 'translateX(0%)' }))
+    ], {optional: true}),
+  ]),
+  transition(':leave', [
+    query('.login__left', [
+      style({ transform: 'translateX(0%)' }),
+      animate('500ms ease-in-out', style({ transform: 'translateX(-100%)' }))
+    ], {optional: true}),
+  ])
+])
 
 import { IcaLoginService } from './../services/ica-login.service'
 
 @Component({
   selector: 'ica-login',
   templateUrl: './ica-login.component.html',
-  styles: []
+  styles: [],
+  animations: [ loginTransition ],
+  // tslint:disable-next-line:use-host-property-decorator
+  host: {
+    '[@loginTransition]': ''
+  }
 })
 export class IcaLoginComponent implements OnInit {
 
@@ -24,6 +45,9 @@ export class IcaLoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.icaLoginService.setLoggedInStateState(false)
+    })
   }
 
   setAction(name: string) {
@@ -44,7 +68,7 @@ export class IcaLoginComponent implements OnInit {
   login() {
     this.activeAction = 'login'
     setTimeout(() => {
-      this.icaLoginService.setLoggedInStateState(true)
+      // this.icaLoginService.setLoggedInStateState(true)
       this.router.navigate(['/home'])
     }, 500)
   }

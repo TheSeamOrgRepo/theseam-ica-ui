@@ -20,26 +20,32 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
+        data: { state: 'home'}
       },
       {
         path: 'login',
         component: IcaLoginComponent,
+        data: { state: 'login'}
       },
       {
         path: 'contracts',
         component: HomeComponent,
+        data: { state: 'contracts'}
       },
       {
         path: 'companies',
         component: HomeComponent,
+        data: { state: 'companies'}
       },
       {
         path: 'shipments',
         component: HomeComponent,
+        data: { state: 'shipments'}
       },
       {
         path: 'documents',
         component: HomeComponent,
+        data: { state: 'documents'}
       }
     ]
   },
@@ -47,6 +53,6 @@ const routes: Routes = [
 ]
 
 export const routing = RouterModule.forRoot(routes, {
-  // useHash: true,
+  useHash: true,
   // enableTracing: true // <-- debugging purposes only
 })
