@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'
+import { Component, OnInit, ViewChild, ElementRef, Inject, Optional } from '@angular/core'
 import { Router } from '@angular/router'
 import { trigger, animate, style, query, transition } from '@angular/animations'
+
+import { IcaLoginAuthService, IcaLoginAuth } from './../ica-login.models'
 
 export const loginTransition = trigger('loginTransition', [
   transition(':enter', [
@@ -34,14 +36,17 @@ export class IcaLoginComponent implements OnInit {
   passwordVisible = false
   activeAction = 'main'
   outAction = ''
+
   email = ''
+  password = ''
 
   @ViewChild('emailInput') emailInput: ElementRef
   @ViewChild('passwordInput') passwordInput: ElementRef
 
   constructor(
     public router: Router,
-    public icaLoginService: IcaLoginService
+    public icaLoginService: IcaLoginService,
+    @Optional() @Inject(IcaLoginAuthService) public icaLoginAuthService: IcaLoginAuth
   ) { }
 
   ngOnInit() {

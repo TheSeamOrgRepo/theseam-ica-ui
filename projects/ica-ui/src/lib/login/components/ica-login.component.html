@@ -64,7 +64,7 @@
                               </div>
 
                               <div class="form-field form-field--password form-field--error">
-                                  <input [type]="(passwordVisible) ? 'text' : 'password'" placeholder="password" class="form-field__input" #passwordInput>
+                                  <input [type]="(passwordVisible) ? 'text' : 'password'" placeholder="password" class="form-field__input" [(ngModel)]="password" #passwordInput>
 
                                   <a [routerLink]="" class="form-field__icon otherere" (click)="this.passwordVisible=!this.passwordVisible">
                                       <svg *ngIf="passwordVisible" width="25" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M1.117 7.337C3.246 3.019 7.624.227 12.5.227c4.876 0 9.254 2.792 11.383 7.11L24.21 8l-.327.663c-2.129 4.318-6.507 7.11-11.383 7.11-4.876 0-9.254-2.792-11.383-7.11L.79 8l.327-.663zM2.462 8c1.833 3.718 5.64 6.274 10.038 6.274 4.398 0 8.205-2.556 10.038-6.274-1.833-3.718-5.64-6.274-10.038-6.274C8.102 1.726 4.295 4.282 2.462 8zM12.5 12.182a4.182 4.182 0 1 1 0-8.364 4.182 4.182 0 0 1 0 8.364zm0-2.509a1.673 1.673 0 1 0 0-3.346 1.673 1.673 0 0 0 0 3.346z" fill="none" fill-rule="nonzero"/></svg>
