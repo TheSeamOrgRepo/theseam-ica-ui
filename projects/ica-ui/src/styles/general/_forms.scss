@@ -1,0 +1,265 @@
+// Forms
+// ------------------------
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+input[type='number'],
+input[type='search'],
+input[type='url'],
+input[type='password'] {
+    width: 100%;
+    height: $form-height;
+    padding: 0.5rem 0.75rem;
+    font-family: $font;
+    font-size: rem-calc(14);
+    color: $white;
+    line-height: $form-height;
+    background-color: transparent;
+    border: 1px solid $primary-light;
+    border-radius: 3px;
+    box-shadow: 0 0 10px 0 transparent;
+    transition: 0.15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    @include placeholder {
+        color: $primary-light;
+        font-family: $font;
+        letter-spacing: 0;
+    }
+
+    &:hover {
+        border-color: $white;
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        border-color: $white;
+        box-shadow: 0 0 10px 0 #1C94CE;
+    }
+}
+
+input[type='password'] {
+    font-family: caption;
+    letter-spacing: 2px;
+}
+
+// Form Fields
+.form-field {
+    position: relative;
+
+    + .form-field {
+        margin-top: 1rem;
+    }
+
+    &:hover {
+        .form-field__input {
+            border-color: $white;
+        }
+
+        .form-field__message {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.form-field--error {
+    &:hover {
+        .form-field__input {
+            border-color: $red;
+        }
+    }
+
+    .form-field__input {
+        border-color: $red;
+
+        &:hover,
+        &:active,
+        &:focus {
+            border-color: $red;
+        }
+
+        &:active,
+        &:focus {
+            box-shadow: 0 0 10px 0 $red;
+        }
+    }
+}
+
+.form-field--button {
+    &:hover {
+        .form-field__input {
+            border-color: $green;
+        }
+    }
+
+    .form-field__input {
+        padding-right: $form-height;
+        border-color: $green;
+
+        &:hover,
+        &:active,
+        &:focus {
+            border-color: $green;
+        }
+    }
+}
+
+.form-field--password {
+    .form-field__input {
+        padding-right: $form-height;
+    }
+
+    .form-field__icon {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+
+        &:focus {
+          outline: 0;
+        }
+    }
+}
+
+.form-field__icon,
+.form-field__button {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: $form-height;
+    height: $form-height;
+
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        path {
+            transition: 0.15s ease-in-out;
+        }
+    }
+}
+
+.form-field__input {
+    &:active,
+    &:focus {
+        border-color: $white;
+
+        ~ .form-field__message {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.form-field__icon {
+    right: 0;
+
+    &:hover {
+        path {
+            fill: $white;
+        }
+    }
+
+    path {
+        fill: $primary-light;
+    }
+}
+
+.form-field__button {
+    right: 0;
+    background-color: $green;
+    border-radius: 0 3px 3px 0;
+    border: none;
+
+    &:active,
+    &:focus {
+        background-color: $green-dark;
+    }
+
+    path {
+        fill: $green-ultradark;
+    }
+
+    &:hover {
+        box-shadow: none;
+
+        path {
+            fill: $white;
+        }
+    }
+}
+
+.form-field__message {
+    position: absolute;
+    left: 100%;
+    left: calc(100% + 12px);
+    top: 50%;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: rem-calc(11);
+    font-weight: $font-weight-bold;
+    line-height: 1.25;
+    color: $white;
+    background-color: $primary-light;
+    border-radius: 3px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.15s ease-in-out;
+    transform: translateY(-50%);
+
+    a {
+        color: $white !important;
+        text-decoration: underline;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        border: 8px solid transparent;
+        border-right-color: $primary-light;
+        transform: translateY(-50%);
+    }
+
+    .form-field--error & {
+        $icon-size: 24px;
+        padding-left: 1rem + rem-calc($icon-size);
+        color: $red-dark;
+        background-color: $red-ultralight;
+
+        .login__actions.is-active & {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &:before {
+            border-right-color: $red-ultralight;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 50%;
+            width: $icon-size;
+            height: $icon-size;
+            background: {
+                size: cover;
+                position: center center;
+                repeat: no-repeat;
+                image: url('../dist/ica-ui/assets/images/icon-error.svg');
+            }
+            transform: translateY(-50%);
+        }
+
+        a {
+            color: $red-dark !important;
+        }
+    }
+}

@@ -34,6 +34,7 @@ import { IcaLoginService } from './../services/ica-login.service'
 export class IcaLoginComponent implements OnInit {
 
   passwordVisible = false
+  isEditingEmail = false
   activeAction = 'main'
   outAction = ''
 
@@ -41,6 +42,7 @@ export class IcaLoginComponent implements OnInit {
   password = ''
 
   @ViewChild('emailInput') emailInput: ElementRef
+  @ViewChild('emailInput2') emailInput2: ElementRef
   @ViewChild('passwordInput') passwordInput: ElementRef
 
   constructor(
@@ -62,12 +64,18 @@ export class IcaLoginComponent implements OnInit {
     setTimeout(() => {
       this.activeAction = name
       if (this.activeAction === 'main') {
+        this.isEditingEmail = false
         setTimeout(() => { this.emailInput.nativeElement.focus() }, 500)
       }
       if (this.activeAction === 'email') {
         setTimeout(() => { this.passwordInput.nativeElement.focus() }, 500)
       }
     }, 500)
+  }
+
+  enableEmailEditing() {
+    this.isEditingEmail = true
+    setTimeout(() => { this.emailInput2.nativeElement.focus() }, 500)
   }
 
   login() {

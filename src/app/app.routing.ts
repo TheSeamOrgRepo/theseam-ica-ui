@@ -14,6 +14,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'login',
+    component: IcaLoginComponent,
+    data: { state: 'login'}
+  },
+  {
     path: '',
     component: MainContainerComponent,
     children: [
@@ -21,11 +26,6 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent,
         data: { state: 'home'}
-      },
-      {
-        path: 'login',
-        component: IcaLoginComponent,
-        data: { state: 'login'}
       },
       {
         path: 'contracts',

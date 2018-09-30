@@ -1,0 +1,25 @@
+// Typography
+// ------------------------
+p {
+    font-weight: $font-weight-normal;
+    margin-bottom: 1rem;
+    font-size: rem-calc(14);
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+    transition: 0.15s ease-in-out;
+}
+
+h1, .h1 {
+    margin: 0 0 0.5rem 0;
+    font-family: $font;
+    color: $primary;
+    line-height: 1.2;
+    font-weight: $font-weight-bold;
+    @include r-font-size(rem-calc(24), rem-calc(30));
+}

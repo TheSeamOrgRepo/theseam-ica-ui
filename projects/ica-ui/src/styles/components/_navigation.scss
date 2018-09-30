@@ -1,0 +1,372 @@
+// Navigation
+// ------------------------
+.main-navigation {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 290px;
+
+    &.is-active {
+        display: block;
+        width: 75px;
+
+        p {
+            &.user-name {
+                left: -99999px;
+                opacity: 0;
+            }
+
+            &.org-name {
+                left: -99999px;
+                opacity: 0;
+            }
+        }
+
+        .navigation--wrapper {
+            width: 75px;
+        }
+
+        .logo-wrapper {
+            width: 55px;
+            transition: width 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+            .text {
+                opacity: 0;
+                transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+
+            svg {
+                left: 22px;
+            }
+        }
+
+        .navigation li a .nav-item {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        .account-drawer li a .nav-item {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .block--account-info__inner {
+            img {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    ol,
+    ul {
+        list-style: none;
+    }
+
+    .navigation--wrapper {
+        position: relative;
+        background-color: $primary;
+        height: 100vh;
+        padding: 1rem 0;
+        width: 215px;
+        transition: width 0.75s cubic-bezier(0.25, 0.75, 0.05, 1);
+    }
+
+    .nav-toggle {
+        width: 74px;
+        height: 75px;
+        background-color: $primary;
+        position: absolute;
+        right: -74px;
+        top: 0;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        cursor: pointer;
+        border-left: 1px solid $hr-gray;
+        transition: transform 0.75s cubic-bezier(0.25, 0.75, 0.05, 1);
+
+        &.is-active {
+            .hamburger {
+                .line {
+                    &:nth-child(1) {
+                        transform: translateY(15px) scaleY(-1);
+                    }
+
+                    &:nth-child(3) {
+                        transform: translateY(-15px) scaleY(-1);
+                    }
+                }
+            }
+        }
+    }
+
+    .hamburger {
+        margin-top: 23px;
+
+        &:hover {
+            .line {
+                background-color: $white;
+            }
+        }
+
+        .line {
+            width: 28px;
+            height: 2px;
+            background-color: $passive-gray;
+            display: block;
+            margin: 5px 0;
+            transition: .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+            &:nth-child(2) {
+                width: 20px;
+            }
+
+            &:nth-child(3) {
+                width: 12px;
+            }
+        }
+    }
+
+    .logo-wrapper {
+        display: block;
+        width: 100%;
+        height: 48px;
+        overflow: hidden;
+        position: relative;
+        transition: width 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .logo-wrapper .text {
+        opacity: 1;
+        transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .logo-wrapper svg {
+        position: absolute;
+        left: 22px;
+    }
+
+    .navigation {
+        padding-top: 62px;
+        overflow: hidden;
+
+        li {
+            a {
+                display: flex;
+                align-items: center;
+                padding: 1rem 5px 1rem 0;
+                transition: background .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+                height: 65px;
+                font-weight: bold;
+                font-size: 14px;
+                color: $passive-gray;
+                letter-spacing: 1px;
+                line-height: 65px;
+                text-transform: uppercase;
+                text-decoration: none;
+                border-left: 5px solid transparent;
+
+                &:hover {
+                    opacity: 1;
+
+                    &:not(:active) .nav-item {
+                        opacity: 1;
+                        color: $white;
+                    }
+
+                    .nav-item {
+                        opacity: 1;
+                        color: $white;
+                    }
+
+                    img {
+                        opacity: 1;
+                    }
+                }
+
+                &.is-active {
+                    background-color: $blue-gray-darker;
+                    border-left: 5px solid $secondary;
+                    color: $white;
+                }
+
+                &:active {
+                    color: $active-gray;
+                    background-color: $blue-gray-darker;
+                    border-left: 5px solid $secondary;
+                }
+
+                .nav-item {
+                    opacity: 1;
+                    transition: 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+                }
+            }
+
+            img {
+                margin: 0 16px;
+                opacity: .25;
+                transition: opacity .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+
+            &:first-of-type {
+                img {
+                    margin: 0 13px 0 20px;
+                }
+            }
+
+            &:nth-of-type(3) {
+                img {
+                    margin: 0 13px 0 16px;
+                }
+            }
+        }
+    }
+
+    .block--account-info__drawer {
+        background-color: $blue-gray-darker;
+        padding: 0;
+        width: 100%;
+        transition: max-height 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+        max-height: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        bottom: 77px;
+
+        &.is-active {
+            max-height: 225px;
+            pointer-events: auto;
+        }
+    }
+
+    .account-drawer {
+        padding: 1rem 22px;
+
+        li {
+            &:hover {
+                a {
+                    color: $white;
+                }
+
+                img {
+                    opacity: 1;
+                }
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                padding: 0.5rem 0;
+                font-size: 14px;
+                text-decoration: none;
+                transition: color 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+                &:hover {
+                    img {
+                        opacity: 1;
+                    }
+
+                    .nav-item {
+                        color: $white;
+                    }
+                }
+
+                img {
+                    opacity: .25;
+                    margin-right: 18px;
+                    transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+                }
+
+                .nav-item {
+                    opacity: 1;
+                    min-width: 120px;
+                    text-align: left;
+                    color: $passive-gray;
+                    transition: 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+                }
+            }
+        }
+    }
+
+    .block--account-info {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
+        hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid $hr-gray;
+            margin: 0;
+        }
+    }
+
+    .profile--wrapper {
+        width: 26.7px;
+        height: 26.7px;
+    }
+
+    .block--account-info__inner {
+        overflow: hidden;
+        display: flex;
+        padding: 23px 25px;
+        cursor: pointer;
+
+        &:hover {
+            img {
+                opacity: 1;
+            }
+
+            .user-name,
+            .org-name {
+                color: $white;
+            }
+        }
+
+        img {
+            width: 26.7px;
+            opacity: 0.25;
+            transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+    }
+
+    .block--profile-info {
+        text-align: left;
+        display: block;
+        width: 117px;
+        left: 15px;
+        height: 30px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .user-name,
+    .org-name {
+        position: absolute;
+        left: 0;
+        width: 117px;
+        line-height: 1.15;
+        color: $passive-gray;
+        transition: color 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .user-name {
+        font-size: 14px;
+        font-weight: $font-weight-bold;
+        margin-bottom: 5px;
+        bottom: 12px;
+    }
+
+    .org-name {
+        font-size: 12px;
+        bottom: 0;
+    }
+}
+
+.section--top-bar {
+    height: 75px;
+    text-align: center;
+    border: 1px solid #CACED3;
+    background-color: white;
+}

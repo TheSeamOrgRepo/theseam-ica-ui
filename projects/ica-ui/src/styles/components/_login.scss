@@ -1,0 +1,534 @@
+// Login
+// ------------------------
+.login {
+    &.to-dashboard {
+        .login__left {
+            width: 215px;
+            transition-delay: 0.6s;
+            overflow: hidden;
+
+            &:before {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .login__centerer,
+        .login__copyright {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(70px);
+        }
+
+        .login__right {
+            display: none;
+        }
+    }
+}
+
+.login__left,
+.login__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    transition: 0.5s $ease-custom-login 0.3s;
+}
+
+.login__left {
+    left: 0;
+    width: 65%;
+    background-color: $primary;
+    z-index: 1;
+    will-change: width;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        // background-image: radial-gradient(50% 120%, #415365 50%, #1E2A36 100%); // Changed because of autoprefixer bug
+        background-image: radial-gradient(50% 120%,#415365 0,#1e2a36 100%);
+        opacity: 1;
+        visibility: visible;
+        transition: 0.5s $ease-custom-login;
+        z-index: 0;
+    }
+
+    .login__centerer,
+    .login__copyright {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: 0.5s $ease-custom-login;
+    }
+
+    &.is-active {
+        width: 100%;
+
+        + * {
+            opacity: 0.5;
+            transform: scale(0.6);
+        }
+
+        .login__back {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &.is-email {
+        .login__logo {
+            transform: translateY(40%);
+
+            @include bp(min-height, rem-calc(600)) {
+                transform: translateY(80%);
+            }
+        }
+    }
+
+    &.is-uport {
+        .login__logo {
+            transform: translateY(0);
+        }
+    }
+
+    p {
+        color: $primary-ultralight;
+        font-size: rem-calc(11);
+
+        a {
+            color: $primary-ultralight;
+            text-decoration: underline;
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+.login__right {
+    overflow: hidden;
+    right: 0;
+    width: 35%;
+    opacity: 1;
+    transform: scale(1);
+    z-index: 0;
+    will-change: transform;
+}
+
+.login__back {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.15s ease-in-out;
+    z-index: 1;
+}
+
+.login__centerer {
+    width: 100%;
+}
+
+.login__logo {
+    display: block;
+    text-align: center;
+    margin-bottom: 2rem;
+    transition: 0.5s $ease-custom-login 0.3s;
+    transform: translateY(50%);
+
+    @include bp(min-height, rem-calc(600)) {
+        transform: translateY(80%);
+    }
+
+    @include bp(min-height, rem-calc(700)) {
+        margin-bottom: 4rem;
+        transform: translateY(100%);
+    }
+
+    a {
+        display: inline-block;
+    }
+
+    img {
+        display: block;
+    }
+}
+
+.login__actions-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.login__actions {
+    display: block;
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0);
+    will-change: transform, opacity, visibility;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+
+        &.out {
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s $ease-custom-login;
+            transform: translateY(70px);
+        }
+    }
+
+    .action__column {
+        width: 100%;
+    }
+}
+
+.login__actions--main {
+    display: flex;
+    max-width: 650px;
+    opacity: 0;
+    transition: 0.25s $ease-custom-login;
+    transform: translateY(70px);
+
+    &.is-active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .action__column {
+        width: 43%;
+
+        &:nth-of-type(2) {
+            width: 14%;
+
+            .divider {
+                position: relative;
+                top: 54px;
+                text-align: center;
+                font-size: rem-calc(14);
+
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    width: 1px;
+                    height: 60px;
+                    margin-left: -1px;
+                    background-color: $primary-light;
+                }
+
+                &:before {
+                    bottom: 125%;
+                }
+
+                &:after {
+                    top: 125%;
+                }
+            }
+        }
+    }
+}
+
+.login__actions--main,
+.login__actions--email {
+    position: absolute;
+}
+
+.login__actions--email {
+    .action__email,
+    .form-field,
+    .btn,
+    .action__helper,
+    .action__other {
+        opacity: 0;
+        transition: 0.5s $ease-custom-login;
+        transform: translateY(70px);
+        will-change: transform, opacity;
+    }
+
+    &.is-active {
+        .action__email,
+        .form-field,
+        .btn,
+        .action__helper,
+        .action__other {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    &.is-editing {
+        .action__heading {
+            display: none !important;
+        }
+
+        .form-field--email {
+            display: block !important;
+        }
+
+        .action__helper {
+            .forgot-password {
+                display: none !important;
+            }
+
+            .need-help {
+                display: block !important;
+            }
+        }
+    }
+
+    .action__heading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        cursor: pointer;
+
+        &:hover {
+            .email {
+                text-decoration: underline;
+            }
+        }
+
+        img {
+            width: 25px;
+        }
+
+        .email {
+            padding-left: 0.5rem;
+        }
+    }
+
+    .form-field {
+        transition-delay: 0.1s;
+    }
+
+    .form-field--password {
+        transition-delay: 0.2s;
+    }
+
+    .form-field--email {
+        display: none;
+        margin-bottom: 1rem;
+    }
+
+    .btn,
+    .action__helper {
+        transition-delay: 0.3s;
+    }
+
+    .btn {
+        float: right;
+        margin-top: 0.75rem;
+    }
+
+    .action__helper {
+        .forgot-password {
+            display: block;
+        }
+
+        .need-help {
+            display: none;
+        }
+    }
+
+    .action__other {
+        transition-duration: 0.75s;
+        transition-delay: 0.8s;
+    }
+}
+
+.login__actions--uport {
+    .action__heading,
+    .qr-code,
+    .action__other {
+        opacity: 0;
+        transition: 0.5s $ease-custom-login;
+        transform: translateY(70px);
+        will-change: transform, opacity;
+    }
+
+    &.is-active {
+        .action__heading,
+        .qr-code,
+        .action__other {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .qr-code {
+        min-height: 186px;
+        margin: 0 4.5rem;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 3px;
+        text-align: center;
+        box-shadow: 0 6px 30px 0 rgba(black, 0.3);
+        transition-delay: 0.25s;
+
+        @include bp(min-height, rem-calc(600)) {
+            min-height: 282px;
+            margin: 0 1.5rem;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+
+            &:first-of-type {
+                margin-bottom: 0.75rem;
+            }
+        }
+    }
+
+    .action__other {
+        transition-duration: 0.75s;
+        transition-delay: 0.5s
+    }
+}
+
+.action__column {
+    @include clearfix;
+}
+
+.action__heading {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    color: $gray-light;
+    text-align: center;
+}
+
+.action__helper {
+    float: left;
+    margin-top: 0.75rem;
+}
+
+.action__other {
+    margin-top: 2rem;
+    text-align: center;
+
+    @include bp(min-height, rem-calc(700)) {
+        margin-top: 4rem;
+    }
+}
+
+.login__copyright {
+    position: absolute;
+    bottom: 0.5rem;
+    width: 100%;
+    text-align: center;
+
+    @include bp(min-height, rem-calc(700)) {
+        bottom: 2rem;
+    }
+
+    p {
+        color: $primary-light;
+    }
+}
+
+.login__intro {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem 0;
+    text-align: center;
+
+    @include bp(min-height, rem-calc(600)) {
+        padding: 3rem 0;
+    }
+
+    p {
+        color: $primary-light;
+    }
+}
+
+.login__intro-link {
+    font-weight: $font-weight-bold;
+    color: $green;
+
+    &:not(:first-of-type) {
+        margin-left: 0.5rem;
+    }
+
+    &:hover {
+        color: $green-dark;
+
+        path {
+            fill: $green-dark;
+        }
+    }
+
+    path {
+        fill: $green;
+        transition: 0.15s ease-in-out;
+    }
+}
+
+.login__logos {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.login__logos--top {}
+
+.login__logos--bottom {}
+
+.login__logos-row {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+    width: 400%;
+    animation: {
+        duration: 40s;
+        iteration-count: infinite;
+        timing-function: linear;
+    }
+
+    &:first-of-type {
+        align-self: flex-end;
+        padding-bottom: 1rem;
+        animation-name: logo-slide-right;
+
+        @include bp(min-height, rem-calc(600)) {
+            padding-bottom: 3rem;
+        }
+    }
+
+    &:last-of-type {
+        animation-name: logo-slide-left;
+    }
+}
+
+.login__logos-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    flex-basis: 10%;
+    height: 60px;
+    padding: 0 1rem;
+
+    img {
+        display: block;
+        max-height: 100%;
+    }
+}

@@ -4,9 +4,11 @@ import { APP_BASE_HREF, CommonModule } from '@angular/common'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
-import { IcaNavigationModule } from '@theseam/ica-ui'
-import { IcaLoginModule } from '@theseam/ica-ui'
-import { IcaCommonModule } from '@theseam/ica-ui'
+import {
+  IcaNavigationModule,
+  IcaLoginModule,
+  IcaCommonModule
+} from '@theseam/ica-ui'
 
 import { AppComponent } from './app.component'
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
