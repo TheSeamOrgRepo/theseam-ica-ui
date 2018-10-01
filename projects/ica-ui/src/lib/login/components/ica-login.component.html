@@ -1,5 +1,5 @@
 <main role="main" class="login" [class.to-dashboard]="activeAction==='login'">
-  <section class="login__left" [class.is-active]="activeAction!=='main'">
+  <section class="login__left" [class.is-active]="activeAction!=='main'" [class.is-uport]="activeAction==='uport' || uPortInAction">
       <a [routerLink]="" class="login__back" (click)="setAction('main')">
           <img src="assets/images/icon-arrow-back.svg" alt="Back">
       </a>
@@ -39,7 +39,7 @@
                           <div class="action__column">
                               <div class="action__heading">Sign In with Sovereign Identity</div>
 
-                              <button class="btn btn--full btn--white btn--icon uport" (click)="setAction('email')">
+                              <button class="btn btn--full btn--white btn--icon uport" (click)="setAction('uport')">
                                   <span>
                                       <img src="assets/images/icon-uport.svg">
                                       Login with Uport

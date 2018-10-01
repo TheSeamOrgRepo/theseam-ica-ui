@@ -37,6 +37,7 @@ export class IcaLoginComponent implements OnInit {
   isEditingEmail = false
   activeAction = 'main'
   outAction = ''
+  uPortInAction = false
 
   email = ''
   password = ''
@@ -60,6 +61,7 @@ export class IcaLoginComponent implements OnInit {
   setAction(name: string) {
     this.outAction = this.activeAction
     setTimeout(() => { this.outAction = '' }, 500)
+    if (name === 'uport') { this.uPortInAction = true } else { this.uPortInAction = false }
 
     setTimeout(() => {
       this.activeAction = name
