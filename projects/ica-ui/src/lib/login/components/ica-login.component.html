@@ -20,9 +20,10 @@
                               <div class="action__heading">Sign In with Email</div>
 
                               <div class="form-field form-field--login form-field--email form-field--button">
-                                  <input type="email" placeholder="email@example.com" class="form-field__input" icaAutofocus [(ngModel)]="email" name="email" #emailInput (click.enter)="setAction('email')">
+                                  <input type="email" placeholder="email@example.com" class="form-field__input" icaAutofocus
+                                    [(ngModel)]="email" name="email" #emailInput (keyup.enter)="emailEnterOnKeyUp($event)">
 
-                                  <button [routerLink]="" class="form-field__button" (click)="setAction('email')">
+                                  <button [routerLink]="" class="form-field__button" (click)="emailButtonOnClick($event)">
                                       <svg width="13" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M7.92 0L6.626 1.285l2.808 2.808H0v1.814h9.434L6.626 8.715 7.92 10l4.99-5z" fill="none" fill-rule="nonzero"/></svg>
                                   </button>
                               </div>

@@ -82,10 +82,41 @@ export class IcaLoginComponent implements OnInit {
 
   login() {
     this.activeAction = 'login'
+
+    console.log('email', this.email)
+    console.log('password', this.password)
+
     setTimeout(() => {
       // this.icaLoginService.setLoggedInStateState(true)
       this.router.navigate(['/home'])
     }, 500)
+  }
+
+  emailEnterOnKeyUp(event: any) {
+    // console.log('onEmailEnterKeyPress', event)
+    // Check if email is valid
+    // this.setAction('email')
+    this.verifyEmail()
+  }
+
+  emailButtonOnClick(event: any) {
+    // Check if email is valid
+    // this.setAction('email')
+    this.verifyEmail()
+  }
+
+  verifyEmail() {
+    console.log('email', this.email)
+    if (this.icaLoginAuthService !== null) {
+      this.icaLoginAuthService.isEmailValid(this.email)
+        .subscribe(result => {
+          if (result.valid) {
+            this.setAction('email')
+          } else {
+            // Display email error
+          }
+        })
+    }
   }
 
 }

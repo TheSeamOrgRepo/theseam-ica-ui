@@ -6,9 +6,17 @@ export interface IcaLoginAuthResult {
   message: string
 }
 
+export interface IcaLoginValidEmailResult {
+  valid: boolean
+  message: string
+}
+
 export interface IcaLoginAuth {
   isAuthenticating$: Observable<boolean>
-  authenticate: (username: string, password: string) => IcaLoginAuthResult
+
+  isEmailValid: (email: string) => Observable<IcaLoginValidEmailResult>
+
+  authenticate: (email: string, password: string) => Observable<IcaLoginAuthResult>
 }
 
 export const IcaLoginAuthService = new InjectionToken<IcaLoginAuth>('IcaLoginAuth')
