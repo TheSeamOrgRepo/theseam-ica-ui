@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 
 import { IcaNavigationService } from './../services/ica-navigation.service'
 
@@ -8,6 +8,9 @@ import { IcaNavigationService } from './../services/ica-navigation.service'
   styles: []
 })
 export class IcaNavigationComponent implements OnInit {
+
+  @Input() userName: string
+  @Input() companyName: string
 
   accountDrawerOpen = false
 

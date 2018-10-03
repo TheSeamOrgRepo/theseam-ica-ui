@@ -34,6 +34,7 @@ export class IcaLoginComponent implements OnInit {
   activeAction = 'main'
   outAction = ''
   uPortInAction = false
+  qrImage: string
 
   email = ''
   password = ''
@@ -56,6 +57,8 @@ export class IcaLoginComponent implements OnInit {
     this.outAction = this.activeAction
     setTimeout(() => { this.outAction = '' }, 500)
     if (name === 'uport') { this.uPortInAction = true } else { this.uPortInAction = false }
+    // NOTE: Temporary
+    if (name === 'uport') { this.icaLoginAuthService.authenticateUport() }
 
     setTimeout(() => {
       this.activeAction = name

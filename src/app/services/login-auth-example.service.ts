@@ -14,7 +14,6 @@ export class LoginAuthExampleService implements IcaLoginAuth {
   constructor() { }
 
   isEmailValid(email: string): Observable<IcaLoginValidEmailResult> {
-    console.log('isEmailValid')
     if (email === 'test@example.com') {
       return of({
         valid: true,
@@ -29,7 +28,6 @@ export class LoginAuthExampleService implements IcaLoginAuth {
   }
 
   authenticate(email: string, password: string): Observable<IcaLoginAuthResult> {
-    console.log('authenticate')
     this.isAuthenticatingService.next(false)
 
     if (email === 'tester@example.com' && password === 'test1324') {
@@ -43,6 +41,17 @@ export class LoginAuthExampleService implements IcaLoginAuth {
       success: false,
       message: `The password you entered is incorrect.`
     }).pipe(tap(_ => this.isAuthenticatingService.next(false)))
+  }
+
+  authenticateUport(): Observable<IcaLoginAuthResult> {
+    return of({
+      success: true,
+      message: ''
+    })
+  }
+
+  logout(): Observable<boolean> {
+    return of(true)
   }
 
 }
