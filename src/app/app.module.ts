@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {
   IcaNavigationModule,
   IcaLoginModule,
-  IcaCommonModule
+  IcaCommonModule,
+  IcaLoginAuthService
 } from '@theseam/ica-ui'
 
 import { AppComponent } from './app.component'
@@ -16,6 +17,7 @@ import { MainContainerComponent } from './components/main-container/main-contain
 import { HomeComponent } from './components/home/home.component'
 
 import { routing } from './app.routing'
+import { LoginAuthExampleService } from 'src/app/services/login-auth-example.service'
 
 @NgModule({
    declarations: [
@@ -34,7 +36,11 @@ import { routing } from './app.routing'
       routing,
    ],
    providers: [
-    { provide: APP_BASE_HREF, useValue: window['_app_base'] || '/' }
+    { provide: APP_BASE_HREF, useValue: window['_app_base'] || '/' },
+    {
+      provide: IcaLoginAuthService,
+      useClass: LoginAuthExampleService
+    }
    ],
    bootstrap: [
       AppComponent

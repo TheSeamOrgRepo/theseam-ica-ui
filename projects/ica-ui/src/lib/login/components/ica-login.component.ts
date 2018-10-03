@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Inject, Optional } from '@ang
 import { Router } from '@angular/router'
 import { trigger, animate, style, query, transition } from '@angular/animations'
 
-import { IcaLoginAuthService, IcaLoginAuth } from './../ica-login.models'
+import { IcaLoginAuthService, IcaLoginAuth, IcaLoginValidEmailResult, IcaLoginAuthResult } from './../ica-login.models'
 
 export const loginTransition = trigger('loginTransition', [
   transition(':enter', [
@@ -20,6 +20,7 @@ export const loginTransition = trigger('loginTransition', [
 ])
 
 import { IcaLoginService } from './../services/ica-login.service'
+import { tap } from 'rxjs/operators'
 
 @Component({
   selector: 'ica-login',
@@ -41,6 +42,9 @@ export class IcaLoginComponent implements OnInit {
 
   email = ''
   password = ''
+
+  emailValidResult: IcaLoginValidEmailResult
+  authResult: IcaLoginAuthResult
 
   @ViewChild('emailInput') emailInput: ElementRef
   @ViewChild('emailInput2') emailInput2: ElementRef
@@ -81,42 +85,47 @@ export class IcaLoginComponent implements OnInit {
   }
 
   login() {
-    this.activeAction = 'login'
+    if (this.email.trim() === '' && this.password.trim() === '') { return }
+    // this.activeAction = 'login'
 
     console.log('email', this.email)
     console.log('password', this.password)
 
-    setTimeout(() => {
-      // this.icaLoginService.setLoggedInStateState(true)
-      this.router.navigate(['/home'])
-    }, 500)
-  }
+    // setTimeout(() => {
+    //   // this.icaLoginService.setLoggedInStateState(true)
+    //   this.router.navigate(['home'])
+    // }, 500)
 
-  emailEnterOnKeyUp(event: any) {
-    // console.log('onEmailEnterKeyPress', event)
-    // Check if email is valid
-    // this.setAction('email')
-    this.verifyEmail()
-  }
-
-  emailButtonOnClick(event: any) {
-    // Check if email is valid
-    // this.setAction('email')
-    this.verifyEmail()
-  }
-
-  verifyEmail() {
-    console.log('email', this.email)
     if (this.icaLoginAuthService !== null) {
-      this.icaLoginAuthService.isEmailValid(this.email)
+      this.icaLoginAuthService.authenticate(this.email, this.password)
+        .pipe(tap(result => this.authResult = result))
         .subscribe(result => {
-          if (result.valid) {
-            this.setAction('email')
-          } else {
-            // Display email error
+          console.log('result', result)
+          if (result.success) {
+            setTimeout(() => {
+              this.icaLoginService.setLoggedInStateState(true)
+              this.router.navigate(['contracts'])
+            }, 500)
           }
         })
     }
+  }
+
+  verifyEmail() {
+    if (this.email.trim() === '') { return }
+
+    // Not sure if there is a way to display this currently
+    // if (this.icaLoginAuthService !== null) {
+    //   this.icaLoginAuthService.isEmailValid(this.email)
+    //     .pipe(tap(result => this.emailValidResult = result))
+    //     .subscribe(result => {
+    //       if (result.valid) {
+    //         this.setAction('email')
+    //       }
+    //     })
+    // }
+
+    this.setAction('email')
   }
 
 }
