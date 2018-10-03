@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 
-import { IcaLoginService } from '@theseam/ica-ui'
-
 import { trigger, query, transition, animateChild } from '@angular/animations'
 
 export const routerTransition = trigger('routerTransition', [
@@ -18,9 +16,7 @@ export const routerTransition = trigger('routerTransition', [
 })
 export class MainContainerComponent implements OnInit {
 
-  constructor(
-    public icaLoginService: IcaLoginService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
   }

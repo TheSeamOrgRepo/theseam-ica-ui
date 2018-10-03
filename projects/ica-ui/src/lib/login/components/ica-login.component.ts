@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef, Inject, Optional } from '@angular/core'
+import { Component, OnInit, ViewChild, ElementRef, Inject, Optional, HostBinding } from '@angular/core'
 import { Router } from '@angular/router'
 import { trigger, animate, style, query, transition } from '@angular/animations'
+import { tap } from 'rxjs/operators'
 
 import { IcaLoginAuthService, IcaLoginAuth, IcaLoginValidEmailResult, IcaLoginAuthResult } from './../ica-login.models'
 
@@ -19,20 +20,14 @@ export const loginTransition = trigger('loginTransition', [
   ])
 ])
 
-import { IcaLoginService } from './../services/ica-login.service'
-import { tap } from 'rxjs/operators'
-
 @Component({
   selector: 'ica-login',
   templateUrl: './ica-login.component.html',
-  styles: [],
-  animations: [ loginTransition ],
-  // tslint:disable-next-line:use-host-property-decorator
-  host: {
-    '[@loginTransition]': ''
-  }
+  animations: [ loginTransition ]
 })
 export class IcaLoginComponent implements OnInit {
+
+  @HostBinding('@loginTransition') loginTransition
 
   passwordVisible = false
   isEditingEmail = false
@@ -52,15 +47,10 @@ export class IcaLoginComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public icaLoginService: IcaLoginService,
     @Optional() @Inject(IcaLoginAuthService) public icaLoginAuthService: IcaLoginAuth
   ) { }
 
-  ngOnInit() {
-    setTimeout(() => {
-      this.icaLoginService.setLoggedInStateState(false)
-    })
-  }
+  ngOnInit() { }
 
   setAction(name: string) {
     this.outAction = this.activeAction
@@ -86,15 +76,10 @@ export class IcaLoginComponent implements OnInit {
 
   login() {
     if (this.email.trim() === '' && this.password.trim() === '') { return }
-    // this.activeAction = 'login'
+    // this.activeAction = 'login' // Not needed with route transition
 
     console.log('email', this.email)
     console.log('password', this.password)
-
-    // setTimeout(() => {
-    //   // this.icaLoginService.setLoggedInStateState(true)
-    //   this.router.navigate(['home'])
-    // }, 500)
 
     if (this.icaLoginAuthService !== null) {
       this.icaLoginAuthService.authenticate(this.email, this.password)
@@ -103,7 +88,6 @@ export class IcaLoginComponent implements OnInit {
           console.log('result', result)
           if (result.success) {
             setTimeout(() => {
-              this.icaLoginService.setLoggedInStateState(true)
               this.router.navigate(['contracts'])
             }, 500)
           }

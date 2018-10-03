@@ -326,6 +326,7 @@
 
         img {
             width: 26.7px;
+            max-width: none;
             opacity: 0.25;
             transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
