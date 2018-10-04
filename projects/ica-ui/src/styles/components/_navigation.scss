@@ -3,12 +3,14 @@
 .main-navigation {
     display: flex;
     flex-direction: column;
-    float: left;
-    width: 290px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
 
     &.is-active {
         display: block;
-        width: 75px;
+        width: $nav-size-small;
 
         p {
             &.user-name {
@@ -23,7 +25,7 @@
         }
 
         .navigation--wrapper {
-            width: 75px;
+            width: $nav-size-small;
         }
 
         .logo-wrapper {
@@ -67,22 +69,23 @@
         background-color: $primary;
         height: 100vh;
         padding: 1rem 0;
-        width: 215px;
+        width: $nav-size-large;
+        border-right: 1px solid $hr-gray;
         transition: width 0.75s cubic-bezier(0.25, 0.75, 0.05, 1);
     }
 
     .nav-toggle {
-        width: 74px;
-        height: 75px;
-        background-color: $primary;
+        width: $nav-size-small;
+        height: $nav-size-small;
         position: absolute;
-        right: -74px;
         top: 0;
+        left: 100%;
         display: flex;
         align-content: center;
         justify-content: center;
         cursor: pointer;
         border-left: 1px solid $hr-gray;
+        background-color: $primary;
         transition: transform 0.75s cubic-bezier(0.25, 0.75, 0.05, 1);
 
         &.is-active {
@@ -105,7 +108,7 @@
 
         &:hover {
             .line {
-                background-color: $white;
+                background-color: $gray-ultralight-1;
             }
         }
 
@@ -151,7 +154,7 @@
         overflow: hidden;
 
         li {
-            a {
+            .nav-link {
                 display: flex;
                 align-items: center;
                 padding: 1rem 5px 1rem 0;
@@ -171,12 +174,12 @@
 
                     &:not(:active) .nav-item {
                         opacity: 1;
-                        color: $white;
+                        color: $gray-ultralight-1;
                     }
 
                     .nav-item {
                         opacity: 1;
-                        color: $white;
+                        color: $gray-ultralight-1;
                     }
 
                     img {
@@ -187,7 +190,7 @@
                 &.is-active {
                     background-color: $blue-gray-darker;
                     border-left: 5px solid $secondary;
-                    color: $white;
+                    color: $gray-ultralight-1;
                 }
 
                 &:active {
@@ -244,8 +247,8 @@
 
         li {
             &:hover {
-                a {
-                    color: $white;
+                .nav-link {
+                    color: $gray-ultralight-1;
                 }
 
                 img {
@@ -253,7 +256,7 @@
                 }
             }
 
-            a {
+            .nav-link {
                 display: flex;
                 align-items: center;
                 padding: 0.5rem 0;
@@ -267,7 +270,7 @@
                     }
 
                     .nav-item {
-                        color: $white;
+                        color: $gray-ultralight-1;
                     }
                 }
 
@@ -320,7 +323,7 @@
 
             .user-name,
             .org-name {
-                color: $white;
+                color: $gray-ultralight-1;
             }
         }
 
@@ -363,11 +366,4 @@
         font-size: 12px;
         bottom: 0;
     }
-}
-
-.section--top-bar {
-    height: 75px;
-    text-align: center;
-    border: 1px solid #CACED3;
-    background-color: white;
 }

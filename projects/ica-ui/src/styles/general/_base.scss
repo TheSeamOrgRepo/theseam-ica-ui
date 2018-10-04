@@ -7,7 +7,7 @@
 }
 
 html {
-    background-color: $white;
+    background-color: $gray-ultralight-1;
 }
 
 body {
@@ -20,6 +20,10 @@ body {
 	color: $primary;
     min-width: $min-width;
     overflow-x: hidden;
+}
+
+main {
+    display: block;
 }
 
 [hidden] {

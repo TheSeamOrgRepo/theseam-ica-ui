@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Inject, Optional, HostBinding
 import { Router } from '@angular/router'
 import { trigger, animate, style, query, transition } from '@angular/animations'
 import { tap } from 'rxjs/operators'
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
 
 import { IcaLoginAuthService, IcaLoginAuth, IcaLoginValidEmailResult, IcaLoginAuthResult } from './../ica-login.models'
 
@@ -34,7 +35,7 @@ export class IcaLoginComponent implements OnInit {
   activeAction = 'main'
   outAction = ''
   uPortInAction = false
-  qrImage: string
+  qrImage: SafeUrl
 
   email = ''
   password = ''
@@ -48,7 +49,8 @@ export class IcaLoginComponent implements OnInit {
 
   constructor(
     public router: Router,
-    @Optional() @Inject(IcaLoginAuthService) public icaLoginAuthService: IcaLoginAuth
+    @Optional() @Inject(IcaLoginAuthService) public icaLoginAuthService: IcaLoginAuth,
+    public domSanitizationService: DomSanitizer
   ) { }
 
   ngOnInit() { }
@@ -58,7 +60,12 @@ export class IcaLoginComponent implements OnInit {
     setTimeout(() => { this.outAction = '' }, 500)
     if (name === 'uport') { this.uPortInAction = true } else { this.uPortInAction = false }
     // NOTE: Temporary
-    if (name === 'uport') { this.icaLoginAuthService.authenticateUport() }
+    if (name === 'uport') {
+      console.log('uport start')
+      // this.icaLoginAuthService.authenticateUport()
+      // this.icaLoginAuthService.getUportQrUri().subscribe(uri => console.log('~uri', uri))
+      this.icaLoginAuthService.getUportQrUri().subscribe(uri => this.qrImage = this.domSanitizationService.bypassSecurityTrustUrl(uri))
+    }
 
     setTimeout(() => {
       this.activeAction = name

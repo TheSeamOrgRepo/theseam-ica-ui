@@ -20,6 +20,8 @@ export interface IcaLoginAuth {
 
   authenticate: (email: string, password: string) => Observable<IcaLoginAuthResult>
 
+  getUportQrUri: () => Observable<string>
+
   authenticateUport: () => Observable<IcaLoginAuthResult>
 
   logout: () => Observable<boolean>

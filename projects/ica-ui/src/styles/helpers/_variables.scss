@@ -23,6 +23,12 @@ $colors: (
         'normal': $secondary,
         'dark': #705426
     ),
+    'blue': (
+        'light': #8DC9E6,
+        'normal': #1C94CE,
+        'dark': #13668E,
+        'ultradark': #0D445F
+    ),
     'green': (
         'light': #A0E5D0,
         'normal': #3EC9A0,
@@ -35,6 +41,7 @@ $colors: (
         'dark': #D29E2A
     ),
     'red': (
+        'ultralight-1': #FFEDEC,
         'ultralight': #FFD3D0,
         'light': #FFA8A2,
         'normal': #FF5146,
@@ -42,6 +49,7 @@ $colors: (
         'ultradark': #C1342B
     ),
     'gray': (
+        'ultralight-1': #F4F5F6,
         'ultralight': #E9EBED,
         'light': #CACED3,
         'normal': #9b9b9b,
@@ -49,7 +57,7 @@ $colors: (
         'ultradark': #444444
     ),
     'other': (
-        'white': #F4F5F6,
+        'white': #FFFFFF,
         'black': #222222
     )
 );
@@ -64,6 +72,12 @@ $secondary-ultralight: map-get(map-get($colors, 'secondary'), 'ultralight');
 $secondary-light: map-get(map-get($colors, 'secondary'), 'light');
 $secondary-dark: map-get(map-get($colors, 'secondary'), 'dark');
 
+// Blues
+$blue-light: map-get(map-get($colors, 'blue'), 'light');
+$blue: map-get(map-get($colors, 'blue'), 'normal');
+$blue-dark: map-get(map-get($colors, 'blue'), 'dark');
+$blue-ultradark: map-get(map-get($colors, 'blue'), 'ultradark');
+
 // Greens
 $green-light: map-get(map-get($colors, 'green'), 'light');
 $green: map-get(map-get($colors, 'green'), 'normal');
@@ -76,6 +90,7 @@ $yellow: map-get(map-get($colors, 'yellow'), 'normal');
 $yellow-dark: map-get(map-get($colors, 'yellow'), 'dark');
 
 // Red
+$red-ultralight-1: map-get(map-get($colors, 'red'), 'ultralight-1');
 $red-ultralight: map-get(map-get($colors, 'red'), 'ultralight');
 $red-light: map-get(map-get($colors, 'red'), 'light');
 $red: map-get(map-get($colors, 'red'), 'normal');
@@ -83,6 +98,7 @@ $red-dark: map-get(map-get($colors, 'red'), 'dark');
 $red-ultradark: map-get(map-get($colors, 'red'), 'ultradark');
 
 // Grays
+$gray-ultralight-1: map-get(map-get($colors, 'gray'), 'ultralight-1');
 $gray-ultralight: map-get(map-get($colors, 'gray'), 'ultralight');
 $gray-light: map-get(map-get($colors, 'gray'), 'light');
 $gray: map-get(map-get($colors, 'gray'), 'normal');
@@ -115,9 +131,6 @@ $font-mono: $consolas;
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 
-// Forms
-$form-height: 46px;
-
 
 // Layout/Grid
 // ------------------------
@@ -129,6 +142,10 @@ $grid-width: $max-width;
 $grid-gutter: 1rem;
 $grid-container-prefix: 'row';
 $grid-item-prefix: 'col';
+
+// Navigation
+$nav-size-large: 215px;
+$nav-size-small: 75px;
 
 // Breakpoint map
 $breakpoints: (
@@ -246,3 +263,12 @@ $chevron-right: "&#x3009;";
 $close: "&#x2715;";
 $quote-left: "\201c";
 $quote-right: "\201d";
+
+// Forms
+$form-height: 35px;
+$form-height-login: 46px;
+
+%small {
+    color: $gray;
+    font-size: rem-calc(12);
+}

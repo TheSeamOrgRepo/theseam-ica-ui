@@ -43,6 +43,10 @@ export class LoginAuthExampleService implements IcaLoginAuth {
     }).pipe(tap(_ => this.isAuthenticatingService.next(false)))
   }
 
+  getUportQrUri(): Observable<string> {
+    return of('')
+  }
+
   authenticateUport(): Observable<IcaLoginAuthResult> {
     return of({
       success: true,

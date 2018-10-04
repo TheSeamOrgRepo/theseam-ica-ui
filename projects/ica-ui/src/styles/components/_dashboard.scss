@@ -1,0 +1,34 @@
+// Dashboard
+// ------------------------
+.dashboard {}
+
+.dashboard__top-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100vw - #{$nav-size-large} - #{$nav-size-small - 1px});
+    height: 75px;
+    background-color: $white;
+    border-bottom: 1px solid $gray-light;
+    transition: 0.75s cubic-bezier(0.25, 0.75, 0.05, 1);
+    z-index: 1;
+
+    .is-small-nav & {
+        width: calc(100vw - #{$nav-size-small * 2 - 1px});
+    }
+}
+
+.dashboard__content {
+    display: flex;
+    align-items: stretch;
+    width: calc(100vw - #{$nav-size-large - 1px});
+    min-height: calc(100vh - #{$nav-size-small});
+    margin-top: $nav-size-small;
+    transition: 0.75s cubic-bezier(0.25, 0.75, 0.05, 1);
+    transform: translateX($nav-size-large);
+
+    .is-small-nav & {
+        width: calc(100vw - #{$nav-size-small - 1px});
+        transform: translateX($nav-size-small - 1px);
+    }
+}

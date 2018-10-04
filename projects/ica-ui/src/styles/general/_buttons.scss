@@ -1,16 +1,16 @@
 // Buttons
 // ------------------------
-.btn,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+button {
+    cursor: pointer;
+}
+
+.btn {
     display: inline-block;
     color: $white;
     line-height: 1;
-    font-size: rem-calc(14);
+    font-size: rem-calc(12);
     font-weight: $font-weight-bold;
-    padding: 1rem 1.5rem 0.9rem;
+    padding: 0.75rem 1rem;
     text-align: center;
     font-family: $font;
     cursor: pointer;
@@ -25,18 +25,21 @@ input[type="button"] {
     -moz-appearance: none;
     appearance: none;
 
+    &.is-active,
     &:hover {
         color: $white;
         text-decoration: none;
-        box-shadow: 0 10px 10px 0 rgba(0,0,0,0.22),
-                    0 11px 33px 0 rgba(0,0,0,0.14);
+        box-shadow: 0 0 6px 0 rgba($blue, 0.5);
     }
 
-    &:active,
-    &:focus {
-        background-color: $primary-light;
-        border-color: $primary-light;
-        box-shadow: none;
+
+    &:not(.btn--dropdown) {
+        &:active,
+        &:focus {
+            background-color: $primary-light;
+            border-color: $primary-light;
+            box-shadow: none;
+        }
     }
 
     // Secondary button
@@ -44,10 +47,12 @@ input[type="button"] {
         background-color: $secondary;
         border-color: $secondary;
 
-        &:active,
-        &:focus {
-            background-color: $secondary-dark;
-            border-color: $secondary-dark;
+        &:not(.btn--dropdown) {
+            &:active,
+            &:focus {
+                background-color: $secondary-dark;
+                border-color: $secondary-dark;
+            }
         }
     }
 
@@ -61,10 +66,12 @@ input[type="button"] {
             color: $primary;
         }
 
-        &:active,
-        &:focus {
-            background-color: $gray-light;
-            border-color: $gray-light;
+        &:not(.btn--dropdown) {
+            &:active,
+            &:focus {
+                background-color: $gray-light;
+                border-color: $gray-light;
+            }
         }
     }
 
@@ -73,15 +80,17 @@ input[type="button"] {
         background-color: $green;
         border-color: $green;
 
-        &:active,
-        &:focus {
-            background-color: $green-dark;
-            border-color: $green-dark;
+        &:not(.btn--dropdown) {
+            &:active,
+            &:focus {
+                background-color: $green-dark;
+                border-color: $green-dark;
+            }
         }
     }
 }
 
-// Small button
+// Icon button
 .btn--icon {
     $icon-size: 20px;
 
@@ -104,4 +113,65 @@ input[type="button"] {
 .btn--full {
     display: block;
     width: 100%;
+}
+
+// Dropdown button
+.btn--dropdown {
+    position: relative;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        border: 5px solid transparent;
+        border-top-color: $green-ultradark;
+        border-bottom-width: 2px;
+        transition: 0.15s ease-in-out;
+    }
+
+    &.is-active {
+        outline: none;
+
+        .dropdown {
+            display: block;
+        }
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        left: -1px;
+        top: 100%;
+        padding-top: 0.25rem;
+        z-index: 1;
+    }
+
+    ul {
+        overflow: hidden;
+        text-align: left;
+        background-color: $white;
+        border: 1px solid $gray-light;
+        border-radius: 3px;
+        box-shadow: 0 6px 16px 0 rgba(black, 0.06),
+                    0 4px 8px 0 rgba(black, 0.08),
+                    0 2px 4px 0 rgba(black, 0.10);
+
+        a {
+            white-space: nowrap;
+            text-decoration: none;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: $font-weight-normal;;
+            color: $black;
+            padding: 0.75rem 1rem;
+            display: block;
+            font-size: 14px;
+
+            &:active,
+            &:focus,
+            &:hover {
+                background-color: $blue;
+                color: $white;
+            }
+        }
+    }
 }
