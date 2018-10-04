@@ -12,9 +12,9 @@ export class IcaNavigationService {
   constructor() {
     this._sideNavExpandedSubject.subscribe(isExpanded => {
       if (isExpanded) {
-        document.documentElement.classList.add('is-small-nav')
-      } else {
         document.documentElement.classList.remove('is-small-nav')
+      } else {
+        document.documentElement.classList.add('is-small-nav')
       }
     })
   }

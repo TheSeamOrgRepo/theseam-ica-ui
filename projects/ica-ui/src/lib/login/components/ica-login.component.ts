@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject, Optional, HostBinding } from '@angular/core'
 import { Router } from '@angular/router'
 import { trigger, animate, style, query, transition } from '@angular/animations'
-import { tap } from 'rxjs/operators'
+import { tap, take, map } from 'rxjs/operators'
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser'
 
 import { IcaLoginAuthService, IcaLoginAuth, IcaLoginValidEmailResult, IcaLoginAuthResult } from './../ica-login.models'
+import { Observable } from 'rxjs'
 
 export const loginTransition = trigger('loginTransition', [
   transition(':enter', [
@@ -36,6 +37,7 @@ export class IcaLoginComponent implements OnInit {
   outAction = ''
   uPortInAction = false
   qrImage: SafeUrl
+  qrImage$: Observable<SafeUrl>
 
   email = ''
   password = ''
@@ -51,21 +53,33 @@ export class IcaLoginComponent implements OnInit {
     public router: Router,
     @Optional() @Inject(IcaLoginAuthService) public icaLoginAuthService: IcaLoginAuth,
     public domSanitizationService: DomSanitizer
-  ) { }
+  ) {
+    this.qrImage$ = this.icaLoginAuthService.getUportQrUri().pipe(
+      map(uri => this.domSanitizationService.bypassSecurityTrustUrl(uri))
+    )
+  }
 
   ngOnInit() { }
 
   setAction(name: string) {
     this.outAction = this.activeAction
     setTimeout(() => { this.outAction = '' }, 500)
-    if (name === 'uport') { this.uPortInAction = true } else { this.uPortInAction = false }
-    // NOTE: Temporary
     if (name === 'uport') {
-      console.log('uport start')
-      // this.icaLoginAuthService.authenticateUport()
-      // this.icaLoginAuthService.getUportQrUri().subscribe(uri => console.log('~uri', uri))
-      this.icaLoginAuthService.getUportQrUri().subscribe(uri => this.qrImage = this.domSanitizationService.bypassSecurityTrustUrl(uri))
+      this.icaLoginAuthService.authenticateUport()
+        .pipe(take(1))
+        .subscribe(res => {
+          console.log('auth res', res)
+        })
+      this.uPortInAction = true
+    } else {
+      this.uPortInAction = false
     }
+    // if (name === 'uport') {
+    //   // this.icaLoginAuthService.getUportQrUri()
+    //   //   .pipe(take(1))
+    //   //   .subscribe(uri => this.qrImage = this.domSanitizationService.bypassSecurityTrustUrl(uri))
+    //   this.icaLoginAuthService.authenticateUport()
+    // }
 
     setTimeout(() => {
       this.activeAction = name
