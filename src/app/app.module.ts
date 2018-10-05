@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core'
 import { APP_BASE_HREF, CommonModule } from '@angular/common'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-
 import {
   IcaDashboardModule,
   IcaNavigationModule,
   IcaLoginModule,
+  IcaContractBuilderModule,
   IcaCommonModule,
   IcaLoginAuthService
 } from '@theseam/ica-ui'
@@ -18,8 +18,9 @@ import { MainContainerComponent } from './components/main-container/main-contain
 import { HomeComponent } from './components/home/home.component'
 
 import { routing } from './app.routing'
-import { LoginAuthExampleService } from 'src/app/services/login-auth-example.service';
+import { LoginAuthExampleService } from 'src/app/services/login-auth-example.service'
 import { ContractBuilderComponent } from './components/contract-builder/contract-builder.component'
+import { ContractsComponent } from './components/contracts/contracts.component'
 
 @NgModule({
    declarations: [
@@ -27,7 +28,8 @@ import { ContractBuilderComponent } from './components/contract-builder/contract
       PageNotFoundComponent,
       MainContainerComponent,
       HomeComponent,
-      ContractBuilderComponent
+      ContractBuilderComponent,
+      ContractsComponent
    ],
    imports: [
       CommonModule,
@@ -36,6 +38,7 @@ import { ContractBuilderComponent } from './components/contract-builder/contract
       IcaDashboardModule,
       IcaNavigationModule,
       IcaLoginModule,
+      IcaContractBuilderModule,
       IcaCommonModule,
       routing,
    ],

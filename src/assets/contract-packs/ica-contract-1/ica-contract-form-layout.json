@@ -1,0 +1,181 @@
+{
+  "layout": [
+    {
+      "dataPointer": "/Contract",
+      "title": "ICA Contract",
+      "items": [
+        {
+          "dataPointer": "/Contract/Specifications",
+          "widget": "section",
+          "expandable": true,
+          "htmlClass": "p-1",
+          "items": [
+            { "dataPointer": "/Contract/Specifications/GrowthOrigin" },
+            { "dataPointer": "/Contract/Specifications/CropYear" },
+            { "dataPointer": "/Contract/Specifications/GradeDescription" },
+            { "dataPointer": "/Contract/Specifications/Staple" },
+            { "dataPointer": "/Contract/Specifications/MinMicronaire" },
+            { "dataPointer": "/Contract/Specifications/MaxMicronaire" },
+            { "dataPointer": "/Contract/Specifications/MicronaireMemo" },
+            { "dataPointer": "/Contract/Specifications/MinStrength" }
+          ]
+        },
+        {
+          "dataPointer": "/Contract/Pricing",
+          "widget": "section",
+          "expandable": true,
+          "htmlClass": "p-1",
+          "items": [
+            { "dataPointer": "/Contract/Pricing/PriceType" },
+            { "dataPointer": "/Contract/Pricing/IsProvisional" },
+            { "dataPointer": "/Contract/Pricing/UnitPrice" },
+            { "dataPointer": "/Contract/Pricing/PriceBase" },
+            { "dataPointer": "/Contract/Pricing/PricePoints" },
+            { "dataPointer": "/Contract/Pricing/FixationCallMonth" },
+            { "dataPointer": "/Contract/Pricing/FixationCallYear" },
+            { "dataPointer": "/Contract/Pricing/OtherPriceMemo" }
+          ]
+        },
+        {
+          "dataPointer": "/Contract/Terms",
+          "widget": "section",
+          "expandable": true,
+          "htmlClass": "p-1",
+          "items": [
+            { "dataPointer": "/Contract/Terms/Incoterms" },
+            {
+              "dataPointer": "/Contract/Terms/Quantity",
+              "widget": "section",
+              "expandable": true,
+              "htmlClass": "p-1",
+              "items": [
+                { "dataPointer": "/Contract/Terms/Quantity/ContractedUnits" },
+                { "dataPointer": "/Contract/Terms/Quantity/QuantityType" },
+                { "dataPointer": "/Contract/Terms/Quantity/VariationPercent" },
+                { "dataPointer": "/Contract/Terms/Quantity/VariationOption" }
+              ]
+            },
+            {
+              "dataPointer": "/Contract/Terms/FreightBasis",
+              "widget": "section",
+              "expandable": true,
+              "htmlClass": "p-1",
+              "items": [
+                { "dataPointer": "/Contract/Terms/FreightBasis/Description" }
+              ]
+            },
+            {
+              "dataPointer": "/Contract/Terms/ShipmentPeriods",
+              "widget": "section",
+              "expandable": true,
+              "htmlClass": "p-1",
+              "items": [
+                { "dataPointer": "/Contract/Terms/ShipmentPeriods/Shipment" }
+              ]
+            },
+            {
+              "dataPointer": "/Contract/Terms/PaymentTerms",
+              "widget": "section",
+              "expandable": true,
+              "htmlClass": "p-1",
+              "items": [
+                { "dataPointer": "/Contract/Terms/PaymentTerms/Description" }
+              ]
+            },
+            {
+              "dataPointer": "/Contract/Terms/SpecialClauses",
+              "widget": "section",
+              "expandable": true,
+              "htmlClass": "p-1",
+              "items": [
+                {
+                  "dataPointer": "/Contract/Terms/SpecialClauses/Item",
+                  "notitle": true,
+                  "items": [
+                    {
+                      "dataPointer": "/Contract/Terms/SpecialClauses/Item/-",
+                      "items": [
+                        { "dataPointer": "/Contract/Terms/SpecialClauses/Item/-/Description" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "dataPointer": "/Contract/SellerSignature",
+          "widget": "schema-form-signature"
+        },
+        {
+          "dataPointer": "/Contract/Buyer",
+          "widget": "none",
+          "notitle": true,
+          "items": [
+            { "dataPointer": "/Contract/Buyer/Name" },
+            {
+              "dataPointer": "/Contract/Buyer/Addresses",
+              "items": [
+                {
+                  "dataPointer": "/Contract/Buyer/Addresses/Item",
+                  "items": [
+                    {
+                      "dataPointer": "/Contract/Buyer/Addresses/Item/-",
+                      "items": [
+                        { "dataPointer": "/Contract/Buyer/Addresses/Item/-/AddressStreet1" },
+                        { "dataPointer": "/Contract/Buyer/Addresses/Item/-/AddressStreet2" },
+                        { "dataPointer": "/Contract/Buyer/Addresses/Item/-/AddressStreet3" },
+                        { "dataPointer": "/Contract/Buyer/Addresses/Item/-/Town" },
+                        { "dataPointer": "/Contract/Buyer/Addresses/Item/-/Region" },
+                        { "dataPointer": "/Contract/Buyer/Addresses/Item/-/Postcode" },
+                        { "dataPointer": "/Contract/Buyer/Addresses/Item/-/Country" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            { "dataPointer": "/Contract/Buyer/Email" },
+            { "dataPointer": "/Contract/Buyer/Telephone" },
+            { "dataPointer": "/Contract/Buyer/Fax" }
+          ]
+        },
+        {
+          "dataPointer": "/Contract/Seller",
+          "widget": "none",
+          "notitle": true,
+          "items": [
+            { "dataPointer": "/Contract/Seller/Name" },
+            {
+              "dataPointer": "/Contract/Seller/Addresses",
+              "items": [
+                {
+                  "dataPointer": "/Contract/Seller/Addresses/Item",
+                  "items": [
+                    {
+                      "dataPointer": "/Contract/Seller/Addresses/Item/-",
+                      "items": [
+                        { "dataPointer": "/Contract/Seller/Addresses/Item/-/AddressStreet1" },
+                        { "dataPointer": "/Contract/Seller/Addresses/Item/-/AddressStreet2" },
+                        { "dataPointer": "/Contract/Seller/Addresses/Item/-/AddressStreet3" },
+                        { "dataPointer": "/Contract/Seller/Addresses/Item/-/Town" },
+                        { "dataPointer": "/Contract/Seller/Addresses/Item/-/Region" },
+                        { "dataPointer": "/Contract/Seller/Addresses/Item/-/Postcode" },
+                        { "dataPointer": "/Contract/Seller/Addresses/Item/-/Country" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            { "dataPointer": "/Contract/Seller/Email" },
+            { "dataPointer": "/Contract/Seller/Telephone" },
+            { "dataPointer": "/Contract/Seller/Fax" }
+          ]
+        }
+      ]
+    },
+    { "type": "submit", "title": "Submit" }
+  ]
+}

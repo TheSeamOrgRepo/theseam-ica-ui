@@ -3,8 +3,10 @@ import { RouterModule, Routes } from '@angular/router'
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 import { MainContainerComponent } from './components/main-container/main-container.component'
 import { HomeComponent } from './components/home/home.component'
+import { ContractsComponent } from 'src/app/components/contracts/contracts.component'
 
-import { IcaLoginComponent } from '@theseam/ica-ui'
+import { IcaLoginComponent, IcaContractBuilderTopBarComponent } from '@theseam/ica-ui'
+import { ContractBuilderComponent } from 'src/app/components/contract-builder/contract-builder.component'
 
 
 const routes: Routes = [
@@ -29,8 +31,14 @@ const routes: Routes = [
       },
       {
         path: 'contracts',
-        component: HomeComponent,
+        // component: ContractsComponent,
+        component: ContractBuilderComponent,
         data: { state: 'contracts'}
+      },
+      {
+        path: '',
+        component: IcaContractBuilderTopBarComponent,
+        outlet: 'topBar'
       },
       {
         path: 'companies',

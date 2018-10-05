@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 
 @Component({
-  selector: 'ica-ica-contract-builder-top-bar',
+  selector: 'ica-contract-builder-top-bar',
   templateUrl: './ica-contract-builder-top-bar.component.html',
   styles: []
 })

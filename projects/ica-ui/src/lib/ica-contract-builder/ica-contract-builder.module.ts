@@ -10,6 +10,17 @@ import { IcaContractBuilderComponent } from './components/ica-contract-builder/i
   imports: [
     CommonModule
   ],
-  declarations: [IcaSchemaFormComponent, IcaContractPreviewComponent, IcaContractBuilderTopBarComponent, IcaContractBuilderComponent]
+  declarations: [
+    IcaSchemaFormComponent,
+    IcaContractPreviewComponent,
+    IcaContractBuilderTopBarComponent,
+    IcaContractBuilderComponent
+  ],
+  exports: [
+    IcaSchemaFormComponent,
+    IcaContractPreviewComponent,
+    IcaContractBuilderTopBarComponent,
+    IcaContractBuilderComponent
+  ]
 })
 export class IcaContractBuilderModule { }
