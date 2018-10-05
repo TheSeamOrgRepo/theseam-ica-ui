@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
 
 import { IcaNavigationComponent } from './components/ica-navigation.component'
-import { IcaTopBarContentDirective } from './directives/ica-top-bar-content.directive'
+
 
 @NgModule({
   imports: [
@@ -11,12 +11,10 @@ import { IcaTopBarContentDirective } from './directives/ica-top-bar-content.dire
     RouterModule
   ],
   declarations: [
-    IcaNavigationComponent,
-    IcaTopBarContentDirective
+    IcaNavigationComponent
   ],
   exports: [
-    IcaNavigationComponent,
-    IcaTopBarContentDirective
+    IcaNavigationComponent
   ]
 })
 export class IcaNavigationModule { }

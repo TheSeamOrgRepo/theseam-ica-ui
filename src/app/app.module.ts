@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 import {
+  IcaDashboardModule,
   IcaNavigationModule,
   IcaLoginModule,
   IcaCommonModule,
@@ -30,6 +31,7 @@ import { LoginAuthExampleService } from 'src/app/services/login-auth-example.ser
       CommonModule,
       BrowserModule,
       BrowserAnimationsModule,
+      IcaDashboardModule,
       IcaNavigationModule,
       IcaLoginModule,
       IcaCommonModule,

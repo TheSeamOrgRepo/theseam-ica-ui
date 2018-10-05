@@ -1,8 +1,13 @@
-<ica-navigation [userName]="'Jason Sutton'" [companyName]="'Allenberg Cotton Co'">
+<ica-dashboard>
+  <ng-container icaSideNav>
+    <ica-navigation [userName]="'Jason Sutton'" [companyName]="'Allenberg Cotton Co'"></ica-navigation>
+  </ng-container>
+
   <ng-container icaTopBarContent>
     Top Bar Content
   </ng-container>
+
   <div [@routerTransition]="getState(o)">
     <router-outlet #o="outlet"></router-outlet>
   </div>
-</ica-navigation>
+</ica-dashboard>
