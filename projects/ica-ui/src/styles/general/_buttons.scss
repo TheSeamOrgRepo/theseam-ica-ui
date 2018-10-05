@@ -25,36 +25,34 @@ button {
     -moz-appearance: none;
     appearance: none;
 
-    &.is-active,
     &:hover {
         color: $white;
         text-decoration: none;
-        box-shadow: 0 0 6px 0 rgba($blue, 0.5);
+        background-color: $primary-ultralight;
+        border-color: $primary-ultralight;
     }
-
 
     &:not(.btn--dropdown) {
         &:active,
         &:focus {
-            background-color: $primary-light;
-            border-color: $primary-light;
-            box-shadow: none;
+            background-color: $primary-dark;
+            border-color: $primary-dark;
         }
     }
 
     // Secondary button
-    &.btn--secondary {
-        background-color: $secondary;
-        border-color: $secondary;
+    // &.btn--secondary {
+    //     background-color: $secondary;
+    //     border-color: $secondary;
 
-        &:not(.btn--dropdown) {
-            &:active,
-            &:focus {
-                background-color: $secondary-dark;
-                border-color: $secondary-dark;
-            }
-        }
-    }
+    //     &:not(.btn--dropdown) {
+    //         &:active,
+    //         &:focus {
+    //             background-color: $secondary-dark;
+    //             border-color: $secondary-dark;
+    //         }
+    //     }
+    // }
 
     // White button
     &.btn--white {
@@ -81,6 +79,11 @@ button {
         border-color: $green;
 
         &:not(.btn--dropdown) {
+            &:hover {
+                background-color: $green-light;
+                border-color: $green-light;
+            }
+
             &:active,
             &:focus {
                 background-color: $green-dark;
@@ -88,6 +91,15 @@ button {
             }
         }
     }
+}
+
+// Disabled button
+.btn[disabled],
+.btn--disabled {
+    background-color: $gray-light !important;
+    border-color: $gray-light !important;
+    color: $gray !important;
+    cursor: not-allowed !important;
 }
 
 // Icon button
@@ -126,6 +138,11 @@ button {
         border-top-color: $green-ultradark;
         border-bottom-width: 2px;
         transition: 0.15s ease-in-out;
+    }
+
+    &.is-active,
+    &:hover {
+        box-shadow: 0 0 6px 0 rgba($blue, 0.5);
     }
 
     &.is-active {

@@ -18,14 +18,16 @@ import { MainContainerComponent } from './components/main-container/main-contain
 import { HomeComponent } from './components/home/home.component'
 
 import { routing } from './app.routing'
-import { LoginAuthExampleService } from 'src/app/services/login-auth-example.service'
+import { LoginAuthExampleService } from 'src/app/services/login-auth-example.service';
+import { ContractBuilderComponent } from './components/contract-builder/contract-builder.component'
 
 @NgModule({
    declarations: [
       AppComponent,
       PageNotFoundComponent,
       MainContainerComponent,
-      HomeComponent
+      HomeComponent,
+      ContractBuilderComponent
    ],
    imports: [
       CommonModule,

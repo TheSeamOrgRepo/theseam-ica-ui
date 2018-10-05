@@ -63,51 +63,51 @@ $colors: (
 );
 
 // Primary
-$primary-ultralight: map-get(map-get($colors, 'primary'), 'ultralight');
-$primary-light: map-get(map-get($colors, 'primary'), 'light');
-$primary-dark: map-get(map-get($colors, 'primary'), 'dark');
+$primary-ultralight: color('primary', 'ultralight');
+$primary-light: color('primary', 'light');
+$primary-dark: color('primary', 'dark');
 
 // Secondary
-$secondary-ultralight: map-get(map-get($colors, 'secondary'), 'ultralight');
-$secondary-light: map-get(map-get($colors, 'secondary'), 'light');
-$secondary-dark: map-get(map-get($colors, 'secondary'), 'dark');
+$secondary-ultralight: color('secondary', 'ultralight');
+$secondary-light: color('secondary', 'light');
+$secondary-dark: color('secondary', 'dark');
 
 // Blues
-$blue-light: map-get(map-get($colors, 'blue'), 'light');
-$blue: map-get(map-get($colors, 'blue'), 'normal');
-$blue-dark: map-get(map-get($colors, 'blue'), 'dark');
-$blue-ultradark: map-get(map-get($colors, 'blue'), 'ultradark');
+$blue-light: color('blue', 'light');
+$blue: color('blue', 'normal');
+$blue-dark: color('blue', 'dark');
+$blue-ultradark: color('blue', 'ultradark');
 
 // Greens
-$green-light: map-get(map-get($colors, 'green'), 'light');
-$green: map-get(map-get($colors, 'green'), 'normal');
-$green-dark: map-get(map-get($colors, 'green'), 'dark');
-$green-ultradark: map-get(map-get($colors, 'green'), 'ultradark');
+$green-light: color('green', 'light');
+$green: color('green', 'normal');
+$green-dark: color('green', 'dark');
+$green-ultradark: color('green', 'ultradark');
 
 // Yellows
-$yellow-light: map-get(map-get($colors, 'yellow'), 'light');
-$yellow: map-get(map-get($colors, 'yellow'), 'normal');
-$yellow-dark: map-get(map-get($colors, 'yellow'), 'dark');
+$yellow-light: color('yellow', 'light');
+$yellow: color('yellow', 'normal');
+$yellow-dark: color('yellow', 'dark');
 
 // Red
-$red-ultralight-1: map-get(map-get($colors, 'red'), 'ultralight-1');
-$red-ultralight: map-get(map-get($colors, 'red'), 'ultralight');
-$red-light: map-get(map-get($colors, 'red'), 'light');
-$red: map-get(map-get($colors, 'red'), 'normal');
-$red-dark: map-get(map-get($colors, 'red'), 'dark');
-$red-ultradark: map-get(map-get($colors, 'red'), 'ultradark');
+$red-ultralight-1: color('red', 'ultralight-1');
+$red-ultralight: color('red', 'ultralight');
+$red-light: color('red', 'light');
+$red: color('red', 'normal');
+$red-dark: color('red', 'dark');
+$red-ultradark: color('red', 'ultradark');
 
 // Grays
-$gray-ultralight-1: map-get(map-get($colors, 'gray'), 'ultralight-1');
-$gray-ultralight: map-get(map-get($colors, 'gray'), 'ultralight');
-$gray-light: map-get(map-get($colors, 'gray'), 'light');
-$gray: map-get(map-get($colors, 'gray'), 'normal');
-$gray-dark: map-get(map-get($colors, 'gray'), 'dark');
-$gray-ultradark: map-get(map-get($colors, 'gray'), 'ultradark');
+$gray-ultralight-1: color('gray', 'ultralight-1');
+$gray-ultralight: color('gray', 'ultralight');
+$gray-light: color('gray', 'light');
+$gray: color('gray', 'normal');
+$gray-dark: color('gray', 'dark');
+$gray-ultradark: color('gray', 'ultradark');
 
 // Misc
-$white: map-get(map-get($colors, 'other'), 'white');
-$black: map-get(map-get($colors, 'other'), 'black');
+$white: color('other', 'white');
+$black: color('other', 'black');
 
 
 // Fonts
@@ -176,24 +176,24 @@ $breakpoints: (
 );
 
 // Breakpoint variables
-$bp-xxs: map-get(map-get($breakpoints, xxs), max);
-$bp-xxs-min: map-get(map-get($breakpoints, xxs), min);
-$bp-xxs-max: map-get(map-get($breakpoints, xxs), max);
-$bp-xs: map-get(map-get($breakpoints, xs), max);
-$bp-xs-min: map-get(map-get($breakpoints, xs), min);
-$bp-xs-max: map-get(map-get($breakpoints, xs), max);
-$bp-s: map-get(map-get($breakpoints, s), max);
-$bp-s-min: map-get(map-get($breakpoints, s), min);
-$bp-s-max: map-get(map-get($breakpoints, s), max);
-$bp-m: map-get(map-get($breakpoints, m), max);
-$bp-m-min: map-get(map-get($breakpoints, m), min);
-$bp-m-max: map-get(map-get($breakpoints, m), max);
-$bp-l: map-get(map-get($breakpoints, l), max);
-$bp-l-min: map-get(map-get($breakpoints, l), min);
-$bp-l-max: map-get(map-get($breakpoints, l), max);
-$bp-xl: map-get(map-get($breakpoints, xl), max);
-$bp-xl-min: map-get(map-get($breakpoints, xl), min);
-$bp-xl-max: map-get(map-get($breakpoints, xl), max);
+$bp-xxs: breakpoint(xxs, max);
+$bp-xxs-min: breakpoint(xxs, min);
+$bp-xxs-max: breakpoint(xxs, max);
+$bp-xs: breakpoint(xs, max);
+$bp-xs-min: breakpoint(xs, min);
+$bp-xs-max: breakpoint(xs, max);
+$bp-s: breakpoint(s, max);
+$bp-s-min: breakpoint(s, min);
+$bp-s-max: breakpoint(s, max);
+$bp-m: breakpoint(m, max);
+$bp-m-min: breakpoint(m, min);
+$bp-m-max: breakpoint(m, max);
+$bp-l: breakpoint(l, max);
+$bp-l-min: breakpoint(l, min);
+$bp-l-max: breakpoint(l, max);
+$bp-xl: breakpoint(xl, max);
+$bp-xl-min: breakpoint(xl, min);
+$bp-xl-max: breakpoint(xl, max);
 
 // Media Queries
 $bp-media-queries: (

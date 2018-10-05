@@ -3,6 +3,6 @@
  */
 
 export * from './lib/common'
-export * from './lib/dashboard'
-export * from './lib/navigation'
-export * from './lib/login'
+export * from './lib/ica-dashboard'
+export * from './lib/ica-navigation'
+export * from './lib/ica-login'
