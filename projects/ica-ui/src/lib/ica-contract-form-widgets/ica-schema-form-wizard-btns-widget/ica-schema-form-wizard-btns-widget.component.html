@@ -1,0 +1,9 @@
+<root-widget
+    [dataIndex]="dataIndex"
+    [layout]="layoutNode.items"
+    [layoutIndex]="layoutIndex"></root-widget>
+
+<div class="contract-new__sidebar-nav">
+    <button class="prev" (click)="onClickPrev()" data-prev-sidebar-panel>Previous</button>
+    <button class="next" (click)="onClickNext()" data-next-sidebar-panel>{{ nextBtnText }}</button>
+</div>

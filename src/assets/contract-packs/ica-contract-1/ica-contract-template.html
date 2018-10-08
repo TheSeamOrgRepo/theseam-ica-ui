@@ -1,3 +1,9 @@
+<style>
+  .tpl-focusable:hover {
+    color: cyan;
+    cursor: pointer;
+  }
+</style>
 <div style="min-height:20px;"></div>
 <div style="margin-left:20px;margin-right:20px;margin-bottom:20px;width:860px;min-width:860px;max-width:860px;">
     <div style="display:block; border-bottom:1px solid black; padding-bottom:8px; margin-bottom:8px; width:100%;">
@@ -22,13 +28,13 @@
             <div style="display:inline-block; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; vertical-align:top; padding-right:200px;">
                 <div style="font-weight:bold;">Seller:</div>
                 <div style="padding-top:5px; padding-left:8px;">
-                    {=Contract.Seller.Name}
-                    <br> {=Contract.Seller.Addresses.Item[0].AddressStreet1}
-                    <br> {=Contract.Seller.Addresses.Item[0].AddressStreet2}
-                    <br> {=Contract.Seller.Addresses.Item[0].AddressStreet3}
-                    <br> {=Contract.Seller.Addresses.Item[0].Town}
-                    <br> Phone: {=Contract.Seller.Telephone}
-                    <br> Fax: {=Contract.Seller.Fax}
+                    <span class="tpl-focusable">{=Contract.Seller.Name}</span>
+                    <br> <span class="tpl-focusable">{=Contract.Seller.Addresses.Item[0].AddressStreet1}</span>
+                    <br> <span class="tpl-focusable">{=Contract.Seller.Addresses.Item[0].AddressStreet2}</span>
+                    <br> <span class="tpl-focusable">{=Contract.Seller.Addresses.Item[0].AddressStreet3}</span>
+                    <br> <span class="tpl-focusable">{=Contract.Seller.Addresses.Item[0].Town}</span>
+                    <br> Phone: <span class="tpl-focusable">{=Contract.Seller.Telephone}</span>
+                    <br> Fax: <span class="tpl-focusable">{=Contract.Seller.Fax}</span>
                 </div>
             </div>
             <div style="display:inline-block; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; vertical-align:top;">
@@ -52,7 +58,7 @@
         <div style="display: block;padding-top:12px;">
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px;vertical-align:top;">Quantity:</div>
             <div style="display: inline-table; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">
-                <span style="font-weight:lighter;">About {=Contract.Terms.Quantity.ContractedUnits} {=Contract.Terms.Quantity.QuantityType}</span>
+                <span style="font-weight:lighter;">About <span class="tpl-focusable">{=/Contract/Terms/Quantity/ContractedUnits}</span> <span class="tpl-focusable">{=Contract.Terms.Quantity.QuantityType}</span></span>
                 <br>
                 <span style="font-weight:lighter;">{=Contract.Terms.Quantity.VariationPercent} percent variation in weight allowed at {=Contract.Terms.Quantity.VariationOption}'s
                     option.
@@ -164,7 +170,8 @@
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px; vertical-align:top;">Seller Signature:</div>
             <div style="width: 300px; min-width: 300px; max-width: 300px; height: 90px; min-height: 90px; max-height: 90px; border-bottom: 1px solid black;">
               <!-- <img style="max-width: 300px; max-height: 90px; border-bottom: 1px solid black;" src="{=Contract.SellerSignature}" alt="Seller Signature" onerror="this.style.display='none'"> -->
-              <object style="max-width: 300px; max-height: 90px; border-bottom: 1px solid black;" data="{=Contract.SellerSignature}" type="image/jpg"></object>
+              <!-- <object style="max-width: 300px; max-height: 90px; border-bottom: 1px solid black;" data="{=Contract.SellerSignature}" type="image/jpg"></object> -->
+              {=Contract.SellerSignature}
             </div>
         </div>
     </div>

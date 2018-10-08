@@ -1,1 +1,1 @@
-<div style="background-color: white;" [innerHTML]="content | sanitizeHtml"></div>
+<div (click)="previewClick($event)" style="background-color: white;" [innerHTML]="content | sanitizeHtml"></div>

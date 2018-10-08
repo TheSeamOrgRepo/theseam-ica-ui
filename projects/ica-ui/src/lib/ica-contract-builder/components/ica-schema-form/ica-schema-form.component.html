@@ -1,3 +1,8 @@
-<p>
-  ica-schema-form works!
-</p>
+<json-schema-form *ngIf="contractTemplatePack"
+  #schemaForm
+  framework="no-framework"
+  [widgets]="widgets"
+  [schema]="contractTemplatePack.formSchema"
+  [layout]="contractTemplatePack.formLayout"
+  (onChanges)="schemaFormOnChange($event)">
+</json-schema-form>

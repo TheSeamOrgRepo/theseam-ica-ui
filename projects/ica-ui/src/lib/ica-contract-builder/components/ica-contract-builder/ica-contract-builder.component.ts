@@ -1,7 +1,7 @@
-import { ICA_CONTRACT_FORM_WIDGETS } from './../../../ica-contract-form-widgets/ica-contract-form-widgets.module'
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, ViewChild } from '@angular/core'
 
 import { IContractTemplatePack } from '../../models/ica-contract-builder.models'
+import { IcaSchemaFormComponent } from '../ica-schema-form/ica-schema-form.component'
 
 @Component({
   selector: 'ica-contract-builder',
@@ -12,11 +12,14 @@ export class IcaContractBuilderComponent implements OnInit {
 
   @Input() contractTemplatePack: IContractTemplatePack
 
-  public widgets = ICA_CONTRACT_FORM_WIDGETS
+  @ViewChild(IcaSchemaFormComponent) icaSchemaForm: IcaSchemaFormComponent
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  previewFieldClicked(field: string) {
+    this.icaSchemaForm.focusField(field)
   }
 
 }

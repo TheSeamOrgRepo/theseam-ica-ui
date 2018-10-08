@@ -11,6 +11,9 @@ import { IcaSchemaFormInputWidgetComponent } from './ica-schema-form-input-widge
 import { IcaSchemaFormNumberWidgetComponent } from './ica-schema-form-number-widget/ica-schema-form-number-widget.component'
 import { IcaSchemaFormWizardWidgetComponent } from './ica-schema-form-wizard-widget/ica-schema-form-wizard-widget.component'
 import { IcaSchemaFormCheckboxWidgetComponent } from './ica-schema-form-checkbox-widget/ica-schema-form-checkbox-widget.component'
+import { IcaSchemaFormWizardBtnsWidgetComponent } from './ica-schema-form-wizard-btns-widget/ica-schema-form-wizard-btns-widget.component'
+
+import { SelectWidgetDirective } from './directives/select-widget.directive'
 
 export const ICA_CONTRACT_FORM_WIDGETS = {
   // 'schema-form-signature': IcaSchemaFormSignatureWidgetComponent,
@@ -19,7 +22,8 @@ export const ICA_CONTRACT_FORM_WIDGETS = {
   'text': IcaSchemaFormInputWidgetComponent,
   'number': IcaSchemaFormNumberWidgetComponent,
   'checkbox': IcaSchemaFormCheckboxWidgetComponent,
-  'wizard': IcaSchemaFormWizardWidgetComponent
+  'wizard-panel': IcaSchemaFormWizardWidgetComponent,
+  'wizard-btns': IcaSchemaFormWizardBtnsWidgetComponent
 }
 
 const widgetComponents = [
@@ -29,7 +33,8 @@ const widgetComponents = [
   IcaSchemaFormInputWidgetComponent,
   IcaSchemaFormNumberWidgetComponent,
   IcaSchemaFormCheckboxWidgetComponent,
-  IcaSchemaFormWizardWidgetComponent
+  IcaSchemaFormWizardWidgetComponent,
+  IcaSchemaFormWizardBtnsWidgetComponent
 ]
 
 @NgModule({
@@ -40,8 +45,8 @@ const widgetComponents = [
     MaterialDesignFrameworkModule,
     NoFrameworkModule
   ],
-  exports: [ ...widgetComponents ],
+  exports: [ ...widgetComponents, SelectWidgetDirective ],
   entryComponents: [ ...widgetComponents ],
-  declarations: [ ...widgetComponents ]
+  declarations: [ ...widgetComponents, SelectWidgetDirective ]
 })
 export class IcaContractFormWidgetsModule { }
