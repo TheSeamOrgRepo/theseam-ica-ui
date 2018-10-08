@@ -6,3 +6,5 @@ export * from './components/ica-schema-form/ica-schema-form.component'
 export * from './services/ica-contract-builder.service'
 
 export * from './ica-contract-builder.module'
+
+export * from './models/ica-contract-builder.models'

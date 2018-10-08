@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 
 @Component({
-  selector: 'ica-ica-contract-preview',
+  selector: 'ica-contract-preview',
   templateUrl: './ica-contract-preview.component.html',
   styles: []
 })
 export class IcaContractPreviewComponent implements OnInit {
+
+  @Input() content: string
 
   constructor() { }
 

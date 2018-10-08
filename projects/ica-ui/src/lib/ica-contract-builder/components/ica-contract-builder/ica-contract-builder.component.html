@@ -1,6 +1,6 @@
 <div class="dashboard__content--contract-new">
     <div class="contract-new__sidebar">
-        <div class="contract-new__sidebar-panel is-active" data-sidebar-panel="1">
+        <div class="contract-new__sidebar-panel" data-sidebar-panel="1">
             <h2>1. Parties & Type</h2>
             <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        <div class="contract-new__sidebar-panel" data-sidebar-panel="3">
+        <div class="contract-new__sidebar-panel is-active" data-sidebar-panel="3">
             <h2>3. Terms</h2>
             <p class="small">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
@@ -156,6 +156,18 @@
             </div>
         </div>
 
+        <div class="contract-new__sidebar-panel is-active" data-sidebar-panel="4">
+          <!-- <pre>{{ contractTemplatePack.formSchema | json }}</pre>
+          <pre>{{ contractTemplatePack.formLayout | json }}</pre> -->
+          <json-schema-form *ngIf="contractTemplatePack"
+            #schemaForm
+            framework="no-framework"
+            [widgets]="widgets"
+            [schema]="contractTemplatePack.formSchema"
+            [layout]="contractTemplatePack.formLayout">
+          </json-schema-form>
+        </div>
+
         <div class="contract-new__sidebar-nav">
             <button class="prev" data-prev-sidebar-panel>Previous</button>
             <button class="next" data-next-sidebar-panel>Next</button>
@@ -178,6 +190,9 @@
         </div>
 
         <div class="contract-new__pdf">
+            <ng-container *ngIf="contractTemplatePack">
+                <ica-contract-preview [content]="contractTemplatePack.pdfTpl"></ica-contract-preview>
+            </ng-container>
             <img src="assets/images/placeholder-contract.png" alt="">
             <img src="assets/images/placeholder-contract.png" alt="">
             <img src="assets/images/placeholder-contract.png" alt="">

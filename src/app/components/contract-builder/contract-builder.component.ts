@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core'
+import { Observable } from 'rxjs'
+
+import { IcaContractBuilderService, IContractTemplatePack, IContractTemplatePackManifest } from '@theseam/ica-ui'
+import { tap } from 'rxjs/operators'
 
 @Component({
   selector: 'app-contract-builder',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core'
 })
 export class ContractBuilderComponent implements OnInit {
 
-  constructor() { }
+  public readonly defaultTemplatePack: IContractTemplatePackManifest = {
+    name: 'Example Pack',
+    version: '0.0.1',
+    schemaUrl: 'assets/contract-packs/ica-contract-1/ica-contract-schema.json',
+    layoutUrl: 'assets/contract-packs/ica-contract-1/ica-contract-form-layout.json',
+    pdfTplUrl: 'assets/contract-packs/ica-contract-1/ica-contract-template.html'
+  }
+
+  public contractTplPack: Observable<IContractTemplatePack>
+
+  constructor(
+    public icaContractBuilder: IcaContractBuilderService
+  ) { }
 
   ngOnInit() {
+    this.contractTplPack = this.icaContractBuilder.downloadContractPack(this.defaultTemplatePack)
+      .pipe(tap(pack => console.log('pack', pack)))
+
   }
 
 }

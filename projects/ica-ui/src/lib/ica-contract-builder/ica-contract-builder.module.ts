@@ -1,5 +1,12 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { HttpClientModule } from '@angular/common/http'
+
+import { NoFrameworkModule, MaterialDesignFrameworkModule } from 'angular6-json-schema-form'
+
+import { SanitizeHtmlPipe } from './pipes/sanitizeHtml.pipe'
+
+import { IcaContractFormWidgetsModule } from './../ica-contract-form-widgets/ica-contract-form-widgets.module'
 
 import { IcaSchemaFormComponent } from './components/ica-schema-form/ica-schema-form.component'
 import { IcaContractPreviewComponent } from './components/ica-contract-preview/ica-contract-preview.component'
@@ -8,13 +15,18 @@ import { IcaContractBuilderComponent } from './components/ica-contract-builder/i
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    NoFrameworkModule,
+    MaterialDesignFrameworkModule,
+    IcaContractFormWidgetsModule
   ],
   declarations: [
     IcaSchemaFormComponent,
     IcaContractPreviewComponent,
     IcaContractBuilderTopBarComponent,
-    IcaContractBuilderComponent
+    IcaContractBuilderComponent,
+    SanitizeHtmlPipe
   ],
   exports: [
     IcaSchemaFormComponent,
