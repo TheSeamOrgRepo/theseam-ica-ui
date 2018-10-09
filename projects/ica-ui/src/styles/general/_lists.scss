@@ -10,10 +10,9 @@
 
 .progress-list__item--loading {
     .progress-list__icon {
-        // border: 2px dashed $green;
-        // border-color: $green;
         border: none;
         animation: spin 1s infinite linear;
+        will-change: transform;
 
         &:before {
             content: '';

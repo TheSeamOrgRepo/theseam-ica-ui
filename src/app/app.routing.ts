@@ -44,9 +44,9 @@ const routes: Routes = [
         data: { state: 'contracts'}
       },
       {
-        path: 'contract-new',
+        path: 'new-contract',
         component: ContractBuilderComponent,
-        data: { state: 'contract-new'}
+        data: { state: 'new-contract'}
       },
       // {
       //   path: '',
