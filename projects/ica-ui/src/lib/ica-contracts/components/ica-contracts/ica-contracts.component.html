@@ -1,0 +1,26 @@
+<div class="contracts__content">
+    <div class="dashboard__top">
+        <div class="left">
+            <h1>Contracts</h1>
+            <h2>You have 21 contracts.</h2>
+        </div>
+
+        <div class="right">
+            <a href="/contract-new.html" class="btn btn--green">New Contract</a>
+        </div>
+    </div>
+
+    <div class="dashboard__middle">
+        <img src="assets/images/placeholder-filters-left.svg" alt="">
+        <img src="assets/images/placeholder-filters-right.svg" alt="">
+    </div>
+
+    <div class="dashboard__bottom">
+        <ica-table
+          [tableCssClasses]="'table--contracts'"
+          [columns]="contractsTableColumns"
+          [rows]="contractsTableRows"
+          [hasActions]="true">
+        </ica-table>
+    </div>
+</div>

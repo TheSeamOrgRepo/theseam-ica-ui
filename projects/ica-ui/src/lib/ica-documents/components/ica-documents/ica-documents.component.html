@@ -1,0 +1,24 @@
+<div class="documents__content">
+    <div class="dashboard__top">
+        <div class="left">
+            <h1>Documents</h1>
+        </div>
+
+        <div class="right">
+            <button class="btn btn--green" data-modal="new-document">New Document</button>
+        </div>
+    </div>
+
+    <div class="dashboard__middle">
+        <img src="assets/images/placeholder-filters-left.svg" alt="">
+        <img src="assets/images/placeholder-filters-right.svg" alt="">
+    </div>
+
+    <div class="dashboard__bottom">
+        <ica-table
+          [tableCssClasses]="'table--documents'"
+          [columns]="documentsTableColumns"
+          [rows]="documentsTableRows">
+        </ica-table>
+    </div>
+</div>

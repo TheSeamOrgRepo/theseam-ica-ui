@@ -1,0 +1,114 @@
+// Lists
+// ------------------------
+.progress-list {}
+
+.progress-list__item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.progress-list__item--loading {
+    .progress-list__icon {
+        // border: 2px dashed $green;
+        // border-color: $green;
+        border: none;
+        animation: spin 1s infinite linear;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: 2px solid $green;
+            border-color: $white $green;
+            border-radius: 100%;
+        }
+    }
+
+    .progress-list__name {
+        color: $green;
+    }
+}
+
+.progress-list__item--finished {
+    .progress-list__icon {
+        position: relative;
+        background-color: $green;
+        border-color: $green;
+
+        &:before {
+            content: svg-url('<svg width="12" height="9" xmlns="http://www.w3.org/2000/svg"><path d="M1 4.412l3.126 3.126L11 .664" fill-rule="nonzero" stroke="#{$white}" stroke-width="2" fill="none"/></svg>');
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .progress-list__name {
+        color: $primary;
+    }
+}
+
+.progress-list__icon {
+    position: relative;
+    $size: 24px;
+    overflow: hidden;
+    width: $size;
+    height: $size;
+    background-color: $white;
+    border: 2px solid $gray-ultralight;
+    border-radius: 100%;
+}
+
+.progress-list__name {
+    flex: 1;
+    padding: 0 1rem;
+    color: $gray-light;
+}
+
+.progress-list__action {
+    position: relative;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.progress-list__action--trash {
+    &:before {
+        content: svg-url('<svg width="17" height="20" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero" stroke="#{$gray-light}" fill="none"><path d="M14.74 3.434v15.242H2.547V3.434M6.103.894h5.081v2.54h-5.08zM.515 3.434h16.258M8.644 5.922v10.162M5.595 5.922v10.162M11.692 5.922v10.162"/></g></svg>');
+    }
+}
+
+.progress-list__action--cancel {
+    $size: 18px;
+    width: $size;
+    height: $size;
+    background-color: $gray-light;
+    border-radius: 100%;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 8px;
+        height: 2px;
+        background-color: $white;
+        transform: translate(-50%, -50%);
+    }
+
+    &:before {
+        transform: translate(-50%, -50%)
+                   rotate(45deg);
+    }
+
+    &:after {
+        transform: translate(-50%, -50%)
+                   rotate(-45deg);
+    }
+}

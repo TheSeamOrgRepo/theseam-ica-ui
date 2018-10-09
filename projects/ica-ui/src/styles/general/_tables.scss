@@ -79,6 +79,14 @@ table {
         }
 
         &.is-active {
+            .dot {
+                &,
+                &:after,
+                &:before {
+                    background-color: $green;
+                }
+            }
+
             + .actions__dropdown {
                 opacity: 1;
                 visibility: visible;

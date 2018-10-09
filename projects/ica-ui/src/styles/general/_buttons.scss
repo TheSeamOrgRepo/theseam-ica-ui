@@ -146,6 +146,21 @@ button {
     width: 100%;
 }
 
+// Download button
+.btn--download {
+    $icon-size: 21px;
+    position: relative;
+    padding-left: 1.5rem + rem-calc($icon-size);
+
+    &:before {
+        content: svg-url('<svg width="21" height="19" xmlns="http://www.w3.org/2000/svg"><g fill-rule="nonzero" fill="none"><path d="M1.408 14.666v2.992h18.158v-2.992M10.487.698v12.775" stroke="#{$green-ultradark}"/><path stroke="#{$green-ultradark}" d="M6.45 9.095l4.037 4.038 4.037-4.038"/></g></svg>');
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+    }
+}
+
 // Dropdown button
 .btn--dropdown {
     position: relative;

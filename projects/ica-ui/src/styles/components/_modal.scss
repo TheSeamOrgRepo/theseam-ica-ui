@@ -65,10 +65,14 @@
 }
 
 .modal__content {
+    overflow: scroll;
+    overflow: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     max-width: 100%;
+    max-height: 95%;
+    max-height: 95vh;
     padding: 3rem;
     background-color: $white;
     border-radius: $modal-border-radius;
@@ -80,8 +84,12 @@
 }
 
 .modal__header {
-    font-weight: $font-weight-normal;
-    @include r-font-size(rem-calc(28), rem-calc(36));
+    &,
+    h1 {
+        font-weight: $font-weight-normal;
+        @include r-font-size(rem-calc(28), rem-calc(36));
+        letter-spacing: -1px;
+    }
 }
 
 .modal--contract-complete {
@@ -173,5 +181,105 @@
             text-decoration: underline;
             letter-spacing: 0.35px;
         }
+    }
+}
+
+.modal--preview-pdf,
+.modal--preview-json {
+    .modal__header {
+        position: sticky;
+        top: 0;
+        padding: 2rem 3rem;
+        background-color: $white;
+        border-bottom: 1px solid $gray-light;
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .left {
+            padding-right: 1rem;
+        }
+
+        .right {
+            padding-left: 1rem;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .btn {
+            display: block;
+        }
+    }
+
+    .modal__content {
+        padding: 0;
+    }
+
+    pre,
+    code {
+        background-color: $white;
+    }
+
+    .modal__preview {
+        padding: 3rem;
+        background-color: $gray-ultralight;
+    }
+}
+
+.modal--new-document {
+    .modal__header {
+        margin-bottom: 1.5rem;
+    }
+
+    .modal__dropzone {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 325px;
+        max-width: 100%;
+        margin: 1.5rem 0;
+        padding: 2rem;
+        border: 2px dashed $gray-ultralight;
+        border-radius: $modal-border-radius;
+    }
+
+    .modal__dropzone-text {
+        margin-top: 1rem;
+        font-size: rem-calc(14);
+
+        a {
+            margin-top: 0.5rem;
+            text-decoration: underline;
+            color: $primary;
+        }
+    }
+
+    .modal__actions {
+        text-align: center;
+    }
+}
+
+.modal--submit-contract {
+    .modal__content {
+        padding: 3rem 5rem;
+    }
+
+    .modal__header,
+    .modal__actions {
+        text-align: center;
+    }
+
+    .modal__header {
+        margin-bottom: 1.5rem;
+    }
+
+    .modal__actions {
+        margin-top: 1.5rem;
     }
 }
