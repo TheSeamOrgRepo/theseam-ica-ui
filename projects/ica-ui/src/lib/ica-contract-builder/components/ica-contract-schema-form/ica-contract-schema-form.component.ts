@@ -1,25 +1,29 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core'
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core'
 import { JsonSchemaFormComponent, JsonPointer } from 'angular6-json-schema-form'
 
-import { ICA_CONTRACT_FORM_WIDGETS } from './../../../ica-contract-form-widgets/ica-contract-form-widgets.module'
+import { ICA_CONTRACT_FORM_WIDGETS } from '../../../ica-contract-form-widgets/ica-contract-form-widgets.module'
 import { IContractTemplatePack } from '../../models/ica-contract-builder.models'
 import { IcaConstractSchemaFormService } from '../../services/ica-constract-schema-form.service'
+import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
 
 @Component({
-  selector: 'ica-schema-form',
-  templateUrl: './ica-schema-form.component.html',
+  selector: 'ica-contract-schema-form',
+  templateUrl: './ica-contract-schema-form.component.html',
   providers: [ IcaConstractSchemaFormService ]
 })
-export class IcaSchemaFormComponent implements OnInit {
+export class IcaContractSchemaFormComponent implements OnInit {
 
   @Input() contractTemplatePack: IContractTemplatePack
+
+  @Output() dataChange = new EventEmitter<object>()
 
   @ViewChild(JsonSchemaFormComponent) schemaForm: JsonSchemaFormComponent
 
   public widgets = ICA_CONTRACT_FORM_WIDGETS
 
   constructor(
-    private icaCntForm: IcaConstractSchemaFormService
+    private icaCntForm: IcaConstractSchemaFormService,
+    public icaCntBuilder: IcaContractBuilderService
   ) { }
 
   ngOnInit() {
@@ -69,6 +73,7 @@ export class IcaSchemaFormComponent implements OnInit {
     console.log('schemaFormOnChange', event)
     const value = JsonPointer.get(event, '/Contract/Terms/Quantity/ContractedUnits')
     console.log('~value', value)
+    this.dataChange.emit(event)
   }
 
 }

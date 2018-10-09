@@ -1,6 +1,8 @@
 <div class="dashboard__content--contract-new">
     <div class="contract-new__sidebar">
-        <ica-schema-form #icaSchemaForm [contractTemplatePack]="contractTemplatePack" ></ica-schema-form>
+        <ica-contract-schema-form #icaSchemaForm
+          [contractTemplatePack]="contractTemplatePack"
+          (dataChange)="onDataChange($event)"></ica-contract-schema-form>
     </div>
 
     <div class="contract-new__preview">
@@ -20,7 +22,10 @@
 
         <div class="contract-new__pdf">
             <ng-container *ngIf="contractTemplatePack">
-                <ica-contract-preview [content]="contractTemplatePack.pdfTpl" (fieldClicked)="previewFieldClicked($event)"></ica-contract-preview>
+                <ica-contract-preview
+                  [content]="contractTemplatePack.pdfTpl"
+                  [data]="formData"
+                  (fieldClicked)="previewFieldClicked($event)"></ica-contract-preview>
             </ng-container>
             <img src="assets/images/placeholder-contract.png" alt="">
             <img src="assets/images/placeholder-contract.png" alt="">

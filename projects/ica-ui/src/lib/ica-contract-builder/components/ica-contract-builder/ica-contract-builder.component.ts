@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core'
 
+import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
 import { IContractTemplatePack } from '../../models/ica-contract-builder.models'
-import { IcaSchemaFormComponent } from '../ica-schema-form/ica-schema-form.component'
+import { IcaContractSchemaFormComponent } from '../ica-contract-schema-form/ica-contract-schema-form.component'
 
 @Component({
   selector: 'ica-contract-builder',
@@ -12,14 +13,24 @@ export class IcaContractBuilderComponent implements OnInit {
 
   @Input() contractTemplatePack: IContractTemplatePack
 
-  @ViewChild(IcaSchemaFormComponent) icaSchemaForm: IcaSchemaFormComponent
+  @ViewChild(IcaContractSchemaFormComponent) icaSchemaForm: IcaContractSchemaFormComponent
 
-  constructor() { }
+  public formData: object
+
+  constructor(
+    public icaCntBuilder: IcaContractBuilderService
+  ) {
+    // this.icaCntBuilder.data$.subscribe
+  }
 
   ngOnInit() { }
 
   previewFieldClicked(field: string) {
     this.icaSchemaForm.focusField(field)
+  }
+
+  onDataChange(data: object) {
+    this.formData = data
   }
 
 }

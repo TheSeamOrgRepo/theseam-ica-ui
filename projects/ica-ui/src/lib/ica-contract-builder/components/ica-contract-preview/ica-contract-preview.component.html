@@ -1,1 +1,5 @@
-<div (click)="previewClick($event)" style="background-color: white;" [innerHTML]="content | sanitizeHtml"></div>
+<div *ngIf="content"
+  style="background-color: white;"
+  (click)="previewClick($event)"
+  [innerHTML]="formattedContent | sanitizeHtml">
+</div>

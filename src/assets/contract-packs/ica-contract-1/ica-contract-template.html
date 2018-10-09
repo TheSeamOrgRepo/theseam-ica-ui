@@ -1,4 +1,7 @@
 <style>
+  .tpl-focusable {
+    color: rgba(150,150,150,1);
+  }
   .tpl-focusable:hover {
     color: cyan;
     cursor: pointer;
@@ -22,45 +25,45 @@
     <div style="width:100%;">
         <div style="display:block;">
             <span style="font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">Sales Contract:</span>
-            <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">{=Contract.ReferenceNumber}</span>
+            <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">{=/Contract/ReferenceNumber}</span>
         </div>
         <div style="display:block;padding-top:12px; padding-left:20px;">
             <div style="display:inline-block; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; vertical-align:top; padding-right:200px;">
                 <div style="font-weight:bold;">Seller:</div>
                 <div style="padding-top:5px; padding-left:8px;">
-                    <span class="tpl-focusable">{=Contract.Seller.Name}</span>
-                    <br> <span class="tpl-focusable">{=Contract.Seller.Addresses.Item[0].AddressStreet1}</span>
-                    <br> <span class="tpl-focusable">{=Contract.Seller.Addresses.Item[0].AddressStreet2}</span>
-                    <br> <span class="tpl-focusable">{=Contract.Seller.Addresses.Item[0].AddressStreet3}</span>
-                    <br> <span class="tpl-focusable">{=Contract.Seller.Addresses.Item[0].Town}</span>
-                    <br> Phone: <span class="tpl-focusable">{=Contract.Seller.Telephone}</span>
-                    <br> Fax: <span class="tpl-focusable">{=Contract.Seller.Fax}</span>
+                    {=/Contract/Seller/Name}
+                    <br> {=/Contract/Seller/Addresses/Item/0/AddressStreet1}
+                    <br> {=/Contract/Seller/Addresses/Item/0/AddressStreet2}
+                    <br> {=/Contract/Seller/Addresses/Item/0/AddressStreet3}
+                    <br> {=/Contract/Seller/Addresses/Item/0/Town}
+                    <br> Phone: {=/Contract/Seller/Telephone}
+                    <br> Fax: {=/Contract/Seller/Fax}
                 </div>
             </div>
             <div style="display:inline-block; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; vertical-align:top;">
                 <div style="font-weight:bold;">Buyer:</div>
                 <div style="padding-top:5px; padding-left:8px;">
-                    {=Contract.Buyer.Name}
-                    <br> {=Contract.Buyer.Addresses.Item[0].AddressStreet1}
-                    <br> {=Contract.Buyer.Addresses.Item[0].AddressStreet2}
-                    <br> {=Contract.Buyer.Addresses.Item[0].AddressStreet3}
-                    <br> {=Contract.Buyer.Addresses.Item[0].Town}
-                    <br> Phone: {=Contract.Buyer.Telephone}
-                    <br> Fax: {=Contract.Buyer.Fax}
+                    {=/Contract/Buyer/Name}
+                    <br> {=/Contract/Buyer/Addresses/Item/0/AddressStreet1}
+                    <br> {=/Contract/Buyer/Addresses/Item/0/AddressStreet2}
+                    <br> {=/Contract/Buyer/Addresses/Item/0/AddressStreet3}
+                    <br> {=/Contract/Buyer/Addresses/Item/0/Town}
+                    <br> Phone: {=/Contract/Buyer/Telephone}
+                    <br> Fax: {=/Contract/Buyer/Fax}
                 </div>
             </div>
         </div>
         <div style="display:block;padding-top:15px;">
             <span style="font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">Date:</span>
-            <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">{=Contract.Date}</span>
+            <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">{=/Contract/Date}</span>
         </div>
 
         <div style="display: block;padding-top:12px;">
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px;vertical-align:top;">Quantity:</div>
             <div style="display: inline-table; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">
-                <span style="font-weight:lighter;">About <span class="tpl-focusable">{=/Contract/Terms/Quantity/ContractedUnits}</span> <span class="tpl-focusable">{=Contract.Terms.Quantity.QuantityType}</span></span>
+                <span style="font-weight:lighter;">About {=/Contract/Terms/Quantity/ContractedUnits} {=/Contract/Terms/Quantity/QuantityType}</span>
                 <br>
-                <span style="font-weight:lighter;">{=Contract.Terms.Quantity.VariationPercent} percent variation in weight allowed at {=Contract.Terms.Quantity.VariationOption}'s
+                <span style="font-weight:lighter;">{=/Contract/Terms/Quantity/VariationPercent} percent variation in weight allowed at {=/Contract/Terms/Quantity/VariationOption}'s
                     option.
                 </span>
             </div>
@@ -70,44 +73,44 @@
             <div style="display: inline-table; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">
                 <span style="font-weight:lighter;"></span>
                 <br>
-                <span style="font-weight:lighter;">Crop Year: {=Contract.Specifications.CropYear}</span>
+                <span style="font-weight:lighter;">Crop Year: {=/Contract/Specifications/CropYear}</span>
                 <br>
-                <span style="font-weight:lighter;">Growth: {=Contract.Specifications.GrowthOrigin}</span>
+                <span style="font-weight:lighter;">Growth: {=/Contract/Specifications/GrowthOrigin}</span>
                 <br>
-                <span style="font-weight:lighter;">Grade: {=Contract.Specifications.GradeDescription}</span>
+                <span style="font-weight:lighter;">Grade: {=/Contract/Specifications/GradeDescription}</span>
                 <br>
-                <span style="font-weight:lighter;">Staple: {=Contract.Specifications.Staple}</span>
+                <span style="font-weight:lighter;">Staple: {=/Contract/Specifications/Staple}</span>
                 <br>
-                <span style="font-weight:lighter;">Micronaire: {=Contract.Specifications.MinMicronaire} - {=Contract.Specifications.MaxMicronaire} ({=Contract.Specifications.MicronaireMemo})</span>
+                <span style="font-weight:lighter;">Micronaire: {=/Contract/Specifications/MinMicronaire} - {=/Contract/Specifications/MaxMicronaire} ({=/Contract/Specifications/MicronaireMemo})</span>
                 <br>
-                <span style="font-weight:lighter;">Strength GPT: {=Contract.Specifications.MinStrength} Minimum</span>
+                <span style="font-weight:lighter;">Strength GPT: {=/Contract/Specifications/MinStrength} Minimum</span>
             </div>
         </div>
         <div style="display: block;padding-top:12px;">
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px;vertical-align:top;">Price/Terms:</div>
             <div style="display: inline-table; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">
-                <span style="font-weight:lighter;">{=Contract.Pricing.UnitPrice} {=Contract.Pricing.PriceBase}</span>
+                <span style="font-weight:lighter;">{=/Contract/Pricing/UnitPrice} {=/Contract/Pricing/PriceBase}</span>
                 <br>
-                <span style="font-weight:lighter;">{=Contract.Pricing.PricePoints} {=Contract.Pricing.PriceBase}
-                    <br> ON {=Contract.Pricing.FixationCallMonth} {=Contract.Pricing.FixationCallYear} {=Contract.Pricing.OtherPriceMemo}</span>
+                <span style="font-weight:lighter;">{=/Contract/Pricing/PricePoints} {=/Contract/Pricing/PriceBase}
+                    <br> ON {=/Contract/Pricing/FixationCallMonth} {=/Contract/Pricing/FixationCallYear} {=/Contract/Pricing/OtherPriceMemo}</span>
             </div>
         </div>
         <div style="display: block;padding-top:12px;">
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px;vertical-align:top;">Payment:</div>
             <div style="display: inline-table; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">
-                <span style="font-weight:lighter;">{=Contract.Terms.PaymentTerms.Description}</span>
+                <span style="font-weight:lighter;">{=/Contract/Terms/PaymentTerms/Description}</span>
             </div>
         </div>
         <div style="display: block;padding-top:12px;">
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px;vertical-align:top;">Shipment:</div>
             <div style="display: inline-table; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">
-                <span style="font-weight:lighter;">{=Contract.Terms.ShipmentPeriods.Shipment}</span>
+                <span style="font-weight:lighter;">{=/Contract/Terms/ShipmentPeriods/Shipment}</span>
             </div>
         </div>
         <div style="display: block;padding-top:12px;">
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px;vertical-align:top;">Freight:</div>
             <div style="display: inline-table; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">
-                <span style="font-weight:lighter;">{=Contract.Terms.FreightBasis.Description}</span>
+                <span style="font-weight:lighter;">{=/Contract/Terms/FreightBasis/Description}</span>
             </div>
         </div>
         <div style="display: block;padding-top:12px;">
@@ -125,15 +128,15 @@
         <div style="display: block;padding-top:12px;">
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px;vertical-align:top;">Special Clauses:</div>
             <div style="display: inline-table; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em;">
-                <span style="font-weight:lighter;">{=Contract.Terms.SpecialClauses.Item[0].Description}</span>
+                <span style="font-weight:lighter;">{=/Contract/Terms/SpecialClauses/Item/0/Description}</span>
                 <br>
-                <span style="font-weight:lighter;">{=Contract.Terms.SpecialClauses.Item[1].Description}</span>
+                <span style="font-weight:lighter;">{=/Contract/Terms/SpecialClauses/Item/1/Description}</span>
                 <br>
-                <span style="font-weight:lighter;">{=Contract.Terms.SpecialClauses.Item[2].Description}</span>
+                <span style="font-weight:lighter;">{=/Contract/Terms/SpecialClauses/Item/2/Description}</span>
                 <br>
-                <span style="font-weight:lighter;">{=Contract.Terms.SpecialClauses.Item[3].Description}</span>
+                <span style="font-weight:lighter;">{=/Contract/Terms/SpecialClauses/Item/3/Description}</span>
                 <br>
-                <span style="font-weight:lighter;">{=Contract.Terms.SpecialClauses.Item[4].Description}</span>
+                <span style="font-weight:lighter;">{=/Contract/Terms/SpecialClauses/Item/4/Description}</span>
             </div>
         </div>
         <div style="display: block;padding-top:12px;">
@@ -169,9 +172,9 @@
         <div style="display: block;padding-top:12px;">
             <div style="display: inline-table;font-weight:bold; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:0.8em; width: 150px; vertical-align:top;">Seller Signature:</div>
             <div style="width: 300px; min-width: 300px; max-width: 300px; height: 90px; min-height: 90px; max-height: 90px; border-bottom: 1px solid black;">
-              <!-- <img style="max-width: 300px; max-height: 90px; border-bottom: 1px solid black;" src="{=Contract.SellerSignature}" alt="Seller Signature" onerror="this.style.display='none'"> -->
-              <!-- <object style="max-width: 300px; max-height: 90px; border-bottom: 1px solid black;" data="{=Contract.SellerSignature}" type="image/jpg"></object> -->
-              {=Contract.SellerSignature}
+              <!-- <img style="max-width: 300px; max-height: 90px; border-bottom: 1px solid black;" src="{/Contract/SellerSignature}" alt="Seller Signature" onerror="this.style.display='none'"> -->
+              <!-- <object style="max-width: 300px; max-height: 90px; border-bottom: 1px solid black;" data="{/Contract/SellerSignature}" type="image/jpg"></object> -->
+              {=/Contract/SellerSignature}
             </div>
         </div>
     </div>
