@@ -12,6 +12,10 @@
     &.is-active {
         opacity: 1;
         visibility: visible;
+
+        .modal__content {
+            transform: translate(-50%, -50%);
+        }
     }
 
     &:before {
@@ -26,17 +30,52 @@
     }
 }
 
+.modal__close {
+    $size: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $size;
+    height: $size;
+    border: none;
+    background-color: $gray-ultralight;
+    border-radius: 0 $modal-border-radius 0 0;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 2px;
+        background-color: $gray;
+        transform: translate(-50%, -50%);
+    }
+
+    &:before {
+        transform: translate(-50%, -50%)
+                   rotate(45deg);
+    }
+
+    &:after {
+        transform: translate(-50%, -50%)
+                   rotate(-45deg);
+    }
+}
+
 .modal__content {
     position: absolute;
     top: 50%;
     left: 50%;
     max-width: 100%;
-    padding: 2rem;
+    padding: 3rem;
     background-color: $white;
-    border-radius: 4px;
+    border-radius: $modal-border-radius;
     box-shadow: 0 8px 16px 0 rgba(black, 0.15),
                 0 7px 33px 0 rgba(black, 0.10);
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
+    transition: 0.15s ease-in-out;
     z-index: 1;
 }
 
@@ -70,9 +109,6 @@
 }
 
 .modal--contract-sign {
-    // opacity: 1;
-    // visibility: visible;
-
     .modal__header-actions {
         display: flex;
         position: relative;

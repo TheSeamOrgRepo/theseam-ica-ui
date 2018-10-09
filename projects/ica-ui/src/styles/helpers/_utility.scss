@@ -1,0 +1,28 @@
+// Utility
+// ------------------------
+
+// Clearfix
+[clear],
+.cf {
+    @include clearfix;
+}
+
+// Hide elements visually
+.hide-vis {
+    position: absolute !important;
+    overflow: hidden;
+    width: 1px !important;
+    height: 1px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+// Hide elements
+[hidden],
+.hide {
+    display: none !important;
+    visibility: hidden !important;
+}

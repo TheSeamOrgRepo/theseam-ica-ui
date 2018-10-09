@@ -4,6 +4,7 @@
 @import "helpers/functions";
 @import "helpers/variables";
 @import "helpers/mixins";
+@import "helpers/utility";
 
 
 // General
@@ -14,6 +15,7 @@
 @import "general/media";
 @import "general/buttons";
 @import "general/forms";
+@import "general/tables";
 
 
 // Components
@@ -22,4 +24,5 @@
 @import "components/modal";
 @import "components/login";
 @import "components/dashboard";
+@import "components/contracts";
 @import "components/contract-new";

@@ -1,5 +1,6 @@
 <div *ngIf="content"
   style="background-color: white;"
+  class="shadow"
   (click)="previewClick($event)"
   [innerHTML]="formattedContent | sanitizeHtml">
 </div>

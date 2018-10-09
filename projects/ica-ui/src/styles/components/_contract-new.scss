@@ -1,4 +1,4 @@
-// Contracts
+// Contracts - New
 // ------------------------
 .contract-new__header {
     display: flex;
@@ -86,6 +86,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: $nav-size-small;
     background-color: transparent;
     border: none;
 
@@ -102,6 +103,7 @@
     }
 
     div {
+        margin-top: 0.25rem;
         white-space: nowrap;
         color: $primary-ultralight;
         font-size: rem-calc(10);
@@ -120,6 +122,13 @@
     }
 }
 
+.contract-new__content {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+    width: 100%;
+}
+
 .contract-new__sidebar,
 .contract-new__preview {
     overflow: scroll;
@@ -129,8 +138,9 @@
 .contract-new__sidebar {
     position: relative;
     flex-basis: 40%;
-    padding: 3rem 2rem 7rem;
-    padding: 3rem 2rem (3rem + rem-calc($nav-size-small));
+    max-width: 425px;
+    padding: 3rem 2rem;
+    margin-bottom: $nav-size-small;
     border-right: 1px solid $gray-light;
 
     @include bp(min, rem-calc(1150)) {
@@ -182,7 +192,18 @@
     left: 0;
     right: 0;
     width: 40%;
-    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.10);
+    max-width: 425px;
+    box-shadow: 0 -2px 4px 0 rgba(black, 0.1);
+
+    .contract-new__sidebar-intro + & {
+        height: $nav-size-small;
+        box-shadow: none;
+        border-right: 1px solid $gray-light;
+
+        button {
+            display: none;
+        }
+    }
 
     @include bp(min, rem-calc(1150)) {
         width: 30%;
@@ -237,6 +258,7 @@
 }
 
 .contract-new__preview {
+    flex: 1;
     flex-basis: 60%;
     padding: 3rem 2rem;
     background-color: $gray-ultralight;
@@ -261,6 +283,10 @@
         font-size: rem-calc(32);
         border: 2px dashed $gray;
     }
+
+    .shadow {
+        box-shadow: 0 0 6px 0 rgba(black, 0.3);
+    }
 }
 
 .contract-new__pre-fill {
@@ -273,5 +299,5 @@
 }
 
 .contract-new__pdf {
-
+    text-align: center;
 }

@@ -1,0 +1,208 @@
+table {
+    width: 100%;
+    text-align: left;
+    color: $primary-light;
+    letter-spacing: 0.5px;
+    font-size: rem-calc(13);
+
+    tr {
+        border-bottom: 1px solid $gray-ultralight;
+    }
+
+    thead {
+        tr {
+            border-bottom-color: $gray-light;
+        }
+    }
+
+    th,
+    td {
+        padding: 1rem;
+
+        &.active {
+            color: $green;
+        }
+
+        &.pending {
+            color: $yellow-dark;
+        }
+
+        &.closed {
+            color: $red;
+        }
+    }
+
+    th {
+        font-weight: $font-weight-bold;
+    }
+}
+
+.table {
+    th,
+    td {
+        &:first-of-type {
+            padding-right: 0;
+            padding-left: 0.5rem;
+            width: 25px;
+        }
+
+        &:last-of-type {
+            // text-align: right;
+            padding-right: 0.5rem;
+        }
+    }
+
+    .form-field {
+        margin: 0;
+    }
+
+    .actions {
+        position: relative;
+        text-align: right;
+    }
+
+    $dot-size: 4px;
+    .actions__dots {
+        padding: $dot-size ($dot-size * 2);
+        border: none;
+        background: transparent;
+        outline: none;
+
+        &:hover {
+            .dot {
+                &,
+                &:after,
+                &:before {
+                    background-color: $green;
+                }
+            }
+        }
+
+        &.is-active {
+            + .actions__dropdown {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        .dot {
+            position: relative;
+
+            &,
+            &:after,
+            &:before {
+                width: $dot-size;
+                height: $dot-size;
+                background-color: $gray-light;
+                border-radius: 100%;
+                transition: 0.15s ease-in-out;
+            }
+
+            &:after,
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &:before {
+                transform: translateX(200%);
+            }
+
+            &:after {
+                transform: translateX(-200%);
+            }
+        }
+    }
+
+    .actions__dropdown {
+        position: absolute;
+        top: 100%;
+        right: -0.5rem;
+        margin-top: 0.5rem;
+        padding: 0.75rem 0;
+        white-space: nowrap;
+        background-color: $white;
+        border: 1px solid $gray-light;
+        border-radius: 3px;
+        box-shadow: 0 10px 10px 0 rgba(black, 0.1),
+                    0 11px 33px 0 rgba(black, 0.06);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-5px);
+        transition: 0.15s ease-in-out;
+        z-index: 1;
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 12px;
+            width: 10px;
+            height: 10px;
+            border-radius: 3px 0 0 0;
+            background-color:$gray-light;
+            transform: rotate(45deg);
+            z-index: 0;
+        }
+
+        &:after {
+            border-radius: 2px 0 0 0;
+            background-color: $white;
+            transform: rotate(45deg) translate(1px, 1px);
+            z-index: 1;
+        }
+
+        button {
+            display: block;
+            position: relative;
+            width: 100%;
+            padding: 0.5rem 1.5rem 0.5rem 3rem;
+            text-align: left;
+            font-size: rem-calc(13);
+            color: $primary-light;
+            border: none;
+            background-color: transparent;
+            transition: 0.15s ease-in-out;
+
+            &:active,
+            &:focus,
+            &:hover {
+                color: $green;
+
+                // svg {
+                //     g,
+                //     path {
+                //         stroke: $green;
+                //     }
+                // }
+            }
+
+            &.delete {
+                color: $red-dark;
+
+                // &:hover {
+                //     color: $red-light;
+                // }
+            }
+        }
+
+        svg {
+            position: absolute;
+            top: 50%;
+            left: 2rem;
+            margin-right: 0.5rem;
+            transform: translate(-50%, -50%);
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            margin: 0.75rem 0;
+            background-color: $gray-light;
+        }
+    }
+}

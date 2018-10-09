@@ -91,6 +91,25 @@ button {
             }
         }
     }
+
+    // Gray button
+    &.btn--gray {
+        background-color: $primary-ultralight;
+        border-color: $primary-ultralight;
+
+        &:not(.btn--dropdown) {
+            &:hover {
+                background-color: $gray-light;
+                border-color: $gray-light;
+            }
+
+            &:active,
+            &:focus {
+                background-color: $primary-light;
+                border-color: $primary-light;
+            }
+        }
+    }
 }
 
 // Disabled button

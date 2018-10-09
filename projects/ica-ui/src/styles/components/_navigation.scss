@@ -70,7 +70,7 @@
         height: 100vh;
         padding: 1rem 0;
         width: $nav-size-large;
-        border-right: 1px solid $hr-gray;
+        border-right: 1px solid $primary-dark;
         transition: width 0.75s cubic-bezier(0.25, 0.75, 0.05, 1);
     }
 
@@ -84,7 +84,7 @@
         align-content: center;
         justify-content: center;
         cursor: pointer;
-        border: 0 solid $hr-gray;
+        border: 0 solid $primary-dark;
         border-left-width: 1px;
         background-color: $primary;
         transition: transform 0.75s cubic-bezier(0.25, 0.75, 0.05, 1);
@@ -102,24 +102,27 @@
                 }
             }
         }
+
+        &:hover {
+            .hamburger {
+                .line {
+                    background-color: $gray-ultralight-1;
+                }
+            }
+        }
     }
 
     .hamburger {
         // margin-top: 23px;
 
-        &:hover {
-            .line {
-                background-color: $gray-ultralight-1;
-            }
-        }
-
         .line {
             width: 28px;
             height: 2px;
-            background-color: $passive-gray;
+            background-color: $primary-ultralight;
             display: block;
             margin: 5px 0;
-            transition: .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.15s ease-in-out,
+                        transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 
             &:nth-child(2) {
                 width: 20px;
@@ -138,16 +141,16 @@
         overflow: hidden;
         position: relative;
         transition: width 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
 
-    .logo-wrapper .text {
-        opacity: 1;
-        transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
+        .text {
+            opacity: 1;
+            transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
 
-    .logo-wrapper svg {
-        position: absolute;
-        left: 22px;
+        svg {
+            position: absolute;
+            left: 22px;
+        }
     }
 
     .navigation {
@@ -159,11 +162,11 @@
                 display: flex;
                 align-items: center;
                 padding: 1rem 5px 1rem 0;
-                transition: background .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+                transition: background 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
                 height: 65px;
                 font-weight: bold;
                 font-size: 14px;
-                color: $passive-gray;
+                color: $primary-ultralight;
                 letter-spacing: 1px;
                 line-height: 65px;
                 text-transform: uppercase;
@@ -189,14 +192,14 @@
                 }
 
                 &.is-active {
-                    background-color: $blue-gray-darker;
+                    background-color: $primary-ultradark;
                     border-left: 5px solid $secondary;
                     color: $gray-ultralight-1;
                 }
 
                 &:active {
-                    color: $active-gray;
-                    background-color: $blue-gray-darker;
+                    color: $primary-light;
+                    background-color: $primary-ultradark;
                     border-left: 5px solid $secondary;
                 }
 
@@ -208,8 +211,8 @@
 
             img {
                 margin: 0 16px;
-                opacity: .25;
-                transition: opacity .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+                opacity: 0.25;
+                transition: opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
             }
 
             &:first-of-type {
@@ -227,7 +230,7 @@
     }
 
     .block--account-info__drawer {
-        background-color: $blue-gray-darker;
+        background-color: $primary-ultradark;
         padding: 0;
         width: 100%;
         transition: max-height 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -276,7 +279,7 @@
                 }
 
                 img {
-                    opacity: .25;
+                    opacity: 0.25;
                     margin-right: 18px;
                     transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
                 }
@@ -285,7 +288,7 @@
                     opacity: 1;
                     min-width: 120px;
                     text-align: left;
-                    color: $passive-gray;
+                    color: $primary-ultralight;
                     transition: 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
                 }
             }
@@ -296,14 +299,6 @@
         position: absolute;
         bottom: 0;
         width: 100%;
-
-        hr {
-            display: block;
-            height: 1px;
-            border: 0;
-            border-top: 1px solid $hr-gray;
-            margin: 0;
-        }
     }
 
     .profile--wrapper {
@@ -356,7 +351,7 @@
         left: 0;
         width: 117px;
         line-height: 1.15;
-        color: $passive-gray;
+        color: $primary-ultralight;
         transition: color 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
