@@ -1,10 +1,20 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core'
 import { JsonSchemaFormComponent, JsonPointer } from 'angular6-json-schema-form'
 
-import { ICA_CONTRACT_FORM_WIDGETS } from '../../../ica-contract-form-widgets/ica-contract-form-widgets.module'
 import { IContractTemplatePack } from '../../models/ica-contract-builder.models'
 import { IcaConstractSchemaFormService } from '../../services/ica-constract-schema-form.service'
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
+
+// tslint:disable:max-line-length
+import { IcaSchemaFormSectionWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-section-widget/ica-schema-form-section-widget.component'
+// import { IcaSchemaFormSignatureWidgetComponent } from '../../../ica-schema-form-signature-widget/ica-schema-form-signature-widget.component'
+import { IcaSchemaFormSubmitWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-submit-widget/ica-schema-form-submit-widget.component'
+import { IcaSchemaFormInputWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-input-widget/ica-schema-form-input-widget.component'
+import { IcaSchemaFormNumberWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-number-widget/ica-schema-form-number-widget.component'
+import { IcaSchemaFormWizardWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-wizard-widget/ica-schema-form-wizard-widget.component'
+import { IcaSchemaFormCheckboxWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-checkbox-widget/ica-schema-form-checkbox-widget.component'
+import { IcaSchemaFormWizardBtnsWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-wizard-btns-widget/ica-schema-form-wizard-btns-widget.component'
+// tslint:enable:max-line-length
 
 @Component({
   selector: 'ica-contract-schema-form',
@@ -19,7 +29,16 @@ export class IcaContractSchemaFormComponent implements OnInit {
 
   @ViewChild(JsonSchemaFormComponent) schemaForm: JsonSchemaFormComponent
 
-  public widgets = ICA_CONTRACT_FORM_WIDGETS
+  public widgets = {
+    // 'schema-form-signature': IcaSchemaFormSignatureWidgetComponent,
+    'section': IcaSchemaFormSectionWidgetComponent,
+    'submit': IcaSchemaFormSubmitWidgetComponent,
+    'text': IcaSchemaFormInputWidgetComponent,
+    'number': IcaSchemaFormNumberWidgetComponent,
+    'checkbox': IcaSchemaFormCheckboxWidgetComponent,
+    'wizard-panel': IcaSchemaFormWizardWidgetComponent,
+    'wizard-btns': IcaSchemaFormWizardBtnsWidgetComponent
+  }
 
   constructor(
     private icaCntForm: IcaConstractSchemaFormService,

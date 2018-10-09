@@ -15,17 +15,6 @@ import { IcaSchemaFormWizardBtnsWidgetComponent } from './ica-schema-form-wizard
 
 import { SelectWidgetDirective } from './directives/select-widget.directive'
 
-export const ICA_CONTRACT_FORM_WIDGETS = {
-  // 'schema-form-signature': IcaSchemaFormSignatureWidgetComponent,
-  'section': IcaSchemaFormSectionWidgetComponent,
-  'submit': IcaSchemaFormSubmitWidgetComponent,
-  'text': IcaSchemaFormInputWidgetComponent,
-  'number': IcaSchemaFormNumberWidgetComponent,
-  'checkbox': IcaSchemaFormCheckboxWidgetComponent,
-  'wizard-panel': IcaSchemaFormWizardWidgetComponent,
-  'wizard-btns': IcaSchemaFormWizardBtnsWidgetComponent
-}
-
 const widgetComponents = [
   IcaSchemaFormSectionWidgetComponent,
   IcaSchemaFormSignatureWidgetComponent,
