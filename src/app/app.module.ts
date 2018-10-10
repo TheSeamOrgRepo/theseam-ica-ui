@@ -16,7 +16,8 @@ import {
   IcaShipmentsModule,
   IcaDocumentsModule,
   IcaModalFilePreviewModule,
-  IcaTableModule
+  IcaTableModule,
+  IcaModalNewDocumentModule
 } from '@theseam/ica-ui'
 
 import { AppComponent } from './app.component'
@@ -64,6 +65,7 @@ import { routing } from './app.routing'
       IcaDocumentsModule,
       IcaModalFilePreviewModule,
       IcaTableModule,
+      IcaModalNewDocumentModule,
       routing,
    ],
    providers: [

@@ -5,7 +5,7 @@
         </div>
 
         <div class="right">
-            <button class="btn btn--green" data-modal="new-document">New Document</button>
+            <button (click)="onClickNewDoc()" class="btn btn--green" data-modal="new-document">New Document</button>
         </div>
     </div>
 
@@ -19,7 +19,8 @@
           [tableCssClasses]="'table--documents'"
           [columns]="documentsTableColumns"
           [rows]="documentsTableRows"
-          [hasActions]="true">
+          [hasActions]="true"
+          (rowAction)="onRowAction($event)">
         </ica-table>
     </div>
 </div>

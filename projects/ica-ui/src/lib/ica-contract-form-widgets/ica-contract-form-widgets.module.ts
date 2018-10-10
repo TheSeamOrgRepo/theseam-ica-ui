@@ -12,6 +12,8 @@ import { IcaSchemaFormNumberWidgetComponent } from './ica-schema-form-number-wid
 import { IcaSchemaFormWizardWidgetComponent } from './ica-schema-form-wizard-widget/ica-schema-form-wizard-widget.component'
 import { IcaSchemaFormCheckboxWidgetComponent } from './ica-schema-form-checkbox-widget/ica-schema-form-checkbox-widget.component'
 import { IcaSchemaFormWizardBtnsWidgetComponent } from './ica-schema-form-wizard-btns-widget/ica-schema-form-wizard-btns-widget.component'
+import { IcaSchemaFormCounterPartiesComponent } from './ica-schema-form-counter-parties/ica-schema-form-counter-parties.component'
+import { IcaSchemaFormSelectInputWidgetComponent } from './ica-schema-form-select-input-widget/ica-schema-form-select-input-widget.component'
 
 import { SelectWidgetDirective } from './directives/select-widget.directive'
 
@@ -23,7 +25,9 @@ const widgetComponents = [
   IcaSchemaFormNumberWidgetComponent,
   IcaSchemaFormCheckboxWidgetComponent,
   IcaSchemaFormWizardWidgetComponent,
-  IcaSchemaFormWizardBtnsWidgetComponent
+  IcaSchemaFormWizardBtnsWidgetComponent,
+  IcaSchemaFormCounterPartiesComponent,
+  IcaSchemaFormSelectInputWidgetComponent
 ]
 
 @NgModule({

@@ -8,3 +8,5 @@ export * from './services/ica-contract-builder.service'
 export * from './ica-contract-builder.module'
 
 export * from './models/ica-contract-builder.models'
+
+export * from './utils'

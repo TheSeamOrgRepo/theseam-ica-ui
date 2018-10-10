@@ -2,4 +2,6 @@
 
 // Minor style tweaks
 .login__left:before { background-image: radial-gradient(50% 120%, #415365 0%, #1E2A36 100%); }
-.contract-new__content { max-height: calc(100vh - 75px); }
+.contract-new__content,
+.documents__content,
+.contracts__content { max-height: calc(100vh - 75px); }

@@ -1,0 +1,63 @@
+<div id="modal-new-document" class="modal modal--new-document is-active">
+    <div class="modal__content">
+        <button class="modal__close" (click)="onClickClose()" data-modal-close><span class="hide-vis">Close</span></button>
+
+        <h1 class="modal__header">Upload Files</h1>
+
+        <ul class="modal__files progress-list">
+            <li class="progress-list__item progress-list__item--finished" *ngIf="selectedFilename">
+                <div class="progress-list__icon"></div>
+                <div class="progress-list__name">{{ selectedFilename }}</div>
+                <button class="progress-list__action progress-list__action--trash">
+                    <span class="hide-vis" (click)="onClickDelete()">Delete</span>
+                </button>
+            </li>
+
+            <!-- <li class="progress-list__item progress-list__item--finished">
+                <div class="progress-list__icon"></div>
+                <div class="progress-list__name">Document-Name-1.pdf</div>
+                <button class="progress-list__action progress-list__action--trash">
+                    <span class="hide-vis">Delete</span>
+                </button>
+            </li>
+
+            <li class="progress-list__item progress-list__item--loading">
+                <div class="progress-list__icon"></div>
+                <div class="progress-list__name">Document-Name-2.pdf</div>
+                <button class="progress-list__action progress-list__action--cancel">
+                    <span class="hide-vis">Cancel</span>
+                </button>
+            </li>
+
+            <li class="progress-list__item">
+                <div class="progress-list__icon"></div>
+                <div class="progress-list__name">Document-Name-3.pdf</div>
+                <button class="progress-list__action progress-list__action--cancel">
+                    <span class="hide-vis">Cancel</span>
+                </button>
+            </li>
+
+            <li class="progress-list__item">
+                <div class="progress-list__icon"></div>
+                <div class="progress-list__name">Document-Name-4.pdf</div>
+                <button class="progress-list__action progress-list__action--cancel">
+                    <span class="hide-vis">Cancel</span>
+                </button>
+            </li> -->
+        </ul>
+
+        <div class="modal__dropzone" (click)="browseForDocument()">
+            <img src="assets/images/icon-upload.svg" alt="Upload File">
+            <div class="modal__dropzone-text">Drag drop or <a [routerLink]="">browse</a>.</div>
+        </div>
+
+        <div class="modal__actions">
+            <button class="btn btn--green" (click)="onClickSave()" data-modal-close>Save</button>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden button for triggering the file browser window -->
+<div class="d-none">
+  <input type="file" #filesInput (change)="fileInputChange($event)">
+</div>

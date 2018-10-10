@@ -2,7 +2,8 @@
     <div class="contract-new__sidebar">
         <ica-contract-schema-form #icaSchemaForm
           [contractTemplatePack]="contractTemplatePack"
-          (dataChange)="onDataChange($event)"></ica-contract-schema-form>
+          (dataChange)="onDataChange($event)"
+          (submit)="onSchemaFormSubmit($event)"></ica-contract-schema-form>
     </div>
 
     <div class="contract-new__preview">
@@ -27,12 +28,12 @@
                   [data]="formData"
                   (fieldClicked)="previewFieldClicked($event)"></ica-contract-preview>
             </ng-container>
-            <br><br>
+            <!-- <br><br>
             <img src="assets/images/placeholder-contract.svg" alt="" class="shadow">
             <br><br>
             <img src="assets/images/placeholder-contract.svg" alt="" class="shadow">
             <br><br>
-            <img src="assets/images/placeholder-contract.svg" alt="" class="shadow">
+            <img src="assets/images/placeholder-contract.svg" alt="" class="shadow"> -->
         </div>
     </div>
 </div>

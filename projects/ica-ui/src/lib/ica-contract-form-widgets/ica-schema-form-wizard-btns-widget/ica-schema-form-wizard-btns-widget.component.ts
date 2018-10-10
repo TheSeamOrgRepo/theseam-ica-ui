@@ -6,7 +6,12 @@ import { take } from 'rxjs/operators'
 
 @Component({
   selector: 'ica-schema-form-wizard-btns-widget',
-  templateUrl: './ica-schema-form-wizard-btns-widget.component.html'
+  templateUrl: './ica-schema-form-wizard-btns-widget.component.html',
+  styles: [`
+    .next-btn-disabled {
+      background-color: #A0E5D0 !important;
+    }
+  `]
 })
 export class IcaSchemaFormWizardBtnsWidgetComponent implements OnInit {
 
@@ -16,9 +21,11 @@ export class IcaSchemaFormWizardBtnsWidgetComponent implements OnInit {
   @Input() dataIndex: number[]
 
   public nextBtnText: 'Next' | 'Finish' = 'Next'
+  public isLast = false
+  public activeWizardPanel = 1
 
   constructor(
-    private jsf: JsonSchemaFormService,
+    public jsf: JsonSchemaFormService,
     private icaCntForm: IcaConstractSchemaFormService
   ) { }
 
@@ -31,9 +38,16 @@ export class IcaSchemaFormWizardBtnsWidgetComponent implements OnInit {
     this.options = this.layoutNode.options || {}
 
     this.updateNextBtn()
+
+    // NOTE: This is temporary
+    this.icaCntForm.activeWizardPanel$
+      .subscribe(v => {
+        this.activeWizardPanel = v
+      })
   }
 
-  onClickPrev() {
+  onClickPrev(event: any) {
+    event.preventDefault()
     this.icaCntForm.activeWizardPanel$.pipe(take(1))
       .subscribe(v => {
         if (v > 1) {
@@ -43,8 +57,12 @@ export class IcaSchemaFormWizardBtnsWidgetComponent implements OnInit {
       })
   }
 
-  onClickNext() {
+  onClickNext(event: any) {
     const wizardPanels = this.wizardPanels()
+    if (!((this.activeWizardPanel === wizardPanels.length) && this.jsf.isValid)) {
+      event.preventDefault()
+    }
+
     this.icaCntForm.activeWizardPanel$.pipe(take(1))
       .subscribe(v => {
         if (v < wizardPanels.length) {
@@ -77,6 +95,7 @@ export class IcaSchemaFormWizardBtnsWidgetComponent implements OnInit {
     this.icaCntForm.activeWizardPanel$.pipe(take(1))
       .subscribe(v => {
         this.nextBtnText = (v === wizardPanels.length) ? 'Finish' : 'Next'
+        this.isLast = (v === wizardPanels.length)
       })
   }
 

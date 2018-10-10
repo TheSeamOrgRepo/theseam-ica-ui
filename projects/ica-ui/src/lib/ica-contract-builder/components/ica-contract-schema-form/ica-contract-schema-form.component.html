@@ -4,5 +4,7 @@
   [widgets]="widgets"
   [schema]="contractTemplatePack.formSchema"
   [layout]="contractTemplatePack.formLayout"
-  (onChanges)="schemaFormOnChange($event)">
+  (onChanges)="schemaFormOnChange($event)"
+  (isValid)="schemaFormIsValid($event)"
+  (onSubmit)="schemaFormOnSubmit($event)">
 </json-schema-form>

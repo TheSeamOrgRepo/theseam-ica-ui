@@ -4,6 +4,6 @@
     [layoutIndex]="layoutIndex"></root-widget>
 
 <div class="contract-new__sidebar-nav">
-    <button class="prev" (click)="onClickPrev()" data-prev-sidebar-panel>Previous</button>
-    <button class="next" (click)="onClickNext()" data-next-sidebar-panel>{{ nextBtnText }}</button>
+    <button class="prev" (click)="onClickPrev($event)" data-prev-sidebar-panel>Previous</button>
+    <button class="next" (click)="onClickNext($event)" [class.next-btn-disabled]="isLast && !jsf.isValid" [disabled]="isLast && !jsf.isValid" data-next-sidebar-panel>{{ nextBtnText }}</button>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { IcaTableHeaderColumnItem, IcaTableRowColumnItem } from '@theseam/ica-ui'
+import { IcaTableHeaderColumnItem, IcaTableRowColumnItem, IcaModalNewDocumentService } from '@theseam/ica-ui'
 
 @Component({
   selector: 'app-documents',
@@ -68,9 +68,15 @@ export class DocumentsComponent implements OnInit {
     ]
   ]
 
-  constructor() { }
+  constructor(
+    public icaModalNewDocument: IcaModalNewDocumentService
+  ) { }
 
   ngOnInit() {
+  }
+
+  onClickNewDocumentBtn() {
+    this.icaModalNewDocument.open()
   }
 
 }

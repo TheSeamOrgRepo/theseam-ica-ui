@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter, OnDestroy } from '@angular/core'
 import { JsonSchemaFormComponent, JsonPointer } from 'angular6-json-schema-form'
+import { combineLatest } from 'rxjs'
+import { switchMap, map, takeWhile, filter, distinctUntilChanged, tap } from 'rxjs/operators'
 
 import { IContractTemplatePack } from '../../models/ica-contract-builder.models'
 import { IcaConstractSchemaFormService } from '../../services/ica-constract-schema-form.service'
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
+import { IcaCommonService } from '../../../common'
 
 // tslint:disable:max-line-length
 import { IcaSchemaFormSectionWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-section-widget/ica-schema-form-section-widget.component'
@@ -14,6 +17,8 @@ import { IcaSchemaFormNumberWidgetComponent } from '../../../ica-contract-form-w
 import { IcaSchemaFormWizardWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-wizard-widget/ica-schema-form-wizard-widget.component'
 import { IcaSchemaFormCheckboxWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-checkbox-widget/ica-schema-form-checkbox-widget.component'
 import { IcaSchemaFormWizardBtnsWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-wizard-btns-widget/ica-schema-form-wizard-btns-widget.component'
+import { IcaSchemaFormCounterPartiesComponent } from '../../../ica-contract-form-widgets/ica-schema-form-counter-parties/ica-schema-form-counter-parties.component'
+import { IcaSchemaFormSelectInputWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-select-input-widget/ica-schema-form-select-input-widget.component'
 // tslint:enable:max-line-length
 
 @Component({
@@ -21,11 +26,12 @@ import { IcaSchemaFormWizardBtnsWidgetComponent } from '../../../ica-contract-fo
   templateUrl: './ica-contract-schema-form.component.html',
   providers: [ IcaConstractSchemaFormService ]
 })
-export class IcaContractSchemaFormComponent implements OnInit {
+export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
 
   @Input() contractTemplatePack: IContractTemplatePack
 
   @Output() dataChange = new EventEmitter<object>()
+  @Output() submit = new EventEmitter<any>()
 
   @ViewChild(JsonSchemaFormComponent) schemaForm: JsonSchemaFormComponent
 
@@ -37,15 +43,109 @@ export class IcaContractSchemaFormComponent implements OnInit {
     'number': IcaSchemaFormNumberWidgetComponent,
     'checkbox': IcaSchemaFormCheckboxWidgetComponent,
     'wizard-panel': IcaSchemaFormWizardWidgetComponent,
-    'wizard-btns': IcaSchemaFormWizardBtnsWidgetComponent
+    'wizard-btns': IcaSchemaFormWizardBtnsWidgetComponent,
+    'counter-party': IcaSchemaFormCounterPartiesComponent,
+    'select': IcaSchemaFormSelectInputWidgetComponent
   }
+
+  sub: any
+  _sub: any
+
+  generalData: any
 
   constructor(
     private icaCntForm: IcaConstractSchemaFormService,
-    public icaCntBuilder: IcaContractBuilderService
+    public icaCntBuilder: IcaContractBuilderService,
+    public icaCommon: IcaCommonService
   ) { }
 
   ngOnInit() {
+    const generalValues$ = combineLatest(
+      this.icaCntForm.counterParty$,
+      this.icaCntForm.contractType$
+    ).pipe(map(([counterParty, contractType]) => ({ counterParty, contractType })))
+
+    const companies$ = this.icaCommon.companies$
+    const appUsersCompany$ = this.icaCommon.appUserCompany$
+
+    const formValues$ = generalValues$
+      .pipe(tap(v => console.log('generalValues$', v)))
+      .pipe(takeWhile(val => val !== undefined))
+      .pipe(filter(val => val.contractType !== undefined))
+      .pipe(filter(val => val.counterParty !== undefined))
+      .pipe(distinctUntilChanged((before, after) => {
+        return (before.contractType === after.contractType) &&
+          (before.counterParty === after.counterParty)
+      }))
+      .pipe(
+        tap(v => console.log('formVals', v)),
+        switchMap(formVals =>
+          companies$
+            .pipe(tap(v => console.log('companies$', v)))
+            .pipe(map(companies => {
+              const contractType = ['Sell', 'Purchase']
+                .find(t => t === formVals.contractType)
+              console.log('contractType', contractType)
+
+              console.log('companies', companies)
+              console.log('formVals.counterParty', formVals.counterParty)
+              // const counterParty = companies
+              //   .find(c => c.companyName === formVals.counterParty)
+              const counterParty = formVals.counterParty
+              console.log('counterParty', counterParty)
+
+              if (contractType && counterParty) {
+                return {
+                  contractType,
+                  counterParty
+                }
+              }
+            }))
+            .pipe(takeWhile(val => val !== undefined))
+        )
+      )
+
+    const formResults$ = formValues$
+      .pipe(
+        tap(v => console.log('formValues$', v)),
+        switchMap(formValues => {
+          return appUsersCompany$
+            .pipe(tap(v => console.log('appUsersCompany$', v)))
+            .pipe(map(appUsersCompany => {
+              let knownData
+
+              if (formValues.contractType === 'Sell') {
+                knownData = {
+                  buyer: formValues.counterParty,
+                  seller: appUsersCompany
+                }
+              } else {
+                knownData = {
+                  buyer: appUsersCompany,
+                  seller: formValues.counterParty
+                }
+              }
+              console.log('knownData', knownData)
+              return {
+                formValues,
+                knownData
+              }
+            }))
+        })
+      )
+
+    this._sub = formResults$
+      .subscribe(val => {
+        console.log('val', val)
+        // this.createContractService.setKnownTemplateData(val.knownData)
+        // this.formDataNew.emit(val.formValues)
+        this.setGeneralData(val)
+        this.generalData = val.knownData
+      })
+  }
+
+  ngOnDestroy() {
+    if (this.sub) { this.sub.unsubscribe() }
   }
 
   public focusField(field: string) {
@@ -90,9 +190,18 @@ export class IcaContractSchemaFormComponent implements OnInit {
 
   public schemaFormOnChange(event: any) {
     console.log('schemaFormOnChange', event)
-    const value = JsonPointer.get(event, '/Contract/Terms/Quantity/ContractedUnits')
-    console.log('~value', value)
+    // const value = JsonPointer.get(event, '/Contract/Terms/Quantity/ContractedUnits')
+    // console.log('~value', value)
     this.dataChange.emit(event)
+  }
+
+  public schemaFormIsValid(event: any) {
+    console.log('schemaFormIsValid', event)
+  }
+
+  public schemaFormOnSubmit(event: any) {
+    console.log('schemaFormOnSubmit', event)
+    this.submit.emit({ schemaData: this.schemaForm.value, generalData: this.generalData })
   }
 
   public prefillSchemaData() {
@@ -129,6 +238,83 @@ export class IcaContractSchemaFormComponent implements OnInit {
 
     // DONE
     // console.log('tmpCntData: ', tmpCntData)
+    this.schemaForm.setFormValues(tmpCntData)
+  }
+
+  public setGeneralData(data: { formValues: { contractType: string, counterParty: any }, knownData: any }) {
+    console.log('setGeneralData', data)
+
+    const tmpCntData = { ...this.schemaForm.value }
+
+    if (!tmpCntData.Contract) {
+      tmpCntData.Contract = {
+        ReferenceNumber: undefined,
+        Date: undefined,
+        Seller: undefined,
+        Buyer: undefined
+      }
+    }
+
+    // tslint:disable-next-line:max-line-length
+    tmpCntData.Contract.ReferenceNumber = ((o) => (o && o.seller && o.buyer) ? `${o.seller.sequenceId}-${o.buyer.sequenceId}-${Math.floor((Math.random() + 1) * 100000)}` : '')(data.knownData)
+    tmpCntData.Contract.Date = new Date().toString()
+
+    if (!tmpCntData.Contract.Seller) {
+      tmpCntData.Contract.Seller = {
+        Name: undefined,
+        Addresses: {
+          Item: undefined
+        },
+        Telephone: undefined,
+        Fax: undefined
+      }
+    }
+    if (!tmpCntData.Contract.Seller.Addresses.Item || tmpCntData.Contract.Seller.Addresses.Item.length === 0) {
+      tmpCntData.Contract.Seller.Addresses.Item = [
+        {
+          AddressStreet1: undefined,
+          AddressStreet2: undefined,
+          AddressStreet3: undefined,
+          Town: undefined
+        }
+      ]
+    }
+    tmpCntData.Contract.Seller.Name = data.knownData.seller.companyName
+    tmpCntData.Contract.Seller.Addresses.Item[0].AddressStreet1 = data.knownData.seller.address1
+    tmpCntData.Contract.Seller.Addresses.Item[0].AddressStreet2 = data.knownData.seller.address2
+    tmpCntData.Contract.Seller.Addresses.Item[0].AddressStreet3 = data.knownData.seller.address3
+    tmpCntData.Contract.Seller.Addresses.Item[0].Town = data.knownData.seller.city
+    tmpCntData.Contract.Seller.Telephone = data.knownData.seller.telephone
+    tmpCntData.Contract.Seller.Fax = data.knownData.seller.fax
+
+    if (!tmpCntData.Contract.Buyer) {
+      tmpCntData.Contract.Buyer = {
+        Name: undefined,
+        Addresses: {
+          Item: undefined
+        },
+        Telephone: undefined,
+        Fax: undefined
+      }
+    }
+    if (!tmpCntData.Contract.Buyer.Addresses.Item || tmpCntData.Contract.Buyer.Addresses.Item.length === 0) {
+      tmpCntData.Contract.Buyer.Addresses.Item = [
+        {
+          AddressStreet1: undefined,
+          AddressStreet2: undefined,
+          AddressStreet3: undefined,
+          Town: undefined
+        }
+      ]
+    }
+    tmpCntData.Contract.Buyer.Name = data.knownData.buyer.companyName
+    tmpCntData.Contract.Buyer.Addresses.Item[0].AddressStreet1 = data.knownData.buyer.address1
+    tmpCntData.Contract.Buyer.Addresses.Item[0].AddressStreet2 = data.knownData.buyer.address2
+    tmpCntData.Contract.Buyer.Addresses.Item[0].AddressStreet3 = data.knownData.buyer.address3
+    tmpCntData.Contract.Buyer.Addresses.Item[0].Town = data.knownData.buyer.city
+    tmpCntData.Contract.Buyer.Telephone = data.knownData.buyer.telephone
+    tmpCntData.Contract.Buyer.Fax = data.knownData.buyer.fax
+
     this.schemaForm.setFormValues(tmpCntData)
   }
 

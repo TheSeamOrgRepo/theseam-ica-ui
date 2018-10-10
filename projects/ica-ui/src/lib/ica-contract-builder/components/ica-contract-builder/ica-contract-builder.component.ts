@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core'
+import { Component, OnInit, Input, ViewChild, EventEmitter, Output } from '@angular/core'
 
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
 import { IContractTemplatePack } from '../../models/ica-contract-builder.models'
@@ -12,6 +12,8 @@ import { IcaContractSchemaFormComponent } from '../ica-contract-schema-form/ica-
 export class IcaContractBuilderComponent implements OnInit {
 
   @Input() contractTemplatePack: IContractTemplatePack
+
+  @Output() submit = new EventEmitter<any>()
 
   @ViewChild(IcaContractSchemaFormComponent) icaSchemaForm: IcaContractSchemaFormComponent
 
@@ -33,6 +35,10 @@ export class IcaContractBuilderComponent implements OnInit {
 
   onDataChange(data: object) {
     this.formData = data
+  }
+
+  onSchemaFormSubmit(event: any) {
+    this.submit.emit(event)
   }
 
   prefil() {
