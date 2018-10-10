@@ -6,10 +6,10 @@
     </div>
 
     <div class="contract-new__preview">
-        <div class="contract-new__pre-fill">
+        <div class="contract-new__pre-fill" *ngIf="showPrefill">
             <div class="form-field form-field--contract form-field--select">
                 <div class="select">
-                    <select id="placeholder-select" class="form-field__select" onchange="document.querySelector('.contract-new__pre-fill').remove()">
+                    <select id="placeholder-select" class="form-field__select" (change)="showPrefill=false;prefil()">
                         <option value="" selected disabled>Choose Pre-Fill Content</option>
                         <option value="option-1">21st Century Textiles</option>
                         <option value="option-2">AXEM Fibers</option>

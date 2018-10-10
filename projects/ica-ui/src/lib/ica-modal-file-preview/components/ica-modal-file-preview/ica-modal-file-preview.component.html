@@ -1,11 +1,12 @@
-<div id="modal-preview-pdf" class="modal modal--preview-pdf">
+<div id="modal-preview-pdf" class="modal modal--preview-pdf is-active">
     <div class="modal__content">
         <div class="modal__header">
-            <button class="modal__close" data-modal-close><span class="hide-vis">Close</span></button>
+            <button class="modal__close" data-modal-close (click)="closeModal()"><span class="hide-vis">Close</span></button>
 
             <div class="content">
                 <div class="left">
-                    <h1>501135-501132-171119.pdf</h1>
+                    <!-- <h1>501135-501132-171119.pdf</h1> -->
+                    <h1>={{ icaModalFilePreview.fileName }}</h1>
                 </div>
 
                 <div class="right">
@@ -14,12 +15,22 @@
             </div>
         </div>
 
-        <div class="modal__preview">
-            <img src="/images/placeholder-contract.svg" alt="" class="shadow">
+        <div class="modal__preview" [class.no-prev-pad]="icaModalFilePreview.fileType === 'pdf'">
+            <!-- <img src="assets/images/placeholder-contract.svg" alt="" class="shadow">
             <br><br>
-            <img src="/images/placeholder-contract.svg" alt="" class="shadow">
+            <img src="assets/images/placeholder-contract.svg" alt="" class="shadow">
             <br><br>
-            <img src="/images/placeholder-contract.svg" alt="" class="shadow">
+            <img src="assets/images/placeholder-contract.svg" alt="" class="shadow"> -->
+            <ng-container *ngIf="icaModalFilePreview.fileType === 'pdf'">
+              <div class="iframe-container">
+                <iframe #fileIframe frameborder="0"></iframe>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="icaModalFilePreview.fileType === 'json'">
+                <ngx-json-viewer [json]="icaModalFilePreview.dataSrc"></ngx-json-viewer>
+                <!-- <pre>{{ icaModalFilePreview.dataSrc | json }}</pre> -->
+            </ng-container>
         </div>
     </div>
 </div>

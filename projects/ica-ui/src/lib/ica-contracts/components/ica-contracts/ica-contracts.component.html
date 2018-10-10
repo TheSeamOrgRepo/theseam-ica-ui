@@ -20,7 +20,8 @@
           [tableCssClasses]="'table--contracts'"
           [columns]="contractsTableColumns"
           [rows]="contractsTableRows"
-          [hasActions]="true">
+          [hasActions]="true"
+          (rowAction)="onRowAction($event)">
         </ica-table>
     </div>
 </div>

@@ -17,6 +17,8 @@ export class IcaContractBuilderComponent implements OnInit {
 
   public formData: object
 
+  showPrefill = true
+
   constructor(
     public icaCntBuilder: IcaContractBuilderService
   ) {
@@ -31,6 +33,10 @@ export class IcaContractBuilderComponent implements OnInit {
 
   onDataChange(data: object) {
     this.formData = data
+  }
+
+  prefil() {
+    this.icaSchemaForm.prefillSchemaData()
   }
 
 }

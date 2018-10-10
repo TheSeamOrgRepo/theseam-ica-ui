@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core'
+import { Component, OnInit, EventEmitter, Output, HostListener } from '@angular/core'
 
 @Component({
   selector: 'ica-table-actions-dropdown',
@@ -10,6 +10,12 @@ export class IcaTableActionsDropdownComponent implements OnInit {
   @Output() action = new EventEmitter<string>()
 
   public isActive = false
+
+  @HostListener('document:keyup', ['$event']) handleKeyUp(event) {
+    if (event.keyCode === 27) {
+        this.isActive = false
+    }
+  }
 
   constructor() { }
 

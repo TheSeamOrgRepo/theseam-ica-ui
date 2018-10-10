@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { IcaTableHeaderColumnItem, IcaTableRowColumnItem } from '@theseam/ica-ui'
+import { IcaTableHeaderColumnItem, IcaTableRowColumnItem, IcaModalFilePreviewService, IRowAction } from '@theseam/ica-ui'
 
 @Component({
   selector: 'app-contracts',
@@ -63,9 +63,16 @@ export class ContractsComponent implements OnInit {
     ]
   ]
 
-  constructor() { }
+  constructor(
+    private icaModalFilePreview: IcaModalFilePreviewService
+  ) { }
 
   ngOnInit() {
+  }
+
+  onRowAction(rowAction: IRowAction) {
+    console.log('rowAction~', rowAction)
+    // this.icaModalFilePreview.open()
   }
 
 }

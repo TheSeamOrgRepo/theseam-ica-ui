@@ -95,4 +95,41 @@ export class IcaContractSchemaFormComponent implements OnInit {
     this.dataChange.emit(event)
   }
 
+  public prefillSchemaData() {
+    // console.log('prefill schema form data')
+
+    const tmpCntData = { ...this.schemaForm.value }
+
+    if (!tmpCntData.Contract.Specifications) {
+      tmpCntData.Contract.Specifications = {}
+    }
+
+    tmpCntData.Contract.Specifications.CropYear = '2018'
+
+    if (!tmpCntData.Contract.Pricing) {
+      tmpCntData.Contract.Pricing = {}
+    }
+
+    tmpCntData.Contract.Pricing.PriceType = 'On Call'
+    tmpCntData.Contract.Pricing.UnitPrice = 87.50
+    tmpCntData.Contract.Pricing.PriceBase = 'c/lb'
+
+    if (!tmpCntData.Contract.Terms) {
+      tmpCntData.Contract.Terms = {
+        Quantity: {},
+        ShipmentPeriods: {}
+      }
+    }
+
+    tmpCntData.Contract.Terms.Quantity.ContractedUnits = 2000
+    tmpCntData.Contract.Terms.Quantity.QuantityType = 'Metric Tons'
+
+    tmpCntData.Contract.Terms.ShipmentPeriods.Shipment = 'March 2018'
+
+
+    // DONE
+    // console.log('tmpCntData: ', tmpCntData)
+    this.schemaForm.setFormValues(tmpCntData)
+  }
+
 }

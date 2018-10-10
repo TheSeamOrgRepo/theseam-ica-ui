@@ -12,7 +12,7 @@
             <td><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></td>
             <td *ngFor="let rowCol of row" [class]="rowCol?.cssClass">{{ rowCol.label }}</td>
             <td *ngIf="hasActions">
-                <ica-table-actions-dropdown></ica-table-actions-dropdown>
+                <ica-table-actions-dropdown (action)="onRowAction(row, $event)"></ica-table-actions-dropdown>
             </td>
         </tr>
     </tbody>
