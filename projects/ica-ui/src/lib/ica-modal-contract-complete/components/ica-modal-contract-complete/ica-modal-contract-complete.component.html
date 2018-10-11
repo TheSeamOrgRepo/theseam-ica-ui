@@ -1,6 +1,6 @@
-<div id="modal-contract-complete" class="modal modal--contract-complete">
+<div id="modal-contract-complete" class="modal modal--contract-complete is-active">
     <div class="modal__content">
-        <button class="modal__close" data-modal-close><span class="hide-vis">Close</span></button>
+        <button class="modal__close" (click)="closeModal()" data-modal-close><span class="hide-vis">Close</span></button>
 
         <div class="contract-new__header-steps">
             <div class="contract-new__header-steps-text">
@@ -15,8 +15,8 @@
         <h1 class="modal__header">Contract Complete</h1>
 
         <div class="modal__actions">
-            <button class="btn btn--gray" data-modal-close>Edit</button>
-            <button class="btn btn--green" data-modal="contract-sign">Sign Now</button>
+            <button class="btn btn--gray" (click)="closeModal()" data-modal-close>Edit</button>
+            <button class="btn btn--green" (click)="onClickSign()" data-modal="contract-sign">Sign Now</button>
         </div>
 
         <div class="modal__footer">

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core'
+
+import { IcaModalContractCompleteService } from './../../services/ica-modal-contract-complete.service'
+import { IcaModalContractSignService } from './../../../ica-modal-contract-sign/services/ica-modal-contract-sign.service'
 
 @Component({
   selector: 'ica-modal-contract-complete',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core'
 })
 export class IcaModalContractCompleteComponent implements OnInit {
 
-  constructor() { }
+  @HostListener('document:keyup', ['$event']) handleKeyUp(event) {
+    if (event.keyCode === 27) {
+        this.closeModal()
+    }
+  }
+
+  constructor(
+    public icaModalContractComplete: IcaModalContractCompleteService,
+    public icaModalContractSign: IcaModalContractSignService
+  ) { }
 
   ngOnInit() {
+  }
+
+  closeModal() {
+    this.icaModalContractComplete.close()
+  }
+
+  onClickSign() {
+    this.icaModalContractSign.open()
   }
 
 }

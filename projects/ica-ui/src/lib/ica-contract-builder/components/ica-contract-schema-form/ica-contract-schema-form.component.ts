@@ -7,6 +7,8 @@ import { IContractTemplatePack } from '../../models/ica-contract-builder.models'
 import { IcaConstractSchemaFormService } from '../../services/ica-constract-schema-form.service'
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
 import { IcaCommonService } from '../../../common'
+import { IcaModalContractCompleteService } from './../../../ica-modal-contract-complete/services/ica-modal-contract-complete.service'
+
 
 // tslint:disable:max-line-length
 import { IcaSchemaFormSectionWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-section-widget/ica-schema-form-section-widget.component'
@@ -54,9 +56,10 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
   generalData: any
 
   constructor(
-    private icaCntForm: IcaConstractSchemaFormService,
+    public icaCntForm: IcaConstractSchemaFormService,
     public icaCntBuilder: IcaContractBuilderService,
-    public icaCommon: IcaCommonService
+    public icaCommon: IcaCommonService,
+    public icaModalContractComplete: IcaModalContractCompleteService
   ) { }
 
   ngOnInit() {
@@ -200,8 +203,11 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
   }
 
   public schemaFormOnSubmit(event: any) {
-    console.log('schemaFormOnSubmit', event)
-    this.submit.emit({ schemaData: this.schemaForm.value, generalData: this.generalData })
+    console.log('[IcaContractSchemaFormComponent] schemaFormOnSubmit', event)
+    // this.icaModalContractComplete.open()
+    const toSubmit = { schemaData: this.schemaForm.value, generalData: this.generalData }
+    console.log('[IcaContractSchemaFormComponent] toSubmit', toSubmit)
+    this.submit.emit(toSubmit)
   }
 
   public prefillSchemaData() {

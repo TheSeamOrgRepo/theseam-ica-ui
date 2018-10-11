@@ -8,6 +8,7 @@ import { IcaModalSubmitContractComponent } from './components/ica-modal-submit-c
     CommonModule
   ],
   declarations: [ IcaModalSubmitContractComponent ],
-  exports: [ IcaModalSubmitContractComponent ]
+  exports: [ IcaModalSubmitContractComponent ],
+  entryComponents: [ IcaModalSubmitContractComponent ]
 })
 export class IcaModalSubmitContractModule { }

@@ -1,6 +1,6 @@
-<div id="modal-contract-sign" class="modal modal--contract-sign">
+<div id="modal-contract-sign" class="modal modal--contract-sign is-active">
     <div class="modal__content">
-        <button class="modal__close" data-modal-close><span class="hide-vis">Close</span></button>
+        <button class="modal__close" (click)="closeModal()" data-modal-close><span class="hide-vis">Close</span></button>
 
         <h1 class="modal__header">
             Sign Contract
@@ -12,12 +12,19 @@
             </div>
         </h1>
 
-        <textarea class="modal__box"></textarea>
+        <!-- <textarea class="modal__box"></textarea> -->
+        <div class="modal__box" style="border: 1px solid grey; border-radius: 4px;">
+          <signature-pad
+            [options]="options"
+            (onBeginEvent)="drawStart($event)"
+            (onEndEvent)="drawComplete($event)">
+          </signature-pad>
+        </div>
 
         <div class="modal__actions">
-            <a href="#" class="clear">Clear</a>
-            <button class="btn btn--gray cancel" data-modal="contract-complete">Cancel</button>
-            <button class="btn btn--green submit" data-modal="submit-contract">Submit</button>
+            <a (click)="onClearBtnClick($event)" [routerLink]="" class="clear">Clear</a>
+            <button class="btn btn--gray cancel" data-modal="contract-complete" (click)="closeModal()">Cancel</button>
+            <button class="btn btn--green submit" data-modal="submit-contract" (click)="onClickSubmit()">Submit</button>
         </div>
     </div>
 </div>

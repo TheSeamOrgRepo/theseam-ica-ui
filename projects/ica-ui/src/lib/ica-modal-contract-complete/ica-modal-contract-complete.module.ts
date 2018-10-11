@@ -8,6 +8,7 @@ import { IcaModalContractCompleteComponent } from './components/ica-modal-contra
     CommonModule
   ],
   declarations: [ IcaModalContractCompleteComponent ],
-  exports: [ IcaModalContractCompleteComponent ]
+  exports: [ IcaModalContractCompleteComponent ],
+  entryComponents: [ IcaModalContractCompleteComponent ]
 })
 export class IcaModalContractCompleteModule { }

@@ -1,37 +1,46 @@
-<div id="modal-submit-contract" class="modal modal--submit-contract">
+<div id="modal-submit-contract" class="modal modal--submit-contract is-active">
     <div class="modal__content">
         <h1 class="modal__header">Submitting...</h1>
 
         <ul class="modal__steps progress-list">
-            <li class="progress-list__item progress-list__item--finished">
+            <li class="progress-list__item"
+              [class.progress-list__item--finished]="icaModalSubmitContract.compilingContractDataState === 'finished'"
+              [class.progress-list__item--loading]="icaModalSubmitContract.compilingContractDataState === 'loading'">
                 <div class="progress-list__icon"></div>
                 <div class="progress-list__name">Compiling Contract Data</div>
             </li>
 
-            <li class="progress-list__item progress-list__item--finished">
+            <li class="progress-list__item"
+              [class.progress-list__item--finished]="icaModalSubmitContract.generatingPdfDocumentState === 'finished'"
+              [class.progress-list__item--loading]="icaModalSubmitContract.generatingPdfDocumentState === 'loading'">
                 <div class="progress-list__icon"></div>
                 <div class="progress-list__name">Generating PDF Document</div>
             </li>
 
-
-            <li class="progress-list__item progress-list__item--loading">
+            <li class="progress-list__item"
+              [class.progress-list__item--finished]="icaModalSubmitContract.encryptingContractFilesState === 'finished'"
+              [class.progress-list__item--loading]="icaModalSubmitContract.encryptingContractFilesState === 'loading'">
                 <div class="progress-list__icon"></div>
                 <div class="progress-list__name">Encrypting Contract Files</div>
             </li>
 
-            <li class="progress-list__item">
+            <li class="progress-list__item"
+              [class.progress-list__item--finished]="icaModalSubmitContract.postingContractToDatabaseState === 'finished'"
+              [class.progress-list__item--loading]="icaModalSubmitContract.postingContractToDatabaseState === 'loading'">
                 <div class="progress-list__icon"></div>
                 <div class="progress-list__name">Posting Contract to Database</div>
             </li>
 
-            <li class="progress-list__item">
+            <li class="progress-list__item"
+              [class.progress-list__item--finished]="icaModalSubmitContract.postingContractToBlockchainState === 'finished'"
+              [class.progress-list__item--loading]="icaModalSubmitContract.postingContractToBlockchainState === 'loading'">
                 <div class="progress-list__icon"></div>
                 <div class="progress-list__name">Posting Contract to Blockchain</div>
             </li>
         </ul>
 
         <div class="modal__actions">
-            <button class="btn btn--green" data-modal-close>Finish</button>
+            <button class="btn btn--green" (click)="onClickFinish()" data-modal-close>Finish</button>
         </div>
     </div>
 </div>

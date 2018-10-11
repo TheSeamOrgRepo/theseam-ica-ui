@@ -6,6 +6,8 @@ import { NoFrameworkModule, MaterialDesignFrameworkModule } from 'angular6-json-
 
 import { SanitizeHtmlPipe } from './pipes/sanitizeHtml.pipe'
 
+import { IcaModalContractSignModule } from './../ica-modal-contract-sign/ica-modal-contract-sign.module'
+import { IcaModalContractCompleteModule } from './../ica-modal-contract-complete/ica-modal-contract-complete.module'
 import { IcaContractFormWidgetsModule } from './../ica-contract-form-widgets/ica-contract-form-widgets.module'
 
 import { IcaContractSchemaFormComponent } from './components/ica-contract-schema-form/ica-contract-schema-form.component'
@@ -19,7 +21,9 @@ import { IcaContractBuilderComponent } from './components/ica-contract-builder/i
     HttpClientModule,
     NoFrameworkModule,
     MaterialDesignFrameworkModule,
-    IcaContractFormWidgetsModule
+    IcaContractFormWidgetsModule,
+    IcaModalContractCompleteModule,
+    IcaModalContractSignModule,
   ],
   declarations: [
     IcaContractSchemaFormComponent,
