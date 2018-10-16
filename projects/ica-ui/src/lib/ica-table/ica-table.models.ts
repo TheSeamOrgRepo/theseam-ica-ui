@@ -8,3 +8,8 @@ export interface IcaTableRowColumnItem {
   label: string
   cssClass?: string
 }
+
+export interface IcaTableColumn {
+  label: string
+  prop: string
+}
