@@ -1,9 +1,14 @@
-
-<canvas id="the-canvas"></canvas>
-
-<div *ngIf="content"
+<div #pdfContainer
   style="background-color: white;"
   class="shadow"
+  (elemResized)="onResized($event)">
+  <canvas id="the-canvas"></canvas>
+</div>
+
+<div *ngIf="content"
+  style="background-color: white; display: none;"
+  class="shadow"
   (click)="previewClick($event)"
+  (elemResized)="onResized($event)"
   [innerHTML]="formattedContent | sanitizeHtml">
 </div>
