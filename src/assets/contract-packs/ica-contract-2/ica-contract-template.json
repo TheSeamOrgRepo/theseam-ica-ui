@@ -1,0 +1,549 @@
+{
+  "symbols": [
+    {
+      "label": "CONTRACT_NUMBER",
+      "pointer": "/Contract/ReferenceNumber"
+    },
+    {
+      "label": "BUYER_NAME",
+      "pointer": "/Contract/Buyer/Name"
+    },
+    {
+      "label": "BUYER_ADDR_STREET1",
+      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet1"
+    },
+    {
+      "label": "BUYER_ADDR_STREET2",
+      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet2"
+    },
+    {
+      "label": "BUYER_ADDR_STREET3",
+      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet3"
+    },
+    {
+      "label": "BUYER_TOWN",
+      "pointer": "/Contract/Buyer/Addresses/Item/0/Town"
+    },
+    {
+      "label": "BUYER_TELEPHONE",
+      "pointer": "/Contract/Buyer/Telephone"
+    },
+    {
+      "label": "BUYER_FAX",
+      "pointer": "/Contract/Buyer/Fax"
+    },
+    {
+      "label": "SELLER_NAME",
+      "pointer": "/Contract/Seller/Name"
+    },
+    {
+      "label": "SELLER_ADDR_STREET1",
+      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet1"
+    },
+    {
+      "label": "SELLER_ADDR_STREET2",
+      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet2"
+    },
+    {
+      "label": "SELLER_ADDR_STREET3",
+      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet3"
+    },
+    {
+      "label": "SELLER_TOWN",
+      "pointer": "/Contract/Seller/Addresses/Item/0/Town"
+    },
+    {
+      "label": "SELLER_TELEPHONE",
+      "pointer": "/Contract/Seller/Telephone"
+    },
+    {
+      "label": "SELLER_FAX",
+      "pointer": "/Contract/Seller/Fax"
+    },
+    {
+      "label": "CONTRACT_DATE",
+      "pointer": "/Contract/Date"
+    },
+    {
+      "label": "CONTRACTED_UNITS",
+      "pointer": "/Contract/Terms/Quantity/ContractedUnits"
+    },
+    {
+      "label": "QUANTITY_TYPE",
+      "pointer": "/Contract/Terms/Quantity/QuantityType"
+    },
+    {
+      "label": "VARIATION_PERCENT",
+      "pointer": "/Contract/Terms/Quantity/VariationPercent"
+    },
+    {
+      "label": "VARIATION_OPTION",
+      "pointer": "/Contract/Terms/Quantity/VariationOption"
+    },
+    {
+      "label": "CROP_YEAR",
+      "pointer": "/Contract/Specifications/CropYear"
+    },
+    {
+      "label": "GROWTH_ORIGIN",
+      "pointer": "/Contract/Specifications/GrowthOrigin"
+    },
+    {
+      "label": "GRADE_DESCRIPTION",
+      "pointer": "/Contract/Specifications/GradeDescription"
+    },
+    {
+      "label": "STAPLE",
+      "pointer": "/Contract/Specifications/Staple"
+    },
+    {
+      "label": "MICRONAIRE_MIN",
+      "pointer": "/Contract/Specifications/MinMicronaire"
+    },
+    {
+      "label": "MICRONAIRE_MAX",
+      "pointer": "/Contract/Specifications/MaxMicronaire"
+    },
+    {
+      "label": "MICRONAIRE_MEMO",
+      "pointer": "/Contract/Specifications/MicronaireMemo"
+    },
+    {
+      "label": "MIN_STRENGTH",
+      "pointer": "/Contract/Specifications/MinStrength"
+    },
+    {
+      "label": "UNIT_PRICE",
+      "pointer": "/Contract/Pricing/UnitPrice"
+    },
+    {
+      "label": "PRICE_POINTS",
+      "pointer": "/Contract/Pricing/PricePoints"
+    },
+    {
+      "label": "PRICE_BASE",
+      "pointer": "/Contract/Pricing/PriceBase"
+    },
+    {
+      "label": "FIXATION_CALL_MONTH",
+      "pointer": "/Contract/Pricing/FixationCallMonth"
+    },
+    {
+      "label": "FIXATION_CALL_YEAR",
+      "pointer": "/Contract/Pricing/FixationCallYear"
+    },
+    {
+      "label": "OTHER_PRICE_MEMO",
+      "pointer": "/Contract/Pricing/OtherPriceMemo"
+    },
+    {
+      "label": "PAYMENT_TERMS",
+      "pointer": "/Contract/Terms/PaymentTerms/Description"
+    },
+    {
+      "label": "SHIPMENT_PERIOD",
+      "pointer": "/Contract/Terms/ShipmentPeriods/Shipment"
+    },
+    {
+      "label": "FREIGHT_BASIS",
+      "pointer": "/Contract/Terms/FreightBasis/Description"
+    },
+    {
+      "label": "SPECIAL_CLAUSE_0",
+      "pointer": "/Contract/Terms/SpecialClauses/Item/0/Description"
+    },
+    {
+      "label": "SPECIAL_CLAUSE_1",
+      "pointer": "/Contract/Terms/SpecialClauses/Item/1/Description"
+    },
+    {
+      "label": "SPECIAL_CLAUSE_2",
+      "pointer": "/Contract/Terms/SpecialClauses/Item/2/Description"
+    },
+    {
+      "label": "SPECIAL_CLAUSE_3",
+      "pointer": "/Contract/Terms/SpecialClauses/Item/3/Description"
+    },
+    {
+      "label": "SELLER_SIGNATURE",
+      "pointer": "/Contract/SellerSignature"
+    }
+  ],
+  "documentDefinition": {
+    "content": [
+      // Header
+      {
+        "columns": [
+          {
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAAyCAYAAAC+jCIaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABqRJREFUeNrsnDtz20YQx48Ki7gySnWCOqUi3KUT2LkTWcWpRHZOReoTkOrSkaqSztQnIFOmIvIJRFVOJ6izZzxjpIsr527yP3N1wuOOAAgOcDtzQxLPvb0fdvceYJvllMfODz3+MePF5SXg5erk/v2GWWm0tHJCNeAf75TNES9dC1ez5SgHVLMYqIQ4Yjvf71jzWrBMoRJAjVMO8XhZW7gsWKZQDTQOtXA1WNoGQDkIfT2D63s4p29NbT1WElRrQ6ik9ODlrFiwYqHyctxnYOGyYFGovAKgonBNrcmbIS0NqIpOvocn9+8X1vQN9FglQiVkZs3eQLAwRVMWVKzE61qpXlxe/GfDDQlTNEVL2EBju+R3QL6LyFCXqS/Bzgj1mbT3DJWYRzQZ01oXcM9uhUC9AzwBHijxfcnLDbaNWH3G+C4BlajjTRtQid7aZA9QmUxOS7d6jUagT7rUN1DA8VBmFYdcofsdYDpF3em+JdG/LhKR0jniUI33ANWGma94EA2wAESBwX3EOcOKjTwj3jKKSQW6NQqBUm5lfiVzrMs9QRXtqOwuUrUn6EGHKOXpvtrDA71PWaF86xU6BwrVJgcg0QEY2tGAv7YdmaMcXkGH4F2hOhQ48ohHQ0OC/FVbsHjDT5GXFCkLft1+DqjqEBYYknT/gEN2qR6LcQCGND7mhUrkDxhobarckHC4xrCDG3NcrUOhlGEBPZVrJKXCmEuMjR2S9NDLHGjmliKcjXGOb3CfQOmZDjD8MN0hp/VJcTT0lcd6Gtd1lJww61yqix5YCFt5usHS690RxcTad/9AgPrM/h+QvIQHeWDJK2F97Beh7ISXl+Qc3ZUeC9gzJA03wTV0ABtDZzF0cYHPzzg3rn4PxDN6CfqO0T5f2dP1dWMcO8P2O/Z0sLyn7F/jt5uk/LPVDTuuv5LeLm6OsYy3dqYsfoCUyleiWwfeNFLOF7/VAcwBjCqu3Sf7pF2EMV8ZhrEB7ucqdklKQeTyb+H95zG6zbGP4ZoPbDsYyzS236E+c3w+4nuEdpftKL3uBe4XEjt40L2fFQqp5xpq9srkFE0SVN8aBCsmqpAOjBIpYG6gm6cYfUbqFSl1vcU5piF+gcYdKqAuY64lQ/VKgUpeJ4SHcTI6AiHq6Cp1DElnbYye6ZTotSHQClucwxah0uaMpawojl02A+/SzYBLhk6HZa+GkHC5FYB1ndEjo6F6Al0DJV+RpUNg3bVjc6oAo04/jchQhB9TaD4lQWmx+NmGKGFM7ZFAtEixjUMgU6ENFT2eSOLLFAIuDkI3LbyRWK4jDhL67p6HIZLu9U9C8ivPicsNH9l27jKtnlkPpGise9jOwZO/UBJqJ0GH24wepYvrdVLSmU2GbUIN+4W4l2MEFoFrCJdNlRoaQkUbbl0BXCb6ycYLclwj0PRe5wh7bkIeaSID4u1uAK9r2JstZbghCa4VcbMyRF6y3ZfYHPL7hiF56vP2QnWkiFkPOlZ2i47FglU8c6H1+hfWqPcB1YylvwWtC9chLlGWnuY853VGBlDQ0BQqIU1HZmy7vGhueN9qwSKea7ZDjyjRded4JayTYSAT9/8yxoP0chrf17TTCDCtCFgBCW2692IJ4dfJCPl5wHNygyXCFi/rAqGicJnmEjSp9RKM5GsY8SImbAVkbCepp+srOWeSZP2/hfQ0am9ODklMUuw9JnpHMXV2FR3VepxneEU/w3PSYZqLuAt8pwMVjPxjWW5z/vGTTq4hKvKWl994OSbb3/DyApU9hhcQx32P/ULvLyTc+KRRKagteIw/8P01GvAMeYs8T9zjF17+TemVSUAuAKoLHY/ZdpDzDOlFENNr/BN6v8V9T1H/n3j5Fb3T33H8F0AmhyN6sMnPOO4N7vUCnyMCpQPdxHEf8Ps1oD4m9vrIy99KGnNG7NuC3h9kJVqaUJU5uBnwMFvVuvQsz9gjoMgwFWac57LtEl3a/XeUnrXOpH+PPR/cXMUk5h6BZcWeTstJ4NTtpUrWC6vLAnpIWdJH/malRtJOgarMdwulXFmoGgLWHqGyr9rXWOJ6hUsLlZVCPRaS9TJzqgg5VWBN3yCPhfm7qESouhaq5obCqxKhsn/R3VSwkPvMC7yHgOmVhcp6LAGX8FqLgqASniq0prZgSbiGOeHK8xa0lbqCReDaJdleWajscEOWiIlSk/nCBYC0Yj1Wqtcyed/QQmVFDywFrrQk/NpCZcUILAKX+q6dlCH+XMSKFTOwAJd8mUIm9MKD9e28nxVV/hNgAAQ1LjNozRJhAAAAAElFTkSuQmCC",
+            "fit": [100, 100],
+            "width": "*"
+          },
+          // Address
+          {
+            "text": "3400 Players Club Parkway\nSuite 210\nMemphis, TN 38125",
+            "fontSize": 9,
+            "width": "auto"
+          },
+          // Phone numbers
+          {
+            "text": "Phone: (901) 374-0374\nToll Free: (877) 280-3413\nFax: (901) 684-1998",
+            "fontSize": 9,
+            "width": "auto"
+          }
+        ],
+        "columnGap": 20
+      },
+      // Issue rendering 'line' multiple times in preview component
+      // {
+      //   canvas: [
+      //     {
+      //       type: 'line',
+      //       x1: 0, y1: 10,
+      //       x2: 573, y2: 10,
+      //       lineWidth: 1
+      //     }
+      //   ]
+      // },
+      {
+        "text": "_________________________________________________________________________________________________________"
+      },
+      // Sales contract
+      {
+        "text": [
+          { "text": "Sales Contract: ", "bold": true },
+          "{=CONTRACT_NUMBER}"
+        ],
+        "margin": [ 0, 5, 0, 0],
+        "fontSize": 10
+      },
+      // Buyer/Seller columns
+      {
+        // Label columns
+        "columns": [
+          {
+            "text": "Seller:",
+            "fontSize": 10,
+            "bold": true,
+            "width": "*",
+            "margin": [ 15, 0, 0, 0]
+          },
+          {
+            "text": "Buyer:",
+            "fontSize": 10,
+            "bold": true,
+            "width": "*",
+            "margin": [ 15, 0, 0, 0]
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      {
+        // Content Columns
+        "columns": [
+          {
+            "text": [
+              "{=BUYER_NAME}\n",
+              "{=BUYER_ADDR_STREET1}\n",
+              "{=BUYER_ADDR_STREET2}\n",
+              "{=BUYER_ADDR_STREET3}\n",
+              "{=BUYER_TOWN}\n",
+              "Phone: {=BUYER_TELEPHONE}\n",
+              "Fax: {=BUYER_FAX}\n"
+            ],
+            "fontSize": 10,
+            "width": "*",
+            "margin": [ 25, 0, 0, 0]
+          },
+          {
+            "text": [
+              "{=SELLER_NAME}\n",
+              "{=SELLER_ADDR_STREET1}\n",
+              "{=SELLER_ADDR_STREET2}\n",
+              "{=SELLER_ADDR_STREET3}\n",
+              "{=SELLER_TOWN}\n",
+              "Phone: {=SELLER_TELEPHONE}\n",
+              "Fax: {=SELLER_FAX}\n"
+            ],
+            "fontSize": 10,
+            "width": "*",
+            "margin": [ 25, 0, 0, 0]
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 5, 0, 0]
+      },
+      // Date
+      {
+        "text": [
+          { "text": "Date: ", "bold": true },
+          "{=CONTRACT_DATE}"
+        ],
+        "margin": [ 0, 10, 0, 0],
+        "fontSize": 10
+      },
+      // Quantity
+      {
+        "columns": [
+          {
+            "text": "Quantity:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "About {=CONTRACTED_UNITS} {=QUANTITY_TYPE}",
+              "\n{=VARIATION_PERCENT} percent variation in weight allowed at ",
+              "{=VARIATION_OPTION}'s option"
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Quality
+      {
+        "columns": [
+          {
+            "text": "Growth/Quality:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "Crop Year: {=CROP_YEAR}\n",
+              "Growth: {=GROWTH_ORIGIN}\n",
+              "Grade: {=GRADE_DESCRIPTION}\n",
+              "Staple: {=STAPLE}\n",
+              "Micronaire: {=MICRONAIRE_MIN}-{=MICRONAIRE_MAX} ({=MICRONAIRE_MEMO})\n",
+              "Strength GPT: {=MIN_STRENGTH}"
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Price/Terms
+      {
+        "columns": [
+          {
+            "text": "Price/Terms:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "{=UNIT_PRICE} {=PRICE_BASE}\n",
+              "{=PRICE_POINTS} {=PRICE_BASE}\n",
+              "ON {=FIXATION_CALL_MONTH} {=FIXATION_CALL_YEAR} {=OTHER_PRICE_MEMO}"
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Payment
+      {
+        "columns": [
+          {
+            "text": "Payment:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "{=PAYMENT_TERMS}"
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Shipment
+      {
+        "columns": [
+          {
+            "text": "Shipment:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "{=SHIPMENT_PERIOD}"
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Freight
+      {
+        "columns": [
+          {
+            "text": "Freight:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "{=FREIGHT_BASIS}"
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Insurance
+      {
+        "columns": [
+          {
+            "text": "Insurance:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Export Duty or Subsidy
+      {
+        "columns": [
+          {
+            "text": "Export Duty or Subsidy:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Special Clauses
+      {
+        "columns": [
+          {
+            "text": "Special Clauses:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "{=SPECIAL_CLAUSE_0}\n",
+              "{=SPECIAL_CLAUSE_1}\n",
+              "{=SPECIAL_CLAUSE_2}\n",
+              "{=SPECIAL_CLAUSE_3}"
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // General
+      {
+        "columns": [
+          {
+            "text": "General:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "* This contract incorporated the bylaws and rules of The International Cotton Association Ltd. ",
+              "as they were when the contract was agreed.\n",
+              "* The conditions below are an ingral part of this contract.\n",
+              "* This contract cannot be changed unless we agree in writing.\n",
+              "* This contract cannot be cancelled for any reason."
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Arbitration
+      {
+        "columns": [
+          {
+            "text": "Arbitration:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          },
+          {
+            "text": [
+              "* All disputes relating to this contract will be resolved through arbitration in accordance with the bylaws ",
+              "of the International Cotton Association Ltd.\n",
+              "* This agreement incorporated the bylaws which set out the Association's arbitration procedure.\n",
+              "* You must not take legal action against us over a dispute suitable for arbitration, other than to obtain security ",
+              "for any claim, unless you have first obtained an arbitration award from the International Cotton Association Ltd. ",
+              "and exhausted all means of appeal allowed by the Association's bylaws. This also applies to us."
+            ],
+            "fontSize": 10,
+            "width": "*"
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      // Seller Signature
+      {
+        "columns": [
+          {
+            "text": "Seller Signature:",
+            "fontSize": 10,
+            "bold": true,
+            "width": 110
+          }
+        ],
+        "columnGap": 20,
+        "margin": [ 0, 10, 0, 0]
+      },
+      {
+        // "image": "{=SELLER_SIGNATURE}",
+        "image": "data:image/png;base64,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",
+        "fit": [100, 100],
+        "width": "*"
+      },
+      {
+        "text": "---------------------------------"
+      }
+    ],
+    "pageMargins": [ 20, 15, 20, 20 ],
+    "pageSize": "LETTER"
+  }
+}

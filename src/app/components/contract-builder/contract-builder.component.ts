@@ -14,9 +14,9 @@ export class ContractBuilderComponent implements OnInit {
   public readonly defaultTemplatePack: IContractTemplatePackManifest = {
     name: 'Example Pack',
     version: '0.0.1',
-    schemaUrl: 'assets/contract-packs/ica-contract-1/ica-contract-schema.json',
-    layoutUrl: 'assets/contract-packs/ica-contract-1/ica-contract-form-layout.json',
-    pdfTplUrl: 'assets/contract-packs/ica-contract-1/ica-contract-template.html'
+    schemaUrl: 'assets/contract-packs/ica-contract-2/ica-contract-schema.json',
+    layoutUrl: 'assets/contract-packs/ica-contract-2/ica-contract-form-layout.json',
+    pdfTplUrl: 'assets/contract-packs/ica-contract-2/ica-contract-template.json'
   }
 
   public contractTplPack: Observable<IContractTemplatePack>

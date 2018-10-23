@@ -10,11 +10,3 @@
     [style.height]="highlightH + 'px'">
   </div>
 </div>
-
-<div *ngIf="content"
-  style="background-color: white; display: none;"
-  class="shadow"
-  (click)="previewClick($event)"
-  (elemResized)="onResized($event)"
-  [innerHTML]="formattedContent | sanitizeHtml">
-</div>

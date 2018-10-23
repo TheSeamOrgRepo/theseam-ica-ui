@@ -12,10 +12,15 @@ import { IcaModalContractSignModule } from './../ica-modal-contract-sign/ica-mod
 import { IcaModalContractCompleteModule } from './../ica-modal-contract-complete/ica-modal-contract-complete.module'
 import { IcaContractFormWidgetsModule } from './../ica-contract-form-widgets/ica-contract-form-widgets.module'
 
+// tslint:disable:max-line-length
 import { IcaContractSchemaFormComponent } from './components/ica-contract-schema-form/ica-contract-schema-form.component'
 import { IcaContractPreviewComponent } from './components/ica-contract-preview/ica-contract-preview.component'
 import { IcaContractBuilderTopBarComponent } from './components/ica-contract-builder-top-bar/ica-contract-builder-top-bar.component'
 import { IcaContractBuilderComponent } from './components/ica-contract-builder/ica-contract-builder.component'
+import { IcaContractPreviewHtmlComponent } from './components/ica-contract-preview-html/ica-contract-preview-html.component'
+import { IcaContractPreviewPdfComponent } from './components/ica-contract-preview-pdf/ica-contract-preview-pdf.component'
+import { IcaContractPreviewSymbolOverlayComponent } from './components/ica-contract-preview-symbol-overlay/ica-contract-preview-symbol-overlay.component'
+// tslint:enable:max-line-length
 
 @NgModule({
   imports: [
@@ -34,13 +39,19 @@ import { IcaContractBuilderComponent } from './components/ica-contract-builder/i
     IcaContractPreviewComponent,
     IcaContractBuilderTopBarComponent,
     IcaContractBuilderComponent,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    IcaContractPreviewHtmlComponent,
+    IcaContractPreviewPdfComponent,
+    IcaContractPreviewSymbolOverlayComponent
   ],
   exports: [
     IcaContractSchemaFormComponent,
     IcaContractPreviewComponent,
     IcaContractBuilderTopBarComponent,
-    IcaContractBuilderComponent
+    IcaContractBuilderComponent,
+    IcaContractPreviewHtmlComponent,
+    IcaContractPreviewPdfComponent,
+    IcaContractPreviewSymbolOverlayComponent
   ]
 })
 export class IcaContractBuilderModule { }

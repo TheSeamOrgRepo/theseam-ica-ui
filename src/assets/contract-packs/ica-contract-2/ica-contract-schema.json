@@ -1,0 +1,589 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "Contract": {
+      "$id": "/properties/Contract",
+      "type": "object",
+      "properties": {
+        "ReferenceNumber": {
+          "$id": "/properties/Contract/properties/ReferenceNumber",
+          "type": "string",
+          "title": "Sales Contract",
+          "default": "",
+          "examples": [
+            "S0-S02296.C00"
+          ]
+        },
+        "Date": {
+          "$id": "/properties/Contract/properties/Date",
+          "type": "string",
+          "title": "Offer Date",
+          "default": "",
+          "examples": [
+            "2018-02-15T23:01:29.382Z"
+          ]
+        },
+        "Seller": {
+          "$id": "/properties/Contract/properties/Seller",
+          "type": "object",
+          "properties": {
+            "Name": {
+              "$id": "/properties/Contract/properties/Seller/properties/Name",
+              "type": "string",
+              "title": "Company Name",
+              "default": "",
+              "examples": [
+                "LDC (China) Trading Company Limited"
+              ]
+            },
+            "Addresses": {
+              "$id": "/properties/Contract/properties/Seller/properties/Addresses",
+              "type": "object",
+              "properties": {
+                "Item": {
+                  "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item",
+                  "type": "array",
+                  "items": {
+                    "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item/items",
+                    "type": "object",
+                    "properties": {
+                      "AddressStreet1": {
+                        "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item/items/properties/AddressStreet1",
+                        "type": "string",
+                        "title": "Address Line 1",
+                        "default": "",
+                        "examples": [
+                          "12 Marina Boulevard"
+                        ]
+                      },
+                      "AddressStreet2": {
+                        "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item/items/properties/AddressStreet2",
+                        "type": "string",
+                        "title": "Address Line 2",
+                        "default": "",
+                        "examples": [
+                          "Marina Bay Financial Centre Tower 3 #33-03"
+                        ]
+                      },
+                      "AddressStreet3": {
+                        "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item/items/properties/AddressStreet3",
+                        "type": "string",
+                        "title": "Address Line 3",
+                        "default": "",
+                        "examples": [
+                          ""
+                        ]
+                      },
+                      "Town": {
+                        "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item/items/properties/Town",
+                        "type": "string",
+                        "title": "City",
+                        "default": "",
+                        "examples": [
+                          "Singapore"
+                        ]
+                      },
+                      "Region": {
+                        "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item/items/properties/Region",
+                        "type": "string",
+                        "title": "State\/Province",
+                        "default": "",
+                        "examples": [
+                          ""
+                        ]
+                      },
+                      "Postcode": {
+                        "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item/items/properties/Postcode",
+                        "type": "string",
+                        "title": "Postal Code",
+                        "default": "",
+                        "examples": [
+                          "018982"
+                        ]
+                      },
+                      "Country": {
+                        "$id": "/properties/Contract/properties/Seller/properties/Addresses/properties/Item/items/properties/Country",
+                        "type": "string",
+                        "title": "Country",
+                        "default": "",
+                        "examples": [
+                          "Singapore"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Email": {
+              "$id": "/properties/Contract/properties/Seller/properties/Email",
+              "type": "string",
+              "title": "Email",
+              "default": "",
+              "examples": [
+                "trading@ldc.com"
+              ]
+            },
+            "Telephone": {
+              "$id": "/properties/Contract/properties/Seller/properties/Telephone",
+              "type": "string",
+              "title": "Telephone",
+              "default": "",
+              "examples": [
+                "65 6735 9700"
+              ]
+            },
+            "Fax": {
+              "$id": "/properties/Contract/properties/Seller/properties/Fax",
+              "type": "string",
+              "title": "Fax",
+              "default": "",
+              "examples": [
+                "65 6735 9600"
+              ]
+            }
+          }
+        },
+        "Buyer": {
+          "$id": "/properties/Contract/properties/Buyer",
+          "type": "object",
+          "properties": {
+            "Name": {
+              "$id": "/properties/Contract/properties/Buyer/properties/Name",
+              "type": "string",
+              "title": "Name",
+              "default": "",
+              "examples": [
+                "TEXHONG TEXTILE GROUP LIMITED"
+              ]
+            },
+            "Addresses": {
+              "$id": "/properties/Contract/properties/Buyer/properties/Addresses",
+              "type": "object",
+              "properties": {
+                "Item": {
+                  "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item",
+                  "type": "array",
+                  "items": {
+                    "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item/items",
+                    "type": "object",
+                    "properties": {
+                      "AddressStreet1": {
+                        "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item/items/properties/AddressStreet1",
+                        "type": "string",
+                        "title": "Address Line 1",
+                        "default": "",
+                        "examples": [
+                          "ROOM 9, 31F, DORSET HOUSE, TAIKOO PLACE"
+                        ]
+                      },
+                      "AddressStreet2": {
+                        "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item/items/properties/AddressStreet2",
+                        "type": "string",
+                        "title": "Address Line 2",
+                        "default": "",
+                        "examples": [
+                          "NO.979 KING'S ROAD"
+                        ]
+                      },
+                      "AddressStreet3": {
+                        "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item/items/properties/AddressStreet3",
+                        "type": "string",
+                        "title": "Address Line 3",
+                        "default": "",
+                        "examples": [
+                          ""
+                        ]
+                      },
+                      "Town": {
+                        "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item/items/properties/Town",
+                        "type": "string",
+                        "title": "City",
+                        "default": "",
+                        "examples": [
+                          "QUARRY BAY"
+                        ]
+                      },
+                      "Region": {
+                        "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item/items/properties/Region",
+                        "type": "string",
+                        "title": "State\/Province",
+                        "default": "",
+                        "examples": [
+                          ""
+                        ]
+                      },
+                      "Postcode": {
+                        "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item/items/properties/Postcode",
+                        "type": "string",
+                        "title": "Postal Code",
+                        "default": "",
+                        "examples": [
+                          ""
+                        ]
+                      },
+                      "Country": {
+                        "$id": "/properties/Contract/properties/Buyer/properties/Addresses/properties/Item/items/properties/Country",
+                        "type": "string",
+                        "title": "Country",
+                        "default": "",
+                        "examples": [
+                          ""
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Email": {
+              "$id": "/properties/Contract/properties/Buyer/properties/Email",
+              "type": "string",
+              "title": "Email",
+              "default": "",
+              "examples": [
+                "JIM.HUANG@TEXHONG.COM"
+              ]
+            },
+            "Telephone": {
+              "$id": "/properties/Contract/properties/Buyer/properties/Telephone",
+              "type": "string",
+              "title": "Telephone",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            },
+            "Fax": {
+              "$id": "/properties/Contract/properties/Buyer/properties/Fax",
+              "type": "string",
+              "title": "Fax",
+              "default": "",
+              "examples": [
+                ""
+              ]
+            }
+          }
+        },
+        "Specifications": {
+          "$id": "/properties/Contract/properties/Specifications",
+          "type": "object",
+          "properties": {
+            "GrowthOrigin": {
+              "$id": "/properties/Contract/properties/Specifications/properties/OriginGrowth",
+              "type": "string",
+              "title": "Growth Origin",
+              "default": "",
+              "examples": [
+                "EASTERN/MEMPHIS/ORLEANS/TEXAS"
+              ]
+            },
+            "CropYear": {
+              "$id": "/properties/Contract/properties/Specifications/properties/CropYear",
+              "type": "string",
+              "title": "Crop Year",
+              "default": "",
+              "examples": [
+                "2017/2018"
+              ]
+            },
+            "GradeDescription": {
+              "$id": "/properties/Contract/properties/Specifications/properties/GradeDescription",
+              "type": "string",
+              "title": "Grade",
+              "default": "",
+              "examples": [
+                "STRICT LOW MIDDLING"
+              ]
+            },
+            "Staple": {
+              "$id": "/properties/Contract/properties/Specifications/properties/Staple",
+              "type": "string",
+              "title": "Staple",
+              "default": "",
+              "examples": [
+                "1-1/16"
+              ]
+            },
+            "MinMicronaire": {
+              "$id": "/properties/Contract/properties/Specifications/properties/MinMicronaire",
+              "type": "integer",
+              "title": "Mic Min",
+              "default": 0,
+              "examples": [
+                35
+              ]
+            },
+            "MaxMicronaire": {
+              "$id": "/properties/Contract/properties/Specifications/properties/MaxMicronaire",
+              "type": "integer",
+              "title": "Mic Max",
+              "default": 0,
+              "examples": [
+                49
+              ]
+            },
+            "MicronaireMemo": {
+              "$id": "/properties/Contract/properties/Specifications/properties/MicronaireMemo",
+              "type": "string",
+              "title": "Mic Memo",
+              "default": "",
+              "examples": [
+                "seller's option to ship up to 15% 5.0-5.2NCL"
+              ]
+            },
+            "MinStrength": {
+              "$id": "/properties/Contract/properties/Specifications/properties/MinStrength",
+              "type": "string",
+              "title": "Strength Min",
+              "default": "",
+              "examples": [
+                "27.0"
+              ]
+            }
+          },
+          "required": [
+            "CropYear"
+          ]
+        },
+        "Pricing": {
+          "$id": "/properties/Contract/properties/Pricing",
+          "type": "object",
+          "properties": {
+            "PriceType": {
+              "$id": "/properties/Contract/properties/Pricing/properties/PriceType",
+              "type": "string",
+              "title": "Price type",
+              "default": "",
+              "examples": [
+                "On Call"
+              ]
+            },
+            "IsProvisional": {
+              "$id": "/properties/Contract/properties/Pricing/properties/IsProvisional",
+              "type": "boolean",
+              "title": "Provisional",
+              "default": false,
+              "examples": [
+                true
+              ]
+            },
+            "UnitPrice": {
+              "$id": "/properties/Contract/properties/Pricing/properties/UnitPrice",
+              "type": "number",
+              "title": "Unit Price",
+              "default": "",
+              "examples": [
+                87.50
+              ]
+            },
+            "PriceBase": {
+              "$id": "/properties/Contract/properties/Pricing/properties/PriceBase",
+              "type": "string",
+              "title": "Price base",
+              "default": "",
+              "examples": [
+                "c/lb"
+              ]
+            },
+            "PricePoints": {
+              "$id": "/properties/Contract/properties/Pricing/properties/PricePoints",
+              "type": "number",
+              "title": "Price points",
+              "default": 0.0,
+              "examples": [
+                7.5
+              ]
+            },
+            "FixationCallMonth": {
+              "$id": "/properties/Contract/properties/Pricing/properties/FixationCallMonth",
+              "type": "string",
+              "title": "Fixation call month",
+              "default": "",
+              "examples": [
+                "DEC"
+              ]
+            },
+            "FixationCallYear": {
+              "$id": "/properties/Contract/properties/Pricing/properties/FixationCallYear",
+              "type": "integer",
+              "title": "Fixation call year",
+              "default": 0,
+              "examples": [
+                2018
+              ]
+            },
+            "OtherPriceMemo": {
+              "$id": "/properties/Contract/properties/Pricing/properties/OtherPriceMemo",
+              "type": "string",
+              "title": "Other price memo",
+              "default": "",
+              "examples": [
+                "Buyer's call"
+              ]
+            }
+          },
+          "required": [
+            "PriceType",
+            "UnitPrice",
+            "PriceBase"
+          ]
+        },
+        "Terms": {
+          "$id": "/properties/Contract/properties/Terms",
+          "type": "object",
+          "properties": {
+            "Incoterms": {
+              "$id": "/properties/Contract/properties/Terms/properties/Incoterms",
+              "type": "string",
+              "title": "Incoterms",
+              "default": "",
+              "examples": [
+                "CIF"
+              ]
+            },
+            "Quantity": {
+              "$id": "/properties/Contract/properties/Quantity",
+              "type": "object",
+              "properties": {
+                "ContractedUnits": {
+                  "$id": "/properties/Contract/properties/Quantity/properties/ContractedUnits",
+                  "type": "integer",
+                  "title": "Contracted units",
+                  "default": 0,
+                  "examples": [
+                    2000
+                  ]
+                },
+                "QuantityType": {
+                  "$id": "/properties/Contract/properties/Quantity/properties/QuantityType",
+                  "type": "string",
+                  "title": "Quantity type",
+                  "default": "",
+                  "examples": [
+                    "Metric Tons"
+                  ]
+                },
+                "VariationPercent": {
+                  "$id": "/properties/Contract/properties/Quantity/properties/VariationPercent",
+                  "type": "integer",
+                  "title": "Variation percent",
+                  "default": 0,
+                  "examples": [
+                    3
+                  ]
+                },
+                "VariationOption": {
+                  "$id": "/properties/Contract/properties/Quantity/properties/VariationOption",
+                  "type": "string",
+                  "title": "Variation option",
+                  "default": "",
+                  "examples": [
+                    "Seller"
+                  ]
+                }
+              },
+              "required": [
+                "ContractedUnits",
+                "QuantityType"
+              ]
+            },
+            "FreightBasis": {
+              "$id": "/properties/Contract/properties/FreightBasis",
+              "type": "object",
+              "properties": {
+                "Description": {
+                  "$id": "/properties/Contract/properties/FreightBasis/properties/Description",
+                  "type": "string",
+                  "title": "Description",
+                  "default": "",
+                  "examples": [
+                    "Freight Final CY at destination"
+                  ]
+                }
+              }
+            },
+            "ShipmentPeriods": {
+              "$id": "/properties/Contract/properties/ShipmentPeriods",
+              "type": "object",
+              "properties": {
+                "Shipment": {
+                  "$id": "/properties/Contract/properties/ShipmentPeriods/properties/Shipment",
+                  "type": "string",
+                  "title": "Shipment",
+                  "description": "Shipment date. (Ex. March 2018)",
+                  "default": "",
+                  "examples": [
+                    "March 2018"
+                  ],
+                  "minLength": 2
+                }
+              },
+              "required": [
+                "Shipment"
+              ]
+            },
+            "PaymentTerms": {
+              "$id": "/properties/Contract/properties/PaymentTerms",
+              "type": "object",
+              "properties": {
+                "Description": {
+                  "$id": "/properties/Contract/properties/PaymentTerms/properties/Description",
+                  "type": "string",
+                  "title": "Payment Terms",
+                  "default": "",
+                  "examples": [
+                    "Letter of Credit at sight"
+                  ]
+                }
+              }
+            },
+            "SpecialClauses": {
+              "$id": "/properties/Contract/properties/SpecialClauses",
+              "type": "object",
+              "properties": {
+                "Item": {
+                  "$id": "/properties/Contract/properties/SpecialClauses/properties/Item",
+                  "type": "array",
+                  "items": {
+                    "$id": "/properties/Contract/properties/SpecialClauses/properties/Item/items",
+                    "type": "object",
+                    "properties": {
+                      "Description": {
+                        "$id": "/properties/Contract/properties/SpecialClauses/properties/Item/items/properties/Description",
+                        "type": "string",
+                        "title": "The Description Schema",
+                        "default": "",
+                        "examples": [
+                          "Partial shipments allowed."
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "ShipmentPeriods"
+          ]
+        },
+        "SellerSignature": {
+          "$id": "/properties/Contract/properties/SellerSignature",
+          "type": "string",
+          "title": "Seller Signature",
+          "default": "",
+          "examples": [
+            "base64string"
+          ]
+        }
+      },
+      "required": [
+        "ReferenceNumber"
+      ]
+    }
+  }
+}

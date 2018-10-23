@@ -18,6 +18,7 @@ export class IcaContractBuilderService {
     return forkJoin(
       this.http.get<any>(tplPackManifest.schemaUrl),
       this.http.get(tplPackManifest.pdfTplUrl, { responseType: 'text' }),
+      // this.http.get(tplPackManifest.pdfTplUrl),
       this.http.get<any>(tplPackManifest.layoutUrl).pipe(map(value => value.layout)),
     )
     .pipe(map(([formSchema, pdfTpl, formLayout]) => {

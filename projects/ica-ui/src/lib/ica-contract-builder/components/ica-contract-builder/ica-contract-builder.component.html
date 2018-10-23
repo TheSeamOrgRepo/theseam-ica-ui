@@ -23,10 +23,14 @@
 
         <div class="contract-new__pdf">
             <ng-container *ngIf="contractTemplatePack">
-                <ica-contract-preview
+                <!-- <ica-contract-preview-html
                   [content]="contractTemplatePack.pdfTpl"
                   [data]="formData"
-                  (fieldClicked)="previewFieldClicked($event)"></ica-contract-preview>
+                  (fieldClicked)="previewFieldClicked($event)"></ica-contract-preview-html> -->
+                <ica-contract-preview-pdf
+                  [content]="contractTemplatePack.pdfTpl"
+                  [data]="formData"
+                  (fieldClicked)="previewFieldClicked($event)"></ica-contract-preview-pdf>
             </ng-container>
             <!-- <br><br>
             <img src="assets/images/placeholder-contract.svg" alt="" class="shadow">
