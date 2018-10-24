@@ -171,6 +171,12 @@
   ],
   "documentDefinition": {
     "content": [
+      {
+        "toc": {
+          "id": "cntNum",  // optional
+          "title": { "text": "INDEX", "style": "header" }
+        }
+      },
       // Header
       {
         "columns": [
@@ -212,11 +218,12 @@
       {
         "text": [
           { "text": "Sales Contract: ", "bold": true },
-          "{=CONTRACT_NUMBER}"
+          { "text": "{=CONTRACT_NUMBER}", "tocItem": "cntNum" }
         ],
         "margin": [ 0, 5, 0, 0],
         "fontSize": 10
       },
+      { "text": "google", "link": "http://google.com" },
       // Buyer/Seller columns
       {
         // Label columns
