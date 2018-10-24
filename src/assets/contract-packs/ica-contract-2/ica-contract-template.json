@@ -1,64 +1,79 @@
 {
   "symbols": [
     {
-      "label": "CONTRACT_NUMBER",
-      "pointer": "/Contract/ReferenceNumber"
+      "label": "Contract Number",
+      "pointer": "/Contract/ReferenceNumber",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
-      "label": "BUYER_NAME",
-      "pointer": "/Contract/Buyer/Name"
+      "label": "Buyer Name",
+      "pointer": "/Contract/Buyer/Name",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "BUYER_ADDR_STREET1",
-      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet1"
+      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet1",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "BUYER_ADDR_STREET2",
-      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet2"
+      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet2",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "BUYER_ADDR_STREET3",
-      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet3"
+      "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet3",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "BUYER_TOWN",
-      "pointer": "/Contract/Buyer/Addresses/Item/0/Town"
+      "pointer": "/Contract/Buyer/Addresses/Item/0/Town",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "BUYER_TELEPHONE",
-      "pointer": "/Contract/Buyer/Telephone"
+      "pointer": "/Contract/Buyer/Telephone",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "BUYER_FAX",
-      "pointer": "/Contract/Buyer/Fax"
+      "pointer": "/Contract/Buyer/Fax",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "SELLER_NAME",
-      "pointer": "/Contract/Seller/Name"
+      "pointer": "/Contract/Seller/Name",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "SELLER_ADDR_STREET1",
-      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet1"
+      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet1",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "SELLER_ADDR_STREET2",
-      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet2"
+      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet2",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "SELLER_ADDR_STREET3",
-      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet3"
+      "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet3",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "SELLER_TOWN",
-      "pointer": "/Contract/Seller/Addresses/Item/0/Town"
+      "pointer": "/Contract/Seller/Addresses/Item/0/Town",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "SELLER_TELEPHONE",
-      "pointer": "/Contract/Seller/Telephone"
+      "pointer": "/Contract/Seller/Telephone",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "SELLER_FAX",
-      "pointer": "/Contract/Seller/Fax"
+      "pointer": "/Contract/Seller/Fax",
+      "fieldPointer": "/Widget/CounterParty"
     },
     {
       "label": "CONTRACT_DATE",
@@ -171,12 +186,6 @@
   ],
   "documentDefinition": {
     "content": [
-      {
-        "toc": {
-          "id": "cntNum",  // optional
-          "title": { "text": "INDEX", "style": "header" }
-        }
-      },
       // Header
       {
         "columns": [
@@ -218,12 +227,11 @@
       {
         "text": [
           { "text": "Sales Contract: ", "bold": true },
-          { "text": "{=CONTRACT_NUMBER}", "tocItem": "cntNum" }
+          { "text": " ", "link": "/Contract/ReferenceNumber" }
         ],
         "margin": [ 0, 5, 0, 0],
         "fontSize": 10
       },
-      { "text": "google", "link": "http://google.com" },
       // Buyer/Seller columns
       {
         // Label columns
@@ -251,13 +259,22 @@
         "columns": [
           {
             "text": [
-              "{=BUYER_NAME}\n",
-              "{=BUYER_ADDR_STREET1}\n",
-              "{=BUYER_ADDR_STREET2}\n",
-              "{=BUYER_ADDR_STREET3}\n",
-              "{=BUYER_TOWN}\n",
-              "Phone: {=BUYER_TELEPHONE}\n",
-              "Fax: {=BUYER_FAX}\n"
+              { "text": " ", "link": "/Contract/Buyer/Name" },
+              "\n",
+              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet1" },
+              "\n",
+              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet2" },
+              "\n",
+              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet3" },
+              "\n",
+              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/Town" },
+              "\n",
+              "Phone: ",
+              { "text": " ", "link": "/Contract/Buyer/Telephone" },
+              "\n",
+              "Fax: ",
+              { "text": " ", "link": "/Contract/Buyer/Telephone" },
+              "\n"
             ],
             "fontSize": 10,
             "width": "*",
@@ -265,13 +282,22 @@
           },
           {
             "text": [
-              "{=SELLER_NAME}\n",
-              "{=SELLER_ADDR_STREET1}\n",
-              "{=SELLER_ADDR_STREET2}\n",
-              "{=SELLER_ADDR_STREET3}\n",
-              "{=SELLER_TOWN}\n",
-              "Phone: {=SELLER_TELEPHONE}\n",
-              "Fax: {=SELLER_FAX}\n"
+              { "text": " ", "link": "/Contract/Seller/Name" },
+              "\n",
+              { "text": " ", "link": "/Contract/Seller/Addresses/Item/0/AddressStreet1" },
+              "\n",
+              { "text": " ", "link": "/Contract/Seller/Addresses/Item/0/AddressStreet2" },
+              "\n",
+              { "text": " ", "link": "/Contract/Seller/Addresses/Item/0/AddressStreet3" },
+              "\n",
+              { "text": " ", "link": "/Contract/Seller/Addresses/Item/0/Town" },
+              "\n",
+              "Phone: ",
+              { "text": " ", "link": "/Contract/Seller/Telephone" },
+              "\n",
+              "Fax: ",
+              { "text": " ", "link": "/Contract/Seller/Telephone" },
+              "\n"
             ],
             "fontSize": 10,
             "width": "*",
@@ -285,7 +311,7 @@
       {
         "text": [
           { "text": "Date: ", "bold": true },
-          "{=CONTRACT_DATE}"
+          { "text": " ", "link": "/Contract/Date" }
         ],
         "margin": [ 0, 10, 0, 0],
         "fontSize": 10
@@ -301,9 +327,15 @@
           },
           {
             "text": [
-              "About {=CONTRACTED_UNITS} {=QUANTITY_TYPE}",
-              "\n{=VARIATION_PERCENT} percent variation in weight allowed at ",
-              "{=VARIATION_OPTION}'s option"
+              "About ",
+              { "text": " ", "link": "/Contract/Terms/Quantity/ContractedUnits" },
+              " ",
+              { "text": " ", "link": "/Contract/Terms/Quantity/QuantityType" },
+              "\n",
+              { "text": " ", "link": "/Contract/Terms/Quantity/VariationPercent" },
+              " percent variation in weight allowed at ",
+              { "text": " ", "link": "/Contract/Terms/Quantity/VariationOption" },
+              "'s option"
             ],
             "fontSize": 10,
             "width": "*"
@@ -323,12 +355,27 @@
           },
           {
             "text": [
-              "Crop Year: {=CROP_YEAR}\n",
-              "Growth: {=GROWTH_ORIGIN}\n",
-              "Grade: {=GRADE_DESCRIPTION}\n",
-              "Staple: {=STAPLE}\n",
-              "Micronaire: {=MICRONAIRE_MIN}-{=MICRONAIRE_MAX} ({=MICRONAIRE_MEMO})\n",
-              "Strength GPT: {=MIN_STRENGTH}"
+              "Crop Year: ",
+              { "text": " ", "link": "/Contract/Specifications/CropYear" },
+              "\n",
+              "Growth: ",
+              { "text": " ", "link": "/Contract/Specifications/GrowthOrigin" },
+              "\n",
+              "Grade: ",
+              { "text": " ", "link": "/Contract/Specifications/GradeDescription" },
+              "\n",
+              "Staple: ",
+              { "text": " ", "link": "/Contract/Specifications/Staple" },
+              "\n",
+              "Micronaire: ",
+              { "text": " ", "link": "/Contract/Specifications/MinMicronaire" },
+              "-",
+              { "text": " ", "link": "/Contract/Specifications/MaxMicronaire" },
+              " (",
+              { "text": " ", "link": "/Contract/Specifications/MicronaireMemo" },
+              ")\n",
+              "Strength GPT: ",
+              { "text": " ", "link": "/Contract/Specifications/MinStrength" }
             ],
             "fontSize": 10,
             "width": "*"
@@ -348,9 +395,20 @@
           },
           {
             "text": [
-              "{=UNIT_PRICE} {=PRICE_BASE}\n",
-              "{=PRICE_POINTS} {=PRICE_BASE}\n",
-              "ON {=FIXATION_CALL_MONTH} {=FIXATION_CALL_YEAR} {=OTHER_PRICE_MEMO}"
+              { "text": " ", "link": "/Contract/Pricing/UnitPrice" },
+              " ",
+              { "text": " ", "link": "/Contract/Pricing/PriceBase" },
+              "\n",
+              { "text": " ", "link": "/Contract/Pricing/PricePoints" },
+              " ",
+              { "text": " ", "link": "/Contract/Pricing/PriceBase" },
+              "\n",
+              "ON ",
+              { "text": " ", "link": "/Contract/Pricing/FixationCallMonth" },
+              " ",
+              { "text": " ", "link": "/Contract/Pricing/FixationCallYear" },
+              " ",
+              { "text": " ", "link": "/Contract/Pricing/OtherPriceMemo" }
             ],
             "fontSize": 10,
             "width": "*"
@@ -370,7 +428,7 @@
           },
           {
             "text": [
-              "{=PAYMENT_TERMS}"
+              { "text": " ", "link": "/Contract/Terms/PaymentTerms/Description" }
             ],
             "fontSize": 10,
             "width": "*"
@@ -390,7 +448,7 @@
           },
           {
             "text": [
-              "{=SHIPMENT_PERIOD}"
+              { "text": " ", "link": "/Contract/Terms/ShipmentPeriods/Shipment" }
             ],
             "fontSize": 10,
             "width": "*"
@@ -410,7 +468,7 @@
           },
           {
             "text": [
-              "{=FREIGHT_BASIS}"
+              { "text": " ", "link": "/Contract/Terms/FreightBasis/Description" }
             ],
             "fontSize": 10,
             "width": "*"
@@ -466,10 +524,14 @@
           },
           {
             "text": [
-              "{=SPECIAL_CLAUSE_0}\n",
-              "{=SPECIAL_CLAUSE_1}\n",
-              "{=SPECIAL_CLAUSE_2}\n",
-              "{=SPECIAL_CLAUSE_3}"
+              { "text": " ", "link": "/Contract/Terms/SpecialClauses/Item/0/Description" },
+              "\n",
+              { "text": " ", "link": "/Contract/Terms/SpecialClauses/Item/1/Description" },
+              "\n",
+              { "text": " ", "link": "/Contract/Terms/SpecialClauses/Item/2/Description" },
+              "\n",
+              { "text": " ", "link": "/Contract/Terms/SpecialClauses/Item/3/Description" },
+              "\n"
             ],
             "fontSize": 10,
             "width": "*"
@@ -541,10 +603,10 @@
         "margin": [ 0, 10, 0, 0]
       },
       {
-        // "image": "{=SELLER_SIGNATURE}",
         "image": "data:image/png;base64,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",
         "fit": [100, 100],
-        "width": "*"
+        "width": "*"//,
+        // "link": "/Contract/SellerSignature"
       },
       {
         "text": "---------------------------------"

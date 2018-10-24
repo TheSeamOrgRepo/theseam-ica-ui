@@ -170,7 +170,9 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
     const _find = (obj: any) => {
       if (foundItem) { return }
       for (const item of obj) {
-        if (item.dataPointer && item.dataPointer === dataPointer) {
+        if (item.options && item.options.focusedOnPointer && item.options.focusedOnPointer === dataPointer) {
+          foundItem = item
+        } else if (item.dataPointer && item.dataPointer === dataPointer) {
           foundItem = item
         } else if (item.items) {
           _find(item.items)

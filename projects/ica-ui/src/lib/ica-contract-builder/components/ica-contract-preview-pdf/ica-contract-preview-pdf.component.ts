@@ -18,8 +18,9 @@ export interface ISymbolOverlayItem {
   y: number
   w: number
   h: number
+  label: string
   pointer: string
-  symbol: string
+  fieldPointer: string
 }
 
 const pdfMakeGetBuffer = async (pdfMakeRef) => {
@@ -38,9 +39,18 @@ const pdfMakeGetBuffer = async (pdfMakeRef) => {
       position: absolute;
       top: 0;
       left: 0;
-      width: 60px;
-      height: 30px;
-      border: 1px solid cyan;
+      font-size: 9px;
+      color: transparent;
+      max-width: 60px;
+    }
+
+    .highlight-rect:hover {
+      border: 2px solid cyan;
+      border-radius: 2px;
+      color: cyan;
+      background-color: rgba(30,30,30,0.5);
+      max-width: 100%;
+      cursor: pointer;
     }
   `]
 })
@@ -53,10 +63,6 @@ export class IcaContractPreviewPdfComponent implements OnInit {
   documentDefinition: any
 
   rendering = false
-  highlightX = 0
-  highlightY = 0
-  highlightW = 0
-  highlightH = 0
 
   public symbolOverlayItems: ISymbolOverlayItem[] = []
 
@@ -64,9 +70,7 @@ export class IcaContractPreviewPdfComponent implements OnInit {
   set content(val: string) {
     this._content = val
     if (val) {
-      // console.log('val', val)
       const json = JSON.parse(stripJsonComments(val))
-      // console.log('json', json)
       this.documentSymbols = json.symbols
       this.documentDefinition = json.documentDefinition
       setTimeout(() => this.updatePreview())
@@ -94,26 +98,8 @@ export class IcaContractPreviewPdfComponent implements OnInit {
     this.updatePreviewPdf()
   }
 
-  previewClick(event: MouseEvent) {
-    // const isFocusable = (event.target as any).classList.contains('tpl-focusable')
-    // // console.log('isFocusable', isFocusable)
-    // if (!isFocusable) {
-    //   return
-    // }
-    // // console.log(event)
-    // // console.log(event.target)
-    // let value: string = (event.target as any).innerHTML
-    // // console.log('value', value)
-
-    // if (value.indexOf('{=') !== 0) {
-    //   value = (event.target as any).getAttribute('data-pointer')
-    //   // console.log('value1', value)
-    // } else {
-    //   value = value.substring(2, value.length - 1)
-    // }
-
-
-    // this.fieldClicked.emit(value)
+  overlaySymbolClick(event: MouseEvent, item: ISymbolOverlayItem) {
+    this.fieldClicked.emit(item.fieldPointer)
   }
 
   public updatePreview() {
@@ -127,100 +113,36 @@ export class IcaContractPreviewPdfComponent implements OnInit {
     this.rendering = true
 
     // TODO: Optimize this process to avoid to many conversions between `json` and `string`
-    let docDef = JSON.parse(JSON.stringify({ ...this.documentDefinition }))
+    const docDef = JSON.parse(JSON.stringify(this.documentDefinition))
     if (this.data) {
-      // console.log('docDef before', docDef)
-      let docDefStr = JSON.stringify(docDef)
-      docDefStr = this.fillDocumentDefinitionSymbols(docDefStr, this.data)
-      // docDefStr = this.replaceAllSymbols(docDefStr, this.documentSymbols, '')
-      docDef = JSON.parse(docDefStr)
-      // console.log('filled dd:', JSON.parse(JSON.stringify(docDef)))
+      this.fillDocumentDefinitionSymbols(docDef, this.data)
     }
 
 
     const w = this.pdfContainer.nativeElement.clientWidth
 
     const pdfDocGenerator = pdfMake.createPdf(docDef)
-    console.log('pdfDocGenerator', pdfDocGenerator)
+    // console.log('pdfDocGenerator', pdfDocGenerator)
     const pdfBuffer = await pdfMakeGetBuffer(pdfDocGenerator)
 
     const loadingTask = pdfjsLib.getDocument({data: pdfBuffer})
     try {
       const pdf = await loadingTask.promise
-      console.log('PDF loaded', pdf)
-
-      const data = await pdf.getData()
-      console.log('data', data)
-      const outline = await pdf.getOutline()
-      console.log('outline', outline)
-      const labels = await pdf.getPageLabels()
-      console.log('labels', labels)
-      const dests = await pdf.getDestinations()
-      console.log('dests', dests)
+      // console.log('PDF loaded', pdf)
 
       // Fetch the first page
       const pageNumber = 1
       const page = await pdf.getPage(pageNumber)
-      console.log('Page loaded', page)
+      // console.log('Page loaded', page)
 
       const desiredWidth = w
       const viewport = page.getViewport(1)
       const scale = desiredWidth / viewport.width
       const scaledViewport = page.getViewport(scale)
-      console.log('scaledViewport', scaledViewport)
 
       const annotations = await page.getAnnotations()
-      console.log('annotations', annotations)
-      const opsList = await page.getOperatorList()
-      console.log('opsList', opsList)
 
-      const textContent = await page.getTextContent()
-      console.log('textContent', textContent)
-      const textNode = this.findTextNode(textContent, '{=PRICE_BASE}')
-      console.log('textNode', textNode)
-
-      // const point = scaledViewport.convertToViewportPoint(textNode.transform[4], textNode.transform[5])
-      // console.log('point', point)
-      // this.highlightX = point[0]
-      // this.highlightY = point[1]
-
-      const padding = 2
-
-      // const tm = textNode.transform
-      // const height = Math.sqrt(tm[2] * tm[2] + tm[3] * tm[3])
-      // console.log('height', height)
-      // const rect = scaledViewport.convertToViewportRectangle([
-      //   textNode.transform[4] - padding, textNode.transform[5] - padding, textNode.width + (padding * 2), textNode.height + (padding * 2)
-      // ])
-      // // console.log('rect', rect)
-      // const _h = scaledViewport.height - rect[3]
-      // this.highlightX = rect[0]
-      // this.highlightY = rect[1] - _h
-      // this.highlightW = rect[2]
-      // this.highlightH = _h
-
-
-      const rect = scaledViewport.convertToViewportRectangle([ 20, 666.697917, 56.421875, 680.760417 ])
-      console.log('rect', rect)
-      const _h = scaledViewport.height - rect[3]
-      this.highlightX = rect[0]
-      this.highlightY = rect[1] - _h
-      this.highlightW = rect[2]
-      this.highlightH = _h
-
-      console.log('this.highlightX', this.highlightX)
-      console.log('this.highlightY', this.highlightY)
-      console.log('this.highlightW', this.highlightW)
-      console.log('this.highlightH', this.highlightH)
-
-      // this.symbolOverlayItems.push({
-      //   x: rect[0],
-      //   y: rect[1] - _h,
-      //   w: rect[2],
-      //   h: _h,
-      //   pointer:
-      //   symbol:
-      // })
+      this.symbolOverlayItems = this.getOverlayItems(annotations, scaledViewport, 2)
 
 
       // Prepare canvas using PDF page dimensions
@@ -258,35 +180,64 @@ export class IcaContractPreviewPdfComponent implements OnInit {
     return node
   }
 
-  public getRectOnCanvas(viewport, textNode) {
+  public getOverlayItems(annotations, viewport, padding) {
+    const items: ISymbolOverlayItem[] = []
 
+    for (const ano of annotations) {
+      const anoRect = [
+        ano.rect[0] - padding,
+        ano.rect[1] - padding,
+        (((ano.rect[2] - ano.rect[0]) < 40 ? ano.rect[0] + 40 : ano.rect[2])) + padding,
+        ano.rect[3] + padding
+      ]
+      const rect = viewport.convertToViewportRectangle(anoRect)
+
+      const pointerProps = this.getPointerProps(ano.unsafeUrl)
+
+      items.push({
+        x: rect[0],
+        y: rect[1] - (rect[1] - rect[3]),
+        w: rect[2] - rect[0],
+        h: rect[1] - rect[3],
+        label: ano.unsafeUrl,
+        pointer: ano.unsafeUrl,
+        fieldPointer: (pointerProps.hasOwnProperty('fieldPointer'))
+          ? pointerProps.fieldPointer
+          : ano.unsafeUrl
+      })
+    }
+
+    return items
   }
 
-  public fillDocumentDefinitionSymbols(docDef: any, data: any): string {
-    let docDefTmp = docDef
+  public fillDocumentDefinitionSymbols(docDef: any, data: any): void {
     const dataMap = JsonPointer.dict(this.data)
-    // console.log('dataMap', dataMap)
-    for (const key of Object.keys(dataMap)) {
-      // console.log('key', key, '  ', dataMap[key])
-      const symbol = this.getPointerSymbol(key)
-      // console.log('symbol', symbol)
-      docDefTmp = docDefTmp.replace(`{=${symbol}}`, dataMap[key])
+
+    const walk = (obj) => {
+      for (const key of Object.keys(obj)) {
+        const item = obj[key]
+        if (typeof(item) === 'object') {
+          if (item.hasOwnProperty('link')) {
+            const val = `${(dataMap[item.link]) ? dataMap[item.link] : ' '}`
+            if (item.hasOwnProperty('text')) {
+              item.text = (val.length > 0) ? val : ' '
+            } else if (item.hasOwnProperty('image')) {
+              item.image = (val.length > 0) ? val : ' '
+            }
+          }
+
+          walk(item)
+        }
+      }
     }
-    return docDefTmp
+
+    walk(docDef)
   }
 
-  public replaceAllSymbols(docDef: any, docSymbols: any, newVal: string): string {
-    let docDefTmp = docDef
-    for (const item of docSymbols) {
-      docDefTmp = docDefTmp.replace(`{=${item.label}}`, newVal)
-    }
-    return docDefTmp
-  }
-
-  public getPointerSymbol(pointer) {
+  public getPointerProps(pointer) {
     for (const symbol of this.documentSymbols) {
       if (symbol.pointer === pointer) {
-        return symbol.label
+        return symbol
       }
     }
   }
