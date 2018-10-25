@@ -3,6 +3,8 @@ import { JsonPointer } from 'angular6-json-schema-form'
 import stripJsonComments from 'strip-json-comments'
 
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
+import { pdfMakeGetBuffer } from '../../utils'
+import { ISymbolOverlayItem } from '../../models/ica-contract-builder.models'
 
 import { PDFDocumentProxy, PDFViewerParams, PDFPageProxy, PDFSource, PDFProgressData, PDFPromise } from 'pdfjs-dist'
 import * as pdfjsLib from 'pdfjs-dist/build/pdf'
@@ -13,46 +15,9 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts'
 const pdfMake: any = _pdfMake
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
-export interface ISymbolOverlayItem {
-  x: number
-  y: number
-  w: number
-  h: number
-  label: string
-  pointer: string
-  fieldPointer: string
-}
-
-const pdfMakeGetBuffer = async (pdfMakeRef) => {
-  return new Promise((resolve, reject) => {
-    pdfMakeRef.getBuffer((buf) => {
-      resolve(buf)
-    })
-  })
-}
-
 @Component({
   selector: 'ica-contract-preview-pdf',
-  templateUrl: './ica-contract-preview-pdf.component.html',
-  styles: [`
-    .highlight-rect {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-size: 9px;
-      color: transparent;
-      max-width: 60px;
-    }
-
-    .highlight-rect:hover {
-      border: 2px solid cyan;
-      border-radius: 2px;
-      color: cyan;
-      background-color: rgba(30,30,30,0.5);
-      max-width: 100%;
-      cursor: pointer;
-    }
-  `]
+  templateUrl: './ica-contract-preview-pdf.component.html'
 })
 export class IcaContractPreviewPdfComponent implements OnInit {
 
@@ -79,12 +44,13 @@ export class IcaContractPreviewPdfComponent implements OnInit {
   get content() { return this._content }
 
   @Input()
-  set data(val: object) { this._data = val; setTimeout(() => this.updatePreview()) }
+  set data(val: object) { console.log('[data]'); this._data = val; setTimeout(() => this.updatePreview()) }
   get data() { return this._data }
 
   @Output() fieldClicked = new EventEmitter<string>()
 
   @ViewChild('pdfContainer') pdfContainer: ElementRef
+  @ViewChild('pdfCanvas') pdfCanvas: ElementRef
 
   constructor(
     public icaCntBuilder: IcaContractBuilderService
@@ -98,12 +64,12 @@ export class IcaContractPreviewPdfComponent implements OnInit {
     this.updatePreviewPdf()
   }
 
-  overlaySymbolClick(event: MouseEvent, item: ISymbolOverlayItem) {
+  overlaySymbolClick(item: ISymbolOverlayItem) {
     this.fieldClicked.emit(item.fieldPointer)
   }
 
   public updatePreview() {
-    // console.log('updatePreview')
+    console.log('updatePreview')
     this.updatePreviewPdf()
   }
 
@@ -146,7 +112,7 @@ export class IcaContractPreviewPdfComponent implements OnInit {
 
 
       // Prepare canvas using PDF page dimensions
-      const canvas: any = document.getElementById('the-canvas')
+      const canvas: HTMLCanvasElement = this.pdfCanvas.nativeElement
       const context = canvas.getContext('2d')
       canvas.height = scaledViewport.height
       canvas.width = scaledViewport.width
@@ -243,7 +209,7 @@ export class IcaContractPreviewPdfComponent implements OnInit {
   }
 
   onResized(event) {
-    // console.log('onResized', event)
+    console.log('onResized', event)
     this.updatePreviewPdf()
   }
 

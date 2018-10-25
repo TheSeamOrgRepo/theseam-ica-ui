@@ -1,3 +1,8 @@
-<p>
-  ica-contract-preview-symbol-overlay works!
-</p>
+<div class="highlight-rect"
+  [style.left]="item.x + 'px'"
+  [style.top]="item.y + 'px'"
+  [style.minWidth]="item.w + 'px'"
+  [style.height]="item.h + 'px'"
+  (click)="onOverlayClick($event)">
+  {{ item.label }}
+</div>

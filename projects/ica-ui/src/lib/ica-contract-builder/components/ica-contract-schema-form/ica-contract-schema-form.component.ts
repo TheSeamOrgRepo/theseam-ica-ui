@@ -245,8 +245,8 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
 
 
     // DONE
-    // console.log('tmpCntData: ', tmpCntData)
-    this.schemaForm.setFormValues(tmpCntData)
+    console.log('tmpCntData: ', tmpCntData)
+    // this.schemaForm.setFormValues(tmpCntData)
   }
 
   public setGeneralData(data: { formValues: { contractType: string, counterParty: any }, knownData: any }) {

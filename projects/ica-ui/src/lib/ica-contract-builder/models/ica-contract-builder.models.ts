@@ -17,3 +17,16 @@ export interface IContractTemplatePack {
   formLayout: object
   pdfTpl: string
 }
+
+/**
+ *
+ */
+export interface ISymbolOverlayItem {
+  x: number
+  y: number
+  w: number
+  h: number
+  label: string
+  pointer: string
+  fieldPointer: string
+}
