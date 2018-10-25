@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild, Input, Output, EventEmitter, OnDestroy } from '@angular/core'
-import { JsonSchemaFormComponent, JsonPointer } from 'angular6-json-schema-form'
+import { Component, OnInit, ViewChild, Input, Output, EventEmitter, OnDestroy, AfterViewInit } from '@angular/core'
+import { JsonSchemaFormComponent, JsonPointer, isInputRequired, getControl } from 'angular6-json-schema-form'
 import { combineLatest } from 'rxjs'
 import { switchMap, map, takeWhile, filter, distinctUntilChanged, tap } from 'rxjs/operators'
 
@@ -8,6 +8,7 @@ import { IcaConstractSchemaFormService } from '../../services/ica-constract-sche
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
 import { IcaCommonService } from '../../../common'
 import { IcaModalContractCompleteService } from './../../../ica-modal-contract-complete/services/ica-modal-contract-complete.service'
+import { IIcaJsfRemainingStatus } from '../../models/ica-contract-builder.models'
 
 
 // tslint:disable:max-line-length
@@ -28,7 +29,7 @@ import { IcaSchemaFormSelectInputWidgetComponent } from '../../../ica-contract-f
   templateUrl: './ica-contract-schema-form.component.html',
   providers: [ IcaConstractSchemaFormService ]
 })
-export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
+export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Input() contractTemplatePack: IContractTemplatePack
 
@@ -147,6 +148,9 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
       })
   }
 
+  ngAfterViewInit() {
+  }
+
   ngOnDestroy() {
     if (this.sub) { this.sub.unsubscribe() }
   }
@@ -193,10 +197,16 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  public onRemainingStatus(remainingStatus: IIcaJsfRemainingStatus) {
+    console.log('remainingStatus', remainingStatus)
+    this.icaCntBuilder.setRemainingFieldsStatus(remainingStatus)
+  }
+
   public schemaFormOnChange(event: any) {
-    console.log('schemaFormOnChange', event)
+    // console.log('schemaFormOnChange', event)
     // const value = JsonPointer.get(event, '/Contract/Terms/Quantity/ContractedUnits')
     // console.log('~value', value)
+
     this.dataChange.emit(event)
   }
 
@@ -246,7 +256,7 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy {
 
     // DONE
     console.log('tmpCntData: ', tmpCntData)
-    // this.schemaForm.setFormValues(tmpCntData)
+    this.schemaForm.setFormValues(tmpCntData)
   }
 
   public setGeneralData(data: { formValues: { contractType: string, counterParty: any }, knownData: any }) {

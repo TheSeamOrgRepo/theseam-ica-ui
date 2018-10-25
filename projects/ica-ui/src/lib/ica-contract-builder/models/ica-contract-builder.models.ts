@@ -30,3 +30,11 @@ export interface ISymbolOverlayItem {
   pointer: string
   fieldPointer: string
 }
+
+/**
+ *
+ */
+export interface IIcaJsfRemainingStatus {
+  remaining: number
+  required: number
+}

@@ -3,7 +3,7 @@
     {
       "label": "Contract Number",
       "pointer": "/Contract/ReferenceNumber",
-      "fieldPointer": "/Widget/CounterParty"
+      "noOverlay": true
     },
     {
       "label": "Buyer Name",
@@ -603,10 +603,10 @@
         "margin": [ 0, 10, 0, 0]
       },
       {
-        "image": "data:image/png;base64,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",
-        "fit": [100, 100],
-        "width": "*"//,
-        // "link": "/Contract/SellerSignature"
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII=",
+        "fit": [100, 40],
+        "width": "*",
+        "link": "/Contract/SellerSignature"
       },
       {
         "text": "---------------------------------"

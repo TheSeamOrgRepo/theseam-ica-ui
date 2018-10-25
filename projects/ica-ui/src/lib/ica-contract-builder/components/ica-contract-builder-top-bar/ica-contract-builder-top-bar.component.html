@@ -12,11 +12,11 @@
         <li>
             <div class="contract-new__header-steps">
                 <div class="contract-new__header-steps-text">
-                    <span class="count"><span class="current">0</span> of <span class="total">22 </span></span> Fields Completed
+                    <span class="count"><span class="current">{{ fieldsCompleted$ | async }}</span> of <span class="total">{{ fieldsRequired$ | async }} </span></span> Fields Completed
                 </div>
 
                 <div class="contract-new__header-steps-progress">
-                    <div class="bar" style="width: 0%;"></div>
+                    <div class="bar" [style.width]="(completedPercent$ | async) + '%'"></div>
                 </div>
             </div>
         </li>

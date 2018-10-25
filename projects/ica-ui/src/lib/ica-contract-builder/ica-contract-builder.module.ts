@@ -4,9 +4,11 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { NoFrameworkModule, MaterialDesignFrameworkModule } from 'angular6-json-schema-form'
 
+import { IcaCommonModule } from './../common/ica-common.module'
+
 import { SanitizeHtmlPipe } from './pipes/sanitizeHtml.pipe'
 
-import { IcaCommonModule } from './../common/ica-common.module'
+import { IcaJsfExtraDirective } from './directives/ica-jsf-extra.directive'
 
 import { IcaModalContractSignModule } from './../ica-modal-contract-sign/ica-modal-contract-sign.module'
 import { IcaModalContractCompleteModule } from './../ica-modal-contract-complete/ica-modal-contract-complete.module'
@@ -42,7 +44,8 @@ import { IcaContractPreviewSymbolOverlayComponent } from './components/ica-contr
     SanitizeHtmlPipe,
     IcaContractPreviewHtmlComponent,
     IcaContractPreviewPdfComponent,
-    IcaContractPreviewSymbolOverlayComponent
+    IcaContractPreviewSymbolOverlayComponent,
+    IcaJsfExtraDirective
   ],
   exports: [
     IcaContractSchemaFormComponent,

@@ -6,5 +6,7 @@
   [layout]="contractTemplatePack.formLayout"
   (onChanges)="schemaFormOnChange($event)"
   (isValid)="schemaFormIsValid($event)"
-  (onSubmit)="schemaFormOnSubmit($event)">
+  (onSubmit)="schemaFormOnSubmit($event)"
+  icaJsfExtra
+  (remainingStatus)="onRemainingStatus($event)">
 </json-schema-form>

@@ -29,4 +29,5 @@
       [style.display]="options?.notitle ? 'none' : ''"
       [innerHTML]="options?.title"></span>
   </label>
+  <span *ngIf="options.required" style="color: red;">*</span>
 </div>

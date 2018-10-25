@@ -4,6 +4,7 @@
     [class]="'form-field__label ' + (options?.labelHtmlClass || '')"
     [style.display]="options?.notitle ? 'none' : ''"
     [innerHTML]="options?.title"></label>
+  <span *ngIf="options.required" style="color: red;">*</span>
   <input *ngIf="boundControl"
     [formControl]="formControl"
     [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
