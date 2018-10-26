@@ -14,11 +14,17 @@ export class IcaContractBuilderService {
     remaining: 0,
     required: 0
   })
-  public remainingFieldsStatus$ = this._remainingFieldsStatus.asObservable()
+  public _hasSigned = new BehaviorSubject<boolean>(false)
+
+  public remainingFieldsStatus$: Observable<IIcaJsfRemainingStatus>
+  public hasSigned$: Observable<boolean>
 
   constructor(
     public http: HttpClient
-  ) { }
+  ) {
+    this.remainingFieldsStatus$ = this._remainingFieldsStatus.asObservable()
+    this.hasSigned$ = this._hasSigned.asObservable()
+  }
 
   public downloadContractPack(tplPackManifest: IContractTemplatePackManifest): Observable<IContractTemplatePack> {
     return forkJoin(
@@ -37,6 +43,10 @@ export class IcaContractBuilderService {
 
   public setRemainingFieldsStatus(status: IIcaJsfRemainingStatus) {
     this._remainingFieldsStatus.next(status)
+  }
+
+  public setSignedStatus(hasSigned: boolean): void {
+    this._hasSigned.next(hasSigned)
   }
 
 }

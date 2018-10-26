@@ -1,7 +1,9 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core'
+import { Component, OnInit, HostListener, EventEmitter, Output } from '@angular/core'
+import { Observable } from 'rxjs'
 
 import { IcaModalContractCompleteService } from './../../services/ica-modal-contract-complete.service'
 import { IcaModalContractSignService } from './../../../ica-modal-contract-sign/services/ica-modal-contract-sign.service'
+import { IcaContractBuilderService } from '../../../ica-contract-builder/'
 
 @Component({
   selector: 'ica-modal-contract-complete',
@@ -10,6 +12,10 @@ import { IcaModalContractSignService } from './../../../ica-modal-contract-sign/
 })
 export class IcaModalContractCompleteComponent implements OnInit {
 
+  public hasSigned$: Observable<boolean>
+
+  @Output() btnFinish = new EventEmitter<void>()
+
   @HostListener('document:keyup', ['$event']) handleKeyUp(event) {
     if (event.keyCode === 27) {
         this.closeModal()
@@ -17,9 +23,12 @@ export class IcaModalContractCompleteComponent implements OnInit {
   }
 
   constructor(
+    public icaCntBuilder: IcaContractBuilderService,
     public icaModalContractComplete: IcaModalContractCompleteService,
     public icaModalContractSign: IcaModalContractSignService
-  ) { }
+  ) {
+    this.hasSigned$ = this.icaCntBuilder.hasSigned$
+  }
 
   ngOnInit() {
   }
@@ -30,6 +39,11 @@ export class IcaModalContractCompleteComponent implements OnInit {
 
   onClickSign() {
     this.icaModalContractSign.open()
+  }
+
+  onClickFinish() {
+    this.closeModal()
+    this.btnFinish.emit()
   }
 
 }

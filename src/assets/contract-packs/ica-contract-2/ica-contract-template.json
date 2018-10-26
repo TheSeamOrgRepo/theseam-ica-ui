@@ -181,7 +181,8 @@
     },
     {
       "label": "SELLER_SIGNATURE",
-      "pointer": "/Contract/SellerSignature"
+      "pointer": "/Contract/SellerSignature",
+      "noOverlay": true
     }
   ],
   "documentDefinition": {

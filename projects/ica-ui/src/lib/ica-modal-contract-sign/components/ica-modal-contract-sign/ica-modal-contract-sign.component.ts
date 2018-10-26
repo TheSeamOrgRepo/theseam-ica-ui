@@ -43,13 +43,6 @@ export class IcaModalContractSignComponent implements OnInit {
     this.icaModalContractSign.close()
   }
 
-  onClickSubmit() {
-    console.log('[SignContract] submit')
-    this.closeModal()
-    this.icaModalSubmitContract.open()
-  }
-
-
   /**
    * Triggered by szimek/signature_pad's onBegin event
    */
@@ -87,7 +80,7 @@ export class IcaModalContractSignComponent implements OnInit {
    */
   public onSubmitBtnClick(event: any) {
     this.submit.emit(this.signaturePad.toDataURL())
-    this.icaModalContractSign.newSignature.emit(this.signaturePad.toDataURL())
+    this.closeModal()
     event.preventDefault()
     event.stopPropagation()
   }

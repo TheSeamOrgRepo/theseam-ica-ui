@@ -24,7 +24,7 @@
         <div class="modal__actions">
             <a (click)="onClearBtnClick($event)" [routerLink]="" class="clear">Clear</a>
             <button class="btn btn--gray cancel" data-modal="contract-complete" (click)="closeModal()">Cancel</button>
-            <button class="btn btn--green submit" data-modal="submit-contract" (click)="onClickSubmit()">Submit</button>
+            <button class="btn btn--green submit" data-modal="submit-contract" (click)="onSubmitBtnClick($event)">Submit</button>
         </div>
     </div>
 </div>

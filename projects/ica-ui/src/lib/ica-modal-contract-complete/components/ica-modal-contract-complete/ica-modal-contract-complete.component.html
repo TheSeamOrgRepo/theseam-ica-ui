@@ -16,7 +16,12 @@
 
         <div class="modal__actions">
             <button class="btn btn--gray" (click)="closeModal()" data-modal-close>Edit</button>
-            <button class="btn btn--green" (click)="onClickSign()" data-modal="contract-sign">Sign Now</button>
+            <ng-container *ngIf="hasSigned$ | async; else notSigned">
+                <button class="btn btn--green" (click)="onClickFinish()" data-modal="contract-sign">Finish</button>
+            </ng-container>
+            <ng-template #notSigned>
+                <button class="btn btn--green" (click)="onClickSign()" data-modal="contract-sign">Sign Now</button>
+            </ng-template>
         </div>
 
         <div class="modal__footer">

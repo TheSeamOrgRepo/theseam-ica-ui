@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { HttpClientModule } from '@angular/common/http'
+import { RouterModule } from '@angular/router'
 
 import { NoFrameworkModule, MaterialDesignFrameworkModule } from 'angular6-json-schema-form'
 
@@ -28,6 +29,7 @@ import { IcaContractPreviewSymbolOverlayComponent } from './components/ica-contr
   imports: [
     CommonModule,
     HttpClientModule,
+    RouterModule,
     NoFrameworkModule,
     MaterialDesignFrameworkModule,
 

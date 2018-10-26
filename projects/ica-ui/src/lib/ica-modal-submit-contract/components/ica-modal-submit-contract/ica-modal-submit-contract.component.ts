@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core'
+import { Component, OnInit, HostListener, ViewChild, ElementRef, EventEmitter } from '@angular/core'
 
 import { IcaModalSubmitContractService } from './../../services/ica-modal-submit-contract.service'
 
@@ -11,11 +11,7 @@ import { IcaModalSubmitContractService } from './../../services/ica-modal-submit
 })
 export class IcaModalSubmitContractComponent implements OnInit {
 
-  // @HostListener('document:keyup', ['$event']) handleKeyUp(event) {
-  //   if (event.keyCode === 27) {
-  //       this.closeModal()
-  //   }
-  // }
+  btnFinish = new EventEmitter<void>()
 
   constructor(
     public icaModalSubmitContract: IcaModalSubmitContractService
@@ -29,9 +25,8 @@ export class IcaModalSubmitContractComponent implements OnInit {
   }
 
   onClickFinish() {
-    console.log('[IcaModalSubmitContractComponent] finish')
-    this.icaModalSubmitContract.completeContract.emit()
     this.icaModalSubmitContract.close()
+    this.btnFinish.emit()
   }
 
 }

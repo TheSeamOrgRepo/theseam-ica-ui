@@ -43,7 +43,9 @@
         </li>
 
         <li>
-            <button class="contract-new__header-action contract-new__header-action--sign" disabled>
+            <button class="contract-new__header-action contract-new__header-action--sign"
+                [disabled]="!(canSign$ | async)"
+                (click)="onClickSign($event)">
                 <img src="assets/images/icon-sign.svg" alt="" aria-hidden="true">
                 <div>Sign</div>
             </button>

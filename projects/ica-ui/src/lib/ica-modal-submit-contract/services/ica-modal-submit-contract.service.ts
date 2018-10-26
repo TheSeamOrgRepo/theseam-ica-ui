@@ -1,5 +1,5 @@
 import { Overlay, OverlayRef } from '@angular/cdk/overlay'
-import { Injectable, EventEmitter } from '@angular/core'
+import { Injectable, EventEmitter, ComponentRef } from '@angular/core'
 import { ComponentPortal } from '@angular/cdk/portal'
 
 import { IcaModalSubmitContractComponent } from './../components/ica-modal-submit-contract/ica-modal-submit-contract.component'
@@ -11,23 +11,18 @@ export class IcaModalSubmitContractService {
 
   modalRef: OverlayRef
 
+  // These should be removed from here and be exposed somewhere more appropriate
   compilingContractDataState = ''
   generatingPdfDocumentState = ''
   encryptingContractFilesState = ''
   postingContractToDatabaseState = ''
   postingContractToBlockchainState = ''
 
-  submitContract = new EventEmitter<void>()
-  completeContract = new EventEmitter<void>()
-
   constructor(
     private overlay: Overlay
   ) { }
 
-  open() {
-    console.log('[IcaModalSubmitContractService] open')
-    this.submitContract.emit()
-
+  public open(): ComponentRef<IcaModalSubmitContractComponent> {
     // Returns an OverlayRef (which is a PortalHost)
     this.modalRef = this.overlay.create({
       hasBackdrop: false
@@ -37,10 +32,12 @@ export class IcaModalSubmitContractService {
     const portal = new ComponentPortal(IcaModalSubmitContractComponent)
 
     // Attach ComponentPortal to PortalHost
-    this.modalRef.attach(portal)
+    const compRef = this.modalRef.attach(portal)
+
+    return compRef
   }
 
-  close() {
+  public close(): void {
     this.modalRef.detach()
   }
 

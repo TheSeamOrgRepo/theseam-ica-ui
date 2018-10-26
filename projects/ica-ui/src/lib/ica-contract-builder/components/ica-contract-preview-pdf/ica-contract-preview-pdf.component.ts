@@ -1,13 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core'
-import { JsonPointer } from 'angular6-json-schema-form'
 import stripJsonComments from 'strip-json-comments'
 import { Subject, Observable, from } from 'rxjs'
-import { tap, retryWhen, delay, switchMap, auditTime } from 'rxjs/operators'
+import { switchMap, auditTime } from 'rxjs/operators'
 
 import { waitOnConditionAsync } from '../../../common'
 
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
-import { pdfMakeGetBuffer } from '../../utils'
+import { generatePdf } from '../../utils'
 import { ISymbolOverlayItem } from '../../models/ica-contract-builder.models'
 
 import { PDFDocumentProxy, PDFViewerParams, PDFPageProxy, PDFSource, PDFProgressData, PDFPromise } from 'pdfjs-dist'
@@ -53,7 +52,10 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
   get content() { return this._content }
 
   @Input()
-  set data(val: object) { this._data = val; this.updatePreview() }
+  set data(val: any) {
+    this._data = (val && val.schemaData) ? val.schemaData : undefined
+    this.updatePreview()
+  }
   get data() { return this._data }
 
   @Output() fieldClicked = new EventEmitter<string>()
@@ -81,7 +83,7 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
     this.updatePreview()
   }
 
-  overlaySymbolClick(item: ISymbolOverlayItem) {
+  public overlaySymbolClick(item: ISymbolOverlayItem) {
     this.fieldClicked.emit(item.fieldPointer)
   }
 
@@ -96,17 +98,7 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
 
     // TODO: Optimize this process to avoid to many conversions between `json` and `string`
     const docDef = JSON.parse(JSON.stringify(this.documentDefinition))
-    if (this.data) {
-      this.fillDocumentDefinitionSymbols(docDef, this.data)
-    }
-
-
-    const w = this.pdfContainer.nativeElement.clientWidth
-
-    const pdfDocGenerator = pdfMake.createPdf(docDef)
-    // console.log('pdfDocGenerator', pdfDocGenerator)
-    const pdfBuffer = await pdfMakeGetBuffer(pdfDocGenerator)
-
+    const pdfBuffer = await generatePdf(docDef, this.data)
     const loadingTask = pdfjsLib.getDocument({data: pdfBuffer})
     try {
       const pdf = await loadingTask.promise
@@ -117,6 +109,7 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
       const page = await pdf.getPage(pageNumber)
       // console.log('Page loaded', page)
 
+      const w = this.pdfContainer.nativeElement.clientWidth
       const desiredWidth = w
       const viewport = page.getViewport(1)
       const scale = desiredWidth / viewport.width
@@ -146,16 +139,6 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
       // PDF loading error
       console.error(err)
     }
-  }
-
-  public findTextNode(textContent, text) {
-    let node
-    for (const item of textContent.items) {
-      if (item.str === text) {
-        node = item
-      }
-    }
-    return node
   }
 
   public getOverlayItems(annotations, viewport, padding) {
@@ -189,32 +172,6 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
     }
 
     return items
-  }
-
-  public fillDocumentDefinitionSymbols(docDef: any, data: any): void {
-    const dataMap = JsonPointer.dict(this.data)
-
-    const walk = (obj) => {
-      for (const key of Object.keys(obj)) {
-        const item = obj[key]
-        if (typeof(item) === 'object') {
-          if (item.hasOwnProperty('link')) {
-            const val = `${(dataMap[item.link]) ? dataMap[item.link] : ''}`
-            if (item.hasOwnProperty('text')) {
-              item.text = (val.length > 0) ? val : ' '
-            } else if (item.hasOwnProperty('image')) {
-              item.image = (val.length > 0)
-                ? val
-                : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII='
-            }
-          }
-
-          walk(item)
-        }
-      }
-    }
-
-    walk(docDef)
   }
 
   public getPointerProps(pointer) {

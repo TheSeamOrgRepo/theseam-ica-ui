@@ -1,1 +1,5 @@
-<ica-contract-builder [contractTemplatePack]="contractTplPack | async"></ica-contract-builder>
+<ica-contract-builder
+  [contractTemplatePack]="contractTplPack | async"
+  (formSubmit)="onSubmit($event)"
+  (completed)="onCompleted()">
+</ica-contract-builder>

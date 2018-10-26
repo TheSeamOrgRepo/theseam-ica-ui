@@ -580,10 +580,7 @@
             "base64string"
           ]
         }
-      },
-      "required": [
-        "ReferenceNumber"
-      ]
+      }
     }
   }
 }

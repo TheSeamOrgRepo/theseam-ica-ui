@@ -9,6 +9,8 @@ import { IcaContractBuilderService } from '../../services/ica-contract-builder.s
 import { IcaCommonService } from '../../../common'
 import { IcaModalContractCompleteService } from './../../../ica-modal-contract-complete/services/ica-modal-contract-complete.service'
 import { IIcaJsfRemainingStatus } from '../../models/ica-contract-builder.models'
+import { IcaJsfExtraDirective } from '../../directives/ica-jsf-extra.directive'
+import { IcaModalContractSignService } from '../../../ica-modal-contract-sign'
 
 
 // tslint:disable:max-line-length
@@ -34,9 +36,13 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
   @Input() contractTemplatePack: IContractTemplatePack
 
   @Output() dataChange = new EventEmitter<object>()
-  @Output() submit = new EventEmitter<any>()
+  @Output() formSubmit = new EventEmitter<any>()
+  @Output() isValid = new EventEmitter<boolean>()
 
   @ViewChild(JsonSchemaFormComponent) schemaForm: JsonSchemaFormComponent
+  @ViewChild(IcaJsfExtraDirective) jsfExtra: IcaJsfExtraDirective
+
+  private generalData: any
 
   public widgets = {
     // 'schema-form-signature': IcaSchemaFormSignatureWidgetComponent,
@@ -54,13 +60,12 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
   sub: any
   _sub: any
 
-  generalData: any
-
   constructor(
     public icaCntForm: IcaConstractSchemaFormService,
     public icaCntBuilder: IcaContractBuilderService,
     public icaCommon: IcaCommonService,
-    public icaModalContractComplete: IcaModalContractCompleteService
+    public icaModalContractComplete: IcaModalContractCompleteService,
+    public icaModalContractSign: IcaModalContractSignService
   ) { }
 
   ngOnInit() {
@@ -144,8 +149,12 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
         // this.createContractService.setKnownTemplateData(val.knownData)
         // this.formDataNew.emit(val.formValues)
         this.setGeneralData(val)
-        this.generalData = val.knownData
       })
+
+    this.icaModalContractSign.newSignature.subscribe(sig => {
+      this.setValue('/Contract/SellerSignature', sig)
+      this.icaCntBuilder.setSignedStatus(true)
+    })
   }
 
   ngAfterViewInit() {
@@ -155,185 +164,73 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
     if (this.sub) { this.sub.unsubscribe() }
   }
 
-  public focusField(field: string) {
-    const foundItem = this.findInLayout(field)
-    if (foundItem._id) {
-      const panelIndex = this.findPanelIndexContainingField(foundItem)
-      this.icaCntForm.setActiveWizardPanel(panelIndex)
-      setTimeout(() => {
-        const elem: any = document.querySelector(`#control${foundItem._id}`)
-        elem.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'})
-        elem.focus()
-      })
-    }
-  }
-
-  public findInLayout(dataPointer: string) {
-    let foundItem
-
-    const _find = (obj: any) => {
-      if (foundItem) { return }
-      for (const item of obj) {
-        if (item.options && item.options.focusedOnPointer && item.options.focusedOnPointer === dataPointer) {
-          foundItem = item
-        } else if (item.dataPointer && item.dataPointer === dataPointer) {
-          foundItem = item
-        } else if (item.items) {
-          _find(item.items)
-        }
-      }
-    }
-
-    _find(this.schemaForm.jsf.layout)
-
-    return foundItem
-  }
-
-  public findPanelIndexContainingField(item: any) {
-    for (let i = 1; i < 10; i++) {
-      if (document.querySelector(`.panel-idx-${i} #control${item._id}`)) {
-        return i
-      }
-    }
-  }
-
   public onRemainingStatus(remainingStatus: IIcaJsfRemainingStatus) {
-    console.log('remainingStatus', remainingStatus)
+    // console.log('remainingStatus', remainingStatus)
     this.icaCntBuilder.setRemainingFieldsStatus(remainingStatus)
   }
 
-  public schemaFormOnChange(event: any) {
-    // console.log('schemaFormOnChange', event)
-    // const value = JsonPointer.get(event, '/Contract/Terms/Quantity/ContractedUnits')
-    // console.log('~value', value)
-
-    this.dataChange.emit(event)
+  public schemaFormOnChange(formData: object) {
+    // console.log('schemaFormOnChange', formData)
+    const knownData = (this.generalData && this.generalData.knownData) ? this.generalData.knownData : undefined
+    this.dataChange.emit({ schemaData: formData, generalData: knownData })
   }
 
-  public schemaFormIsValid(event: any) {
-    console.log('schemaFormIsValid', event)
+  public schemaFormIsValid(isValid: boolean) {
+    // console.log('schemaFormIsValid', isValid)
+    this.isValid.emit(isValid)
   }
 
-  public schemaFormOnSubmit(event: any) {
-    console.log('[IcaContractSchemaFormComponent] schemaFormOnSubmit', event)
-    // this.icaModalContractComplete.open()
-    const toSubmit = { schemaData: this.schemaForm.value, generalData: this.generalData }
-    console.log('[IcaContractSchemaFormComponent] toSubmit', toSubmit)
-    this.submit.emit(toSubmit)
+  public schemaFormOnSubmit(schemaData: any) {
+    // console.log('[IcaContractSchemaFormComponent] schemaFormOnSubmit', schemaData)
+    this.formSubmit.emit(schemaData)
+  }
+
+  public focusField(field: string) {
+    this.jsfExtra.focusField(field)
   }
 
   public prefillSchemaData() {
-    // console.log('prefill schema form data')
-
-    const tmpCntData = { ...this.schemaForm.value }
-
-    if (!tmpCntData.Contract.Specifications) {
-      tmpCntData.Contract.Specifications = {}
-    }
-
-    tmpCntData.Contract.Specifications.CropYear = '2018'
-
-    if (!tmpCntData.Contract.Pricing) {
-      tmpCntData.Contract.Pricing = {}
-    }
-
-    tmpCntData.Contract.Pricing.PriceType = 'On Call'
-    tmpCntData.Contract.Pricing.UnitPrice = 87.50
-    tmpCntData.Contract.Pricing.PriceBase = 'c/lb'
-
-    if (!tmpCntData.Contract.Terms) {
-      tmpCntData.Contract.Terms = {
-        Quantity: {},
-        ShipmentPeriods: {}
-      }
-    }
-
-    tmpCntData.Contract.Terms.Quantity.ContractedUnits = 2000
-    tmpCntData.Contract.Terms.Quantity.QuantityType = 'Metric Tons'
-
-    tmpCntData.Contract.Terms.ShipmentPeriods.Shipment = 'March 2018'
-
-
-    // DONE
-    console.log('tmpCntData: ', tmpCntData)
-    this.schemaForm.setFormValues(tmpCntData)
+    let formValues = { ... this.schemaForm.value }
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Specifications/CropYear', '2018')
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Pricing/PriceType', 'On Call')
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Pricing/UnitPrice', 87.50)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Pricing/PriceBase', 'c/lb')
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Terms/Quantity/ContractedUnits', 2000)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Terms/Quantity/QuantityType', 'Metric Tons')
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Terms/ShipmentPeriods/Shipment', 'March 2018')
+    this.schemaForm.setFormValues(formValues)
   }
 
   public setGeneralData(data: { formValues: { contractType: string, counterParty: any }, knownData: any }) {
-    console.log('setGeneralData', data)
+    this.generalData = data
 
-    const tmpCntData = { ...this.schemaForm.value }
-
-    if (!tmpCntData.Contract) {
-      tmpCntData.Contract = {
-        ReferenceNumber: undefined,
-        Date: undefined,
-        Seller: undefined,
-        Buyer: undefined
-      }
-    }
-
+    let formValues = { ... this.schemaForm.value }
     // tslint:disable-next-line:max-line-length
-    tmpCntData.Contract.ReferenceNumber = ((o) => (o && o.seller && o.buyer) ? `${o.seller.sequenceId}-${o.buyer.sequenceId}-${Math.floor((Math.random() + 1) * 100000)}` : '')(data.knownData)
-    tmpCntData.Contract.Date = new Date().toString()
+    formValues = JsonPointer.setCopy(formValues, '/Contract/ReferenceNumber', ((o) => (o && o.seller && o.buyer) ? `${o.seller.sequenceId}-${o.buyer.sequenceId}-${Math.floor((Math.random() + 1) * 100000)}` : '')(data.knownData))
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Date', new Date().toString())
 
-    if (!tmpCntData.Contract.Seller) {
-      tmpCntData.Contract.Seller = {
-        Name: undefined,
-        Addresses: {
-          Item: undefined
-        },
-        Telephone: undefined,
-        Fax: undefined
-      }
-    }
-    if (!tmpCntData.Contract.Seller.Addresses.Item || tmpCntData.Contract.Seller.Addresses.Item.length === 0) {
-      tmpCntData.Contract.Seller.Addresses.Item = [
-        {
-          AddressStreet1: undefined,
-          AddressStreet2: undefined,
-          AddressStreet3: undefined,
-          Town: undefined
-        }
-      ]
-    }
-    tmpCntData.Contract.Seller.Name = data.knownData.seller.companyName
-    tmpCntData.Contract.Seller.Addresses.Item[0].AddressStreet1 = data.knownData.seller.address1
-    tmpCntData.Contract.Seller.Addresses.Item[0].AddressStreet2 = data.knownData.seller.address2
-    tmpCntData.Contract.Seller.Addresses.Item[0].AddressStreet3 = data.knownData.seller.address3
-    tmpCntData.Contract.Seller.Addresses.Item[0].Town = data.knownData.seller.city
-    tmpCntData.Contract.Seller.Telephone = data.knownData.seller.telephone
-    tmpCntData.Contract.Seller.Fax = data.knownData.seller.fax
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Seller/Name', data.knownData.seller.companyName)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Seller/Addresses/Item/0/AddressStreet1', data.knownData.seller.address1)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Seller/Addresses/Item/0/AddressStreet2', data.knownData.seller.address2)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Seller/Addresses/Item/0/AddressStreet3', data.knownData.seller.address3)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Seller/Addresses/Item/0/Town', data.knownData.seller.city)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Seller/Telephone', data.knownData.seller.telephone)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Seller/Fax', data.knownData.seller.fax)
 
-    if (!tmpCntData.Contract.Buyer) {
-      tmpCntData.Contract.Buyer = {
-        Name: undefined,
-        Addresses: {
-          Item: undefined
-        },
-        Telephone: undefined,
-        Fax: undefined
-      }
-    }
-    if (!tmpCntData.Contract.Buyer.Addresses.Item || tmpCntData.Contract.Buyer.Addresses.Item.length === 0) {
-      tmpCntData.Contract.Buyer.Addresses.Item = [
-        {
-          AddressStreet1: undefined,
-          AddressStreet2: undefined,
-          AddressStreet3: undefined,
-          Town: undefined
-        }
-      ]
-    }
-    tmpCntData.Contract.Buyer.Name = data.knownData.buyer.companyName
-    tmpCntData.Contract.Buyer.Addresses.Item[0].AddressStreet1 = data.knownData.buyer.address1
-    tmpCntData.Contract.Buyer.Addresses.Item[0].AddressStreet2 = data.knownData.buyer.address2
-    tmpCntData.Contract.Buyer.Addresses.Item[0].AddressStreet3 = data.knownData.buyer.address3
-    tmpCntData.Contract.Buyer.Addresses.Item[0].Town = data.knownData.buyer.city
-    tmpCntData.Contract.Buyer.Telephone = data.knownData.buyer.telephone
-    tmpCntData.Contract.Buyer.Fax = data.knownData.buyer.fax
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Buyer/Name', data.knownData.buyer.companyName)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Buyer/Addresses/Item/0/AddressStreet1', data.knownData.buyer.address1)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Buyer/Addresses/Item/0/AddressStreet2', data.knownData.buyer.address2)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Buyer/Addresses/Item/0/AddressStreet3', data.knownData.buyer.address3)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Buyer/Addresses/Item/0/Town', data.knownData.buyer.city)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Buyer/Telephone', data.knownData.buyer.telephone)
+    formValues = JsonPointer.setCopy(formValues, '/Contract/Buyer/Fax', data.knownData.buyer.fax)
 
-    this.schemaForm.setFormValues(tmpCntData)
+    this.schemaForm.setFormValues(formValues)
+  }
+
+  public setValue(dataPointer: string, value: any): void {
+    const formValues = JsonPointer.setCopy(this.schemaForm.value, dataPointer, value)
+    this.schemaForm.setFormValues(formValues)
   }
 
 }

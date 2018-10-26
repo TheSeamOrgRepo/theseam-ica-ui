@@ -1,6 +1,5 @@
-import { IcaModalContractSignService } from './../../ica-modal-contract-sign/services/ica-modal-contract-sign.service'
 import { Overlay, OverlayRef } from '@angular/cdk/overlay'
-import { Injectable, EventEmitter } from '@angular/core'
+import { Injectable, ComponentRef } from '@angular/core'
 import { ComponentPortal } from '@angular/cdk/portal'
 
 import { IcaModalContractCompleteComponent } from './../components/ica-modal-contract-complete/ica-modal-contract-complete.component'
@@ -14,11 +13,10 @@ export class IcaModalContractCompleteService {
   modalRef: OverlayRef
 
   constructor(
-    private overlay: Overlay,
-    public icaModalContractSign: IcaModalContractSignService
+    private overlay: Overlay
   ) { }
 
-  open() {
+  public open(): ComponentRef<IcaModalContractCompleteComponent> {
     // Returns an OverlayRef (which is a PortalHost)
     this.modalRef = this.overlay.create({
       hasBackdrop: false
@@ -28,10 +26,12 @@ export class IcaModalContractCompleteService {
     const portal = new ComponentPortal(IcaModalContractCompleteComponent)
 
     // Attach ComponentPortal to PortalHost
-    this.modalRef.attach(portal)
+    const compRef = this.modalRef.attach(portal)
+
+    return compRef
   }
 
-  close() {
+  public close(): void {
     this.modalRef.detach()
   }
 

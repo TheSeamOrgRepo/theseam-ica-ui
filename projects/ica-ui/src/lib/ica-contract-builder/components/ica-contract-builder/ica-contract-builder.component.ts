@@ -16,7 +16,7 @@ export class IcaContractBuilderComponent implements OnInit {
 
   @Input() contractTemplatePack: IContractTemplatePack
 
-  @Output() submit = new EventEmitter<any>()
+  @Output() formSubmit = new EventEmitter<any>()
   @Output() completed = new EventEmitter<any>()
 
   @ViewChild(IcaContractSchemaFormComponent) icaSchemaForm: IcaContractSchemaFormComponent
@@ -33,19 +33,7 @@ export class IcaContractBuilderComponent implements OnInit {
     public icaModalContractSign: IcaModalContractSignService
   ) { }
 
-  ngOnInit() {
-    this.icaModalSubmitContract.submitContract.subscribe(_ => {
-      console.log('[IcaContractBuilderComponent] submitContract:', this.submittedData)
-      this.submit.emit(this.submittedData)
-    })
-    this.icaModalSubmitContract.completeContract.subscribe(_ => {
-      console.log('[IcaContractBuilderComponent] completed:')
-      this.completed.emit()
-    })
-    this.icaModalContractSign.newSignature.subscribe(dataUrl => {
-      this.submittedData.schemaData.Contract.SellerSignature = dataUrl
-    })
-  }
+  ngOnInit() { }
 
   previewFieldClicked(field: string) {
     this.icaSchemaForm.focusField(field)
@@ -56,12 +44,15 @@ export class IcaContractBuilderComponent implements OnInit {
   }
 
   onSchemaFormSubmit(event: any) {
-    console.log('[IcaContractBuilderComponent] onSchemaFormSubmit', event)
-    if (event.generalData && event.schemaData) {
-      this.submittedData = event
-      this.icaModalContractComplete.open()
-    }
-    // this.submit.emit(event)
+    this.submittedData = event
+    const completeComponentRef = this.icaModalContractComplete.open()
+    completeComponentRef.instance.btnFinish.subscribe(() => {
+      const submitContractComponentRef = this.icaModalSubmitContract.open()
+      this.formSubmit.emit(this.formData)
+      submitContractComponentRef.instance.btnFinish.subscribe(() => {
+        this.completed.emit()
+      })
+    })
   }
 
   prefil() {
