@@ -45,6 +45,9 @@ $colors: (
         'dark': #E9483E,
         'ultradark': #C1342B
     ),
+    'purple': (
+        'normal': #5c50ca
+    ),
     'gray': (
         'ultralight-1': #F4F5F6,
         'ultralight': #E9EBED,
@@ -87,13 +90,16 @@ $yellow-light: color('yellow', 'light');
 $yellow: color('yellow', 'normal');
 $yellow-dark: color('yellow', 'dark');
 
-// Red
+// Reds
 $red-ultralight-1: color('red', 'ultralight-1');
 $red-ultralight: color('red', 'ultralight');
 $red-light: color('red', 'light');
 $red: color('red', 'normal');
 $red-dark: color('red', 'dark');
 $red-ultradark: color('red', 'ultradark');
+
+// Purple
+$purple: color('purple', 'normal');
 
 // Grays
 $gray-ultralight-1: color('gray', 'ultralight-1');
@@ -140,10 +146,6 @@ $grid-width: $max-width;
 $grid-gutter: 1rem;
 $grid-container-prefix: 'row';
 $grid-item-prefix: 'col';
-
-// Navigation
-$nav-size-large: 215px;
-$nav-size-small: 75px;
 
 // Breakpoint map
 $breakpoints: (
@@ -261,6 +263,10 @@ $chevron-right: "&#x3009;";
 $close: "&#x2715;";
 $quote-left: "\201c";
 $quote-right: "\201d";
+
+// Navigation
+$nav-size-large: 215px;
+$nav-size-small: 75px;
 
 // Forms
 $form-height: 35px;

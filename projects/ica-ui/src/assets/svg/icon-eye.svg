@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="21px" viewBox="0 0 32 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-eye</title>
+    <desc>Created with Sketch.</desc>
+    <g id="eye" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-8" transform="translate(1.000000, 0.445312)" fill-rule="nonzero">
+            <circle id="Oval-2-Copy-9" fill="currentColor" cx="15.2075686" cy="9.91357238" r="2.20058658"></circle>
+            <circle id="Oval-2-Copy-9" stroke="currentColor" stroke-width="2" cx="15.2075686" cy="9.91357238" r="5.50146646"></circle>
+            <path d="M0.867794627,9.91357238 C3.48646581,4.60169534 8.92411796,0.951213632 15.2075686,0.951213632 C21.4910193,0.951213632 26.9286714,4.60169534 29.5473426,9.91357238 C26.9286714,15.2254494 21.4910193,18.8759311 15.2075686,18.8759311 C8.92411796,18.8759311 3.48646581,15.2254494 0.867794627,9.91357238 Z" id="Combined-Shape" stroke="currentColor" stroke-width="2"></path>
+        </g>
+    </g>
+</svg>

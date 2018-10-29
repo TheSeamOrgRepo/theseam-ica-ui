@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="30px" viewBox="0 0 28 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>top-bar-notifications-active</title>
+    <desc>Created with Sketch.</desc>
+    <g id="top-bar-notifications-active" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(1.000000, 1.000000)" fill-rule="nonzero">
+            <g id="Group" stroke="none" stroke-width="2">
+                <path d="M22.439974,11.3979492 C22.439974,12.3218004 22.439974,13.7075773 22.439974,15.5552797 L25.5510851,19.4441686 L25.5510851,23.5073739 L0.662196181,23.5073739 L0.662196181,19.4441686 L3.77330729,15.5552797 L3.77330729,9.33305746 C3.77330729,4.17839979 7.95198296,-0.000275873788 13.1066406,-0.000275873788 C14.8012124,-0.000275873788 16.3903061,0.451329328 17.7601339,1.2407519" id="Path"></path>
+                <path d="M17.3555556,23.5073739 C17.3555556,25.8539848 15.4532515,27.7562888 13.1066406,27.7562888 C10.7600297,27.7562888 8.85772569,25.8539848 8.85772569,23.5073739" id="Rectangle-Copy-13"></path>
+                <path d="M0.662196181,19.4441686 L25.5510851,19.4441686" id="Line-Copy-4"></path>
+            </g>
+            <circle id="Oval-8" stroke-opacity="0" fill="currentColor" cx="20.7717285" cy="6.03076172" r="3.5"></circle>
+        </g>
+    </g>
+</svg>

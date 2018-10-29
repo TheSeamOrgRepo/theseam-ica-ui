@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="30px" viewBox="0 0 32 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-blockchain</title>
+    <desc>Created with Sketch.</desc>
+    <g id="blockchain" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Group" transform="translate(1.000000, 0.945312)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <polygon id="Rectangle" points="8.02394039 3.13622664 15.1667975 6.22774449 15.1667975 15.5022981 8.02394039 12.4107802"></polygon>
+            <polygon id="Rectangle-Copy-5" transform="translate(18.738226, 9.319262) scale(-1, 1) translate(-18.738226, -9.319262) " points="15.1667975 3.13622664 22.3096547 6.22774449 22.3096547 15.5022981 15.1667975 12.4107802"></polygon>
+            <polygon id="Rectangle" points="15.1667975 0.279083778 22.3096547 3.13622664 15.1667975 5.99336949 8.02394039 3.13622664"></polygon>
+            <polygon id="Rectangle" points="15.1667975 15.3477919 22.3096547 18.4393098 22.3096547 27.7138634 15.1667975 24.6223455"></polygon>
+            <polygon id="Rectangle-Copy-5" transform="translate(25.881083, 21.530828) scale(-1, 1) translate(-25.881083, -21.530828) " points="22.3096547 15.3477919 29.4525118 18.4393098 29.4525118 27.7138634 22.3096547 24.6223455"></polygon>
+            <polygon id="Rectangle" points="22.3096547 12.4906491 29.4525118 15.3477919 22.3096547 18.2049348 15.1667975 15.3477919"></polygon>
+            <polygon id="Rectangle" points="0.881083248 15.3477919 8.02394039 18.4393098 8.02394039 27.7138634 0.881083248 24.6223455"></polygon>
+            <polygon id="Rectangle-Copy-5" transform="translate(11.595369, 21.530828) scale(-1, 1) translate(-11.595369, -21.530828) " points="8.02394039 15.3477919 15.1667975 18.4393098 15.1667975 27.7138634 8.02394039 24.6223455"></polygon>
+            <polygon id="Rectangle" points="8.02394039 12.4906491 15.1667975 15.3477919 8.02394039 18.2049348 0.881083248 15.3477919"></polygon>
+        </g>
+    </g>
+</svg>

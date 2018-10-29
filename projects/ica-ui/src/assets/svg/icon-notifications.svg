@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="30px" viewBox="0 0 28 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-top-bar-notifications</title>
+    <desc>Created with Sketch.</desc>
+    <g id="top-bar-notifications" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.400000, 1.000000)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <path d="M25.1510851,4.06292942 L22.039974,7.95181831 L22.039974,14.1740405 C22.039974,19.3286982 17.8612983,23.5073739 12.7066406,23.5073739 L12.7066406,23.5073739 C7.55198296,23.5073739 3.37330729,19.3286982 3.37330729,14.1740405 L3.37330729,7.95181831 L0.262196181,4.06292942 L0.262196181,-0.000275873788 L25.1510851,-0.000275873788 L25.1510851,4.06292942 Z" id="Rectangle-Copy-12" transform="translate(12.706641, 11.753549) rotate(-180.000000) translate(-12.706641, -11.753549) "></path>
+            <path d="M16.9555556,23.5073739 C16.9555556,25.8539848 15.0532515,27.7562888 12.7066406,27.7562888 C10.3600297,27.7562888 8.45772569,25.8539848 8.45772569,23.5073739" id="Rectangle-Copy-13"></path>
+            <path d="M0.262196181,19.4441686 L25.1510851,19.4441686" id="Line-Copy-4"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="22px" viewBox="0 0 32 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-envelope-outline</title>
+    <desc>Created with Sketch.</desc>
+    <g id="envelope-outline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(1.000000, 1.000000)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <rect id="Rectangle" stroke-linecap="square" x="0" y="0" width="30" height="20"></rect>
+            <polyline id="Shape" points="30 0 15 13 0 0"></polyline>
+            <path d="M30,10 L18.6319396,19.9961843 M11.3723997,20 L0,10" id="Shape-Copy-6" transform="translate(15.000000, 15.000000) scale(1, -1) translate(-15.000000, -15.000000) "></path>
+        </g>
+    </g>
+</svg>

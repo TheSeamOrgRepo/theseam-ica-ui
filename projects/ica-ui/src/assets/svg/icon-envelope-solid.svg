@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="21px" viewBox="0 0 32 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-envelope-solid</title>
+    <desc>Created with Sketch.</desc>
+    <g id="envelope-solid" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-33" transform="translate(0.000000, 0.000000)" fill="currentColor" fill-rule="nonzero">
+            <polygon id="Path" points="0 19.1874971 10.2105711 10.2091184 0 1.35995682"></polygon>
+            <polygon id="Path" points="1.8875536 20.5714286 30.1124464 20.5714286 20.0461765 11.7199372 16 15.2266235 11.9538235 11.7199372"></polygon>
+            <polygon id="Path" points="32 19.1874971 32 1.35995682 21.7894289 10.2091184"></polygon>
+            <polygon id="Path" points="30.0791707 0 1.9208293 0 16 12.2019479"></polygon>
+        </g>
+    </g>
+</svg>

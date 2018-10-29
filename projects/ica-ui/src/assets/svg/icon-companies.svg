@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="30px" viewBox="0 0 32 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-nav-companies</title>
+    <desc>Created with Sketch.</desc>
+    <g id="nav-companies" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-22-Copy" transform="translate(1.000000, 1.000000)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <rect id="Rectangle-Copy-24" x="8" y="9" width="14" height="19"></rect>
+            <rect id="Rectangle-Copy-24" x="8" y="9" width="14" height="5"></rect>
+            <rect id="Rectangle-Copy-27" x="8" y="14" width="14" height="5"></rect>
+            <rect id="Rectangle-Copy-28" x="8" y="4" width="14" height="5"></rect>
+            <rect id="Rectangle-Copy-29" x="10" y="0" width="10" height="4"></rect>
+            <rect id="Rectangle-Copy-25" x="22" y="9" width="8" height="19"></rect>
+            <rect id="Rectangle-Copy-26" x="0" y="9" width="8" height="19"></rect>
+            <path d="M15,19 L15,28" id="Line-8"></path>
+            <path d="M26,12 L26,15" id="Line-8-Copy"></path>
+            <path d="M4,12 L4,15" id="Line-8-Copy-2"></path>
+            <path d="M26,17 L26,20" id="Line-8-Copy"></path>
+            <path d="M4,17 L4,20" id="Line-8-Copy-3"></path>
+            <path d="M26,22 L26,25" id="Line-8-Copy"></path>
+            <path d="M4,22 L4,25" id="Line-8-Copy-4"></path>
+        </g>
+    </g>
+</svg>

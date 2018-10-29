@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="20px" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-filter-date</title>
+    <desc>Created with Sketch.</desc>
+    <g id="filter-date" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M4,3.09 L4,5.46840332 L5.94,5.46840332 L5.94,3.09 L12.06,3.09 L12.06,5.46840332 L14,5.46840332 L14,3.09 L17.5,3.09 L17.5,17.25 C17.5,18.4403992 16.5384792,19.41 15.3466667,19.41 L2.65333333,19.41 C1.46152077,19.41 0.5,18.4403992 0.5,17.25 L0.5,3.09 L4,3.09 Z M4,8.73 L4,10.73 L6,10.73 L6,8.73 L4,8.73 Z M8,8.73 L8,10.73 L10,10.73 L10,8.73 L8,8.73 Z M12,8.73 L12,10.73 L14,10.73 L14,8.73 L12,8.73 Z M4,12.73 L4,14.73 L6,14.73 L6,12.73 L4,12.73 Z M8,12.73 L8,14.73 L10,14.73 L10,12.73 L8,12.73 Z M12,12.73 L12,14.73 L14,14.73 L14,12.73 L12,12.73 Z M4,0.59 L5.94,0.59 L5.94,3.09 L4,3.09 L4,0.59 Z M12.06,0.59 L14,0.59 L14,3.09 L12.06,3.09 L12.06,0.59 Z" id="Shape" fill="currentColor" fill-rule="nonzero"></path>
+    </g>
+</svg>

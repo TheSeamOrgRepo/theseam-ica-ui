@@ -59,10 +59,18 @@
 }
 
 .dashboard__header-right {
-    li {
+    > li {
         display: flex;
         align-items: stretch;
         border-left: 1px solid $gray-ultralight;
+
+        &.notifications {
+            position: relative;
+        }
+    }
+
+    .notification-panel {
+        display: none;
     }
 }
 
@@ -87,6 +95,39 @@
     &:focus,
     &:hover {
         color: currentColor;
+
+        .icon-notifications,
+        .icon-templates {
+            color: $primary-ultralight;
+        }
+
+        .icon-notifications-active {
+            stroke: $primary-ultralight;
+            color: $red;
+        }
+
+        .icon-help {
+            color: $primary-ultralight;
+        }
+    }
+
+    .icon {
+        font-size: 26px;
+        transition: 0.15s ease-in-out;
+    }
+
+    .icon-notifications,
+    .icon-templates {
+        color: $gray-light;
+    }
+
+    .icon-notifications-active {
+        stroke: $gray-light;
+        color: $red;
+    }
+
+    .icon-help {
+        color: $gray-light;
     }
 }
 
@@ -107,7 +148,6 @@
         transform: translateX($nav-size-small - 1px);
     }
 
-
     .contracts__content,
     .companies__content,
     .shipments__content,
@@ -120,13 +160,27 @@
         width: 100%;
         height: 100%;
     }
+
+    .contract-new__content,
+    .contracts__content,
+    .companies__content,
+    .shipments__content,
+    .documents__content {
+        max-height: calc(100vh - #{$nav-size-small});
+    }
 }
 
 .dashboard__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5rem 4rem;
+    flex-shrink: 0;
+    padding: 5rem 2rem;
+
+    @include bp(min, rem-calc(1150)) {
+        padding-right: 4rem;
+        padding-left: 4rem;
+    }
 
     h1,
     h2 {
@@ -151,20 +205,138 @@
     flex-shrink: 0;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem 4rem;
+    padding: 0.25rem 2rem;
     background-color: $gray-ultralight;
     border-top: 1px solid $gray-light;
 
-    img {
+    @include bp(min, rem-calc(1150)) {
+        padding-right: 4rem;
+        padding-left: 4rem;
+    }
+}
+
+.dashboard__filters,
+.dashboard__pagination {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard__filters {
+    flex-wrap: wrap;
+    padding: 0 0.5rem 0 0;
+
+    .contracts__content & {
+        .form-field__input {
+            width: 240px;
+        }
+    }
+}
+
+.dashboard__filter-group {
+    display: flex;
+    align-items: center;
+    margin: 0 -0.25rem;
+    padding: 0.25rem 1rem 0.25rem 0;
+
+    @include bp(min, rem-calc(1150)) {
+        padding-right: 2rem;
+    }
+
+    > * {
+        padding: 0 0.25rem;
+    }
+}
+
+.dashboard__filter-group__input {
+    .form-field {
+        margin: 0;
+    }
+}
+
+.dashboard__filter-group__icon {
+    font-size: 26px;
+    color: $secondary;
+
+    &.icon-type {
+        font-size: 30px;
+    }
+
+    &.icon-date,
+    &.icon-filter {
+        font-size: 24px;
+    }
+}
+
+.dashboard__filter-group__label,
+.dashboard__pagination-text {
+    font-size: rem-calc(13);
+    color: $primary-light;
+    white-space: nowrap;
+}
+
+.dashboard__pagination {
+    padding: 0.5rem 0 0.5rem 0.5rem;
+}
+.dashboard__pagination-buttons {
+    display: flex;
+    margin-left: 0.75rem;
+
+    .prev,
+    .next {
+        $size: 30px;
         display: block;
+        position: relative;
+        width: $size;
+        height: $size;
+        padding: 0;
+        border: 1px solid $gray-light;
+        background-color: $white;
+        border-radius: 3px;
+        transition: 0.15s ease-in-out;
+
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: $gray-ultralight;
+        }
+
+        &[disabled] {
+            opacity: 0.5;
+            background-color: $white;
+            cursor: not-allowed !important;
+        }
+
+        &:before {
+            content: svg-url('<svg width="7" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M1 0l5 6-5 6" fill-rule="nonzero" stroke="#{$primary-ultralight}" fill="none"/></svg>');
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 7px;
+            height: 12px;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .prev {
+        margin-right: 0.25rem;
+
+        &:before {
+            transform: translate(-50%, -50%)
+                       rotate(180deg);
+        }
     }
 }
 
 .dashboard__bottom {
     background-color: $white;
     flex: 1;
-    padding: 0 4rem 1rem;
+    padding: 0 2rem rem-calc(75);
     border-top: 1px solid $gray-light;
+
+    @include bp(min, rem-calc(1150)) {
+        padding-right: 4rem;
+        padding-left: 4rem;
+    }
 }
 
 .dashboard__tabs-controls {
@@ -194,7 +366,7 @@
     position: relative;
     height: $dashboard-tabs-height;
     // padding: 0.75rem 1rem 0.75rem 2.6rem;
-    padding: 0 1rem 0 2.6rem;
+    padding: 0 1rem;
     font-size: rem-calc(12);
     text-transform: uppercase;
     color: $primary-ultralight;
@@ -206,16 +378,17 @@
     transition: 0.15s ease-in-out;
     outline: none;
 
-    &:before {
+    .icon {
+        display: inline-block;
         position: absolute;
         top: 50%;
         left: 1rem;
-        display: inline-block;
         margin-right: 0.5rem;
+        font-size: 20px;
         transform: translateY(-50%);
     }
 
-    &:after {
+    &:before {
         content: '';
         position: absolute;
         top: -1px;
@@ -233,20 +406,18 @@
         background-color: $white;
         border-bottom-color: $white;
 
-        &:after {
+        &:before {
             opacity: 1;
         }
     }
 }
 
 .dashboard__tabs-button--contracts {
-    $icon-width: 18px;
+    $icon-width: 17px;
     padding-left: 1.5rem + rem-calc($icon-width);
 
-    &:before {
-        content: svg-url('<svg width="18" height="19" xmlns="http://www.w3.org/2000/svg"><path d="M15.355 1.412l-1.987 2.74V0H0v18.643h13.368V9.855L18 3.465l-2.645-2.053zM12.313 17.55H1.055V1.092h11.258v4.516l-1.733 2.39H2.556v1.093h7.232l-.897 1.238H2.556v1.092H8.43l.277 2.014 2.315-.342 1.292-1.782v6.24zm-1.196-6.411l-.678.935-.837.124-.12-.867.679-.935.956.743zm.634-.874l-.957-.743 2.294-3.165.957.743-2.294 3.165zm1.97-4.781l1.845-2.544.956.743-1.843 2.544-.957-.743zm-5.737 8.78h.97v1.073H8.3l-1.474 1.01-.665-1.368-.316.358H4.431v-1.072h.951l1.03-1.168.82 1.684.752-.516zm-5.4-8.529h8.308v1.052H2.585V5.736zM4.8 2.868h3.785V3.92H4.8V2.868z" fill="#{$primary-ultralight}" fill-rule="nonzero"/></svg>');
-        width: $icon-width;
-        height: 19px;
+    .icon {
+        font-size: $icon-width;
     }
 }
 
@@ -254,10 +425,8 @@
     $icon-width: 21px;
     padding-left: 1.5rem + rem-calc($icon-width);
 
-    &:before {
-        content: svg-url('<svg width="21" height="13" xmlns="http://www.w3.org/2000/svg"><path d="M18.99 5.487V2.6h-4.244V0H0v10.737h2.118c.12 1.118 1.056 1.99 2.19 1.99 1.132 0 2.067-.872 2.188-1.99h8.852c.12 1.118 1.056 1.99 2.189 1.99 1.132 0 2.068-.872 2.188-1.99H21v-4.04l-2.01-1.21zM14.746 3.85h3.014v1.37h-3.014v-1.37zm-9.498 6.888a.975.975 0 0 1-.94.742.976.976 0 0 1-.972-.986.98.98 0 0 1 .971-.985.98.98 0 0 1 .94 1.23zm8.268-1.248H6.273a2.2 2.2 0 0 0-1.966-1.23 2.2 2.2 0 0 0-1.966 1.23H1.23v-8.24h12.285v8.24zm4.962 1.248a.975.975 0 0 1-.941.742.975.975 0 0 1-.972-.986.98.98 0 0 1 .972-.985.98.98 0 0 1 .94 1.23zM19.77 9.49h-.267a2.2 2.2 0 0 0-1.966-1.23 2.2 2.2 0 0 0-1.967 1.23h-.824V6.467h3.46l1.564.942v2.08z" fill="#{$primary-ultralight}" fill-rule="nonzero"/></svg>');
-        width: $icon-width;
-        height: 13px;
+    .icon {
+        font-size: $icon-width;
     }
 }
 
@@ -265,10 +434,8 @@
     $icon-width: 17px;
     padding-left: 1.5rem + rem-calc($icon-width);
 
-    &:before {
-        content: svg-url('<svg width="17" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M0 13.583V0h5.013l1.33 2.036h8.28V4.6H17l-2.739 8.982H0zm1.188-3.897l1.55-5.085h10.697V3.224H5.7L4.37 1.188H1.188v8.498zM15.396 5.79H3.619l-2.015 6.606h11.777l2.015-6.606z" fill="#{$primary-ultralight}" fill-rule="nonzero"/></svg>');
-        width: $icon-width;
-        height: 14px;
+    .icon {
+        font-size: $icon-width;
     }
 }
 

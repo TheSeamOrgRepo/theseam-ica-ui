@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="28px" viewBox="0 0 29 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-paper-plane-solid</title>
+    <desc>Created with Sketch.</desc>
+    <g id="paper-plane-solid" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill="currentColor" fill-rule="nonzero">
+            <polygon id="Rectangle" points="24.2336666 5.53622658 23.5772311 5.37663417 9.1746393 17.7741935 -1.77635684e-15 14.7709849 28.7866524 3.19744231e-14 22.167629 22.0288254 11.4073971 18.5077793"></polygon>
+            <path d="M9.28,19.72 L15.7290861,21.7774367 L10.1357915,27.4422278 C9.94177334,27.6387261 9.62519723,27.6407365 9.428699,27.4467184 C9.33355401,27.3527742 9.28,27.2246357 9.28,27.0909268 L9.28,19.72 Z" id="Rectangle"></path>
+        </g>
+    </g>
+</svg>

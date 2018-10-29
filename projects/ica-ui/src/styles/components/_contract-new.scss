@@ -22,6 +22,12 @@
         background: transparent;
         border: none;
     }
+
+    .icon-edit {
+        display: block;
+        font-size: 21px;
+        color: $gray-light;
+    }
 }
 
 .contract-new__header-right {
@@ -31,6 +37,7 @@
     li {
         display: flex;
         align-items: stretch;
+        cursor: not-allowed;
         border-left: 1px solid $gray-ultralight;
     }
 }
@@ -87,19 +94,23 @@
     align-items: center;
     justify-content: center;
     width: $nav-size-small;
+    font-size: 27px;
+    color: $gray-light;
     background-color: transparent;
     border: none;
+    transition: 0.15s ease-in-out;
 
     &[disabled],
     &.is-disabled {
         cursor: not-allowed !important;
         opacity: 0.25;
+        pointer-events: none !important;
     }
 
     &:active,
     &:focus,
     &:hover {
-        color: currentColor;
+        color: $primary-ultralight;
     }
 
     div {
@@ -107,18 +118,44 @@
         white-space: nowrap;
         color: $primary-ultralight;
         font-size: rem-calc(10);
+        line-height: 1;
+        transition: 0.15s ease-in-out;
     }
 }
 
 .contract-new__header-action--cancel {
+    &:active,
+    &:focus,
+    &:hover {
+        &,
+        div {
+            color: $red-ultradark;
+        }
+    }
+
+    &,
     div {
         color: $red;
     }
 }
 
 .contract-new__header-action--sign {
+    &:active,
+    &:focus,
+    &:hover {
+        &,
+        div {
+            color: $green-ultradark;
+        }
+    }
+
+    &,
     div {
         color: $green;
+    }
+
+    .icon {
+        width: auto;
     }
 }
 

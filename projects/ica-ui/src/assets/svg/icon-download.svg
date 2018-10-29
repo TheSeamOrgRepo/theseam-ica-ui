@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="29px" viewBox="0 0 32 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-download</title>
+    <desc>Created with Sketch.</desc>
+    <g id="download" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(1.500000, 0.000000)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <path d="M0.100483751,22.9388186 C0.100483751,22.9388186 0.100483751,24.5134653 0.100483751,27.6627587 L28.7720848,27.6627587 L28.7720848,22.9388186" id="Path-13"></path>
+            <path d="M14.4362843,0.883699705 L14.4362843,21.0546403" id="Path-16"></path>
+            <polyline id="Path-17" points="8.06123705 14.1431837 14.4362843 20.518231 20.8113315 14.1431837"></polyline>
+        </g>
+    </g>
+</svg>

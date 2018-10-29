@@ -2,7 +2,7 @@
   [class]="'form-field form-field--contract form-field--select ' + (options?.htmlClass || '')">
   <label *ngIf="options?.title"
     [attr.for]="'control' + layoutNode?._id"
-    [class]="'form-field__label' + (options?.labelHtmlClass || '')"
+    [class]="'form-field__label ' + (options?.labelHtmlClass || '')"
     [style.display]="options?.notitle ? 'none' : ''"
     [innerHTML]="options?.title"></label>
     <span *ngIf="options.required" style="color: red;">*</span>
@@ -12,7 +12,7 @@
       [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
       [attr.readonly]="options?.readonly ? 'readonly' : null"
       [attr.required]="options?.required"
-      [class]="'form-field__select' + (options?.fieldHtmlClass || '')"
+      [class]="'form-field__select ' + (options?.fieldHtmlClass || '')"
       [id]="'control' + layoutNode?._id"
       [name]="controlName">
       <ng-container *ngIf="selectList$ | async as list">
@@ -35,7 +35,7 @@
       [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
       [attr.readonly]="options?.readonly ? 'readonly' : null"
       [attr.required]="options?.required"
-      [class]="'form-field__select' + (options?.fieldHtmlClass || '')"
+      [class]="'form-field__select ' + (options?.fieldHtmlClass || '')"
       [disabled]="controlDisabled"
       [id]="'control' + layoutNode?._id"
       [name]="controlName"

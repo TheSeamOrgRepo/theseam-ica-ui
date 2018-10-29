@@ -5,7 +5,7 @@
     <input *ngIf="boundControl"
       [formControl]="formControl"
       [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
-      [class]="(options?.fieldHtmlClass || '') + (isChecked ?
+      [class]="'form-field__checkbox ' + (options?.fieldHtmlClass || '') + (isChecked ?
         (' ' + (options?.activeClass || '') + ' ' + (options?.style?.selected || '')) :
         (' ' + (options?.style?.unselected || '')))"
       [id]="'control' + layoutNode?._id"
@@ -15,7 +15,7 @@
     <input *ngIf="!boundControl"
       [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
       [checked]="isChecked ? 'checked' : null"
-      [class]="(options?.fieldHtmlClass || '') + (isChecked ?
+      [class]="'form-field__checkbox ' + (options?.fieldHtmlClass || '') + (isChecked ?
         (' ' + (options?.activeClass || '') + ' ' + (options?.style?.selected || '')) :
         (' ' + (options?.style?.unselected || '')))"
       [disabled]="controlDisabled"

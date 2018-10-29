@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="30px" viewBox="0 0 37 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-boat</title>
+    <desc>Created with Sketch.</desc>
+    <g id="boat" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-29-Copy" transform="translate(1.000000, 1.000000)" fill-rule="nonzero">
+            <path d="M4.52747147,21.3900127 C1.76834484,19.1914029 1.0658141e-14,15.802211 1.0658141e-14,12 L10,12 L12,15 L34,15 C34,19.9705627 31,21.3900127 31,21.3900127" id="Path" stroke="currentColor" stroke-width="2"></path>
+            <polyline id="Path-Copy-4" stroke="currentColor" stroke-width="2" points="3 12.6666667 3 8 15 8 15 15"></polyline>
+            <rect id="Rectangle-Copy-35" stroke="currentColor" stroke-width="2" x="15" y="8" width="6" height="7"></rect>
+            <rect id="Rectangle-Copy-36" stroke="currentColor" stroke-width="2" x="25" y="5" width="6" height="10"></rect>
+            <rect id="Rectangle-Copy-36" stroke="currentColor" stroke-width="2" x="25" y="5" width="6" height="4"></rect>
+            <rect id="Rectangle-Copy-37" stroke="currentColor" stroke-width="2" x="5" y="4" width="8" height="4"></rect>
+            <path d="M28,5 L28,0.5" id="Line-12-Copy" stroke="currentColor" stroke-width="2" stroke-linecap="square"></path>
+            <path d="M0,23.1286327 C0.886177814,23.1286327 1.77212563,22.7049683 2.65784343,21.8576393 L2.65784651,21.8576425 C3.74324241,20.8192899 5.45934963,20.8382944 6.52148438,21.9004291 L6.52148438,21.9004291 C7.7220565,23.1010012 9.6685685,23.1010012 10.8691406,21.9004291 L10.8691406,21.9004291 C12.0697127,20.699857 14.0162248,20.699857 15.2167969,21.9004291 L15.2167969,21.9004291 C16.417369,23.1010012 18.363881,23.1010012 19.5644531,21.9004291 L19.5644531,21.9004291 C20.7650252,20.699857 22.7115373,20.699857 23.9121094,21.9004291 L23.9121094,21.9004291 C25.1126815,23.1010012 27.0591935,23.1010012 28.2597656,21.9004291 L28.2597656,21.9004291 C29.3698982,20.7902966 31.1581761,20.7537388 32.312751,21.8175739 C33.2613178,22.6916179 34.0841552,23.1286327 34.78125,23.1286327" id="Path-9-Copy" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M0,27.1286327 C0.886177814,27.1286327 1.77212563,26.7049683 2.65784343,25.8576393 L2.65784651,25.8576425 C3.74324241,24.8192899 5.45934963,24.8382944 6.52148438,25.9004291 L6.52148438,25.9004291 C7.7220565,27.1010012 9.6685685,27.1010012 10.8691406,25.9004291 L10.8691406,25.9004291 C12.0697127,24.699857 14.0162248,24.699857 15.2167969,25.9004291 L15.2167969,25.9004291 C16.417369,27.1010012 18.363881,27.1010012 19.5644531,25.9004291 L19.5644531,25.9004291 C20.7650252,24.699857 22.7115373,24.699857 23.9121094,25.9004291 L23.9121094,25.9004291 C25.1126815,27.1010012 27.0591935,27.1010012 28.2597656,25.9004291 L28.2597656,25.9004291 C29.3698982,24.7902966 31.1581761,24.7537388 32.312751,25.8175739 C33.2613178,26.6916179 34.0841552,27.1286327 34.78125,27.1286327" id="Path-9-Copy" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle id="Oval-Copy-5" fill="currentColor" cx="25" cy="18" r="1"></circle>
+            <circle id="Oval-Copy-5" fill="currentColor" cx="29" cy="18" r="1"></circle>
+            <circle id="Oval-Copy-5" fill="currentColor" cx="21" cy="18" r="1"></circle>
+            <rect id="Rectangle" fill="currentColor" x="4" y="14" width="4" height="2" rx="1"></rect>
+        </g>
+    </g>
+</svg>

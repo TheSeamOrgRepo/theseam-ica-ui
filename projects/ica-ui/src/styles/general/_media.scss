@@ -1,6 +1,21 @@
 // Media
 // ------------------------
-img {
+.svg-defs {
+    display: none;
+}
+
+img,
+.icon {
     max-width: 100%;
+}
+
+img {
     border: none;
+}
+
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
 }

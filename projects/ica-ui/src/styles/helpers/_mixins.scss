@@ -375,6 +375,41 @@
     }
 }
 
+@mixin rounded-dropdown-arrow($position: top) {
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        #{$position}: -6px;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px 0 0 0;
+        background-color:$gray-light;
+        pointer-events: none;
+        z-index: 0;
+
+        @if $position == top {
+            transform: rotate(45deg);
+        } @else {
+            transform: rotate(-135deg);
+        }
+    }
+
+    &:after {
+        border-radius: 2px 0 0 0;
+        background-color: $white;
+        z-index: 1;
+
+        @if $position == top {
+            transform: rotate(45deg)
+                       translate(1px, 1px);
+        } @else {
+            transform: rotate(-135deg)
+                       translate(1px, 1px);
+        }
+    }
+}
+
 // Debugging
 // ------------------------
 

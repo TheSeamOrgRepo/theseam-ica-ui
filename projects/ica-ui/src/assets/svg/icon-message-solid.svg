@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="29px" viewBox="0 0 32 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-message-solid</title>
+    <desc>Created with Sketch.</desc>
+    <g id="message-solid" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,22 L0,0 L32,0 L32,22 L26,22 L26,29 L16.6666667,22 L0,22 Z M16,13 C17.1045695,13 18,12.1045695 18,11 C18,9.8954305 17.1045695,9 16,9 C14.8954305,9 14,9.8954305 14,11 C14,12.1045695 14.8954305,13 16,13 Z M23,13 C24.1045695,13 25,12.1045695 25,11 C25,9.8954305 24.1045695,9 23,9 C21.8954305,9 21,9.8954305 21,11 C21,12.1045695 21.8954305,13 23,13 Z M9,13 C10.1045695,13 11,12.1045695 11,11 C11,9.8954305 10.1045695,9 9,9 C7.8954305,9 7,9.8954305 7,11 C7,12.1045695 7.8954305,13 9,13 Z" id="Combined-Shape" fill="currentColor" fill-rule="nonzero"></path>
+    </g>
+</svg>

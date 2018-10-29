@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-x-outline</title>
+    <desc>Created with Sketch.</desc>
+    <g id="x-outline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <circle id="Oval-6" cx="15" cy="15" r="14"></circle>
+            <path d="M19.5961941,10.4038059 L10.4038059,19.5961941" id="Line-6" stroke-linecap="square"></path>
+            <path d="M19.5961941,10.4038059 L10.4038059,19.5961941" id="Line-6" stroke-linecap="square" transform="translate(15.000000, 15.000000) scale(-1, 1) translate(-15.000000, -15.000000) "></path>
+        </g>
+    </g>
+</svg>

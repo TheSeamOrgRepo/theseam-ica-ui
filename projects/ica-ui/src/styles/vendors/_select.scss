@@ -1,0 +1,179 @@
+.select-select {
+    display: none;
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+}
+
+.select-element {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    // transition: margin 0.15s ease-in-out,
+    //             opacity 0.15s ease-in-out,
+    //             top 0.15s ease-in-out,
+    //             visibility 0.15s ease-in-out;
+    transition: opacity 0.15s ease-in-out,
+                visibility 0.15s ease-in-out;
+
+    &:before,
+    &:after {
+        left: 12px;
+        // top: -5px;
+    }
+
+    &.select-open {
+        opacity: 1;
+        visibility: visible;
+
+        // &.select-target-attached-bottom {
+        //     margin-top: 0.5rem;
+        // }
+
+        // &.select-target-attached-top {
+        //     // margin-bottom: 0.5rem;
+        //     top: -0.5rem !important;
+        // }
+    }
+
+    &.select-target-attached-bottom {
+        margin-top: 0.5rem;
+        @include rounded-dropdown-arrow;
+    }
+
+    &.select-target-attached-top {
+        // margin-bottom: 0.5rem + rem-calc(5);
+        top: -0.5rem !important;
+        @include rounded-dropdown-arrow(bottom);
+    }
+}
+
+.select {
+    user-select: none;
+
+    .select-content {
+        overflow: scroll;
+        overflow: auto;
+        max-width: 18rem;
+        max-height: 18rem;
+        // margin-top: 0.25rem;
+        font-family: inherit;
+        color: inherit;
+        background-color: $white;
+        border: 1px solid $gray-light;
+        border-radius: 3px;
+        box-shadow: 0 6px 16px 0 rgba(black, 0.06),
+                    0 4px 8px 0 rgba(black, 0.08),
+                    0 2px 4px 0 rgba(black, 0.1);
+        -webkit-overflow-scrolling: touch;
+
+        @media (max-width: 27rem), (max-height: 27rem) {
+            max-width: 11.25rem;
+            max-height: 11.25rem;
+        }
+    }
+
+    &.select-target-attached-top {
+        .select-content {
+            box-shadow: 0 -6px 16px 0 rgba(black, 0.06),
+                        0 -4px 8px 0 rgba(black, 0.08),
+                        0 -2px 4px 0 rgba(black, 0.1);
+        }
+    }
+
+    .select-options {
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+
+        .select-option {
+            overflow: hidden;
+            display: block;
+            position: relative;
+            height: $form-height;
+            margin: 0;
+            padding: 0 1rem;
+            list-style: none;
+            font-size: rem-calc(14);
+            line-height: $form-height;
+            cursor: pointer;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            transition: 0.15s ease-in-out;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            z-index: 2;
+
+            &.select-option-disabled {
+                color: $gray-light;
+                pointer-events: none;
+            }
+
+            &:not(.select-option-disabled) {
+                &:hover,
+                &.select-option-selected {
+                    background: $blue;
+                    color: $white;
+                }
+            }
+
+            &:first-child {
+                border-radius: 3px 3px 0 0;
+            }
+
+            &:last-child {
+                border-radius: 0 0 3px 3px;
+            }
+        }
+    }
+}
+
+.select-target {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: $form-height;
+    padding: 0 ((0.75rem * 2) + rem-calc(10)) 0 0.75rem;
+    font-family: $font;
+    font-size: rem-calc(14);
+    color: $primary;
+    line-height: $form-height;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none !important;
+    background-color: $white;
+    border: 1px solid $gray-light;
+    border-radius: 3px;
+    box-shadow: 0 0 6px 0 transparent;
+    transition: 0.15s ease-in-out;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+
+    &:hover {
+        border-color: $blue;
+        color: $primary !important;
+    }
+
+    &.select-target-focused,
+    &.select-target-focused:active,
+    &.select-target-focused:focus {
+        outline: none;
+        color: initial;
+        border-color: $blue;
+        box-shadow: 0 0 6px 0 rgba($blue, 0.5);
+    }
+
+    &.select-target-placeholder {
+        &,
+        &:hover,
+        &.select-target-focused,
+        &.select-target-focused:active,
+        &.select-target-focused:focus {
+            color: $primary-ultralight;
+        }
+    }
+}

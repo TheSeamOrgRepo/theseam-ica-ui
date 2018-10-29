@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-nav-profile</title>
+    <desc>Created with Sketch.</desc>
+    <g id="nav-profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-21-Copy" transform="translate(1.000000, 1.000000)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <circle id="Oval" cx="14" cy="14" r="14"></circle>
+            <circle id="Oval" cx="14" cy="10.137931" r="5.31034483"></circle>
+            <polyline id="Path" points="5.79310345 25.1034483 7.72413793 16.4137931 20.2758621 16.4137931 22.2068966 25.1034483"></polyline>
+        </g>
+    </g>
+</svg>

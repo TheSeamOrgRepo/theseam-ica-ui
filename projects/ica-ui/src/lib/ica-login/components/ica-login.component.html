@@ -23,7 +23,7 @@
                                   <input type="email" placeholder="email@example.com" class="form-field__input" icaAutofocus
                                     [(ngModel)]="email" name="email" #emailInput (keyup.enter)="verifyEmail()">
 
-                                  <button [routerLink]="" class="form-field__button" (click)="verifyEmail()">
+                                  <button [routerLink]="" class="btn form-field__button" (click)="verifyEmail()">
                                       <svg width="13" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M7.92 0L6.626 1.285l2.808 2.808H0v1.814h9.434L6.626 8.715 7.92 10l4.99-5z" fill="none" fill-rule="nonzero"/></svg>
                                   </button>
                               </div>
@@ -85,8 +85,6 @@
                                   </div>
                               </div>
 
-                              <button class="btn btn--green" (click)="login()">Next</button>
-
                               <p class="action__helper">
                                   <span class="forgot-password">
                                       <a href="#">Forgot password?</a>
@@ -96,6 +94,8 @@
                                       <a href="#">Need help signing in?</a>
                                   </span>
                               </p>
+
+                              <button class="btn btn--green" (click)="login()">Next</button>
                           </div>
 
                           <p class="action__other">

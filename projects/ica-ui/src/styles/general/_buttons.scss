@@ -130,13 +130,21 @@ button {
         padding-left: $icon-size + 10px;
     }
 
-    img {
+    img,
+    .icon {
         position: absolute;
         top: 50%;
         left: 0;
         max-width: $icon-size;
         max-height: $icon-size;
         transform: translateY(-50%);
+    }
+
+    &.uport {
+        .icon {
+            color: $purple;
+            font-size: $icon-size;
+        }
     }
 }
 
@@ -164,6 +172,7 @@ button {
 // Dropdown button
 .btn--dropdown {
     position: relative;
+    outline: none;
 
     &:after {
         content: '';
@@ -179,21 +188,34 @@ button {
         box-shadow: 0 0 6px 0 rgba($blue, 0.5);
     }
 
-    &.is-active {
-        outline: none;
-
-        .dropdown {
-            display: block;
-        }
+    + .btn--dropdown__dropdown {
+        display: none;
     }
 
-    .dropdown {
-        display: none;
-        position: absolute;
-        left: -1px;
-        top: 100%;
-        padding-top: 0.25rem;
-        z-index: 1;
+    // &.is-active {
+    //     + .dropdown {
+    //         opacity: 1;
+    //         visibility: visible;
+    //     }
+    // }
+}
+
+.btn--dropdown__dropdown {
+    position: relative;
+    // left: -1px;
+    // top: 100%;
+    margin-top: 0.5rem;
+    // opacity: 0;
+    // visibility: hidden;
+    transition: 0.15s ease-in-out;
+    // z-index: 1;
+
+    @include rounded-dropdown-arrow;
+
+    &:before,
+    &:after {
+        top: -5px;
+        left: 12px;
     }
 
     ul {
@@ -205,6 +227,11 @@ button {
         box-shadow: 0 6px 16px 0 rgba(black, 0.06),
                     0 4px 8px 0 rgba(black, 0.08),
                     0 2px 4px 0 rgba(black, 0.10);
+
+        li {
+            position: relative;
+            z-index: 2;
+        }
 
         a {
             white-space: nowrap;

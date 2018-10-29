@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-image</title>
+    <desc>Created with Sketch.</desc>
+    <g id="image" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-15" transform="translate(1.000000, 0.855469)">
+            <rect id="Rectangle" stroke="currentColor" stroke-width="2" x="0.829272636" y="0.931265024" width="26.9230769" height="26.9230769"></rect>
+            <path d="M0.829272636,21.7604942 L27.7523496,21.7604942" id="Line-6" stroke="currentColor" stroke-width="2"></path>
+            <circle id="Oval" fill="currentColor" fill-rule="nonzero" cx="8.14334604" cy="8.45328219" r="3.21432486"></circle>
+            <polyline id="Path-4" stroke="currentColor" stroke-width="2" fill-rule="nonzero" points="6.23632391 21.7604942 14.9307258 13.0660924 19.2779267 17.4132933"></polyline>
+            <polyline id="Path-5" stroke="currentColor" stroke-width="2" fill-rule="nonzero" points="16.668119 15.1047927 22.6510605 9.12185117 27.7523496 14.2231402"></polyline>
+        </g>
+    </g>
+</svg>

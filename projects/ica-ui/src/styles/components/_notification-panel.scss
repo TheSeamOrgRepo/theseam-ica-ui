@@ -1,0 +1,151 @@
+// Notification Panel
+// ------------------------
+.notification-panel {
+    position: relative;
+    // top: 100%;
+    // right: 0;
+    width: 320px;
+    max-width: 320px;
+    margin-top: 7px;
+    background: $white;
+    border: 1px solid $gray-light;
+    border-radius: 3px;
+    box-shadow: 0 10px 10px 0 rgba(black, 0.1),
+                0 11px 33px 0 rgba(black, 0.06);
+    // opacity: 0;
+    // visibility: hidden;
+    transition: 0.15s ease-in-out;
+
+    @include rounded-dropdown-arrow;
+
+    &:before,
+    &:after {
+        right: $nav-size-small/2;
+        margin-right: -7px;
+    }
+
+    &:before {
+        background-color: $gray-light;
+    }
+
+    &:after {
+        background-color: $gray-ultralight-1;
+    }
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.notification-panel__header,
+.notification-panel__footer {
+    background-color: $gray-ultralight-1;
+}
+
+.notification-panel__header {
+    padding: 1rem 1.25rem;
+    position: relative;
+    border-bottom: 1px solid $gray-light;
+    border-radius: 3px 3px 0 0;
+}
+
+.notification-panel__heading {
+    margin: 0;
+    font-size: rem-calc(22);
+}
+
+.notification-panel__header-icon {
+    position: absolute;
+    top: 50%;
+    right: 1.25rem;
+    padding: 0;
+    line-height: 1;
+    background: none;
+    border: none;
+    transform: translateY(-50%);
+
+    .icon {
+        color: $gray-light;
+        font-size: 22px;
+    }
+}
+
+
+.notification-panel__list {
+    overflow: scroll;
+    overflow: auto;
+    height: 250px;
+}
+
+.notification-panel__item {
+    position: relative;
+    // margin: 0 1.25rem;
+    padding: 1rem 2.25rem 1rem 1.25rem;
+    color: $primary-light;
+    font-size: rem-calc(12);
+    text-align: left;
+    background: none;
+    border: none;
+    transition: 0.15s ease-in-out;
+
+    &:hover {
+        color: $primary;
+    }
+
+    &:not(:last-of-type) {
+        &:before {
+            content: '';
+            position: absolute;
+            right: 1.25rem;
+            bottom: 0;
+            left: 1.25rem;
+            height: 1px;
+            background-color: $gray-ultralight;
+        }
+    }
+}
+
+.notification-panel__item--unread {
+    position: relative;
+
+    &:after {
+        $size: 7px;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: $size;
+        height: $size;
+        background-color: $red;
+        border-radius: 100%;
+    }
+}
+
+.notification-panel__footer {
+    display: flex;
+    align-content: center;
+    height: 40px;
+    padding: 0 1.25rem;
+    border-top: 1px solid $gray-light;
+    border-radius: 0 0 3px 3px;
+
+    button {
+        padding: 0;
+        color: $primary;
+        font-size: rem-calc(10);
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: none;
+        border: none;
+    }
+}
+
+
+
+
+
+
+

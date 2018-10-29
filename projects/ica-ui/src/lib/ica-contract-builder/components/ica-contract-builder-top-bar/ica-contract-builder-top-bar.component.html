@@ -3,7 +3,10 @@
         <h1 class="contract-new__header-heading">
             New Contract
             <button>
-                <img src="assets/images/icon-edit.svg" alt="">
+              <svg class="icon icon-edit" aria-hidden="true">
+                  <use xlink:href="#icon-edit"></use>
+              </svg>
+              <span class="hide-vis">Edit</span>
             </button>
         </h1>
     </div>
@@ -23,21 +26,27 @@
 
         <li>
             <a routerLink="/contracts" class="contract-new__header-action contract-new__header-action--cancel">
-                <img src="assets/images/icon-cancel.svg" alt="" aria-hidden="true">
+                <svg class="icon icon-cancel" aria-hidden="true">
+                    <use xlink:href="#icon-cancel"></use>
+                </svg>
                 <div>Cancel</div>
             </a>
         </li>
 
         <li>
             <a routerLink="/contracts" class="contract-new__header-action contract-new__header-action--save">
-                <img src="assets/images/icon-save.svg" alt="" aria-hidden="true">
+              <svg class="icon icon-save" aria-hidden="true">
+                  <use xlink:href="#icon-save"></use>
+              </svg>
                 <div>Save & Exit</div>
             </a>
         </li>
 
         <li>
             <button class="contract-new__header-action contract-new__header-action--templates">
-                <img src="assets/images/icon-templates.svg" alt="" aria-hidden="true">
+                <svg class="icon icon-templates" aria-hidden="true">
+                    <use xlink:href="#icon-templates"></use>
+                </svg>
                 <div>Templates</div>
             </button>
         </li>
@@ -46,7 +55,9 @@
             <button class="contract-new__header-action contract-new__header-action--sign"
                 [disabled]="!(canSign$ | async)"
                 (click)="onClickSign($event)">
-                <img src="assets/images/icon-sign.svg" alt="" aria-hidden="true">
+                <svg class="icon icon-draw" aria-hidden="true">
+                    <use xlink:href="#icon-draw"></use>
+                </svg>
                 <div>Sign</div>
             </button>
         </li>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="31px" viewBox="0 0 25 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-trash</title>
+    <desc>Created with Sketch.</desc>
+    <g id="trash" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-27-Copy" transform="translate(-0.437500, 1.000000)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <polyline id="Rectangle" points="21.516129 4.67741935 21.516129 29 2.80645161 29 2.80645161 4.67741935"></polyline>
+            <polygon id="Rectangle-Copy-2" points="8.41935484 0 15.9032258 0 15.9032258 3.74193548 8.41935484 3.74193548"></polygon>
+            <path d="M-3.55271368e-15,3.74193548 L24.3225806,3.74193548" id="Line"></path>
+            <path d="M12.1612903,8.41935484 L12.1612903,24.3225806" id="Line-2"></path>
+            <path d="M7.48387097,8.41935484 L7.48387097,24.3225806" id="Line-2"></path>
+            <path d="M16.8387097,8.41935484 L16.8387097,24.3225806" id="Line-2"></path>
+        </g>
+    </g>
+</svg>

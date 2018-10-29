@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="30px" viewBox="0 0 32 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-upload</title>
+    <desc>Created with Sketch.</desc>
+    <g id="upload" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-16" transform="translate(1.500000, 1.000000)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <path d="M1.77635684e-15,19.2748437 C1.77635684e-15,19.2748437 1.77635684e-15,21.9815104 1.77635684e-15,27.3948437 L29,27.3948437 L29,19.2748437" id="Path-13"></path>
+            <path d="M14.0103715,0.865889399 L14.0103715,19.6610071" id="Path-16" transform="translate(14.291196, 10.385583) rotate(-180.000000) translate(-14.291196, -10.385583) "></path>
+            <polyline id="Path-17" transform="translate(14.572020, 4.352605) rotate(-180.000000) translate(-14.572020, -4.352605) " points="8.06711094 1.11015802 14.5720203 7.59505224 21.0769296 1.11015802"></polyline>
+        </g>
+    </g>
+</svg>

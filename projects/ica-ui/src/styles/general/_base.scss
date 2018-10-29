@@ -11,6 +11,10 @@ html {
 }
 
 body {
+    overflow: hidden;
+    width: 100vw;
+    min-width: $min-width;
+    height: 100vh;
 	font: 100%/1.5 $font;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -18,10 +22,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	color: $primary;
-    min-width: $min-width;
-    overflow-x: hidden;
 }
 
 main {
+    overflow: hidden;
     display: block;
 }

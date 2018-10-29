@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="27px" viewBox="0 0 32 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-stack-outline</title>
+    <desc>Created with Sketch.</desc>
+    <g id="stack-outline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Group" transform="translate(1.000000, 1.000000)" fill-rule="nonzero" stroke="currentColor" stroke-width="2">
+            <polygon id="Rectangle-Copy-19" stroke-linecap="square" points="15 0 30 7.5 15 15 0 7.5"></polygon>
+            <polyline id="Shape" points="25 10 30 12.5 15 20 0 12.5 5 10"></polyline>
+            <polyline id="Shape" points="25 15 30 17.5 15 25 0 17.5 5 15"></polyline>
+        </g>
+    </g>
+</svg>

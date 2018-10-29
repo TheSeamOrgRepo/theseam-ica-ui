@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="30px" viewBox="0 0 25 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-document-outline</title>
+    <desc>Created with Sketch.</desc>
+    <g id="document-outline" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(2.000000, 0.000000)" fill-rule="nonzero">
+            <path d="M-0.177655635,1.10061054 L14.1450747,1.10061054 L21.171965,8.34043689 L21.171965,28.9001047 L-0.177655635,28.9001047 L-0.177655635,1.10061054 Z" id="Rectangle-28" stroke="currentColor" stroke-width="2"></path>
+            <polygon id="Rectangle-28-Copy" fill="currentColor" points="12.7869156 0.851875667 21.4200709 9.48503099 12.7869156 9.48503099"></polygon>
+        </g>
+    </g>
+</svg>

@@ -43,8 +43,8 @@
         }
 
         .navigation li a .nav-item {
-          opacity: 0;
-          visibility: hidden;
+            opacity: 0;
+            visibility: hidden;
         }
 
         .account-drawer li a .nav-item {
@@ -91,46 +91,35 @@
 
         &.is-active {
             .hamburger {
-                .line {
-                    &:nth-child(1) {
-                        transform: translateY(15px) scaleY(-1);
-                    }
-
-                    &:nth-child(3) {
-                        transform: translateY(-15px) scaleY(-1);
-                    }
+                .icon {
+                    transform: scaleY(-1);
                 }
             }
         }
 
         &:hover {
             .hamburger {
-                .line {
-                    background-color: $gray-ultralight-1;
-                }
+                color: $gray-ultralight-1;
             }
         }
     }
 
     .hamburger {
-        // margin-top: 23px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 30px;
+        color: $primary-ultralight;
+        line-height: 0;
 
-        .line {
-            width: 28px;
-            height: 2px;
-            background-color: $primary-ultralight;
-            display: block;
-            margin: 5px 0;
+        .icon {
             transition: all 0.15s ease-in-out,
                         transform 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-
-            &:nth-child(2) {
-                width: 20px;
-            }
-
-            &:nth-child(3) {
-                width: 12px;
-            }
         }
     }
 
@@ -173,58 +162,58 @@
                 text-decoration: none;
                 border-left: 5px solid transparent;
 
-                &:hover {
-                    opacity: 1;
-
-                    &:not(:active) .nav-item {
-                        opacity: 1;
-                        color: $gray-ultralight-1;
-                    }
-
-                    .nav-item {
-                        opacity: 1;
-                        color: $gray-ultralight-1;
-                    }
-
-                    img {
-                        opacity: 1;
-                    }
-                }
-
+                &:active,
                 &.is-active {
-                    background-color: $primary-ultradark;
-                    border-left: 5px solid $secondary;
                     color: $gray-ultralight-1;
-                }
-
-                &:active {
-                    color: $primary-light;
                     background-color: $primary-ultradark;
                     border-left: 5px solid $secondary;
+
+                    .icon {
+                        color: $primary-ultralight;
+                    }
                 }
 
-                .nav-item {
-                    opacity: 1;
-                    transition: 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
-                }
-            }
-
-            img {
-                margin: 0 16px;
-                opacity: 0.25;
-                transition: opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-            }
-
-            &:first-of-type {
-                img {
-                    margin: 0 13px 0 20px;
+                &:hover {
+                    &,
+                    .icon {
+                        color: $gray-ultralight-1;
+                    }
                 }
             }
 
-            &:nth-of-type(3) {
-                img {
-                    margin: 0 13px 0 16px;
-                }
+            .nav-icon {
+                width: 70px;
+                min-width: 70px;
+                text-align: center;
+                color: inherit;
+            }
+
+            .icon {
+                // margin: 0 1rem;
+                width: 100%;
+                transition: 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+
+            .icon-contracts {
+                font-size: 28px;
+            }
+
+            .icon-companies {
+                font-size: 30px;
+            }
+
+            .icon-shipments {
+                font-size: 20px;
+            }
+
+            .icon-documents {
+                font-size: 22px;
+            }
+
+            .nav-item {
+                position: relative;
+                top: 1px;
+                transition: 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
             }
         }
     }
@@ -259,39 +248,53 @@
                     opacity: 1;
                 }
             }
+        }
 
-            .nav-link {
-                display: flex;
-                align-items: center;
-                padding: 0.5rem 0;
-                font-size: 14px;
-                text-decoration: none;
-                transition: color 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 14px;
+            text-decoration: none;
+            color: $primary-ultralight;
+            transition: color 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-                &:hover {
-                    img {
-                        opacity: 1;
-                    }
-
-                    .nav-item {
-                        color: $gray-ultralight-1;
-                    }
-                }
-
-                img {
-                    opacity: 0.25;
-                    margin-right: 18px;
-                    transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
-                }
-
-                .nav-item {
-                    opacity: 1;
-                    min-width: 120px;
-                    text-align: left;
-                    color: $primary-ultralight;
-                    transition: 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
-                }
+            &:hover {
+                color: $gray-ultralight-1;
             }
+        }
+
+        .icon {
+            margin-right: 18px;
+            width: 30px;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .icon-profile {
+            font-size: 25px;
+        }
+
+        .icon-notifications {
+            font-size: 22px;
+        }
+
+        .icon-switch-user {
+            font-size: 26px;
+        }
+
+        .icon-logout {
+            font-size: 30px;
+        }
+
+        .icon-help {
+            font-size: 25px
+        }
+
+        .nav-item {
+            opacity: 1;
+            min-width: 120px;
+            text-align: left;
         }
     }
 
@@ -302,8 +305,18 @@
     }
 
     .profile--wrapper {
-        width: 26.7px;
-        height: 26.7px;
+        $icon-size: 26px;
+        width: $icon-size;
+        height: $icon-size;
+        font-size: $icon-size;
+        line-height: 0;
+        color: $primary-ultralight;
+        transition: color 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        .icon {
+            width: $icon-size;
+            min-width: $icon-size;
+        }
     }
 
     .block--account-info__inner {
@@ -317,21 +330,11 @@
         border-top-width: 1px;
 
         &:hover {
-            img {
-                opacity: 1;
-            }
-
+            .profile--wrapper,
             .user-name,
             .org-name {
                 color: $gray-ultralight-1;
             }
-        }
-
-        img {
-            width: 26.7px;
-            max-width: none;
-            opacity: 0.25;
-            transition: opacity 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
     }
 
