@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs'
 })
 export class IcaNavigationService {
 
-  private _sideNavExpandedSubject = new BehaviorSubject<boolean>(true)
+  private _sideNavExpandedSubject = new BehaviorSubject<boolean>(false)
   public sideNavExpanded = this._sideNavExpandedSubject.asObservable()
 
   constructor() {

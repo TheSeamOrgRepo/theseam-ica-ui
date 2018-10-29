@@ -8,37 +8,53 @@
 
             <button class="nav-toggle" [class.is-active]="!expandedState.expanded" (click)="icaNavigationService.setSideNavExpandedState(!expandedState.expanded)">
                 <div class="hamburger">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
+                    <svg class="icon icon-hamburger" aria-hidden="true">
+                        <use xlink:href="#icon-hamburger"></use>
+                    </svg>
                 </div>
             </button>
 
             <ul class="navigation">
                 <li>
                     <a class="nav-link" routerLink="/contracts" routerLinkActive="is-active">
-                        <img width="28" style="min-width: 28px;" src="assets/images/icon-contracts.svg" alt="" aria-hidden="true">
+                        <div class="nav-icon">
+                            <svg class="icon icon-contracts" aria-hidden="true">
+                                <use xlink:href="#icon-contracts"></use>
+                            </svg>
+                        </div>
                         <span class="nav-item">Contracts</span>
                       </a>
                 </li>
 
                 <li>
                     <a class="nav-link" routerLink="/companies" routerLinkActive="is-active">
-                        <img width="30" style="min-width: 30px;" src="assets/images/icon-companies.svg" alt="" aria-hidden="true">
+                        <div class="nav-icon">
+                            <svg class="icon icon-companies" aria-hidden="true">
+                                <use xlink:href="#icon-companies"></use>
+                            </svg>
+                        </div>
                         <span class="nav-item">Companies</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="nav-link" routerLink="/shipments" routerLinkActive="is-active">
-                        <img width="33" style="min-width: 33px;" src="assets/images/icon-shipments.svg" alt="" aria-hidden="true">
+                        <div class="nav-icon">
+                            <svg class="icon icon-shipments" aria-hidden="true">
+                                <use xlink:href="#icon-shipments"></use>
+                            </svg>
+                        </div>
                         <span class="nav-item">Shipments</span>
                     </a>
                 </li>
 
                 <li>
                     <a class="nav-link" routerLink="/documents" routerLinkActive="is-active">
-                        <img width="28.62" style="min-width: 28.62px;" src="assets/images/icon-documents.svg" alt="" aria-hidden="true">
+                        <div class="nav-icon">
+                            <svg class="icon icon-documents" aria-hidden="true">
+                                <use xlink:href="#icon-documents"></use>
+                            </svg>
+                        </div>
                         <span class="nav-item">Documents</span>
                     </a>
                 </li>
@@ -47,7 +63,10 @@
             <div class="block--account-info" (click)="accountDrawerOpen=!accountDrawerOpen">
                 <button id="account-info" class="block--account-info__inner">
                     <span class="profile--wrapper">
-                        <img src="assets/images/icon-profile.svg" alt="Profile">
+                        <svg class="icon icon-profile" aria-hidden="true">
+                            <use xlink:href="#icon-profile"></use>
+                        </svg>
+                        <span class="hide-vis">Profile</span>
                     </span>
 
                     <span class="block--profile-info">
@@ -60,35 +79,45 @@
                     <ul class="account-drawer">
                         <li>
                             <a class="nav-link" routerLink="/profile">
-                                <img width="25" style="min-width: 25px;" src="assets/images/icon-profile.svg" alt="" aria-hidden="true">
+                                <svg class="icon icon-profile" aria-hidden="true">
+                                    <use xlink:href="#icon-profile"></use>
+                                </svg>
                                 <span class="nav-item">Profile</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#" class="nav-link">
-                                <img width="22.62" style="min-width: 22.62px; margin-right: 19px;" src="assets/images/icon-notifications.svg" alt="" aria-hidden="true">
+                                <svg class="icon icon-notifications" aria-hidden="true">
+                                    <use xlink:href="#icon-notifications"></use>
+                                </svg>
                                 <span class="nav-item">Notifications</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#" class="nav-link">
-                                <img width="26" style="min-width: 26px;" src="assets/images/icon-switch-user.svg" alt="" aria-hidden="true">
+                                <svg class="icon icon-switch-user" aria-hidden="true">
+                                    <use xlink:href="#icon-switch-user"></use>
+                                </svg>
                                 <span class="nav-item">Switch User</span>
                             </a>
                         </li>
 
                         <li>
                             <a class="nav-link" routerLink="/logout">
-                                <img width="30.66" style="min-width: 30.66px; margin-right: 12.5px;" src="assets/images/icon-logout.svg" alt="" aria-hidden="true">
+                                <svg class="icon icon-logout" aria-hidden="true">
+                                    <use xlink:href="#icon-logout"></use>
+                                </svg>
                                 <span class="nav-item">Logout</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="#" class="nav-link">
-                                <img width="25" style="min-width: 25px;" src="assets/images/icon-help.svg" alt="" aria-hidden="true">
+                                <svg class="icon icon-help" aria-hidden="true">
+                                    <use xlink:href="#icon-help"></use>
+                                </svg>
                                 <span class="nav-item">Help</span>
                             </a>
                         </li>

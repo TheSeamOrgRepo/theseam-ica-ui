@@ -34,7 +34,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "dist/ica-ui/assets/libs.js"
+            ]
           },
           "configurations": {
             "production": {

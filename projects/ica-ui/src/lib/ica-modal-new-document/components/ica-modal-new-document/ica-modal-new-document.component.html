@@ -47,7 +47,10 @@
         </ul>
 
         <div class="modal__dropzone" (click)="browseForDocument()">
-            <img src="assets/images/icon-upload.svg" alt="Upload File">
+            <svg class="icon icon-upload" aria-hidden="true">
+                <use xlink:href="#icon-upload"></use>
+            </svg>
+
             <div class="modal__dropzone-text">Drag drop or <a [routerLink]="">browse</a>.</div>
         </div>
 

@@ -8,6 +8,7 @@ import { IcaModalFilePreviewModule } from './../ica-modal-file-preview/ica-modal
 import { IcaTableModule } from '../ica-table'
 
 import { IcaContractsComponent } from './components/ica-contracts/ica-contracts.component'
+import { IcaContractsTableFiltersComponent } from './components/ica-contracts-table-filters/ica-contracts-table-filters.component'
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { IcaContractsComponent } from './components/ica-contracts/ica-contracts.
     IcaModalFilePreviewModule,
     OverlayModule
   ],
-  declarations: [ IcaContractsComponent ],
-  exports: [ IcaContractsComponent ]
+  declarations: [ IcaContractsComponent, IcaContractsTableFiltersComponent ],
+  exports: [ IcaContractsComponent, IcaContractsTableFiltersComponent ]
 })
 export class IcaContractsModule { }

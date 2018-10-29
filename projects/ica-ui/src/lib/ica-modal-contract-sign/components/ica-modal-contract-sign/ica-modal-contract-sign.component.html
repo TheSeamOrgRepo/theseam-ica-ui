@@ -6,19 +6,39 @@
             Sign Contract
 
             <div class="modal__header-actions">
-                <button class="type">Type</button>
-                <button class="draw is-active">Draw</button>
-                <button class="image">Image</button>
+                <button class="type">
+                    <svg class="icon icon-keyboard" aria-hidden="true">
+                        <use xlink:href="#icon-keyboard"></use>
+                    </svg>
+
+                    Type
+                </button>
+
+                <button class="draw is-active">
+                    <svg class="icon icon-draw" aria-hidden="true">
+                        <use xlink:href="#icon-draw"></use>
+                    </svg>
+
+                    Draw
+                </button>
+
+                <button class="image">
+                    <svg class="icon icon-image" aria-hidden="true">
+                        <use xlink:href="#icon-image"></use>
+                    </svg>
+
+                    Image
+                </button>
             </div>
         </h1>
 
         <!-- <textarea class="modal__box"></textarea> -->
         <div class="modal__box" style="border: 1px solid grey; border-radius: 4px;">
-          <signature-pad
-            [options]="options"
-            (onBeginEvent)="drawStart($event)"
-            (onEndEvent)="drawComplete($event)">
-          </signature-pad>
+            <signature-pad
+                [options]="options"
+                (onBeginEvent)="drawStart($event)"
+                (onEndEvent)="drawComplete($event)">
+            </signature-pad>
         </div>
 
         <div class="modal__actions">

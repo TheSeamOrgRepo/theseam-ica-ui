@@ -22,8 +22,8 @@ export class IcaModalFilePreviewComponent implements OnInit {
     this._fileIframe = val
     setTimeout(() => {
       if (this.icaModalFilePreview.fileType === 'pdf') {
-        console.log('show', this.icaModalFilePreview.url)
-        console.log(this.fileIframe.nativeElement)
+        // console.log('show', this.icaModalFilePreview.url)
+        // console.log(this.fileIframe.nativeElement)
         this.fileIframe.nativeElement.src = this.icaModalFilePreview.url
       }
     }, 100)

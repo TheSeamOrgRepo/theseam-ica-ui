@@ -14,7 +14,8 @@
       [attr.required]="options?.required"
       [class]="'form-field__select ' + (options?.fieldHtmlClass || '')"
       [id]="'control' + layoutNode?._id"
-      [name]="controlName">
+      [name]="controlName"
+      icaSelect>
       <ng-template ngFor let-selectItem [ngForOf]="selectList">
         <option *ngIf="!isArray(selectItem?.items)"
           [value]="selectItem?.value">
@@ -37,7 +38,8 @@
       [disabled]="controlDisabled"
       [id]="'control' + layoutNode?._id"
       [name]="controlName"
-      (change)="updateValue($event)">
+      (change)="updateValue($event)"
+      icaSelect>
       <ng-template ngFor let-selectItem [ngForOf]="selectList">
         <option *ngIf="!isArray(selectItem?.items)"
           [selected]="selectItem?.value === controlValue"

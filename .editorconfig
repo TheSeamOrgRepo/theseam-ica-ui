@@ -12,3 +12,8 @@ end_of_line = lf
 [*.md]
 max_line_length = off
 trim_trailing_whitespace = false
+
+# To match SimpleFocus's indentation
+[*.html,*css]
+indent_style = space
+indent_size = 4
