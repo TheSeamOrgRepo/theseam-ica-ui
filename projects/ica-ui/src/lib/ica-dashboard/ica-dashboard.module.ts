@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
+import { IcaCommonModule } from '../common'
+
 import { IcaDashboardComponent } from './components/ica-dashboard/ica-dashboard.component'
-import { IcaSvgDefsComponent } from './components/ica-svg-defs/ica-svg-defs.component'
 
 import { IcaTopBarContentDirective } from './directives/ica-top-bar-content.directive'
 import { IcaSideNavDirective } from './directives/ica-side-nav.directive'
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    IcaCommonModule
   ],
   declarations: [
     IcaDashboardComponent,
     IcaTopBarContentDirective,
-    IcaSideNavDirective,
-    IcaSvgDefsComponent
+    IcaSideNavDirective
   ],
   exports: [
     IcaDashboardComponent,
     IcaTopBarContentDirective,
-    IcaSideNavDirective,
-    IcaSvgDefsComponent
+    IcaSideNavDirective
   ]
 })
 export class IcaDashboardModule { }

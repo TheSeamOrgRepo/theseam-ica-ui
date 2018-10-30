@@ -1,9 +1,33 @@
 <div class="dashboard__bottom">
   <div class="dashboard__tabs-controls">
       <div class="tabs">
-          <button class="dashboard__tabs-button dashboard__tabs-button--contracts" [class.is-active]="activeTab === 'contracts'" data-tab-trigger="contracts" (click)="activateTab('contracts')">Contracts</button>
-          <button class="dashboard__tabs-button dashboard__tabs-button--shipments" [class.is-active]="activeTab === 'shipments'" data-tab-trigger="shipments" (click)="activateTab('shipments')">Shipments</button>
-          <button class="dashboard__tabs-button dashboard__tabs-button--documents" [class.is-active]="activeTab === 'documents'" data-tab-trigger="documents" (click)="activateTab('documents')">Documents</button>
+          <button class="dashboard__tabs-button dashboard__tabs-button--contracts"
+            data-tab-trigger="contracts"
+            [class.is-active]="activeTab === 'contracts'"
+            (click)="activateTab('contracts')">
+            <svg class="icon icon-contracts" aria-hidden="true">
+                <use xlink:href="#icon-contracts"></use>
+            </svg>
+            Contracts
+          </button>
+          <button class="dashboard__tabs-button dashboard__tabs-button--shipments"
+            data-tab-trigger="shipments"
+            [class.is-active]="activeTab === 'shipments'"
+            (click)="activateTab('shipments')">
+            <svg class="icon icon-shipments" aria-hidden="true">
+                <use xlink:href="#icon-shipments"></use>
+            </svg>
+            Shipments
+          </button>
+          <button class="dashboard__tabs-button dashboard__tabs-button--documents"
+            data-tab-trigger="documents"
+            [class.is-active]="activeTab === 'documents'"
+            (click)="activateTab('documents')">
+            <svg class="icon icon-documents" aria-hidden="true">
+                <use xlink:href="#icon-documents"></use>
+            </svg>
+            Documents
+          </button>
       </div>
 
       <div class="buttons">

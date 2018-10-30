@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core'
 
+import { IcaSvgDefsComponent } from './components/ica-svg-defs/ica-svg-defs.component'
+
 import { ElemResizedDirective } from './directives/elem-resized.directive'
 import { ClickOutsideDirective } from './directives/click-outside.directive'
 import { AutofocusDirective } from './directives/autofocus.directive'
@@ -13,14 +15,16 @@ import { IcaSelectDirective } from './directives/ica-select.directive'
     ClickOutsideDirective,
     ElemResizedDirective,
     IcaDropDirective,
-    IcaSelectDirective
+    IcaSelectDirective,
+    IcaSvgDefsComponent
   ],
   exports: [
     AutofocusDirective,
     ClickOutsideDirective,
     ElemResizedDirective,
     IcaDropDirective,
-    IcaSelectDirective
+    IcaSelectDirective,
+    IcaSvgDefsComponent
   ]
 })
 export class IcaCommonModule { }

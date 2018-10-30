@@ -1,7 +1,7 @@
 <div class="dashboard__pagination">
-    <div class="dashboard__pagination-text">1-10 of 21</div>
+    <div class="dashboard__pagination-text">{{ getRangeLabel(pageIndex, pageSize, length) }}</div>
     <div class="dashboard__pagination-buttons">
-        <button class="prev" disabled><div class="hide-vis">Previous</div></button>
-        <button class="next"><div class="hide-vis">Next</div></button>
+        <button class="prev" [disabled]="hasPreviousPage()"><div class="hide-vis">Previous</div></button>
+        <button class="next" [disabled]="hasNextPage()"><div class="hide-vis">Next</div></button>
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { CdkTableModule } from '@angular/cdk/table'
 
 import { IcaCommonModule } from '../common'
 
@@ -10,7 +11,9 @@ import { IcaTablePaginationComponent } from './components/ica-table-pagination/i
 @NgModule({
   imports: [
     CommonModule,
-    IcaCommonModule
+    IcaCommonModule,
+    // CDK
+    CdkTableModule
   ],
   declarations: [ IcaTableComponent, IcaTableActionsDropdownComponent, IcaTablePaginationComponent ],
   exports: [ IcaTableComponent, IcaTableActionsDropdownComponent, IcaTablePaginationComponent ]

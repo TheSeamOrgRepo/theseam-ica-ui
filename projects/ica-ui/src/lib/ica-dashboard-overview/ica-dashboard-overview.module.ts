@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { RouterModule } from '@angular/router'
 
 import { IcaTableModule } from '../ica-table'
 
@@ -23,6 +24,7 @@ const components = [
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     IcaTableModule
   ],
   declarations: [ ...components ],
