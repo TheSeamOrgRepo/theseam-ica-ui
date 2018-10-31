@@ -174,7 +174,9 @@ export class IcaTablePaginationComponent implements OnInit {
    *
    */
   public getRangeLabel(pageIndex: number, pageSize: number, length: number) {
-    return `${(pageIndex * pageSize) + 1} - ${(pageIndex * pageSize) + 1 + pageSize} of ${length}`
+    const start = (pageIndex * pageSize) + 1
+    const end = Math.min((pageIndex * pageSize) + 1 + pageSize, length)
+    return `${start} - ${end} of ${length}`
   }
 
   /**
@@ -185,7 +187,7 @@ export class IcaTablePaginationComponent implements OnInit {
    * switching so that the page size is 5 will set the third page as the current page so
    * that the 10th item will still be displayed.
    */
-  private _changePageSize(pageSize: number) {
+  public changePageSize(pageSize: number) {
     // Current page needs to be updated to reflect the new page size. Navigate to the page
     // containing the previous page's first item.
     const startIndex = this.pageIndex * this.pageSize
@@ -197,12 +199,12 @@ export class IcaTablePaginationComponent implements OnInit {
   }
 
   /** Checks whether the buttons for going forwards should be disabled. */
-  private _nextButtonsDisabled() {
+  public nextButtonsDisabled() {
     return this.disabled || !this.hasNextPage()
   }
 
   /** Checks whether the buttons for going backwards should be disabled. */
-  private _previousButtonsDisabled() {
+  public previousButtonsDisabled() {
     return this.disabled || !this.hasPreviousPage()
   }
 

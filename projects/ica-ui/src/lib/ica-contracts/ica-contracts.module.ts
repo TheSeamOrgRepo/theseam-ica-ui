@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 import { OverlayModule } from '@angular/cdk/overlay'
@@ -14,6 +15,7 @@ import { IcaContractsTableFiltersComponent } from './components/ica-contracts-ta
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
     IcaTableModule,
     IcaModalFilePreviewModule,
     OverlayModule
