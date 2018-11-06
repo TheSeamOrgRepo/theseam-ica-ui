@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 
 import { IcaTableModule } from '../ica-table'
+import { IcaCommonModule } from '../common'
 
 // tslint:disable:max-line-length
 import { IcaDashboardOverviewComponent } from './components/ica-dashboard-overview/ica-dashboard-overview.component'
@@ -25,6 +26,7 @@ const components = [
   imports: [
     CommonModule,
     RouterModule,
+    IcaCommonModule,
     IcaTableModule
   ],
   declarations: [ ...components ],

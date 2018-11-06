@@ -4,16 +4,55 @@
     </div>
 
     <ul class="dashboard__header-right">
-        <li>
-            <button class="dashboard__header-action dashboard__header-action--notifications">
-                <svg *ngIf="!hasUnreadNotifications" class="icon icon-notifications" aria-hidden="true">
-                    <use xlink:href="#icon-notifications"></use>
-                </svg>
-                <svg *ngIf="hasUnreadNotifications" class="icon icon-notifications-active" aria-hidden="true">
+        <li class="notifications">
+            <button class="dashboard__header-action dashboard__header-action--notifications" data-toggle-notification-panel icaDrop>
+                <svg class="icon icon-notifications-active" aria-hidden="true">
                     <use xlink:href="#icon-notifications-active"></use>
                 </svg>
-                <div class="hide-vis">Notifications</div>
+                <!-- <svg class="icon icon-notifications" aria-hidden="true">
+                    <use xlink:href="#icon-notifications"></use>
+                </svg> -->
+                <span class="hide-vis">Notifications</span>
             </button>
+
+            <div class="notification-panel">
+                <div class="notification-panel__header">
+                    <h3 class="notification-panel__heading">Notifications</h3>
+
+                    <button class="notification-panel__header-icon">
+                        <svg class="icon icon-gear-solid" aria-hidden="true">
+                            <use xlink:href="#icon-gear-solid"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="notification-panel__list">
+                    <button class="notification-panel__item notification-panel__item--unread">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </button>
+
+                    <button class="notification-panel__item notification-panel__item--unread">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </button>
+
+                    <button class="notification-panel__item">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </button>
+
+                    <button class="notification-panel__item">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </button>
+
+                    <button class="notification-panel__item">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+                    </button>
+                </div>
+
+                <div class="notification-panel__footer">
+                    <button>See all Notifications</button>
+                </div>
+
+            </div>
         </li>
 
         <li>
@@ -21,7 +60,7 @@
                 <svg class="icon icon-templates" aria-hidden="true">
                     <use xlink:href="#icon-templates"></use>
                 </svg>
-                <div class="hide-vis">Templates</div>
+                <span class="hide-vis">Templates</span>
             </button>
         </li>
 
@@ -30,7 +69,7 @@
                 <svg class="icon icon-help" aria-hidden="true">
                     <use xlink:href="#icon-help"></use>
                 </svg>
-                <div class="hide-vis">help</div>
+                <span class="hide-vis">Help</span>
             </button>
         </li>
     </ul>

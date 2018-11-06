@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators'
 import { IcaContractsTableFiltersComponent } from './../ica-contracts-table-filters/ica-contracts-table-filters.component'
 import { IcaTablePaginationComponent } from './../../../ica-table/components/ica-table-pagination/ica-table-pagination.component'
 import { IRowAction } from './../../../ica-table/components/ica-table/ica-table.component'
+import { tableTextFilter } from '../../../ica-table/utils'
 
 @Component({
   selector: 'ica-contracts',
@@ -35,41 +36,40 @@ export class IcaContractsComponent implements OnInit, OnDestroy {
     this.paginator.page
       .pipe(untilDestroyed(this))
       .subscribe(_ => {
-        this.contractsTableRows = [ ...this.contractsTableRows ]
+        if (this.contractsTableRows) { this.contractsTableRows = [ ...this.contractsTableRows ] }
       })
 
     this.tableFilters.textFilter$
       .pipe(untilDestroyed(this))
       .subscribe(_ => {
-        this.contractsTableRows = [ ...this.contractsTableRows ]
+        if (this.contractsTableRows) { this.contractsTableRows = [ ...this.contractsTableRows ] }
+      })
+
+    this.tableFilters.typeFilter$
+      .pipe(untilDestroyed(this))
+      .subscribe(type => {
+        if (this.contractsTableRows) { this.contractsTableRows = [ ...this.contractsTableRows ] }
       })
 
     const rows$ = this._contractsTableRows.asObservable().pipe(
       map(data => {
-        console.log('data', data)
-        console.log('tf2', this.tableFilters.textFilter)
-        const textFilter = this.tableFilters.textFilter
-        if (textFilter && textFilter.trim().length > 0) {
-          const filteredData = []
-          for (const row of data) {
-            let found = false
-            for (const item of row) {
-              if (`${item.label}`.toLowerCase().indexOf(textFilter) !== -1) {
-                found = true
-              }
-            }
-            if (found) {
-              filteredData.push(row)
-            }
-          }
-          return filteredData
+        if (this.tableFilters.typeFilter && this.tableFilters.typeFilter !== 'all') {
+          return data.filter(d => `${d[3].label}`.toLowerCase().indexOf(this.tableFilters.typeFilter) !== -1)
         }
         return data
-      })
+      }),
+      map(data => {
+        if (this.tableFilters.statusFilter && this.tableFilters.statusFilter !== 'all') {
+          return data.filter(d => `${d[7].label}`.toLowerCase().indexOf(this.tableFilters.statusFilter) !== -1)
+        }
+        return data
+      }),
+      map(data => tableTextFilter(data, this.tableFilters.textFilter))
     )
 
     this.contractsTableRows$ = rows$.pipe(
       map(data => {
+        if (!data) { return data }
         if (!this.paginator) { return data }
 
         const startIndex = this.paginator.pageIndex * this.paginator.pageSize

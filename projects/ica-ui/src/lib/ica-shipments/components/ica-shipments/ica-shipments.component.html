@@ -10,15 +10,15 @@
     </div>
 
     <div class="dashboard__middle">
-        <img src="assets/images/placeholder-filters-left.svg" alt="">
-        <img src="assets/images/placeholder-filters-right.svg" alt="">
+        <ica-shipments-table-filters></ica-shipments-table-filters>
+        <ica-table-pagination [length]="dataLength$ | async" [pageSize]="5"></ica-table-pagination>
     </div>
 
     <div class="dashboard__bottom">
         <ica-table
           [tableCssClasses]="'table--shipments'"
           [columns]="shipmentsTableColumns"
-          [rows]="shipmentsTableRows">
+          [rows]="shipmentsTableRows$ | async">
         </ica-table>
     </div>
 </div>

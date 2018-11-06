@@ -10,15 +10,15 @@
     </div>
 
     <div class="dashboard__middle">
-        <img src="assets/images/placeholder-filters-left.svg" alt="">
-        <img src="assets/images/placeholder-filters-right.svg" alt="">
+        <ica-documents-table-filters></ica-documents-table-filters>
+        <ica-table-pagination [length]="dataLength$ | async" [pageSize]="5"></ica-table-pagination>
     </div>
 
     <div class="dashboard__bottom">
         <ica-table
           [tableCssClasses]="'table--documents'"
           [columns]="documentsTableColumns"
-          [rows]="documentsTableRows"
+          [rows]="documentsTableRows$ | async"
           [hasActions]="true"
           (rowAction)="onRowAction($event)">
         </ica-table>
