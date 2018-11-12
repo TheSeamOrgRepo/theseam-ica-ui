@@ -1,5 +1,6 @@
 <div
-  [class]="'form-field form-field--contract form-field--select ' + (options?.htmlClass || '')">
+  [class]="'form-field form-field--contract form-field--select ' + (options?.htmlClass || '')"
+  [style.display]="isVisible ? '' : 'none'">
   <label *ngIf="options?.title"
     [attr.for]="'control' + layoutNode?._id"
     [class]="'form-field__label ' + (options?.labelHtmlClass || '')"

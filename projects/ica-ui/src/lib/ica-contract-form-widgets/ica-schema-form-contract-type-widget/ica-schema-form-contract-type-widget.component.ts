@@ -4,12 +4,13 @@ import { AbstractControl } from '@angular/forms'
 
 import { IcaConstractSchemaFormService } from '../../ica-contract-builder/services/ica-constract-schema-form.service'
 
+
 @Component({
-  selector: 'ica-schema-form-select-input-widget',
-  templateUrl: './ica-schema-form-select-input-widget.component.html',
-  styleUrls: ['./ica-schema-form-select-input-widget.component.scss']
+  selector: 'ica-schema-form-contract-type-widget',
+  templateUrl: './ica-schema-form-contract-type-widget.component.html',
+  styleUrls: ['./ica-schema-form-contract-type-widget.component.scss']
 })
-export class IcaSchemaFormSelectInputWidgetComponent implements OnInit {
+export class IcaSchemaFormContractTypeWidgetComponent implements OnInit {
 
   formControl: AbstractControl
   controlName: string
@@ -44,6 +45,8 @@ export class IcaSchemaFormSelectInputWidgetComponent implements OnInit {
   }
 
   updateValue(event) {
+    this.icaContractSchema.setContractType(event.target.value)
+
     this.jsf.updateValue(this, event.target.value)
   }
 

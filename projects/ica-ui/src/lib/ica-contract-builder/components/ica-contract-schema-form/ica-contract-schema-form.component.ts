@@ -24,6 +24,7 @@ import { IcaSchemaFormCheckboxWidgetComponent } from '../../../ica-contract-form
 import { IcaSchemaFormWizardBtnsWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-wizard-btns-widget/ica-schema-form-wizard-btns-widget.component'
 import { IcaSchemaFormCounterPartiesComponent } from '../../../ica-contract-form-widgets/ica-schema-form-counter-parties/ica-schema-form-counter-parties.component'
 import { IcaSchemaFormSelectInputWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-select-input-widget/ica-schema-form-select-input-widget.component'
+import { IcaSchemaFormContractTypeWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-contract-type-widget/ica-schema-form-contract-type-widget.component'
 // tslint:enable:max-line-length
 
 @Component({
@@ -54,7 +55,8 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
     'wizard-panel': IcaSchemaFormWizardWidgetComponent,
     'wizard-btns': IcaSchemaFormWizardBtnsWidgetComponent,
     'counter-party': IcaSchemaFormCounterPartiesComponent,
-    'select': IcaSchemaFormSelectInputWidgetComponent
+    'select': IcaSchemaFormSelectInputWidgetComponent,
+    'contract-type': IcaSchemaFormContractTypeWidgetComponent
   }
 
   sub: any

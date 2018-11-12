@@ -28,8 +28,11 @@ export class IcaJsfExtraDirective implements OnInit {
   }
 
   public getRemainingFieldsStatus(): IIcaJsfRemainingStatus {
-    console.log('getRemainingFieldsStatus Start')
+    // console.log('getRemainingFieldsStatus Start')
     const status = { remaining: 0, required: 0 }
+
+    // console.log(this)
+    // console.log(this.schemaForm.jsf.formGroup)
 
     const _find = (obj: any) => {
       for (const item of obj) {
@@ -57,7 +60,7 @@ export class IcaJsfExtraDirective implements OnInit {
 
     // console.log('this.schemaForm', this.schemaForm)
     _find(this.schemaForm.jsf.layout)
-    console.log('getRemainingFieldsStatus End')
+    // console.log('getRemainingFieldsStatus End')
 
     return status
   }

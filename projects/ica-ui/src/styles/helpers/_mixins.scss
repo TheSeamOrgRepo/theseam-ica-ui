@@ -410,6 +410,13 @@
     }
 }
 
+@mixin rtl {
+    @at-root [dir="rtl"] #{&} {
+        @content
+    }
+}
+
+
 // Debugging
 // ------------------------
 

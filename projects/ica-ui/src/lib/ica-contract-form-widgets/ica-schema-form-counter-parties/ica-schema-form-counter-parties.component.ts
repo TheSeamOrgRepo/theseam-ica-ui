@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core'
+import { Component, OnInit, Input, OnDestroy } from '@angular/core'
 import { JsonSchemaFormService, isArray, buildTitleMap } from 'angular6-json-schema-form'
 import { AbstractControl } from '@angular/forms'
 import { Observable, from } from 'rxjs'
 import { map, tap, switchMap, toArray } from 'rxjs/operators'
+import { untilDestroyed } from 'ngx-take-until-destroy'
 
 import { IcaCommonService } from '../../common'
 import { IcaConstractSchemaFormService } from '../../ica-contract-builder/services/ica-constract-schema-form.service'
@@ -12,7 +13,7 @@ import { IcaConstractSchemaFormService } from '../../ica-contract-builder/servic
   templateUrl: './ica-schema-form-counter-parties.component.html',
   styleUrls: ['./ica-schema-form-counter-parties.component.scss']
 })
-export class IcaSchemaFormCounterPartiesComponent implements OnInit {
+export class IcaSchemaFormCounterPartiesComponent implements OnInit, OnDestroy {
 
   formControl: AbstractControl
   controlName: string
@@ -26,6 +27,8 @@ export class IcaSchemaFormCounterPartiesComponent implements OnInit {
   @Input() layoutNode: any
   @Input() layoutIndex: number[]
   @Input() dataIndex: number[]
+
+  isVisible = true
 
   constructor(
     private jsf: JsonSchemaFormService,
@@ -46,10 +49,20 @@ export class IcaSchemaFormCounterPartiesComponent implements OnInit {
         toArray()
       )),
       map(v => ([ { name: '', value: null }, ...v ])),
-      // tap(res => console.log('selectList$', res))
+      tap(res => console.log('selectList$', res))
     )
+
+    this.icaContractSchema.contractType$
+      .pipe(untilDestroyed(this))
+      .subscribe(contractType => {
+        this.isVisible = this.options.contractType && this.options.contractType === contractType
+      })
+
+    console.log('IcaSchemaFormCounterPartiesComponent', this)
     this.jsf.initializeControl(this)
   }
+
+  ngOnDestroy() { }
 
   updateValue(event) {
     console.log('updateValue cp: ', event.target.value)

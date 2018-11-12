@@ -32,6 +32,7 @@
 }
 
 .dashboard__header-search {
+    position: relative;
     flex: 1;
 
     $icon-size: 23px;
@@ -46,11 +47,20 @@
     }
 
     input {
+        position: absolute;
+        top: 0;
+        right: -1px;
+        bottom: -1px;
+        left: 0;
+        width: calc(100% + 1px);
+        max-width: none;
         height: auto;
         padding-left: 2rem + rem-calc($icon-size);
-        border: none;
         @include r-font-size(0.9rem, 1.5rem);
-        box-shadow: none !important;
+        border-radius: 0;
+        border: 1px solid transparent;
+        background-color: transparent;
+        z-index: 1;
 
         @include placeholder {
             color: $gray-light;
@@ -167,6 +177,16 @@
     .shipments__content,
     .documents__content {
         max-height: calc(100vh - #{$nav-size-small});
+
+        .dashboard__top {
+            padding-top: rem-calc(50);
+            padding-bottom: rem-calc(30);
+
+            @include bp(min, rem-calc(1150)) {
+                padding-top: rem-calc(70);
+                padding-bottom: rem-calc(50);
+            }
+        }
     }
 }
 
@@ -261,6 +281,7 @@
         font-size: 30px;
     }
 
+    &.icon-company-type,
     &.icon-date,
     &.icon-filter {
         font-size: 24px;

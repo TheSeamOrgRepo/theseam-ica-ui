@@ -6,10 +6,38 @@
       "testval": "something",
       "items": [
         {
+          "widget": "wizard-panel",
+          "title": "1. Contract Type",
+          "panelIndex": 1,
+          "items": [
+            {
+              "dataPointer": "/Contract/Seller/Name",
+              "widget": "counter-party",
+              "title": "Counter Party [Seller]",
+              "contractType": "Purchase",
+              "required": true
+            },
+            {
+              "dataPointer": "/Contract/Buyer/Name",
+              "widget": "counter-party",
+              "title": "Counter Party [Buyer]",
+              "contractType": "Sell",
+              "required": true
+            },
+            {
+              "widget": "contract-type",
+              "title": "Contract Type",
+              "enum": [ "Sell", "Purchase" ],
+              "required": true,
+              "focusedOnPointer": "/Widget/ContractType"
+            }
+          ]
+        },
+        {
           "dataPointer": "/Contract/Specifications",
           "widget": "wizard-panel",
-          "title": "1. Specifications",
-          "panelIndex": 1,
+          "title": "2. Specifications",
+          "panelIndex": 2,
           "items": [
             { "dataPointer": "/Contract/Specifications/GrowthOrigin" },
             { "dataPointer": "/Contract/Specifications/CropYear" },
@@ -24,8 +52,8 @@
         {
           "dataPointer": "/Contract/Pricing",
           "widget": "wizard-panel",
-          "title": "2. Pricing",
-          "panelIndex": 2,
+          "title": "3. Pricing",
+          "panelIndex": 3,
           "items": [
             { "dataPointer": "/Contract/Pricing/PriceType" },
             { "dataPointer": "/Contract/Pricing/IsProvisional" },
@@ -40,8 +68,8 @@
         {
           "dataPointer": "/Contract/Terms",
           "widget": "wizard-panel",
-          "title": "3. Terms",
-          "panelIndex": 3,
+          "title": "4. Terms",
+          "panelIndex": 4,
           "items": [
             { "dataPointer": "/Contract/Terms/Incoterms" },
             {

@@ -26,6 +26,7 @@ export class IcaSchemaFormInputWidgetComponent implements OnInit {
   ngOnInit() {
     this.options = this.layoutNode.options || {}
     this.jsf.initializeControl(this)
+    // console.log('IcaSchemaFormInputWidgetComponent', this)
   }
 
   updateValue(event) {
