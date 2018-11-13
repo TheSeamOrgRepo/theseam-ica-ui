@@ -27,7 +27,8 @@
             {
               "widget": "contract-type",
               "title": "Contract Type",
-              "enum": [ "Sell", "Purchase" ],
+              "enum": [ "", "Sell", "Purchase" ],
+              "initiallyEmpty": true,
               "required": true,
               "focusedOnPointer": "/Widget/ContractType"
             }

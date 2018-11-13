@@ -1,7 +1,8 @@
 <div class="form-field form-field--contract form-field--checkbox">
   <label
     [attr.for]="'control' + layoutNode?._id"
-    [class]="'form-field__checkbox ' + (options?.itemLabelHtmlClass || '')">
+    [class]="'form-field__checkbox ' + (options?.itemLabelHtmlClass || '')"
+    [class.required]="options?.required">
     <input *ngIf="boundControl"
       [formControl]="formControl"
       [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
@@ -29,5 +30,4 @@
       [style.display]="options?.notitle ? 'none' : ''"
       [innerHTML]="options?.title"></span>
   </label>
-  <span *ngIf="options.required" style="color: red;">*</span>
 </div>

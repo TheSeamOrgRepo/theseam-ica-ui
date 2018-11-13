@@ -172,7 +172,7 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
   }
 
   public schemaFormOnChange(formData: object) {
-    // console.log('schemaFormOnChange', formData)
+    console.log('schemaFormOnChange', formData)
     const knownData = (this.generalData && this.generalData.knownData) ? this.generalData.knownData : undefined
     this.dataChange.emit({ schemaData: formData, generalData: knownData })
   }

@@ -45,11 +45,11 @@ export class IcaSchemaFormCounterPartiesComponent implements OnInit, OnDestroy {
     // console.log('selectList', this.selectList)
     this.selectList$ = this.icaCommon.counterParties$.pipe(
       switchMap(parties => from(parties).pipe(
-        map((cp: any) => ({ name: cp.companyName, value: JSON.stringify(cp) })),
+        // map((cp: any) => ({ name: cp.companyName, value: JSON.stringify(cp) })),
         toArray()
       )),
-      map(v => ([ { name: '', value: null }, ...v ])),
-      tap(res => console.log('selectList$', res))
+      // map(v => ([ { name: '', value: null }, ...v ])),
+      // tap(res => console.log('selectList$', res))
     )
 
     this.icaContractSchema.contractType$
@@ -58,16 +58,18 @@ export class IcaSchemaFormCounterPartiesComponent implements OnInit, OnDestroy {
         this.isVisible = this.options.contractType && this.options.contractType === contractType
       })
 
-    console.log('IcaSchemaFormCounterPartiesComponent', this)
     this.jsf.initializeControl(this)
+
+    // console.log('this.formControl2', this.formControl)
+    // this.formControl.valueChanges.subscribe(v => console.log('v', v))
   }
 
   ngOnDestroy() { }
 
   updateValue(event) {
-    console.log('updateValue cp: ', event.target.value)
-    this.icaContractSchema.setCounterParty(JSON.parse(event.target.value))
-    this.jsf.updateValue(this, event.target.value)
+    // console.log('updateValue cp: ', event)
+    this.icaContractSchema.setCounterParty(event)
+    // this.jsf.updateValue(this, event.companyName)
   }
 
 }

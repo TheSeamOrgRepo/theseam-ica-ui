@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { NoFrameworkModule, MaterialDesignFrameworkModule } from 'angular6-json-schema-form'
+import { NgSelectModule } from '@ng-select/ng-select'
 
 // tslint:disable:max-line-length
 import { IcaSchemaFormSectionWidgetComponent } from './ica-schema-form-section-widget/ica-schema-form-section-widget.component'
@@ -40,7 +41,8 @@ const widgetComponents = [
     FormsModule,
     ReactiveFormsModule,
     MaterialDesignFrameworkModule,
-    NoFrameworkModule
+    NoFrameworkModule,
+    NgSelectModule
   ],
   exports: [ ...widgetComponents, SelectWidgetDirective ],
   entryComponents: [ ...widgetComponents ],

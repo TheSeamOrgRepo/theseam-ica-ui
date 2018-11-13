@@ -38,16 +38,14 @@ export class IcaSchemaFormContractTypeWidgetComponent implements OnInit {
     // console.log('IcaSchemaFormSelectInputWidgetComponent', this)
     // console.log('options', this.options)
     // console.log('selectList', this.selectList)
-    if (this.options.isGeneralContractType) {
-      this.selectList = [ { name: '', value: null }, ...this.selectList ]
-    }
+
     this.jsf.initializeControl(this)
   }
 
   updateValue(event) {
-    this.icaContractSchema.setContractType(event.target.value)
+    this.icaContractSchema.setContractType(event.value)
 
-    this.jsf.updateValue(this, event.target.value)
+    this.jsf.updateValue(this, event.value)
   }
 
 }
