@@ -3,7 +3,6 @@
     {
       "widget": "wizard-btns",
       "notitle": true,
-      "testval": "something",
       "items": [
         {
           "widget": "wizard-panel",
@@ -11,26 +10,23 @@
           "panelIndex": 1,
           "items": [
             {
+              "widget": "contract-type",
+              "title": "Contract Type",
+              "enum": [ "Sell", "Purchase" ],
+              "required": true,
+              "focusedOnPointer": "/Widget/ContractType"
+            },
+            {
               "dataPointer": "/Contract/Seller/Name",
               "widget": "counter-party",
-              "title": "Counter Party [Seller]",
-              "contractType": "Purchase",
-              "required": true
+              "title": "Counter Party",
+              "contractType": "Purchase"
             },
             {
               "dataPointer": "/Contract/Buyer/Name",
               "widget": "counter-party",
-              "title": "Counter Party [Buyer]",
-              "contractType": "Sell",
-              "required": true
-            },
-            {
-              "widget": "contract-type",
-              "title": "Contract Type",
-              "enum": [ "", "Sell", "Purchase" ],
-              "initiallyEmpty": true,
-              "required": true,
-              "focusedOnPointer": "/Widget/ContractType"
+              "title": "Counter Party",
+              "contractType": "Sell"
             }
           ]
         },

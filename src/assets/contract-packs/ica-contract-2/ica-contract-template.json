@@ -8,72 +8,72 @@
     {
       "label": "Buyer Name",
       "pointer": "/Contract/Buyer/Name",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Buyer/Name"
     },
     {
       "label": "BUYER_ADDR_STREET1",
       "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet1",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Buyer/Name"
     },
     {
       "label": "BUYER_ADDR_STREET2",
       "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet2",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Buyer/Name"
     },
     {
       "label": "BUYER_ADDR_STREET3",
       "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet3",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Buyer/Name"
     },
     {
       "label": "BUYER_TOWN",
       "pointer": "/Contract/Buyer/Addresses/Item/0/Town",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Buyer/Name"
     },
     {
       "label": "BUYER_TELEPHONE",
       "pointer": "/Contract/Buyer/Telephone",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Buyer/Name"
     },
     {
       "label": "BUYER_FAX",
       "pointer": "/Contract/Buyer/Fax",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Buyer/Name"
     },
     {
       "label": "SELLER_NAME",
       "pointer": "/Contract/Seller/Name",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Seller/Name"
     },
     {
       "label": "SELLER_ADDR_STREET1",
       "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet1",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Seller/Name"
     },
     {
       "label": "SELLER_ADDR_STREET2",
       "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet2",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Seller/Name"
     },
     {
       "label": "SELLER_ADDR_STREET3",
       "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet3",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Seller/Name"
     },
     {
       "label": "SELLER_TOWN",
       "pointer": "/Contract/Seller/Addresses/Item/0/Town",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Seller/Name"
     },
     {
       "label": "SELLER_TELEPHONE",
       "pointer": "/Contract/Seller/Telephone",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Seller/Name"
     },
     {
       "label": "SELLER_FAX",
       "pointer": "/Contract/Seller/Fax",
-      "fieldPointer": "/Widget/CounterParty"
+      "fieldPointer": "/Contract/Seller/Name"
     },
     {
       "label": "CONTRACT_DATE",
@@ -260,29 +260,6 @@
         "columns": [
           {
             "text": [
-              { "text": " ", "link": "/Contract/Buyer/Name" },
-              "\n",
-              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet1" },
-              "\n",
-              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet2" },
-              "\n",
-              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet3" },
-              "\n",
-              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/Town" },
-              "\n",
-              "Phone: ",
-              { "text": " ", "link": "/Contract/Buyer/Telephone" },
-              "\n",
-              "Fax: ",
-              { "text": " ", "link": "/Contract/Buyer/Telephone" },
-              "\n"
-            ],
-            "fontSize": 10,
-            "width": "*",
-            "margin": [ 25, 0, 0, 0]
-          },
-          {
-            "text": [
               { "text": " ", "link": "/Contract/Seller/Name" },
               "\n",
               { "text": " ", "link": "/Contract/Seller/Addresses/Item/0/AddressStreet1" },
@@ -298,6 +275,29 @@
               "\n",
               "Fax: ",
               { "text": " ", "link": "/Contract/Seller/Telephone" },
+              "\n"
+            ],
+            "fontSize": 10,
+            "width": "*",
+            "margin": [ 25, 0, 0, 0]
+          },
+          {
+            "text": [
+              { "text": " ", "link": "/Contract/Buyer/Name" },
+              "\n",
+              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet1" },
+              "\n",
+              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet2" },
+              "\n",
+              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/AddressStreet3" },
+              "\n",
+              { "text": " ", "link": "/Contract/Buyer/Addresses/Item/0/Town" },
+              "\n",
+              "Phone: ",
+              { "text": " ", "link": "/Contract/Buyer/Telephone" },
+              "\n",
+              "Fax: ",
+              { "text": " ", "link": "/Contract/Buyer/Telephone" },
               "\n"
             ],
             "fontSize": 10,

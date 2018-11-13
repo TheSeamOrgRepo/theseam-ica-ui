@@ -145,7 +145,10 @@
                 "65 6735 9600"
               ]
             }
-          }
+          },
+          "required": [
+            "Name"
+          ]
         },
         "Buyer": {
           "$id": "/properties/Contract/properties/Buyer",
@@ -266,7 +269,10 @@
                 ""
               ]
             }
-          }
+          },
+          "required": [
+            "Name"
+          ]
         },
         "Specifications": {
           "$id": "/properties/Contract/properties/Specifications",
@@ -580,7 +586,10 @@
             "base64string"
           ]
         }
-      }
+      },
+      "required": [
+        "ReferenceNumber"
+      ]
     }
   }
 }
