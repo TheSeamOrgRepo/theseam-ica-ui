@@ -35,6 +35,7 @@ export class IcaTableComponent implements OnInit {
 
   @Input() tableCssClasses: string
   @Input() hasActions = false
+  @Input() hasCheckboxes = false
   // @Input()
   // get paginator() { return this.dataSource.paginator }
   // set paginator(value: IcaTablePaginationComponent) { this.dataSource.paginator = value }

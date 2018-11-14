@@ -1,7 +1,7 @@
 <table [class]="'table table--dashboard ' + (tableCssClasses || '')">
     <thead>
         <tr>
-            <th><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></th>
+            <th *ngIf="hasCheckboxes"><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></th>
             <th *ngFor="let col of columns">{{ col.label }}</th>
             <th *ngIf="hasActions"><div class="hide-vis">Actions</div></th>
         </tr>
@@ -9,7 +9,7 @@
 
     <tbody>
         <tr *ngFor="let row of rows">
-            <td><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></td>
+            <td *ngIf="hasCheckboxes"><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></td>
             <td *ngFor="let rowCol of row" [class]="rowCol?.cssClass">{{ rowCol.label }}</td>
             <td *ngIf="hasActions">
                 <ica-table-actions-dropdown (action)="onRowAction(row, $event)"></ica-table-actions-dropdown>

@@ -33,7 +33,9 @@ export class IcaContractBuilderComponent implements OnInit {
     public icaModalContractSign: IcaModalContractSignService
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.icaCntBuilder.reset()
+  }
 
   previewFieldClicked(field: string) {
     this.icaSchemaForm.focusField(field)
