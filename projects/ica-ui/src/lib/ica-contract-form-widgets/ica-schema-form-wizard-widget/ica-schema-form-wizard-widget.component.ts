@@ -31,8 +31,6 @@ export class IcaSchemaFormWizardWidgetComponent implements OnInit {
   ngOnInit() {
     this.jsf.initializeControl(this)
     this.options = this.layoutNode.options || {}
-
-    console.log(this)
   }
 
 }

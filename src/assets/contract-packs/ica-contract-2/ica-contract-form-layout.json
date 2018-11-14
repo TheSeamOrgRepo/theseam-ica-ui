@@ -13,7 +13,6 @@
               "widget": "contract-type",
               "title": "Contract Type",
               "enum": [ "Sell", "Purchase" ],
-              "required": true,
               "focusedOnPointer": "/Widget/ContractType"
             },
             {

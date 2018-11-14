@@ -22,5 +22,7 @@
   // "tslint.trace.server": "verbose",
   "tslint.exclude": [
     "**/src/assets/**/*.js"
-  ]
+  ],
+
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }

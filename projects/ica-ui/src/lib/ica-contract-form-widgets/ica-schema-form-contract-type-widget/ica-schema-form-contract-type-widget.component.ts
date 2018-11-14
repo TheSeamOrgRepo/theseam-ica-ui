@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core'
-import { JsonSchemaFormService, isArray, buildTitleMap, getControl } from 'angular6-json-schema-form'
+import { JsonSchemaFormService, isArray, buildTitleMap } from 'angular6-json-schema-form'
 import { AbstractControl } from '@angular/forms'
 
 import { IcaConstractSchemaFormService } from '../../ica-contract-builder/services/ica-constract-schema-form.service'
@@ -35,9 +35,11 @@ export class IcaSchemaFormContractTypeWidgetComponent implements OnInit {
       this.options.titleMap || this.options.enumNames,
       this.options.enum, !!this.options.required, !!this.options.flatList
     )
-    // console.log('IcaSchemaFormSelectInputWidgetComponent', this)
-    // console.log('options', this.options)
-    // console.log('selectList', this.selectList)
+
+    // TODO: Figure out if there is a better way to handle this with non-native
+    //  select
+    this.selectList = this.selectList
+      .map(v => (v.name === '<em>None</em>') ? { ...v, name: '' } : v)
 
     this.jsf.initializeControl(this)
   }

@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core'
 import stripJsonComments from 'strip-json-comments'
 import { Subject, Observable, from } from 'rxjs'
-import { switchMap, auditTime } from 'rxjs/operators'
+import { switchMap, auditTime, tap, delay } from 'rxjs/operators'
+import { trigger, transition, useAnimation } from '@angular/animations'
+import { fadeIn, fadeOut } from 'ng-animate'
 
 import { waitOnConditionAsync } from '../../../common'
 
@@ -9,21 +11,31 @@ import { IcaContractBuilderService } from '../../services/ica-contract-builder.s
 import { generatePdf } from '../../utils'
 import { ISymbolOverlayItem } from '../../models/ica-contract-builder.models'
 
-import { PDFDocumentProxy, PDFViewerParams, PDFPageProxy, PDFSource, PDFProgressData, PDFPromise } from 'pdfjs-dist'
+import { PDFDocumentProxy, PDFViewerParams, PDFPageProxy, PDFSource, PDFProgressData, PDFPromise, SVGGraphics } from 'pdfjs-dist'
 import * as pdfjsLib from 'pdfjs-dist/build/pdf'
 
 import * as _pdfMake from 'pdfmake/build/pdfmake'
 import * as pdfFonts from 'pdfmake/build/vfs_fonts'
 
-
 const pdfMake: any = _pdfMake
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
+export type PDFRenderTypes = 'svg' | 'canvas'
+
 @Component({
   selector: 'ica-contract-preview-pdf',
-  templateUrl: './ica-contract-preview-pdf.component.html'
+  templateUrl: './ica-contract-preview-pdf.component.html',
+  styleUrls: ['./ica-contract-preview-pdf.component.scss'],
+  animations: [
+    trigger('fade', [
+      transition('* => start', useAnimation(fadeIn)),
+      transition('* => done', useAnimation(fadeOut))
+    ])
+  ]
 })
 export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
+
+  fade: string
 
   private _content: any
   private _data: any
@@ -32,6 +44,7 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
   documentDefinition: any
 
   rendering = false
+  renderType: PDFRenderTypes = 'canvas'
 
   public symbolOverlayItems: ISymbolOverlayItem[] = []
 
@@ -62,6 +75,9 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
 
   @ViewChild('pdfContainer') pdfContainer: ElementRef
   @ViewChild('pdfCanvas') pdfCanvas: ElementRef
+  @ViewChild('svgContainer') svgContainer: ElementRef
+
+  private _svg
 
   constructor(
     public icaCntBuilder: IcaContractBuilderService
@@ -72,7 +88,11 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
 
     this.render$ = this._renderRequestSubject.pipe(
       auditTime(300),
-      switchMap(_ => from(waitOnConditionAsync(() => this.rendering === false, 30 * 1000)))
+      tap(_ => this.fade = 'start'),
+      delay(5),
+      switchMap(_ => from(waitOnConditionAsync(() => this.rendering === false, 30 * 1000))),
+      delay(5),
+      tap(_ => this.fade = 'done')
     )
   }
 
@@ -120,18 +140,31 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
       this.symbolOverlayItems = this.getOverlayItems(annotations, scaledViewport, 2)
 
 
-      // Prepare canvas using PDF page dimensions
-      const canvas: HTMLCanvasElement = this.pdfCanvas.nativeElement
-      const context = canvas.getContext('2d')
-      canvas.height = scaledViewport.height
-      canvas.width = scaledViewport.width
+      if (this.renderType === 'canvas') {
+        // Prepare canvas using PDF page dimensions
+        const canvas: HTMLCanvasElement = this.pdfCanvas.nativeElement
+        const context = canvas.getContext('2d')
+        canvas.height = scaledViewport.height
+        canvas.width = scaledViewport.width
 
-      // Render PDF page into canvas context
-      const renderContext = {
-        canvasContext: context,
-        viewport: scaledViewport
+        // Render PDF page into canvas context
+        const renderContext = {
+          canvasContext: context,
+          viewport: scaledViewport
+        }
+
+        const renderTask = await page.render(renderContext)
+      } else if (this.renderType === 'svg') {
+        const opList = await page.getOperatorList()
+        const svgGfx = new SVGGraphics(page.commonObjs, page.objs)
+        const svg = await svgGfx.getSVG(opList, viewport)
+        if (this._svg) { this.svgContainer.nativeElement.removeChild(this._svg) }
+        this._svg = svg
+        svg.style.width = '100%'
+        svg.style.height = '100%'
+        this.svgContainer.nativeElement.appendChild(svg)
       }
-      const renderTask = await page.render(renderContext)
+
       // TODO: Allow canceling instead of only waiting
       // await renderTask.cancel()
       this.rendering = false
