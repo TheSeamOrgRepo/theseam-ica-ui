@@ -43,6 +43,7 @@ export class IcaSchemaFormWizardBtnsWidgetComponent implements OnInit {
     this.icaCntForm.activeWizardPanel$
       .subscribe(v => {
         this.activeWizardPanel = v
+        this.updateNextBtn()
       })
   }
 
