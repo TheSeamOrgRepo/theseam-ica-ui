@@ -3,7 +3,15 @@ import { JsonSchemaFormService } from 'angular6-json-schema-form'
 
 @Component({
   selector: 'ica-schema-form-section-widget',
-  templateUrl: './ica-schema-form-section-widget.component.html'
+  templateUrl: './ica-schema-form-section-widget.component.html',
+  styles: [`
+    .no-indent-section {
+      padding-left: 0;
+    }
+    .no-indent-section:before {
+      width: 0;
+    }
+  `]
 })
 export class IcaSchemaFormSectionWidgetComponent implements OnInit {
 

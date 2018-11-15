@@ -25,6 +25,8 @@ import { IcaSchemaFormWizardBtnsWidgetComponent } from '../../../ica-contract-fo
 import { IcaSchemaFormCounterPartiesComponent } from '../../../ica-contract-form-widgets/ica-schema-form-counter-parties/ica-schema-form-counter-parties.component'
 import { IcaSchemaFormSelectInputWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-select-input-widget/ica-schema-form-select-input-widget.component'
 import { IcaSchemaFormContractTypeWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-contract-type-widget/ica-schema-form-contract-type-widget.component'
+import { IcaSchemaFormRootWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-root-widget/ica-schema-form-root-widget.component'
+import { IcaSchemaFormRootAddReferenceWidgetComponent } from '../../../ica-contract-form-widgets/ica-schema-form-root-add-reference-widget/ica-schema-form-root-add-reference-widget.component'
 // tslint:enable:max-line-length
 
 @Component({
@@ -56,7 +58,9 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
     'wizard-btns': IcaSchemaFormWizardBtnsWidgetComponent,
     'counter-party': IcaSchemaFormCounterPartiesComponent,
     'select': IcaSchemaFormSelectInputWidgetComponent,
-    'contract-type': IcaSchemaFormContractTypeWidgetComponent
+    'contract-type': IcaSchemaFormContractTypeWidgetComponent,
+    'root': IcaSchemaFormRootWidgetComponent,
+    '$ref': IcaSchemaFormRootAddReferenceWidgetComponent
   }
 
   sub: any

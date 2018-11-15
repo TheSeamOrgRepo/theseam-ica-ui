@@ -10,5 +10,7 @@ export * from './ica-schema-form-wizard-btns-widget/ica-schema-form-wizard-btns-
 export * from './ica-schema-form-wizard-widget/ica-schema-form-wizard-widget.component'
 export * from './ica-schema-form-counter-parties/ica-schema-form-counter-parties.component'
 export * from './ica-schema-form-contract-type-widget/ica-schema-form-contract-type-widget.component'
+export * from './ica-schema-form-root-widget/ica-schema-form-root-widget.component'
+export * from './ica-schema-form-root-add-reference-widget/ica-schema-form-root-add-reference-widget.component'
 
 export * from './ica-contract-form-widgets.module'

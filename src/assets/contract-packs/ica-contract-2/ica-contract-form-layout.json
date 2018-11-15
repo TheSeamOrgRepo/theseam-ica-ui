@@ -106,9 +106,11 @@
                 {
                   "dataPointer": "/Contract/Terms/SpecialClauses/Item",
                   "notitle": true,
+                  "noindent": true,
                   "items": [
                     {
                       "dataPointer": "/Contract/Terms/SpecialClauses/Item/-",
+                      "noindent": true,
                       "items": [
                         { "dataPointer": "/Contract/Terms/SpecialClauses/Item/-/Description" }
                       ]

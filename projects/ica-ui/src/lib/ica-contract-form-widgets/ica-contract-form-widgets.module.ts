@@ -17,6 +17,8 @@ import { IcaSchemaFormWizardBtnsWidgetComponent } from './ica-schema-form-wizard
 import { IcaSchemaFormCounterPartiesComponent } from './ica-schema-form-counter-parties/ica-schema-form-counter-parties.component'
 import { IcaSchemaFormSelectInputWidgetComponent } from './ica-schema-form-select-input-widget/ica-schema-form-select-input-widget.component'
 import { IcaSchemaFormContractTypeWidgetComponent } from './ica-schema-form-contract-type-widget/ica-schema-form-contract-type-widget.component'
+import { IcaSchemaFormRootWidgetComponent } from './ica-schema-form-root-widget/ica-schema-form-root-widget.component'
+import { IcaSchemaFormRootAddReferenceWidgetComponent } from './ica-schema-form-root-add-reference-widget/ica-schema-form-root-add-reference-widget.component'
 // tslint:enable:max-line-length
 
 import { SelectWidgetDirective } from './directives/select-widget.directive'
@@ -32,7 +34,9 @@ const widgetComponents = [
   IcaSchemaFormWizardBtnsWidgetComponent,
   IcaSchemaFormCounterPartiesComponent,
   IcaSchemaFormSelectInputWidgetComponent,
-  IcaSchemaFormContractTypeWidgetComponent
+  IcaSchemaFormContractTypeWidgetComponent,
+  IcaSchemaFormRootWidgetComponent,
+  IcaSchemaFormRootAddReferenceWidgetComponent
 ]
 
 @NgModule({
@@ -46,6 +50,6 @@ const widgetComponents = [
   ],
   exports: [ ...widgetComponents, SelectWidgetDirective ],
   entryComponents: [ ...widgetComponents ],
-  declarations: [ ...widgetComponents, SelectWidgetDirective, IcaSchemaFormContractTypeWidgetComponent ]
+  declarations: [ ...widgetComponents, SelectWidgetDirective ]
 })
 export class IcaContractFormWidgetsModule { }

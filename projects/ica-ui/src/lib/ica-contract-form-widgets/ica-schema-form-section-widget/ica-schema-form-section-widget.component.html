@@ -5,10 +5,10 @@
             [class]="'form-fieldset__heading ' + (options?.labelHtmlClass || '')"
             [innerHTML]="sectionTitle"></div>
     </ng-container>
-    <div class="form-fieldset__fields">
-        <root-widget
+    <div class="form-fieldset__fields" [class.no-indent-section]="options?.noindent">
+        <ica-schema-form-root-widget
             [dataIndex]="dataIndex"
             [layout]="layoutNode.items"
-            [layoutIndex]="layoutIndex"></root-widget>
+            [layoutIndex]="layoutIndex"></ica-schema-form-root-widget>
     </div>
 </div>
