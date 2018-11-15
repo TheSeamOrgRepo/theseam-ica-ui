@@ -1,8 +1,19 @@
-<div class="highlight-rect"
+<!-- <div class="highlight-rect"
     [style.left]="item.x + 'px'"
     [style.top]="item.y + 'px'"
     [style.minWidth]="item.w + 'px'"
     [style.height]="item.h + 'px'"
     (click)="onOverlayClick($event)">
     {{ item.label }}
+</div> -->
+
+<div class="contract-preview-hover"
+    [style.left]="item.x + 'px'"
+    [style.top]="item.y + 'px'"
+    [style.minWidth]="item.w + 'px'"
+    [style.minHeight]="item.h + 'px'"
+    (click)="onOverlayClick($event)">
+    <div class="contract-preview-hover--section">{{ item.label }}</div>
+    <div class="contract-preview-hover--section">{{ item.pointer }}</div>
+    <div class="contract-preview-hover--section">The crop year this contract applies to.</div>
 </div>

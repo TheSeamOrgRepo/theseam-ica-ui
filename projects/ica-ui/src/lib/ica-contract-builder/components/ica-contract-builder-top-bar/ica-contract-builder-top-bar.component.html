@@ -21,6 +21,11 @@
                 <div class="contract-new__header-steps-progress">
                     <div class="bar" [style.width]="(completedPercent$ | async) + '%'"></div>
                 </div>
+
+            </div>
+
+            <div class="remaining-hover">
+                <div *ngFor="let itm of tmpRemaining" [class.is-remaining]="!itm.remaining">{{ itm.title }}</div>
             </div>
         </li>
 

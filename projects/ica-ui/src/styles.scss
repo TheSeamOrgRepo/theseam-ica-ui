@@ -1,8 +1,92 @@
 @import './styles/app.scss';
 
+//
 // Minor style tweaks
+//
+
 // .login__left:before { background-image: radial-gradient(50% 120%, #415365 0%, #1E2A36 100%); }
-// .contract-new__content,
-// .documents__content,
-// .contracts__content,
-// .companies__content { max-height: calc(100vh - 75px); }
+
+.contract-new__header-right {
+    li {
+        &:first-child {
+            position: relative;
+
+            .remaining-hover {
+                display: none;
+            }
+
+            &:hover {
+                cursor: default;
+
+                .remaining-hover {
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 0.7rem 3rem;
+
+                    position: absolute;
+                    top: 74px;
+                    left: -1px;
+                    width: calc(100% + 2px);
+                    border: 1px solid $gray-light;
+
+                    font-size: rem-calc(11);
+                    letter-spacing: 1px;
+                    font-weight: $font-weight-bold;
+                    background-color: white;
+
+                    color: $primary-ultralight;
+
+                    .is-remaining {
+                        color: $green;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contract-preview-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 60px;
+    color: transparent;
+    font-size: 9px;
+
+    &:not(:hover) {
+        overflow: hidden;
+    }
+
+    &:hover {
+        @extend .shadow;
+
+        border: 1px solid $gray-light;
+        border-radius: 2px;
+        color: $primary-ultralight;
+        max-width: 100%;
+        cursor: pointer;
+        font-size: rem-calc(11);
+        letter-spacing: 1px;
+        font-weight: $font-weight-bold;
+        background-color: white;
+
+        align-items: flex-start;
+        justify-content: left;
+        text-align: left;
+
+        .contract-preview-hover--section {
+            padding: 0.2rem 0.4rem;
+            align-items: flex-start;
+            justify-content: left;
+
+            &:not(:first-child) {
+                border-top: 1px solid $gray-light;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
+    }
+}

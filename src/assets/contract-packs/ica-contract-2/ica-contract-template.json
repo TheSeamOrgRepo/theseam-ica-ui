@@ -11,176 +11,176 @@
       "fieldPointer": "/Contract/Buyer/Name"
     },
     {
-      "label": "BUYER_ADDR_STREET1",
+      "label": "Buyer Address Street 1",
       "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet1",
       "fieldPointer": "/Contract/Buyer/Name"
     },
     {
-      "label": "BUYER_ADDR_STREET2",
+      "label": "Buyer Address Street 2",
       "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet2",
       "fieldPointer": "/Contract/Buyer/Name"
     },
     {
-      "label": "BUYER_ADDR_STREET3",
+      "label": "Buyer Address Street 3",
       "pointer": "/Contract/Buyer/Addresses/Item/0/AddressStreet3",
       "fieldPointer": "/Contract/Buyer/Name"
     },
     {
-      "label": "BUYER_TOWN",
+      "label": "Buyer Top",
       "pointer": "/Contract/Buyer/Addresses/Item/0/Town",
       "fieldPointer": "/Contract/Buyer/Name"
     },
     {
-      "label": "BUYER_TELEPHONE",
+      "label": "Buyer Telephone",
       "pointer": "/Contract/Buyer/Telephone",
       "fieldPointer": "/Contract/Buyer/Name"
     },
     {
-      "label": "BUYER_FAX",
+      "label": "Buyer Fax",
       "pointer": "/Contract/Buyer/Fax",
       "fieldPointer": "/Contract/Buyer/Name"
     },
     {
-      "label": "SELLER_NAME",
+      "label": "Seller Name",
       "pointer": "/Contract/Seller/Name",
       "fieldPointer": "/Contract/Seller/Name"
     },
     {
-      "label": "SELLER_ADDR_STREET1",
+      "label": "Seller Address Street 1",
       "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet1",
       "fieldPointer": "/Contract/Seller/Name"
     },
     {
-      "label": "SELLER_ADDR_STREET2",
+      "label": "Seller Address Street 2",
       "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet2",
       "fieldPointer": "/Contract/Seller/Name"
     },
     {
-      "label": "SELLER_ADDR_STREET3",
+      "label": "Seller Address Street 3",
       "pointer": "/Contract/Seller/Addresses/Item/0/AddressStreet3",
       "fieldPointer": "/Contract/Seller/Name"
     },
     {
-      "label": "SELLER_TOWN",
+      "label": "Seller Town",
       "pointer": "/Contract/Seller/Addresses/Item/0/Town",
       "fieldPointer": "/Contract/Seller/Name"
     },
     {
-      "label": "SELLER_TELEPHONE",
+      "label": "Seller Telephone",
       "pointer": "/Contract/Seller/Telephone",
       "fieldPointer": "/Contract/Seller/Name"
     },
     {
-      "label": "SELLER_FAX",
+      "label": "Seller Fax",
       "pointer": "/Contract/Seller/Fax",
       "fieldPointer": "/Contract/Seller/Name"
     },
     {
-      "label": "CONTRACT_DATE",
+      "label": "Contract date",
       "pointer": "/Contract/Date"
     },
     {
-      "label": "CONTRACTED_UNITS",
+      "label": "Contracted Units",
       "pointer": "/Contract/Terms/Quantity/ContractedUnits"
     },
     {
-      "label": "QUANTITY_TYPE",
+      "label": "Quantity Type",
       "pointer": "/Contract/Terms/Quantity/QuantityType"
     },
     {
-      "label": "VARIATION_PERCENT",
+      "label": "Variation Percent",
       "pointer": "/Contract/Terms/Quantity/VariationPercent"
     },
     {
-      "label": "VARIATION_OPTION",
+      "label": "Variation Option",
       "pointer": "/Contract/Terms/Quantity/VariationOption"
     },
     {
-      "label": "CROP_YEAR",
+      "label": "Crop Year",
       "pointer": "/Contract/Specifications/CropYear"
     },
     {
-      "label": "GROWTH_ORIGIN",
+      "label": "Growth Origin",
       "pointer": "/Contract/Specifications/GrowthOrigin"
     },
     {
-      "label": "GRADE_DESCRIPTION",
+      "label": "Grade Description",
       "pointer": "/Contract/Specifications/GradeDescription"
     },
     {
-      "label": "STAPLE",
+      "label": "Staple",
       "pointer": "/Contract/Specifications/Staple"
     },
     {
-      "label": "MICRONAIRE_MIN",
+      "label": "Micronaire Min",
       "pointer": "/Contract/Specifications/MinMicronaire"
     },
     {
-      "label": "MICRONAIRE_MAX",
+      "label": "Micronaire Max",
       "pointer": "/Contract/Specifications/MaxMicronaire"
     },
     {
-      "label": "MICRONAIRE_MEMO",
+      "label": "Micronaire Memo",
       "pointer": "/Contract/Specifications/MicronaireMemo"
     },
     {
-      "label": "MIN_STRENGTH",
+      "label": "Min Strength",
       "pointer": "/Contract/Specifications/MinStrength"
     },
     {
-      "label": "UNIT_PRICE",
+      "label": "Unit Price",
       "pointer": "/Contract/Pricing/UnitPrice"
     },
     {
-      "label": "PRICE_POINTS",
+      "label": "Price Points",
       "pointer": "/Contract/Pricing/PricePoints"
     },
     {
-      "label": "PRICE_BASE",
+      "label": "Price Base",
       "pointer": "/Contract/Pricing/PriceBase"
     },
     {
-      "label": "FIXATION_CALL_MONTH",
+      "label": "Fixation Call Month",
       "pointer": "/Contract/Pricing/FixationCallMonth"
     },
     {
-      "label": "FIXATION_CALL_YEAR",
+      "label": "Fixation Call Year",
       "pointer": "/Contract/Pricing/FixationCallYear"
     },
     {
-      "label": "OTHER_PRICE_MEMO",
+      "label": "Other Price Memo",
       "pointer": "/Contract/Pricing/OtherPriceMemo"
     },
     {
-      "label": "PAYMENT_TERMS",
+      "label": "Payment Terms",
       "pointer": "/Contract/Terms/PaymentTerms/Description"
     },
     {
-      "label": "SHIPMENT_PERIOD",
+      "label": "Shipment Period",
       "pointer": "/Contract/Terms/ShipmentPeriods/Shipment"
     },
     {
-      "label": "FREIGHT_BASIS",
+      "label": "Freight Basis Description",
       "pointer": "/Contract/Terms/FreightBasis/Description"
     },
     {
-      "label": "SPECIAL_CLAUSE_0",
+      "label": "Special Clause 1",
       "pointer": "/Contract/Terms/SpecialClauses/Item/0/Description"
     },
     {
-      "label": "SPECIAL_CLAUSE_1",
+      "label": "Special Clause 2",
       "pointer": "/Contract/Terms/SpecialClauses/Item/1/Description"
     },
     {
-      "label": "SPECIAL_CLAUSE_2",
+      "label": "SPECIAL_CLAUSE_3",
       "pointer": "/Contract/Terms/SpecialClauses/Item/2/Description"
     },
     {
-      "label": "SPECIAL_CLAUSE_3",
+      "label": "SPECIAL_CLAUSE_4",
       "pointer": "/Contract/Terms/SpecialClauses/Item/3/Description"
     },
     {
-      "label": "SELLER_SIGNATURE",
+      "label": "Signature",
       "pointer": "/Contract/SellerSignature",
       "noOverlay": true
     }

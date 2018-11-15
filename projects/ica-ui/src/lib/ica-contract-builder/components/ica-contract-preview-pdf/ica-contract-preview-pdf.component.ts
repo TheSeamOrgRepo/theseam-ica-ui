@@ -174,6 +174,7 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
 
     for (const ano of annotations) {
       const pointerProps = this.getPointerProps(ano.unsafeUrl)
+      console.log(pointerProps)
       if (pointerProps.hasOwnProperty('noOverlay') && pointerProps.noOverlay === true) {
         continue
       }
@@ -191,7 +192,9 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
         y: rect[1] - (rect[1] - rect[3]),
         w: rect[2] - rect[0],
         h: rect[1] - rect[3],
-        label: ano.unsafeUrl,
+        label: (pointerProps.hasOwnProperty('label'))
+          ? pointerProps.label
+          : ano.unsafeUrl,
         pointer: ano.unsafeUrl,
         fieldPointer: (pointerProps.hasOwnProperty('fieldPointer'))
           ? pointerProps.fieldPointer

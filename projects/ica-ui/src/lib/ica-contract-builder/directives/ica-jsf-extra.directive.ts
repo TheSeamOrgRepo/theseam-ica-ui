@@ -3,6 +3,7 @@ import { JsonSchemaFormComponent, getControl } from 'angular6-json-schema-form'
 
 import { IIcaJsfRemainingStatus } from '../models/ica-contract-builder.models'
 import { IcaConstractSchemaFormService } from '../services/ica-constract-schema-form.service'
+import { TemplateParseResult } from '@angular/compiler'
 
 @Directive({
   selector: '[icaJsfExtra]'
@@ -33,7 +34,7 @@ export class IcaJsfExtraDirective implements OnInit {
 
     // console.log(this)
     // console.log(this.schemaForm.jsf.formGroup)
-
+    const tmpArr = []
     const _find = (obj: any) => {
       for (const item of obj) {
         if (item.options && item.options.required) {
@@ -42,20 +43,24 @@ export class IcaJsfExtraDirective implements OnInit {
           // console.log('item.dataPointer', item.dataPointer, ' item.options.focusedOnPointer', item.options.focusedOnPointer)
           const pointer = item.dataPointer || item.options.focusedOnPointer
           // console.log('pointer', pointer)
+          const tmp = { title: item.options.title, pointer: pointer, remaining: false }
           // TODO: Try catch is here temporarily while fixing issue with non-schema form controls
           if (pointer.indexOf('/Widget/') === 0) { continue }
           try {
             const control = getControl(this.schemaForm.jsf.formGroup, pointer)
             if (!control.valid) {
               status.remaining++
+              tmp.remaining = true
             }
           } catch (err) {
 
           }
+          tmpArr.push(tmp)
         } else if (item.items) {
           _find(item.items)
         }
       }
+      // console.log(JSON.stringify(tmpArr, null, 2))
     }
 
     // console.log('this.schemaForm', this.schemaForm)

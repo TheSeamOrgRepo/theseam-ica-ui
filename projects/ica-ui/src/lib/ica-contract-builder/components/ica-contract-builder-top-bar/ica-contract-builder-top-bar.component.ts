@@ -10,9 +10,69 @@ import { IcaContractBuilderService } from '../../services/ica-contract-builder.s
 @Component({
   selector: 'ica-contract-builder-top-bar',
   templateUrl: './ica-contract-builder-top-bar.component.html',
-  styles: []
+  styleUrls: ['./ica-contract-builder-top-bar.component.scss']
 })
 export class IcaContractBuilderTopBarComponent implements OnInit {
+
+  // tslint:disable
+  tmpRemaining = [
+    {
+      "title": "Counter Party",
+      "pointer": "/Contract/Seller/Name",
+      "remaining": true
+    },
+    {
+      "title": "Counter Party",
+      "pointer": "/Contract/Buyer/Name",
+      "remaining": true
+    },
+    {
+      "title": "Crop Year",
+      "pointer": "/Contract/Specifications/CropYear",
+      "remaining": true
+    },
+    {
+      "title": "Price type",
+      "pointer": "/Contract/Pricing/PriceType",
+      "remaining": true
+    },
+    {
+      "title": "Unit Price",
+      "pointer": "/Contract/Pricing/UnitPrice",
+      "remaining": true
+    },
+    {
+      "title": "Price base",
+      "pointer": "/Contract/Pricing/PriceBase",
+      "remaining": true
+    },
+    {
+      "title": "Contracted units",
+      "pointer": "/Contract/Terms/Quantity/ContractedUnits",
+      "remaining": false
+    },
+    {
+      "title": "Quantity type",
+      "pointer": "/Contract/Terms/Quantity/QuantityType",
+      "remaining": true
+    },
+    {
+      "title": "Shipment Periods",
+      "pointer": "/Contract/Terms/ShipmentPeriods",
+      "remaining": true
+    },
+    {
+      "title": "Name",
+      "pointer": "/Contract/Buyer/Name",
+      "remaining": true
+    },
+    {
+      "title": "Company Name",
+      "pointer": "/Contract/Seller/Name",
+      "remaining": true
+    }
+  ]
+  // tslint:enable
 
   public remainingStatus$: Observable<IIcaJsfRemainingStatus>
   public fieldsCompleted$: Observable<number>
