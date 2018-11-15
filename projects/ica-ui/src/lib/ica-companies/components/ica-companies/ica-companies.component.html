@@ -15,12 +15,12 @@
     </div>
 
     <div class="dashboard__bottom">
-      <ica-table
-        [tableCssClasses]="'table--companies'"
-        [columns]="companiesTableColumns"
-        [rows]="companiesTableRows$ | async"
-        [hasActions]="true"
-        (rowAction)="onRowAction($event)">
-      </ica-table>
+        <ica-table
+            [tableCssClasses]="'table--companies'"
+            [columns]="companiesTableColumns"
+            [rows]="companiesTableRows$ | async"
+            [hasActions]="true"
+            (rowAction)="onRowAction($event)">
+        </ica-table>
     </div>
 </div>

@@ -1,76 +1,76 @@
 <div class="dashboard__bottom">
-  <div class="dashboard__tabs-controls">
-      <div class="tabs">
-          <button class="dashboard__tabs-button dashboard__tabs-button--contracts"
-            data-tab-trigger="contracts"
-            [class.is-active]="activeTab === 'contracts'"
-            (click)="activateTab('contracts')">
-            <svg class="icon icon-contracts" aria-hidden="true">
-                <use xlink:href="#icon-contracts"></use>
-            </svg>
-            Contracts
-          </button>
-          <button class="dashboard__tabs-button dashboard__tabs-button--shipments"
-            data-tab-trigger="shipments"
-            [class.is-active]="activeTab === 'shipments'"
-            (click)="activateTab('shipments')">
-            <svg class="icon icon-shipments" aria-hidden="true">
-                <use xlink:href="#icon-shipments"></use>
-            </svg>
-            Shipments
-          </button>
-          <button class="dashboard__tabs-button dashboard__tabs-button--documents"
-            data-tab-trigger="documents"
-            [class.is-active]="activeTab === 'documents'"
-            (click)="activateTab('documents')">
-            <svg class="icon icon-documents" aria-hidden="true">
-                <use xlink:href="#icon-documents"></use>
-            </svg>
-            Documents
-          </button>
-      </div>
+    <div class="dashboard__tabs-controls">
+        <div class="tabs">
+            <button class="dashboard__tabs-button dashboard__tabs-button--contracts"
+                data-tab-trigger="contracts"
+                [class.is-active]="activeTab === 'contracts'"
+                (click)="activateTab('contracts')">
+                <svg class="icon icon-contracts" aria-hidden="true">
+                    <use xlink:href="#icon-contracts"></use>
+                </svg>
+                Contracts
+            </button>
+            <button class="dashboard__tabs-button dashboard__tabs-button--shipments"
+                data-tab-trigger="shipments"
+                [class.is-active]="activeTab === 'shipments'"
+                (click)="activateTab('shipments')">
+                <svg class="icon icon-shipments" aria-hidden="true">
+                    <use xlink:href="#icon-shipments"></use>
+                </svg>
+                Shipments
+            </button>
+            <button class="dashboard__tabs-button dashboard__tabs-button--documents"
+                data-tab-trigger="documents"
+                [class.is-active]="activeTab === 'documents'"
+                (click)="activateTab('documents')">
+                <svg class="icon icon-documents" aria-hidden="true">
+                    <use xlink:href="#icon-documents"></use>
+                </svg>
+                Documents
+            </button>
+        </div>
 
-      <div class="buttons">
-          <div class="dashboard__tabs-item" [class.is-active]="activeTab === 'contracts'" data-tab-item="contracts">
-              <a routerLink="/contracts" class="btn btn--gray">See All Contracts</a>
-              <a routerLink="/new-contract" class="btn btn--green">New Contract</a>
-          </div>
+        <div class="buttons">
+            <div class="dashboard__tabs-item" [class.is-active]="activeTab === 'contracts'" data-tab-item="contracts">
+                <a routerLink="/contracts" class="btn btn--gray">See All Contracts</a>
+                <a routerLink="/new-contract" class="btn btn--green">New Contract</a>
+            </div>
 
-          <div class="dashboard__tabs-item" [class.is-active]="activeTab === 'shipments'" data-tab-item="shipments">
-              <a routerLink="/shipments" class="btn btn--gray">See All Shipments</a>
-              <a href="#" class="btn btn--green">New Shipment</a>
-          </div>
+            <div class="dashboard__tabs-item" [class.is-active]="activeTab === 'shipments'" data-tab-item="shipments">
+                <a routerLink="/shipments" class="btn btn--gray">See All Shipments</a>
+                <a href="#" class="btn btn--green">New Shipment</a>
+            </div>
 
-          <div class="dashboard__tabs-item" [class.is-active]="activeTab === 'documents'" data-tab-item="documents">
-              <a routerLink="/documents" class="btn btn--gray">See All Documents</a>
-              <a href="/document-new.html" class="btn btn--green">New Document</a>
-          </div>
-      </div>
-  </div>
+            <div class="dashboard__tabs-item" [class.is-active]="activeTab === 'documents'" data-tab-item="documents">
+                <a routerLink="/documents" class="btn btn--gray">See All Documents</a>
+                <a href="/document-new.html" class="btn btn--green">New Document</a>
+            </div>
+        </div>
+    </div>
 
-  <div class="dashboard__tabs-content">
-      <div class="dashboard__tabs-item dashboard__tabs-item--contracts" [class.is-active]="activeTab === 'contracts'" data-tab-item="contracts">
-          <ica-table
-            [tableCssClasses]="'table--contracts'"
-            [columns]="contractsTableColumns"
-            [rows]="contractsTableRows">
-          </ica-table>
-      </div>
+    <div class="dashboard__tabs-content">
+        <div class="dashboard__tabs-item dashboard__tabs-item--contracts" [class.is-active]="activeTab === 'contracts'" data-tab-item="contracts">
+            <ica-table
+                [tableCssClasses]="'table--contracts'"
+                [columns]="contractsTableColumns"
+                [rows]="contractsTableRows">
+            </ica-table>
+        </div>
 
-      <div class="dashboard__tabs-item dashboard__tabs-item--shipments" [class.is-active]="activeTab === 'shipments'" data-tab-item="shipments">
-          <ica-table
-            [tableCssClasses]="'table--shipments'"
-            [columns]="shipmentsTableColumns"
-            [rows]="shipmentsTableRows">
-          </ica-table>
-      </div>
+        <div class="dashboard__tabs-item dashboard__tabs-item--shipments" [class.is-active]="activeTab === 'shipments'" data-tab-item="shipments">
+            <ica-table
+                [tableCssClasses]="'table--shipments'"
+                [columns]="shipmentsTableColumns"
+                [rows]="shipmentsTableRows">
+            </ica-table>
+        </div>
 
-      <div class="dashboard__tabs-item dashboard__tabs-item--documents" [class.is-active]="activeTab === 'documents'" data-tab-item="documents">
-          <ica-table
-            [tableCssClasses]="'table--documents'"
-            [columns]="documentsTableColumns"
-            [rows]="documentsTableRows">
-          </ica-table>
-      </div>
-  </div>
+        <div class="dashboard__tabs-item dashboard__tabs-item--documents" [class.is-active]="activeTab === 'documents'" data-tab-item="documents">
+            <ica-table
+                [tableCssClasses]="'table--documents'"
+                [columns]="documentsTableColumns"
+                [rows]="documentsTableRows">
+            </ica-table>
+        </div>
+    </div>
 </div>

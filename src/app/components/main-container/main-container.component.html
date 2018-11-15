@@ -1,13 +1,13 @@
 <ica-dashboard>
-  <ng-container icaSideNav>
-    <ica-navigation [userName]="'Jason Sutton'" [companyName]="'Allenberg Cotton Co'"></ica-navigation>
-  </ng-container>
+    <ng-container icaSideNav>
+        <ica-navigation [userName]="'Jason Sutton'" [companyName]="'Allenberg Cotton Co'"></ica-navigation>
+    </ng-container>
 
-  <ng-container icaTopBarContent>
-    <router-outlet name="topBar"></router-outlet>
-  </ng-container>
+    <ng-container icaTopBarContent>
+        <router-outlet name="topBar"></router-outlet>
+    </ng-container>
 
-  <div [@routerTransition]="getState(o)" style="height: 100%;">
-    <router-outlet #o="outlet"></router-outlet>
-  </div>
+    <div [@routerTransition]="getState(o)" style="height: 100%;">
+        <router-outlet #o="outlet"></router-outlet>
+    </div>
 </ica-dashboard>

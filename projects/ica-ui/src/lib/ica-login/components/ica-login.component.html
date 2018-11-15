@@ -1,251 +1,251 @@
 <ica-svg-defs></ica-svg-defs>
 <main role="main" class="login" [class.to-dashboard]="activeAction==='login'">
-  <section class="login__left" [class.is-active]="activeAction!=='main'" [class.is-uport]="activeAction==='uport' || uPortInAction">
-      <a [routerLink]="" class="login__back" (click)="setAction('main')">
-          <svg class="icon icon-arrow-left" aria-hidden="true">
-              <use xlink:href="#icon-arrow-left"></use>
-          </svg>
+    <section class="login__left" [class.is-active]="activeAction!=='main'" [class.is-uport]="activeAction==='uport' || uPortInAction">
+        <a [routerLink]="" class="login__back" (click)="setAction('main')">
+            <svg class="icon icon-arrow-left" aria-hidden="true">
+                <use xlink:href="#icon-arrow-left"></use>
+            </svg>
 
-          <span class="hide-vis">Back</span>
-      </a>
+            <span class="hide-vis">Back</span>
+        </a>
 
-      <div class="login__centerer">
-          <div class="login__content">
-              <div class="container">
-                  <div class="login__logo">
-                      <a [routerLink]="" (click)="setAction('main')">
-                          <img src="assets/images/cotton-ledger-logo.svg">
-                      </a>
-                  </div>
+        <div class="login__centerer">
+            <div class="login__content">
+                <div class="container">
+                    <div class="login__logo">
+                        <a [routerLink]="" (click)="setAction('main')">
+                            <img src="assets/images/cotton-ledger-logo.svg">
+                        </a>
+                    </div>
 
-                  <div class="login__actions-container">
-                      <!-- Main actions -->
-                      <div class="login__actions login__actions--main is-active" [class.is-active]="activeAction==='main'" [class.out]="outAction==='main'" ngForm>
-                          <div class="action__column">
-                              <div class="action__heading">Sign In with Email</div>
+                    <div class="login__actions-container">
+                        <!-- Main actions -->
+                        <div class="login__actions login__actions--main is-active" [class.is-active]="activeAction==='main'" [class.out]="outAction==='main'" ngForm>
+                            <div class="action__column">
+                                <div class="action__heading">Sign In with Email</div>
 
-                              <div class="form-field form-field--login form-field--email form-field--button">
-                                  <input type="email" placeholder="email@example.com" class="form-field__input" icaAutofocus
-                                    [(ngModel)]="email" name="email" #emailInput (keyup.enter)="verifyEmail()">
+                                <div class="form-field form-field--login form-field--email form-field--button">
+                                    <input type="email" placeholder="email@example.com" class="form-field__input" icaAutofocus
+                                        [(ngModel)]="email" name="email" #emailInput (keyup.enter)="verifyEmail()">
 
-                                  <button [routerLink]="" class="btn form-field__button" (click)="verifyEmail()">
-                                      <svg class="icon icon-arrow-right" aria-hidden="true">
-                                          <use xlink:href="#icon-arrow-right"></use>
-                                      </svg>
-                                      <span class="hide-vis">Submit</span>
-                                  </button>
-                              </div>
+                                    <button [routerLink]="" class="btn form-field__button" (click)="verifyEmail()">
+                                        <svg class="icon icon-arrow-right" aria-hidden="true">
+                                            <use xlink:href="#icon-arrow-right"></use>
+                                        </svg>
+                                        <span class="hide-vis">Submit</span>
+                                    </button>
+                                </div>
 
-                              <p class="action__helper left">
-                                  <a href="#">Forgot email?</a>
-                              </p>
-                          </div>
+                                <p class="action__helper left">
+                                    <a href="#">Forgot email?</a>
+                                </p>
+                            </div>
 
-                          <div class="action__column">
-                              <p class="divider">or</p>
-                          </div>
+                            <div class="action__column">
+                                <p class="divider">or</p>
+                            </div>
 
-                          <div class="action__column">
-                              <div class="action__heading">Sign In with Sovereign Identity</div>
+                            <div class="action__column">
+                                <div class="action__heading">Sign In with Sovereign Identity</div>
 
-                              <button class="btn btn--full btn--white btn--icon uport" (click)="setAction('uport')">
-                                  <span>
-                                      <svg class="icon icon-uport" aria-hidden="true">
-                                          <use xlink:href="#icon-uport"></use>
-                                      </svg>
+                                <button class="btn btn--full btn--white btn--icon uport" (click)="setAction('uport')">
+                                    <span>
+                                        <svg class="icon icon-uport" aria-hidden="true">
+                                            <use xlink:href="#icon-uport"></use>
+                                        </svg>
 
-                                      Login with Uport
-                                  </span>
-                              </button>
+                                        Login with Uport
+                                    </span>
+                                </button>
 
-                              <p class="action__helper">
-                                  uPort allows users to register their own identity on Ethereum, send and request credentials, sign transactions, and securely manage keys & data.
-                              </p>
-                          </div>
-                      </div>
+                                <p class="action__helper">
+                                    uPort allows users to register their own identity on Ethereum, send and request credentials, sign transactions, and securely manage keys & data.
+                                </p>
+                            </div>
+                        </div>
 
-                      <!-- Email actions -->
-                      <div class="login__actions login__actions--email"
-                          [class.is-active]="activeAction==='email'"
-                          [class.out]="outAction==='email'"
-                          [class.is-editing]="isEditingEmail"
-                          ngForm>
-                          <div class="action__column">
-                              <div class="action__email">
-                                  <div class="action__heading" (click)="enableEmailEditing()">
-                                      <svg class="icon icon-profile" aria-hidden="true">
-                                          <use xlink:href="#icon-profile"></use>
-                                      </svg>
+                        <!-- Email actions -->
+                        <div class="login__actions login__actions--email"
+                            [class.is-active]="activeAction==='email'"
+                            [class.out]="outAction==='email'"
+                            [class.is-editing]="isEditingEmail"
+                            ngForm>
+                            <div class="action__column">
+                                <div class="action__email">
+                                    <div class="action__heading" (click)="enableEmailEditing()">
+                                        <svg class="icon icon-profile" aria-hidden="true">
+                                            <use xlink:href="#icon-profile"></use>
+                                        </svg>
 
-                                      <span class="email">{{ email }}</span>
-                                  </div>
+                                        <span class="email">{{ email }}</span>
+                                    </div>
 
-                                  <div class="form-field form-field--login form-field--email">
-                                      <input type="email" placeholder="email@example.com" class="form-field__input" value="email@example.com" [(ngModel)]="email" name="email" #emailInput2>
-                                  </div>
-                              </div>
+                                    <div class="form-field form-field--login form-field--email">
+                                        <input type="email" placeholder="email@example.com" class="form-field__input" value="email@example.com" [(ngModel)]="email" name="email" #emailInput2>
+                                    </div>
+                                </div>
 
-                              <div class="form-field form-field--login form-field--password" [class.form-field--error]="authResult && !authResult.success">
-                                  <input [type]="(passwordVisible) ? 'text' : 'password'" placeholder="password" class="form-field__input"
-                                    [(ngModel)]="password" name="password" #passwordInput (keyup.enter)="login()">
+                                <div class="form-field form-field--login form-field--password" [class.form-field--error]="authResult && !authResult.success">
+                                    <input [type]="(passwordVisible) ? 'text' : 'password'" placeholder="password" class="form-field__input"
+                                        [(ngModel)]="password" name="password" #passwordInput (keyup.enter)="login()">
 
-                                  <button class="form-field__icon" [class.is-show]="passwordVisible" (click)="passwordVisible=!passwordVisible">
-                                      <svg class="icon icon-password-show" aria-hidden="true">
-                                          <use xlink:href="#icon-password-show"></use>
-                                      </svg>
+                                    <button class="form-field__icon" [class.is-show]="passwordVisible" (click)="passwordVisible=!passwordVisible">
+                                        <svg class="icon icon-password-show" aria-hidden="true">
+                                            <use xlink:href="#icon-password-show"></use>
+                                        </svg>
 
-                                      <svg class="icon icon-password-hide" aria-hidden="true">
-                                          <use xlink:href="#icon-password-hide"></use>
-                                      </svg>
-                                  </button>
+                                        <svg class="icon icon-password-hide" aria-hidden="true">
+                                            <use xlink:href="#icon-password-hide"></use>
+                                        </svg>
+                                    </button>
 
-                                  <div class="form-field__message" *ngIf="authResult && !authResult.success">
-                                    {{ authResult.message }} <a href="#">Forgot your password?</a>
-                                  </div>
-                              </div>
+                                    <div class="form-field__message" *ngIf="authResult && !authResult.success">
+                                        {{ authResult.message }} <a href="#">Forgot your password?</a>
+                                    </div>
+                                </div>
 
-                              <p class="action__helper">
-                                  <span class="forgot-password">
-                                      <a href="#">Forgot password?</a>
-                                  </span>
+                                <p class="action__helper">
+                                    <span class="forgot-password">
+                                        <a href="#">Forgot password?</a>
+                                    </span>
 
-                                  <span class="need-help">
-                                      <a href="#">Need help signing in?</a>
-                                  </span>
-                              </p>
+                                    <span class="need-help">
+                                        <a href="#">Need help signing in?</a>
+                                    </span>
+                                </p>
 
-                              <button class="btn btn--green" (click)="login()">Next</button>
-                          </div>
+                                <button class="btn btn--green" (click)="login()">Next</button>
+                            </div>
 
-                          <p class="action__other">
-                              or <a [routerLink]="" (click)="setAction('uport')">login with uPort</a>
-                          </p>
-                      </div>
+                            <p class="action__other">
+                                or <a [routerLink]="" (click)="setAction('uport')">login with uPort</a>
+                            </p>
+                        </div>
 
-                      <!-- uPort actions -->
-                      <div class="login__actions login__actions--uport"
-                          [class.is-active]="activeAction==='uport'"
-                          [class.out]="outAction==='uport'"
-                          ngForm>
-                          <div class="action__column">
-                              <div class="action__heading">Scan QR code with uPort Mobile App</div>
+                        <!-- uPort actions -->
+                        <div class="login__actions login__actions--uport"
+                            [class.is-active]="activeAction==='uport'"
+                            [class.out]="outAction==='uport'"
+                            ngForm>
+                            <div class="action__column">
+                                <div class="action__heading">Scan QR code with uPort Mobile App</div>
 
-                              <div class="qr-code">
-                                  <svg class="icon icon-uport" aria-hidden="true">
-                                      <use xlink:href="#icon-uport"></use>
-                                  </svg>
+                                <div class="qr-code">
+                                    <svg class="icon icon-uport" aria-hidden="true">
+                                        <use xlink:href="#icon-uport"></use>
+                                    </svg>
 
-                                  <img [src]="(qrImage$ | async) || 'assets/images/qr-code.svg'" alt="uPort QR Code">
-                              </div>
-                          </div>
+                                    <img [src]="(qrImage$ | async) || 'assets/images/qr-code.svg'" alt="uPort QR Code">
+                                </div>
+                            </div>
 
-                          <p class="action__other">
-                              or <a [routerLink]="" (click)="setAction('email')">login with email</a>
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+                            <p class="action__other">
+                                or <a [routerLink]="" (click)="setAction('email')">login with email</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      <div class="login__copyright">
-          <p>&copy;2018 The Seam, LLC. All Rights Reserved.</p>
-      </div>
-  </section>
+        <div class="login__copyright">
+            <p>&copy;2018 The Seam, LLC. All Rights Reserved.</p>
+        </div>
+    </section>
 
-  <section class="login__right">
-      <div class="login__centerer">
-          <div class="login__logos login__logos--top" aria-hidden="true">
-              <div class="login__logos-row">
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-1.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-2.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-3.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-4.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-5.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-6.svg" alt="Partner Logo"></div>
+    <section class="login__right">
+        <div class="login__centerer">
+            <div class="login__logos login__logos--top" aria-hidden="true">
+                <div class="login__logos-row">
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-1.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-2.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-3.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-4.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-5.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-6.svg" alt="Partner Logo"></div>
 
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-1.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-2.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-3.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-4.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-5.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-6.svg" alt="Partner Logo"></div>
-              </div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-1.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-2.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-3.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-4.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-5.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-6.svg" alt="Partner Logo"></div>
+                </div>
 
-              <div class="login__logos-row">
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-7.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-8.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-9.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-10.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-11.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-12.svg" alt="Partner Logo"></div>
+                <div class="login__logos-row">
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-7.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-8.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-9.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-10.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-11.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-12.svg" alt="Partner Logo"></div>
 
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-7.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-8.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-9.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-10.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-11.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-12.svg" alt="Partner Logo"></div>
-              </div>
-          </div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-7.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-8.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-9.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-10.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-11.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-12.svg" alt="Partner Logo"></div>
+                </div>
+            </div>
 
-          <div class="login__intro">
-              <div class="container">
-                  <h1>Join the Consortium</h1>
+            <div class="login__intro">
+                <div class="container">
+                    <h1>Join the Consortium</h1>
 
-                  <p>
-                      Cotton’s leading brands are joining the consortium to marketing language, benefits and fear of missing out on something spectacular. Share with your business partners.
-                  </p>
+                    <p>
+                        Cotton’s leading brands are joining the consortium to marketing language, benefits and fear of missing out on something spectacular. Share with your business partners.
+                    </p>
 
-                  <p>
-                      <a href="#" class="login__intro-link">
-                          Apply Now
-                          <svg class="icon icon-arrow-right" aria-hidden="true">
-                              <use xlink:href="#icon-arrow-right"></use>
-                          </svg>
-                      </a>
+                    <p>
+                        <a href="#" class="login__intro-link">
+                            Apply Now
+                            <svg class="icon icon-arrow-right" aria-hidden="true">
+                                <use xlink:href="#icon-arrow-right"></use>
+                            </svg>
+                        </a>
 
-                      <a href="#" class="login__intro-link">
-                          Invite a Partner
-                          <svg class="icon icon-arrow-right" aria-hidden="true">
-                              <use xlink:href="#icon-arrow-right"></use>
-                          </svg>
-                      </a>
-                  </p>
-              </div>
-          </div>
+                        <a href="#" class="login__intro-link">
+                            Invite a Partner
+                            <svg class="icon icon-arrow-right" aria-hidden="true">
+                                <use xlink:href="#icon-arrow-right"></use>
+                            </svg>
+                        </a>
+                    </p>
+                </div>
+            </div>
 
-          <div class="login__logos login__logos--bottom" aria-hidden="true">
-              <div class="login__logos-row">
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-13.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-14.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-15.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-16.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-17.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-18.svg" alt="Partner Logo"></div>
+            <div class="login__logos login__logos--bottom" aria-hidden="true">
+                <div class="login__logos-row">
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-13.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-14.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-15.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-16.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-17.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-18.svg" alt="Partner Logo"></div>
 
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-13.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-14.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-15.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-16.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-17.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-18.svg" alt="Partner Logo"></div>
-              </div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-13.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-14.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-15.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-16.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-17.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-18.svg" alt="Partner Logo"></div>
+                </div>
 
-              <div class="login__logos-row">
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-19.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-20.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-21.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-22.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-23.svg" alt="Partner Logo"></div>
+                <div class="login__logos-row">
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-19.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-20.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-21.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-22.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-23.svg" alt="Partner Logo"></div>
 
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-19.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-20.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-21.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-22.svg" alt="Partner Logo"></div>
-                  <div class="login__logos-logo"><img src="assets/images/partner-logo-23.svg" alt="Partner Logo"></div>
-              </div>
-          </div>
-      </div>
-  </section>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-19.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-20.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-21.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-22.svg" alt="Partner Logo"></div>
+                    <div class="login__logos-logo"><img src="assets/images/partner-logo-23.svg" alt="Partner Logo"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>

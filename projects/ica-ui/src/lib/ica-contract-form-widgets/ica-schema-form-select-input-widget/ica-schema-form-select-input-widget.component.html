@@ -1,33 +1,33 @@
 <div
-  [class]="'form-field form-field--contract form-field--select ' + (options?.htmlClass || '')">
-  <label *ngIf="options?.title"
-    [attr.for]="'control' + layoutNode?._id"
-    [class]="'form-field__label ' + (options?.labelHtmlClass || '')"
-    [class.required]="options?.required"
-    [style.display]="options?.notitle ? 'none' : ''"
-    [innerHTML]="options?.title"></label>
-  <ng-select *ngIf="boundControl"
-    [formControl]="formControl"
-    [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
-    [attr.readonly]="options?.readonly ? 'readonly' : null"
-    [attr.required]="options?.required"
-    [id]="'control' + layoutNode?._id"
-    [placeholder]="options?.placeholder"
-    appendTo="body"
-    [items]="selectList"
-    bindLabel="name"
-    bindValue="value">
-  </ng-select>
-  <ng-select *ngIf="!boundControl"
-    [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
-    [attr.readonly]="options?.readonly ? 'readonly' : null"
-    [attr.required]="options?.required"
-    [id]="'control' + layoutNode?._id"
-    [placeholder]="options?.placeholder"
-    appendTo="body"
-    (change)="updateValue($event)"
-    [items]="selectList"
-    bindLabel="name"
-    bindValue="value">
-  </ng-select>
+    [class]="'form-field form-field--contract form-field--select ' + (options?.htmlClass || '')">
+    <label *ngIf="options?.title"
+        [attr.for]="'control' + layoutNode?._id"
+        [class]="'form-field__label ' + (options?.labelHtmlClass || '')"
+        [class.required]="options?.required"
+        [style.display]="options?.notitle ? 'none' : ''"
+        [innerHTML]="options?.title"></label>
+    <ng-select *ngIf="boundControl"
+        [formControl]="formControl"
+        [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
+        [attr.readonly]="options?.readonly ? 'readonly' : null"
+        [attr.required]="options?.required"
+        [id]="'control' + layoutNode?._id"
+        [placeholder]="options?.placeholder"
+        appendTo="body"
+        [items]="selectList"
+        bindLabel="name"
+        bindValue="value">
+    </ng-select>
+    <ng-select *ngIf="!boundControl"
+        [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
+        [attr.readonly]="options?.readonly ? 'readonly' : null"
+        [attr.required]="options?.required"
+        [id]="'control' + layoutNode?._id"
+        [placeholder]="options?.placeholder"
+        appendTo="body"
+        (change)="updateValue($event)"
+        [items]="selectList"
+        bindLabel="name"
+        bindValue="value">
+    </ng-select>
 </div>

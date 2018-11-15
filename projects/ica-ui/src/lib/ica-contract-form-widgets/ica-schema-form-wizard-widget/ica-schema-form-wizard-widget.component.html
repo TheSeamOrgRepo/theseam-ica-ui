@@ -1,18 +1,18 @@
 <div
-  [class]="'contract-new__sidebar-panel ' + (options?.htmlClass || '') + ' panel-idx-' + (options?.panelIndex || '')"
-  [class.is-active]="(activePanel$ | async) === options?.panelIndex">
-  <ng-container *ngIf="sectionTitle">
-    <h2
-      [class]="options?.labelHtmlClass || ''"
-      [innerHTML]="sectionTitle"></h2>
-  </ng-container>
-  <ng-container>
-    <p class="small">Deserunt sunt ex ullamco ipsum consectetur occaecat consectetur minim.</p>
-  </ng-container>
-  <div class="form-fieldset__fields">
-    <root-widget
-      [dataIndex]="dataIndex"
-      [layout]="layoutNode.items"
-      [layoutIndex]="layoutIndex"></root-widget>
-  </div>
+    [class]="'contract-new__sidebar-panel ' + (options?.htmlClass || '') + ' panel-idx-' + (options?.panelIndex || '')"
+    [class.is-active]="(activePanel$ | async) === options?.panelIndex">
+    <ng-container *ngIf="sectionTitle">
+        <h2
+        [class]="options?.labelHtmlClass || ''"
+        [innerHTML]="sectionTitle"></h2>
+    </ng-container>
+    <ng-container>
+        <p class="small">Deserunt sunt ex ullamco ipsum consectetur occaecat consectetur minim.</p>
+    </ng-container>
+    <div class="form-fieldset__fields">
+        <root-widget
+        [dataIndex]="dataIndex"
+        [layout]="layoutNode.items"
+        [layoutIndex]="layoutIndex"></root-widget>
+    </div>
 </div>

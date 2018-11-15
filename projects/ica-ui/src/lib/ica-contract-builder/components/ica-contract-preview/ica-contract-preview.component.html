@@ -1,20 +1,20 @@
 <div #pdfContainer
-  style="background-color: white;"
-  class="shadow"
-  (elemResized)="onResized($event)">
-  <canvas id="the-canvas"></canvas>
-  <div class="highlight-rect"
-    [style.left]="highlightX + 'px'"
-    [style.top]="highlightY + 'px'"
-    [style.width]="highlightW + 'px'"
-    [style.height]="highlightH + 'px'">
-  </div>
+    style="background-color: white;"
+    class="shadow"
+    (elemResized)="onResized($event)">
+    <canvas id="the-canvas"></canvas>
+    <div class="highlight-rect"
+        [style.left]="highlightX + 'px'"
+        [style.top]="highlightY + 'px'"
+        [style.width]="highlightW + 'px'"
+        [style.height]="highlightH + 'px'">
+    </div>
 </div>
 
 <div *ngIf="content"
-  style="background-color: white; display: none;"
-  class="shadow"
-  (click)="previewClick($event)"
-  (elemResized)="onResized($event)"
-  [innerHTML]="formattedContent | sanitizeHtml">
+    style="background-color: white; display: none;"
+    class="shadow"
+    (click)="previewClick($event)"
+    (elemResized)="onResized($event)"
+    [innerHTML]="formattedContent | sanitizeHtml">
 </div>

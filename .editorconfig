@@ -14,6 +14,6 @@ max_line_length = off
 trim_trailing_whitespace = false
 
 # To match SimpleFocus's indentation
-[*.html,*css]
+[*.{html,css,scss}]
 indent_style = space
 indent_size = 4

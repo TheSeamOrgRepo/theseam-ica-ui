@@ -1,14 +1,14 @@
 <div
-  [class]="'form-fieldset form-fieldset--contract ' + (options?.htmlClass || '')">
-  <ng-container *ngIf="sectionTitle">
-    <div
-      [class]="'form-fieldset__heading ' + (options?.labelHtmlClass || '')"
-      [innerHTML]="sectionTitle"></div>
-  </ng-container>
-  <div class="form-fieldset__fields">
-    <root-widget
-      [dataIndex]="dataIndex"
-      [layout]="layoutNode.items"
-      [layoutIndex]="layoutIndex"></root-widget>
-  </div>
+    [class]="'form-fieldset form-fieldset--contract ' + (options?.htmlClass || '')">
+    <ng-container *ngIf="sectionTitle">
+        <div
+            [class]="'form-fieldset__heading ' + (options?.labelHtmlClass || '')"
+            [innerHTML]="sectionTitle"></div>
+    </ng-container>
+    <div class="form-fieldset__fields">
+        <root-widget
+            [dataIndex]="dataIndex"
+            [layout]="layoutNode.items"
+            [layoutIndex]="layoutIndex"></root-widget>
+    </div>
 </div>

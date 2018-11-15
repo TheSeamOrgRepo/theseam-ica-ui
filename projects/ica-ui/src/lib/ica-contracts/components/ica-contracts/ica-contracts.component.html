@@ -17,11 +17,11 @@
 
     <div class="dashboard__bottom">
         <ica-table
-          [tableCssClasses]="'table--contracts'"
-          [columns]="contractsTableColumns"
-          [rows]="contractsTableRows$ | async"
-          [hasActions]="true"
-          (rowAction)="onRowAction($event)">
+            [tableCssClasses]="'table--contracts'"
+            [columns]="contractsTableColumns"
+            [rows]="contractsTableRows$ | async"
+            [hasActions]="true"
+            (rowAction)="onRowAction($event)">
         </ica-table>
     </div>
 </div>

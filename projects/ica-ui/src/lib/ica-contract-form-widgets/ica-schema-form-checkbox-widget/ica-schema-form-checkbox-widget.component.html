@@ -1,33 +1,33 @@
 <div class="form-field form-field--contract form-field--checkbox">
-  <label
-    [attr.for]="'control' + layoutNode?._id"
-    [class]="'form-field__checkbox ' + (options?.itemLabelHtmlClass || '')"
-    [class.required]="options?.required">
-    <input *ngIf="boundControl"
-      [formControl]="formControl"
-      [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
-      [class]="'form-field__checkbox ' + (options?.fieldHtmlClass || '') + (isChecked ?
-        (' ' + (options?.activeClass || '') + ' ' + (options?.style?.selected || '')) :
-        (' ' + (options?.style?.unselected || '')))"
-      [id]="'control' + layoutNode?._id"
-      [name]="controlName"
-      [readonly]="options?.readonly ? 'readonly' : null"
-      type="checkbox">
-    <input *ngIf="!boundControl"
-      [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
-      [checked]="isChecked ? 'checked' : null"
-      [class]="'form-field__checkbox ' + (options?.fieldHtmlClass || '') + (isChecked ?
-        (' ' + (options?.activeClass || '') + ' ' + (options?.style?.selected || '')) :
-        (' ' + (options?.style?.unselected || '')))"
-      [disabled]="controlDisabled"
-      [id]="'control' + layoutNode?._id"
-      [name]="controlName"
-      [readonly]="options?.readonly ? 'readonly' : null"
-      [value]="controlValue"
-      type="checkbox"
-      (change)="updateValue($event)">
-    <span *ngIf="options?.title"
-      [style.display]="options?.notitle ? 'none' : ''"
-      [innerHTML]="options?.title"></span>
-  </label>
+    <label
+        [attr.for]="'control' + layoutNode?._id"
+        [class]="'form-field__checkbox ' + (options?.itemLabelHtmlClass || '')"
+        [class.required]="options?.required">
+        <input *ngIf="boundControl"
+            [formControl]="formControl"
+            [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
+            [class]="'form-field__checkbox ' + (options?.fieldHtmlClass || '') + (isChecked ?
+            (' ' + (options?.activeClass || '') + ' ' + (options?.style?.selected || '')) :
+            (' ' + (options?.style?.unselected || '')))"
+            [id]="'control' + layoutNode?._id"
+            [name]="controlName"
+            [readonly]="options?.readonly ? 'readonly' : null"
+            type="checkbox">
+        <input *ngIf="!boundControl"
+            [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
+            [checked]="isChecked ? 'checked' : null"
+            [class]="'form-field__checkbox ' + (options?.fieldHtmlClass || '') + (isChecked ?
+            (' ' + (options?.activeClass || '') + ' ' + (options?.style?.selected || '')) :
+            (' ' + (options?.style?.unselected || '')))"
+            [disabled]="controlDisabled"
+            [id]="'control' + layoutNode?._id"
+            [name]="controlName"
+            [readonly]="options?.readonly ? 'readonly' : null"
+            [value]="controlValue"
+            type="checkbox"
+            (change)="updateValue($event)">
+        <span *ngIf="options?.title"
+            [style.display]="options?.notitle ? 'none' : ''"
+            [innerHTML]="options?.title"></span>
+    </label>
 </div>

@@ -1,12 +1,12 @@
 <json-schema-form *ngIf="contractTemplatePack"
-  #schemaForm
-  framework="no-framework"
-  [widgets]="widgets"
-  [schema]="contractTemplatePack.formSchema"
-  [layout]="contractTemplatePack.formLayout"
-  (onChanges)="schemaFormOnChange($event)"
-  (isValid)="schemaFormIsValid($event)"
-  (onSubmit)="schemaFormOnSubmit($event)"
-  icaJsfExtra
-  (remainingStatus)="onRemainingStatus($event)">
+    #schemaForm
+    framework="no-framework"
+    [widgets]="widgets"
+    [schema]="contractTemplatePack.formSchema"
+    [layout]="contractTemplatePack.formLayout"
+    (onChanges)="schemaFormOnChange($event)"
+    (isValid)="schemaFormIsValid($event)"
+    (onSubmit)="schemaFormOnSubmit($event)"
+    icaJsfExtra
+    (remainingStatus)="onRemainingStatus($event)">
 </json-schema-form>

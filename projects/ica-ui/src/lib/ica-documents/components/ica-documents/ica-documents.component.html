@@ -16,11 +16,11 @@
 
     <div class="dashboard__bottom">
         <ica-table
-          [tableCssClasses]="'table--documents'"
-          [columns]="documentsTableColumns"
-          [rows]="documentsTableRows$ | async"
-          [hasActions]="true"
-          (rowAction)="onRowAction($event)">
+            [tableCssClasses]="'table--documents'"
+            [columns]="documentsTableColumns"
+            [rows]="documentsTableRows$ | async"
+            [hasActions]="true"
+            (rowAction)="onRowAction($event)">
         </ica-table>
     </div>
 </div>

@@ -1,35 +1,35 @@
 <div
-  [class]="'form-field form-field--contract form-field--select ' + (options?.htmlClass || '')"
-  [style.display]="isVisible ? '' : 'none'">
-  <label *ngIf="options?.title"
-    [attr.for]="'control' + layoutNode?._id"
-    [class]="'form-field__label ' + (options?.labelHtmlClass || '')"
-    [class.required]="options?.required"
-    [style.display]="options?.notitle ? 'none' : ''"
-    [innerHTML]="options?.title"></label>
-  <ng-select *ngIf="formControl"
-    [formControl]="formControl"
-    [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
-    [attr.readonly]="options?.readonly ? 'readonly' : null"
-    [attr.required]="options?.required"
-    [id]="'control' + layoutNode?._id"
-    placeholder="Select Counter Party"
-    appendTo="body"
-    (change)="updateValue($event)"
-    [items]="selectList$ | async"
-    bindLabel="companyName"
-    bindValue="companyName">
-  </ng-select>
-  <ng-select *ngIf="!formControl"
-    [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
-    [attr.readonly]="options?.readonly ? 'readonly' : null"
-    [attr.required]="options?.required"
-    [id]="'control' + layoutNode?._id"
-    placeholder="Select Counter Party"
-    appendTo="body"
-    (change)="updateValue($event)"
-    [items]="selectList$ | async"
-    bindLabel="companyName"
-    bindValue="companyName">
-  </ng-select>
+    [class]="'form-field form-field--contract form-field--select ' + (options?.htmlClass || '')"
+    [style.display]="isVisible ? '' : 'none'">
+    <label *ngIf="options?.title"
+        [attr.for]="'control' + layoutNode?._id"
+        [class]="'form-field__label ' + (options?.labelHtmlClass || '')"
+        [class.required]="options?.required"
+        [style.display]="options?.notitle ? 'none' : ''"
+        [innerHTML]="options?.title"></label>
+    <ng-select *ngIf="formControl"
+        [formControl]="formControl"
+        [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
+        [attr.readonly]="options?.readonly ? 'readonly' : null"
+        [attr.required]="options?.required"
+        [id]="'control' + layoutNode?._id"
+        placeholder="Select Counter Party"
+        appendTo="body"
+        (change)="updateValue($event)"
+        [items]="selectList$ | async"
+        bindLabel="companyName"
+        bindValue="companyName">
+    </ng-select>
+    <ng-select *ngIf="!formControl"
+        [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
+        [attr.readonly]="options?.readonly ? 'readonly' : null"
+        [attr.required]="options?.required"
+        [id]="'control' + layoutNode?._id"
+        placeholder="Select Counter Party"
+        appendTo="body"
+        (change)="updateValue($event)"
+        [items]="selectList$ | async"
+        bindLabel="companyName"
+        bindValue="companyName">
+    </ng-select>
 </div>
