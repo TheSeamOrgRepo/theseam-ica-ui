@@ -100,7 +100,6 @@ export class IcaJsfExtraDirective implements OnInit {
         const elem: any = document.querySelector(`#control${foundItem._id}`)
         elem.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'})
         elem.focus()
-        console.log('elem', elem)
       })
     }
   }

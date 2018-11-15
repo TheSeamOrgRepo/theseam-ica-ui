@@ -108,7 +108,7 @@ export class IcaContractBuilderTopBarComponent implements OnInit {
   }
 
   onClickSign(event: any) {
-    console.log('onClickSign', event)
+    // console.log('onClickSign', event)
     this.icaModalContractSign.open()
   }
 

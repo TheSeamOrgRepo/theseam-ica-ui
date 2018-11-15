@@ -174,7 +174,6 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
 
     for (const ano of annotations) {
       const pointerProps = this.getPointerProps(ano.unsafeUrl)
-      console.log(pointerProps)
       if (pointerProps.hasOwnProperty('noOverlay') && pointerProps.noOverlay === true) {
         continue
       }

@@ -80,7 +80,7 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
     const appUsersCompany$ = this.icaCommon.appUserCompany$
 
     const formValues$ = generalValues$
-      .pipe(tap(v => console.log('generalValues$', v)))
+      // .pipe(tap(v => console.log('generalValues$', v)))
       .pipe(takeWhile(val => val !== undefined))
       .pipe(filter(val => val.contractType !== undefined))
       .pipe(filter(val => val.counterParty !== undefined))
@@ -89,21 +89,21 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
           (before.counterParty === after.counterParty)
       }))
       .pipe(
-        tap(v => console.log('formVals', v)),
+        // tap(v => console.log('formVals', v)),
         switchMap(formVals =>
           companies$
-            .pipe(tap(v => console.log('companies$', v)))
+            // .pipe(tap(v => console.log('companies$', v)))
             .pipe(map(companies => {
               const contractType = ['Sell', 'Purchase']
                 .find(t => t === formVals.contractType)
-              console.log('contractType', contractType)
+              // console.log('contractType', contractType)
 
-              console.log('companies', companies)
-              console.log('formVals.counterParty', formVals.counterParty)
+              // console.log('companies', companies)
+              // console.log('formVals.counterParty', formVals.counterParty)
               // const counterParty = companies
               //   .find(c => c.companyName === formVals.counterParty)
               const counterParty = formVals.counterParty
-              console.log('counterParty', counterParty)
+              // console.log('counterParty', counterParty)
 
               if (contractType && counterParty) {
                 return {
@@ -118,10 +118,10 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
 
     const formResults$ = formValues$
       .pipe(
-        tap(v => console.log('formValues$', v)),
+        // tap(v => console.log('formValues$', v)),
         switchMap(formValues => {
           return appUsersCompany$
-            .pipe(tap(v => console.log('appUsersCompany$', v)))
+            // .pipe(tap(v => console.log('appUsersCompany$', v)))
             .pipe(map(appUsersCompany => {
               let knownData
 
@@ -147,7 +147,7 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
 
     this._sub = formResults$
       .subscribe(val => {
-        console.log('val', val)
+        // console.log('val', val)
         // this.createContractService.setKnownTemplateData(val.knownData)
         // this.formDataNew.emit(val.formValues)
         this.setGeneralData(val)
@@ -172,7 +172,7 @@ export class IcaContractSchemaFormComponent implements OnInit, OnDestroy, AfterV
   }
 
   public schemaFormOnChange(formData: object) {
-    console.log('schemaFormOnChange', formData)
+    // console.log('schemaFormOnChange', formData)
     const knownData = (this.generalData && this.generalData.knownData) ? this.generalData.knownData : undefined
     this.dataChange.emit({ schemaData: formData, generalData: knownData })
   }
