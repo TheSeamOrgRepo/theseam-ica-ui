@@ -7,13 +7,21 @@
         <label for="type" class="dashboard__filter-group__label">Type:</label>
         <div class="dashboard__filter-group__input">
             <div class="form-field form-field--dashboard form-field--select">
-                <div class="select">
+                <ng-select
+                    [(ngModel)]="typeFilter"
+                    [searchable]="false"
+                    [markFirst]="true"
+                    [items]="types"
+                    bindLabel="label"
+                    bindValue="value">
+                </ng-select>
+                <!-- <div class="select">
                     <select id="type" class="form-field__select">
                         <option value="option-1">All</option>
                         <option value="option-2">Related</option>
                         <option value="option-3">Affiliate</option>
                     </select>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

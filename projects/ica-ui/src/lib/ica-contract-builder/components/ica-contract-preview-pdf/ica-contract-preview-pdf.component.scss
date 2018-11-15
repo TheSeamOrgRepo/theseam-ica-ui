@@ -1,0 +1,8 @@
+.pdf-preview-fade {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+
+    &.pdf-preview-fading {
+        opacity: 0;
+    }
+}

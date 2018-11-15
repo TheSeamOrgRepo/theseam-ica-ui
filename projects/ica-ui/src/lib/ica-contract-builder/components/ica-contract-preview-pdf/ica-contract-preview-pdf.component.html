@@ -3,7 +3,9 @@
     class="shadow"
     (elemResized)="onResized($event)">
     <div *ngIf="renderType === 'svg'" #svgContainer></div>
-    <canvas *ngIf="renderType === 'canvas'" #pdfCanvas [@fade]="fade"></canvas>
+    <canvas *ngIf="renderType === 'canvas'" #pdfCanvas
+        class="pdf-preview-fade"
+        [class.pdf-preview-fading]="fading"></canvas>
     <ica-contract-preview-symbol-overlay *ngFor="let item of symbolOverlayItems"
         [item]="item"
         (activate)="overlaySymbolClick($event)">

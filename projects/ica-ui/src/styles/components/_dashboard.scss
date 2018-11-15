@@ -177,6 +177,7 @@
     .shipments__content,
     .documents__content {
         max-height: calc(100vh - #{$nav-size-small});
+        height: 100%;
 
         .dashboard__top {
             padding-top: rem-calc(50);

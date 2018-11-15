@@ -2,8 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, 
 import stripJsonComments from 'strip-json-comments'
 import { Subject, Observable, from } from 'rxjs'
 import { switchMap, auditTime, tap, delay } from 'rxjs/operators'
-import { trigger, transition, useAnimation } from '@angular/animations'
-import { fadeIn, fadeOut } from 'ng-animate'
 
 import { waitOnConditionAsync } from '../../../common'
 
@@ -20,22 +18,19 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts'
 const pdfMake: any = _pdfMake
 pdfMake.vfs = pdfFonts.pdfMake.vfs
 
+/**
+ * TODO: Research 'svg' render mode more.
+ */
 export type PDFRenderTypes = 'svg' | 'canvas'
 
 @Component({
   selector: 'ica-contract-preview-pdf',
   templateUrl: './ica-contract-preview-pdf.component.html',
-  styleUrls: ['./ica-contract-preview-pdf.component.scss'],
-  animations: [
-    trigger('fade', [
-      transition('* => start', useAnimation(fadeIn)),
-      transition('* => done', useAnimation(fadeOut))
-    ])
-  ]
+  styleUrls: ['./ica-contract-preview-pdf.component.scss']
 })
 export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
 
-  fade: string
+  fading = false
 
   private _content: any
   private _data: any
@@ -87,19 +82,19 @@ export class IcaContractPreviewPdfComponent implements OnInit, AfterViewInit {
     pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${ (pdfjsLib as any).version }/pdf.worker.min.js`
 
     this.render$ = this._renderRequestSubject.pipe(
-      auditTime(300),
-      tap(_ => this.fade = 'start'),
-      delay(5),
+      auditTime(500),
+      tap(_ => this.fading = true),
+      delay(100),
       switchMap(_ => from(waitOnConditionAsync(() => this.rendering === false, 30 * 1000))),
-      delay(5),
-      tap(_ => this.fade = 'done')
+      switchMap(_ => from(this._renderPdf())),
+      tap(_ => this.fading = false)
     )
   }
 
   ngOnInit() { }
 
   ngAfterViewInit() {
-    this.render$.subscribe(_ => this._renderPdf())
+    this.render$.subscribe()
     this.updatePreview()
   }
 

@@ -18,6 +18,8 @@
 // }
 
 .ng-select {
+    min-width: 50px;
+
     &.ng-select-opened {
         > .ng-select-container {
             background-color: $white;
@@ -66,7 +68,7 @@
         background-color: $white;
         border-radius: 3px;
         border: 1px solid $gray-light;
-        min-width: 150px;
+        // min-width: 150px;
         height: $form-height;
         align-items: center;
 
