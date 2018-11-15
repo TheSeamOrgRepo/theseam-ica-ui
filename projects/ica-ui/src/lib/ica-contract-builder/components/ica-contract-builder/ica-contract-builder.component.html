@@ -10,14 +10,14 @@
     <div class="contract-new__preview">
         <div class="contract-new__pre-fill" *ngIf="showPrefill">
             <div class="form-field form-field--contract form-field--select">
-                <div class="select">
-                    <select id="placeholder-select" class="form-field__select" data-placeholder="Choose Pre-Fill Content" (change)="showPrefill=false;prefil()">
-                        <option value="option-1">21st Century Textiles</option>
-                        <option value="option-2">AXEM Fibers</option>
-                        <option value="option-3">Cargill, Inc.</option>
-                        <option value="option-4">Joe’s Cotton Co.</option>
-                    </select>
-                </div>
+                <ng-select
+                    (change)="showPrefill=false;prefil()"
+                    placeholder="Choose Pre-Fill Content"
+                    [searchable]="false"
+                    [items]="prefilOptions"
+                    bindLabel="label"
+                    bindValue="value">
+                </ng-select>
             </div>
         </div>
 

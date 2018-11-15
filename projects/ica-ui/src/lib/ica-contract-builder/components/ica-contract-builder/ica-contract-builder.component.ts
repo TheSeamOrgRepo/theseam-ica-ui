@@ -26,6 +26,13 @@ export class IcaContractBuilderComponent implements OnInit {
 
   showPrefill = true
 
+  prefilOptions = [
+    { label: '21st Century Textiles', value: '21st Century Textiles' },
+    { label: 'AXEM Fibers', value: 'AXEM Fibers' },
+    { label: 'Cargill, Inc.', value: 'Cargill, Inc.' },
+    { label: 'Joe’s Cotton Co.', value: 'Joe’s Cotton Co.' },
+  ]
+
   constructor(
     public icaCntBuilder: IcaContractBuilderService,
     public icaModalContractComplete: IcaModalContractCompleteService,

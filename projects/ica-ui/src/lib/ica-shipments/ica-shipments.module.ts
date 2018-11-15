@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 
+import { NgSelectModule } from '@ng-select/ng-select'
+
 import { IcaTableModule } from '../ica-table'
 
 import { IcaShipmentsComponent } from './components/ica-shipments/ica-shipments.component'
@@ -11,7 +13,8 @@ import { IcaShipmentsTableFiltersComponent } from './components/ica-shipments-ta
   imports: [
     CommonModule,
     FormsModule,
-    IcaTableModule
+    IcaTableModule,
+    NgSelectModule
   ],
   declarations: [
     IcaShipmentsComponent,

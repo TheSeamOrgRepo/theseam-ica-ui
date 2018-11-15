@@ -10,18 +10,10 @@
                 <ng-select
                     [(ngModel)]="typeFilter"
                     [searchable]="false"
-                    [markFirst]="true"
                     [items]="types"
                     bindLabel="label"
                     bindValue="value">
                 </ng-select>
-                <!-- <div class="select">
-                    <select id="type" class="form-field__select">
-                        <option value="option-1">All</option>
-                        <option value="option-2">Related</option>
-                        <option value="option-3">Affiliate</option>
-                    </select>
-                </div> -->
             </div>
         </div>
     </div>
@@ -34,16 +26,13 @@
         <label for="date-range" class="dashboard__filter-group__label">Date Range:</label>
         <div class="dashboard__filter-group__input">
             <div class="form-field form-field--dashboard form-field--select">
-                <div class="select">
-                    <select id="date-range" class="form-field__select">
-                        <option value="option-1">Last 7 days</option>
-                        <option value="option-2">Last 30 days</option>
-                        <option value="option-3">Last 3 months</option>
-                        <option value="option-4">Last 6 months</option>
-                        <option value="option-5">Last year</option>
-                        <option value="custom">Custom</option>
-                    </select>
-                </div>
+                <ng-select
+                    [(ngModel)]="dateRangeFilter"
+                    [searchable]="false"
+                    [items]="dateRanges"
+                    bindLabel="label"
+                    bindValue="value">
+                </ng-select>
             </div>
 
             <div class="form-field form-field--dashboard form-field--date" hidden>

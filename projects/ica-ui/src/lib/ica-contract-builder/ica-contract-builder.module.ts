@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { RouterModule } from '@angular/router'
 
 import { NoFrameworkModule, MaterialDesignFrameworkModule } from 'angular6-json-schema-form'
+import { NgSelectModule } from '@ng-select/ng-select'
 
 import { IcaCommonModule } from './../common/ica-common.module'
 
@@ -32,6 +33,7 @@ import { IcaContractPreviewSymbolOverlayComponent } from './components/ica-contr
     RouterModule,
     NoFrameworkModule,
     MaterialDesignFrameworkModule,
+    NgSelectModule,
 
     IcaCommonModule,
     IcaContractFormWidgetsModule,
