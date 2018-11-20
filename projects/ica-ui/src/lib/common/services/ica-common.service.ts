@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Observable, BehaviorSubject } from 'rxjs'
+import { BehaviorSubject } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class IcaCommonService {
   public appUserCompany$ = this._appUserCompanySubject.asObservable()
 
   constructor() {
-    this.counterParties$.subscribe(res => console.log('icaCounterParties', res))
+    // this.counterParties$.subscribe(res => console.log('icaCounterParties', res))
   }
 
   public setCounterParties(cp: any) {

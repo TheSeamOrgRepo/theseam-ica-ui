@@ -5,7 +5,7 @@ import { Observable, from } from 'rxjs'
 import { map, tap, switchMap, toArray } from 'rxjs/operators'
 import { untilDestroyed } from 'ngx-take-until-destroy'
 
-import { IcaCommonService } from '../../common'
+import { IcaCommonService } from '../../common/index'
 import { IcaConstractSchemaFormService } from '../../ica-contract-builder/services/ica-constract-schema-form.service'
 
 @Component({

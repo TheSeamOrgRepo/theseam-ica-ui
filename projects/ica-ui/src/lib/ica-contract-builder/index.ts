@@ -12,4 +12,4 @@ export * from './ica-contract-builder.module'
 
 export * from './models/ica-contract-builder.models'
 
-export * from './utils'
+export * from './utils/index'

@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnDestroy } 
 import { IcaCompaniesTableFiltersComponent } from './../ica-companies-table-filters/ica-companies-table-filters.component'
 import { IcaTablePaginationComponent } from './../../../ica-table/components/ica-table-pagination/ica-table-pagination.component'
 import { IRowAction } from './../../../ica-table/components/ica-table/ica-table.component'
-import { tableTextFilter } from '../../../ica-table/utils'
+import { tableTextFilter } from '../../../ica-table/utils/index'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { untilDestroyed } from 'ngx-take-until-destroy'
 import { map } from 'rxjs/operators'

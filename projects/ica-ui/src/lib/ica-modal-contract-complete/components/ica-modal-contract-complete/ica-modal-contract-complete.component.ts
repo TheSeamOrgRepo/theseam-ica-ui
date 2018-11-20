@@ -3,7 +3,7 @@ import { Observable } from 'rxjs'
 
 import { IcaModalContractCompleteService } from './../../services/ica-modal-contract-complete.service'
 import { IcaModalContractSignService } from './../../../ica-modal-contract-sign/services/ica-modal-contract-sign.service'
-import { IcaContractBuilderService } from '../../../ica-contract-builder/'
+import { IcaContractBuilderService } from '../../../ica-contract-builder/index'
 
 @Component({
   selector: 'ica-modal-contract-complete',

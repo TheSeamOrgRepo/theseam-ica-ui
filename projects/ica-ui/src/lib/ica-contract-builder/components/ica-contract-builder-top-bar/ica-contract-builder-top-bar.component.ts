@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
-import { IcaModalContractSignService } from '../../../ica-modal-contract-sign'
+import { IcaModalContractSignService } from '../../../ica-modal-contract-sign/index'
 
 import { IIcaJsfRemainingStatus } from '../../models/ica-contract-builder.models'
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'

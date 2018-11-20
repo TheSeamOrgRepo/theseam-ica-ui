@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { RouterModule } from '@angular/router'
 
-import { IcaTableModule } from '../ica-table'
-import { IcaCommonModule } from '../common'
+import { IcaTableModule } from '../ica-table/index'
+import { IcaCommonModule } from '../common/index'
 
 // tslint:disable:max-line-length
 import { IcaDashboardOverviewComponent } from './components/ica-dashboard-overview/ica-dashboard-overview.component'

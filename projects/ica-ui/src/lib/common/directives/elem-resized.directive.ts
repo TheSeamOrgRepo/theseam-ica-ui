@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, ElementRef, Output, OnInit, OnDestroy, AfterViewInit } from '@angular/core'
+import { Directive, EventEmitter, ElementRef, Output, OnDestroy, AfterViewInit } from '@angular/core'
 import { ResizeSensor } from 'css-element-queries'
 
 // TODO: Find bug that prevents the event triggering for some elements.

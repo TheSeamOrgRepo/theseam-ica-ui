@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 
-import { IcaCommonModule } from '../common'
+import { IcaCommonModule } from '../common/index'
 
 import { IcaDashboardComponent } from './components/ica-dashboard/ica-dashboard.component'
 

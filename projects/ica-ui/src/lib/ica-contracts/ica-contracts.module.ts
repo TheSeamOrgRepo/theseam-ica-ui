@@ -8,7 +8,7 @@ import { NgSelectModule } from '@ng-select/ng-select'
 
 import { IcaModalFilePreviewModule } from './../ica-modal-file-preview/ica-modal-file-preview.module'
 
-import { IcaTableModule } from '../ica-table'
+import { IcaTableModule } from '../ica-table/index'
 
 import { IcaContractsComponent } from './components/ica-contracts/ica-contracts.component'
 import { IcaContractsTableFiltersComponent } from './components/ica-contracts-table-filters/ica-contracts-table-filters.component'

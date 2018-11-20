@@ -3,7 +3,7 @@ import stripJsonComments from 'strip-json-comments'
 import { Subject, Observable, from } from 'rxjs'
 import { switchMap, auditTime, tap, delay } from 'rxjs/operators'
 
-import { waitOnConditionAsync } from '../../../common'
+import { waitOnConditionAsync } from '../../../common/index'
 
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
 import { generatePdf } from '../../utils'

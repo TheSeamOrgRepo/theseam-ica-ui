@@ -2,7 +2,6 @@ import { Component, OnInit, Input, OnDestroy, ViewChild } from '@angular/core'
 
 import { IcaShipmentsTableFiltersComponent } from './../ica-shipments-table-filters/ica-shipments-table-filters.component'
 import { IcaTablePaginationComponent } from './../../../ica-table/components/ica-table-pagination/ica-table-pagination.component'
-import { IRowAction } from './../../../ica-table/components/ica-table/ica-table.component'
 import { tableTextFilter } from '../../../ica-table/utils'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { untilDestroyed } from 'ngx-take-until-destroy'

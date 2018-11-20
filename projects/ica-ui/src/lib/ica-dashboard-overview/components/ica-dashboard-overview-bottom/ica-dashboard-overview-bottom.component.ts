@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core'
 
-import { IcaTableHeaderColumnItem, IcaTableRowColumnItem } from '../../../ica-table'
-
 @Component({
   selector: 'ica-dashboard-overview-bottom',
   templateUrl: './ica-dashboard-overview-bottom.component.html',

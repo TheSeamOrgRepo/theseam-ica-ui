@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter, OnDestroy, AfterViewInit } from '@angular/core'
-import { JsonSchemaFormComponent, JsonPointer, isInputRequired, getControl } from 'angular6-json-schema-form'
+import { JsonSchemaFormComponent, JsonPointer } from 'angular6-json-schema-form'
 import { combineLatest } from 'rxjs'
 import { switchMap, map, takeWhile, filter, distinctUntilChanged, tap } from 'rxjs/operators'
 
 import { IContractTemplatePack } from '../../models/ica-contract-builder.models'
 import { IcaConstractSchemaFormService } from '../../services/ica-constract-schema-form.service'
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'
-import { IcaCommonService } from '../../../common'
+import { IcaCommonService } from '../../../common/index'
 import { IcaModalContractCompleteService } from './../../../ica-modal-contract-complete/services/ica-modal-contract-complete.service'
 import { IIcaJsfRemainingStatus } from '../../models/ica-contract-builder.models'
 import { IcaJsfExtraDirective } from '../../directives/ica-jsf-extra.directive'
-import { IcaModalContractSignService } from '../../../ica-modal-contract-sign'
+import { IcaModalContractSignService } from '../../../ica-modal-contract-sign/index'
 
 
 // tslint:disable:max-line-length

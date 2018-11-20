@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { CdkTableModule } from '@angular/cdk/table'
 
-import { IcaCommonModule } from '../common'
+import { IcaCommonModule } from '../common/index'
 
 import { IcaTableComponent } from './components/ica-table/ica-table.component'
 import { IcaTableActionsDropdownComponent } from './components/ica-table-actions-dropdown/ica-table-actions-dropdown.component'

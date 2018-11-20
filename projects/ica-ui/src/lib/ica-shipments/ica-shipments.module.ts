@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common'
 
 import { NgSelectModule } from '@ng-select/ng-select'
 
-import { IcaTableModule } from '../ica-table'
+import { IcaTableModule } from '../ica-table/index'
 
 import { IcaShipmentsComponent } from './components/ica-shipments/ica-shipments.component'
 import { IcaShipmentsTableFiltersComponent } from './components/ica-shipments-table-filters/ica-shipments-table-filters.component'

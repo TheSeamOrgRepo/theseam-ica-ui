@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms'
 
 import { NgSelectModule } from '@ng-select/ng-select'
 
-import { IcaTableModule } from '../ica-table'
+import { IcaTableModule } from '../ica-table/index'
 
 import { IcaDocumentsComponent } from './components/ica-documents/ica-documents.component'
 import { IcaDocumentsTableFiltersComponent } from './components/ica-documents-table-filters/ica-documents-table-filters.component'

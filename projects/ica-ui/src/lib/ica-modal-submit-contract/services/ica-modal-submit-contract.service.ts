@@ -1,5 +1,5 @@
 import { Overlay, OverlayRef } from '@angular/cdk/overlay'
-import { Injectable, EventEmitter, ComponentRef } from '@angular/core'
+import { Injectable, ComponentRef } from '@angular/core'
 import { ComponentPortal } from '@angular/cdk/portal'
 
 import { IcaModalSubmitContractComponent } from './../components/ica-modal-submit-contract/ica-modal-submit-contract.component'

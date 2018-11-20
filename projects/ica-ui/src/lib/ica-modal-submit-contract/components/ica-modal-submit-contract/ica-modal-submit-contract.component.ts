@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef, EventEmitter } from '@angular/core'
+import { Component, OnInit, EventEmitter } from '@angular/core'
 
 import { IcaModalSubmitContractService } from './../../services/ica-modal-submit-contract.service'
 

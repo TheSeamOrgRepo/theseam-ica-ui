@@ -1,10 +1,9 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   Input,
   OnInit
-  } from '@angular/core'
-  import { JsonSchemaFormService } from 'angular6-json-schema-form'
+} from '@angular/core'
+import { JsonSchemaFormService } from 'angular6-json-schema-form'
 
 @Component({
   selector: 'ica-schema-form-root-add-reference-widget',

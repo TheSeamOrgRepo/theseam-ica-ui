@@ -1,6 +1,4 @@
-import { AbstractControl } from '@angular/forms'
-import { Component, Input, OnInit } from '@angular/core'
-import { JsonSchemaFormService } from 'angular6-json-schema-form'
+import { Component, OnInit } from '@angular/core'
 
 @Component({
   selector: 'ica-schema-form-signature-widget',

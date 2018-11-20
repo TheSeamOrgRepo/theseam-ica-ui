@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { JsonPointer } from 'angular6-json-schema-form'
 
 import { IcaContractBuilderService } from '../../services/ica-contract-builder.service'

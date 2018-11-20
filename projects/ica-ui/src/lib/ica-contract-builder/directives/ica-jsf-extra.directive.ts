@@ -3,7 +3,6 @@ import { JsonSchemaFormComponent, getControl } from 'angular6-json-schema-form'
 
 import { IIcaJsfRemainingStatus } from '../models/ica-contract-builder.models'
 import { IcaConstractSchemaFormService } from '../services/ica-constract-schema-form.service'
-import { TemplateParseResult } from '@angular/compiler'
 
 @Directive({
   selector: '[icaJsfExtra]'

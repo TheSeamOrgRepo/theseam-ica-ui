@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators'
 import { IcaContractsTableFiltersComponent } from './../ica-contracts-table-filters/ica-contracts-table-filters.component'
 import { IcaTablePaginationComponent } from './../../../ica-table/components/ica-table-pagination/ica-table-pagination.component'
 import { IRowAction } from './../../../ica-table/components/ica-table/ica-table.component'
-import { tableTextFilter } from '../../../ica-table/utils'
+import { tableTextFilter } from '../../../ica-table/utils/index'
 
 @Component({
   selector: 'ica-contracts',

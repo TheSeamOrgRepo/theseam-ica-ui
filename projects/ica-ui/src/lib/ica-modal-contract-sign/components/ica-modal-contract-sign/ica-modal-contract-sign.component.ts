@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core'
+import { Component, OnInit, HostListener, ViewChild, Output, EventEmitter } from '@angular/core'
 import { SignaturePad } from 'angular2-signaturepad/signature-pad'
 
 import { IcaModalSubmitContractService } from './../../../ica-modal-submit-contract/services/ica-modal-submit-contract.service'
