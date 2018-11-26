@@ -6,53 +6,20 @@
     <ul class="dashboard__header-right">
         <li class="notifications">
             <button class="dashboard__header-action dashboard__header-action--notifications" data-toggle-notification-panel icaDrop>
-                <svg class="icon icon-notifications-active" aria-hidden="true">
-                    <use xlink:href="#icon-notifications-active"></use>
-                </svg>
-                <!-- <svg class="icon icon-notifications" aria-hidden="true">
-                    <use xlink:href="#icon-notifications"></use>
-                </svg> -->
+                <ng-container *ngIf="hasUnreadNotifications$ | async; else notHasUnreadNotifications">
+                    <svg class="icon icon-notifications-active" aria-hidden="true">
+                        <use xlink:href="#icon-notifications-active"></use>
+                    </svg>
+                </ng-container>
+                <ng-template #notHasUnreadNotifications>
+                    <svg class="icon icon-notifications" aria-hidden="true">
+                        <use xlink:href="#icon-notifications"></use>
+                    </svg>
+                </ng-template>
                 <span class="hide-vis">Notifications</span>
             </button>
 
-            <div class="notification-panel">
-                <div class="notification-panel__header">
-                    <h3 class="notification-panel__heading">Notifications</h3>
-
-                    <button class="notification-panel__header-icon">
-                        <svg class="icon icon-gear-solid" aria-hidden="true">
-                            <use xlink:href="#icon-gear-solid"></use>
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="notification-panel__list">
-                    <button class="notification-panel__item notification-panel__item--unread">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </button>
-
-                    <button class="notification-panel__item notification-panel__item--unread">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </button>
-
-                    <button class="notification-panel__item">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </button>
-
-                    <button class="notification-panel__item">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </button>
-
-                    <button class="notification-panel__item">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-                    </button>
-                </div>
-
-                <div class="notification-panel__footer">
-                    <button>See all Notifications</button>
-                </div>
-
-            </div>
+            <ica-notifications-mini></ica-notifications-mini>
         </li>
 
         <li>

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Inject } from '@angular/core'
+
+import { IcaNotificationsService, IcaNotifications } from '../../../ica-notifications/'
+import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'ica-dashboard-overview-top-bar',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core'
 })
 export class IcaDashboardOverviewTopBarComponent implements OnInit {
 
-  hasUnreadNotifications = false
+  hasUnreadNotifications$: Observable<boolean>
 
-  constructor() { }
+  constructor(
+    @Inject(IcaNotificationsService) public icaNotificationsService: IcaNotifications
+  ) {
+    this.hasUnreadNotifications$ = this.icaNotificationsService.unreadNotifications$.pipe(
+      map(unreadNotifications => unreadNotifications && unreadNotifications.length > 0)
+    )
+  }
 
   ngOnInit() {
   }

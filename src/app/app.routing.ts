@@ -48,16 +48,16 @@ const routes: Routes = [
         component: ContractBuilderComponent,
         data: { state: 'new-contract'}
       },
-      {
-        path: '',
-        component: IcaContractBuilderTopBarComponent,
-        outlet: 'topBar'
-      },
       // {
       //   path: '',
-      //   component: IcaDashboardOverviewTopBarComponent,
+      //   component: IcaContractBuilderTopBarComponent,
       //   outlet: 'topBar'
       // },
+      {
+        path: '',
+        component: IcaDashboardOverviewTopBarComponent,
+        outlet: 'topBar'
+      },
       {
         path: 'companies',
         component: CompaniesComponent,

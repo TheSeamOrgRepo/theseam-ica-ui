@@ -20,7 +20,8 @@ import {
   IcaModalNewDocumentModule,
   IcaModalContractSignModule,
   IcaModalContractCompleteModule,
-  IcaModalSubmitContractModule
+  IcaModalSubmitContractModule,
+  IcaNotificationsService
 } from '@theseam/ica-ui'
 
 import { AppComponent } from './app.component'
@@ -35,6 +36,7 @@ import { ShipmentsComponent } from './components/shipments/shipments.component'
 import { DocumentsComponent } from './components/documents/documents.component'
 
 import { LoginAuthExampleService } from 'src/app/services/login-auth-example.service'
+import { NotificationsExampleService } from 'src/app/services/notifications-example.service'
 
 import { routing } from './app.routing'
 
@@ -79,6 +81,10 @@ import { routing } from './app.routing'
     {
       provide: IcaLoginAuthService,
       useClass: LoginAuthExampleService
+    },
+    {
+      provide: IcaNotificationsService,
+      useClass: NotificationsExampleService
     }
    ],
    bootstrap: [
