@@ -1,34 +1,44 @@
 <div class="contract-new__content">
     <div class="contract-new__sidebar">
-        <ica-contract-schema-form #icaSchemaForm
+        <ica-contract-builder-new *ngIf="showNewPrompt && newPromptActive"
+            (startContractClicked)="startContractClicked()">
+        </ica-contract-builder-new>
+        <ica-contract-schema-form *ngIf="!newPromptActive"
+            #icaSchemaForm
             [contractTemplatePack]="contractTemplatePack"
             (dataChange)="onDataChange($event)"
             (formSubmit)="onSchemaFormSubmit($event)">
         </ica-contract-schema-form>
     </div>
 
-    <div class="contract-new__preview">
-        <div class="contract-new__pre-fill" *ngIf="showPrefill">
-            <div class="form-field form-field--contract form-field--select">
-                <ng-select
-                    (change)="showPrefill=false;prefil()"
-                    placeholder="Choose Pre-Fill Content"
-                    [searchable]="false"
-                    [items]="prefilOptions"
-                    bindLabel="label"
-                    bindValue="value">
-                </ng-select>
-            </div>
+    <div class="contract-new__preview" [class.is-placeholder]="newPromptActive">
+        <div *ngIf="newPromptActive" class="placeholder">
+            <div>Contract Builder</div>
         </div>
 
-        <div class="contract-new__pdf">
-            <ng-container *ngIf="contractTemplatePack">
-                <ica-contract-preview-pdf
-                    [content]="contractTemplatePack.pdfTpl"
-                    [data]="formData"
-                    (fieldClicked)="previewFieldClicked($event)">
-                </ica-contract-preview-pdf>
-            </ng-container>
-        </div>
+        <ng-container *ngIf="!newPromptActive">
+            <div class="contract-new__pre-fill" *ngIf="showPrefill">
+                <div class="form-field form-field--contract form-field--select">
+                    <ng-select
+                        (change)="showPrefill=false;prefil()"
+                        placeholder="Choose Pre-Fill Content"
+                        [searchable]="false"
+                        [items]="prefilOptions"
+                        bindLabel="label"
+                        bindValue="value">
+                    </ng-select>
+                </div>
+            </div>
+
+            <div class="contract-new__pdf">
+                <ng-container *ngIf="contractTemplatePack">
+                    <ica-contract-preview-pdf
+                        [content]="contractTemplatePack.pdfTpl"
+                        [data]="formData"
+                        (fieldClicked)="previewFieldClicked($event)">
+                    </ica-contract-preview-pdf>
+                </ng-container>
+            </div>
+        </ng-container>
     </div>
 </div>

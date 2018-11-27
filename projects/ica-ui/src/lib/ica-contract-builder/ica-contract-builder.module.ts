@@ -24,6 +24,7 @@ import { IcaContractBuilderComponent } from './components/ica-contract-builder/i
 import { IcaContractPreviewHtmlComponent } from './components/ica-contract-preview-html/ica-contract-preview-html.component'
 import { IcaContractPreviewPdfComponent } from './components/ica-contract-preview-pdf/ica-contract-preview-pdf.component'
 import { IcaContractPreviewSymbolOverlayComponent } from './components/ica-contract-preview-symbol-overlay/ica-contract-preview-symbol-overlay.component'
+import { IcaContractBuilderNewComponent } from './components/ica-contract-builder-new/ica-contract-builder-new.component'
 // tslint:enable:max-line-length
 
 @NgModule({
@@ -49,16 +50,12 @@ import { IcaContractPreviewSymbolOverlayComponent } from './components/ica-contr
     IcaContractPreviewHtmlComponent,
     IcaContractPreviewPdfComponent,
     IcaContractPreviewSymbolOverlayComponent,
-    IcaJsfExtraDirective
+    IcaJsfExtraDirective,
+    IcaContractBuilderNewComponent
   ],
   exports: [
-    IcaContractSchemaFormComponent,
-    IcaContractPreviewComponent,
     IcaContractBuilderTopBarComponent,
-    IcaContractBuilderComponent,
-    IcaContractPreviewHtmlComponent,
-    IcaContractPreviewPdfComponent,
-    IcaContractPreviewSymbolOverlayComponent
+    IcaContractBuilderComponent
   ]
 })
 export class IcaContractBuilderModule { }

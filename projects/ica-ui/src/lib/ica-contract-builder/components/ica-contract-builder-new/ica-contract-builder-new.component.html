@@ -1,0 +1,20 @@
+<div class="contract-new__sidebar-intro">
+    <img src="assets/images/logo-placeholder.svg" alt="Logo Placeholder">
+    <h1>New Contract</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+    <a [routerLink]="" (click)="onClickStartContract()" class="btn btn--green">Start Contract</a>
+
+    <div class="form-field form-field--contract form-field--select">
+        <label for="view-in-progress" class="form-field__label">View In Progress</label>
+        <ng-select
+            placeholder="Choose an unfinished contract"
+            [searchable]="false"
+            [items]="viewInProgressOptions"
+            bindLabel="label"
+            bindValue="value">
+        </ng-select>
+    </div>
+
+    <p><a routerLink="/contracts" class="small">See all past contracts</a></p>
+</div>

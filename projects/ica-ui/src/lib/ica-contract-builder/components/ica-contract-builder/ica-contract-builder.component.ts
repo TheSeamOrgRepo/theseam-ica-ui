@@ -24,9 +24,12 @@ export class IcaContractBuilderComponent implements OnInit {
   public formData: object
   public submittedData: any
 
-  showPrefill = true
+  public newPromptActive = true
 
-  prefilOptions = [
+  public showNewPrompt = true
+  public showPrefill = true
+
+  public prefilOptions = [
     { label: '21st Century Textiles', value: '21st Century Textiles' },
     { label: 'AXEM Fibers', value: 'AXEM Fibers' },
     { label: 'Cargill, Inc.', value: 'Cargill, Inc.' },
@@ -66,6 +69,10 @@ export class IcaContractBuilderComponent implements OnInit {
 
   prefil() {
     this.icaSchemaForm.prefillSchemaData()
+  }
+
+  startContractClicked() {
+    this.newPromptActive = false
   }
 
 }
