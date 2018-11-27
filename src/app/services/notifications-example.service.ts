@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
-import { Observable, BehaviorSubject, from } from 'rxjs'
+import { Observable, BehaviorSubject } from 'rxjs'
 
-import { IcaNotifications, IIcaUiNotification } from '@theseam/ica-ui'
+import { IcaNotifications, IIcaUiNotification, unreadNotificationsOnly } from '@theseam/ica-ui'
 import { filter, switchMap, toArray } from 'rxjs/operators'
 
 @Injectable({
@@ -64,12 +64,7 @@ export class NotificationsExampleService implements IcaNotifications {
   constructor() {
     this.notifications$ = this._notificationsSubject.asObservable()
 
-    this.unreadNotifications$ = this.notifications$.pipe(
-      switchMap(notifications => from(notifications).pipe(
-        filter(notification => !notification.isRead),
-        toArray()
-      ))
-    )
+    this.unreadNotifications$ = this.notifications$.pipe(unreadNotificationsOnly())
   }
 
 }

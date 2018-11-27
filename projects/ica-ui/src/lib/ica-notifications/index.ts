@@ -1,3 +1,5 @@
+export * from './utils/index'
+
 export * from './ica-notifications.models'
 
 export * from './ica-notifications.module'

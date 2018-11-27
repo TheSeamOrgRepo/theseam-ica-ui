@@ -1,6 +1,9 @@
-import { Component, OnInit, Optional, Inject } from '@angular/core'
+import { Component, OnInit, Inject } from '@angular/core'
+import { Observable } from 'rxjs'
 
-import { IcaNotificationsService, IcaNotifications } from '../../ica-notifications.models'
+import { IIcaUiNotification, IcaNotificationsService, IcaNotifications } from '../../ica-notifications.models'
+import { unreadNotificationsFirst } from '../../utils/index'
+import { tap } from 'rxjs/operators'
 
 @Component({
   selector: 'ica-notifications-mini',
@@ -9,9 +12,14 @@ import { IcaNotificationsService, IcaNotifications } from '../../ica-notificatio
 })
 export class IcaNotificationsMiniComponent implements OnInit {
 
+  public notifications$: Observable<IIcaUiNotification[]>
+
   constructor(
-    @Inject(IcaNotificationsService) public icaLoginAuthService: IcaNotifications,
-  ) { }
+    @Inject(IcaNotificationsService) public icaNotifications: IcaNotifications,
+  ) {
+    this.notifications$ = this.icaNotifications.notifications$
+      .pipe(unreadNotificationsFirst())
+  }
 
   ngOnInit() {
   }

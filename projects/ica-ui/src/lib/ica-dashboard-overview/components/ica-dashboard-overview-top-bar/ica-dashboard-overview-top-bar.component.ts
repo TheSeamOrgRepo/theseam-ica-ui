@@ -14,9 +14,9 @@ export class IcaDashboardOverviewTopBarComponent implements OnInit {
   hasUnreadNotifications$: Observable<boolean>
 
   constructor(
-    @Inject(IcaNotificationsService) public icaNotificationsService: IcaNotifications
+    @Inject(IcaNotificationsService) public icaNotifications: IcaNotifications
   ) {
-    this.hasUnreadNotifications$ = this.icaNotificationsService.unreadNotifications$.pipe(
+    this.hasUnreadNotifications$ = this.icaNotifications.unreadNotifications$.pipe(
       map(unreadNotifications => unreadNotifications && unreadNotifications.length > 0)
     )
   }

@@ -10,24 +10,10 @@
     </div>
 
     <div class="notification-panel__list">
-        <button class="notification-panel__item notification-panel__item--unread">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-        </button>
-
-        <button class="notification-panel__item notification-panel__item--unread">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-        </button>
-
-        <button class="notification-panel__item">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-        </button>
-
-        <button class="notification-panel__item">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
-        </button>
-
-        <button class="notification-panel__item">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+        <button *ngFor="let notif of notifications$ | async" class="notification-panel__item"
+            [class.notification-panel__item--unread]="notif.isRead"
+            [routerLink]="notif.route">
+            {{ notif.message }}
         </button>
     </div>
 
