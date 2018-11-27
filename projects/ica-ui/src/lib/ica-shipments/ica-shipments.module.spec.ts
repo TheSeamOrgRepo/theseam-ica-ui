@@ -1,13 +1,13 @@
-import { IcaShipmentsModule } from './ica-shipments.module'
+// import { IcaShipmentsModule } from './ica-shipments.module'
 
-describe('IcaShipmentsModule', () => {
-  let icaShipmentsModule: IcaShipmentsModule
+// describe('IcaShipmentsModule', () => {
+//   let icaShipmentsModule: IcaShipmentsModule
 
-  beforeEach(() => {
-    icaShipmentsModule = new IcaShipmentsModule()
-  })
+//   beforeEach(() => {
+//     icaShipmentsModule = new IcaShipmentsModule()
+//   })
 
-  it('should create an instance', () => {
-    expect(icaShipmentsModule).toBeTruthy()
-  })
-})
+//   it('should create an instance', () => {
+//     expect(icaShipmentsModule).toBeTruthy()
+//   })
+// })

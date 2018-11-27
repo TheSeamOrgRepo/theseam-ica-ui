@@ -1,11 +1,11 @@
-/* tslint:disable:no-unused-variable */
+// /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing'
-import { ElemResizedDirective } from './elem-resized.directive'
+// import { TestBed, async } from '@angular/core/testing'
+// import { ElemResizedDirective } from './elem-resized.directive'
 
-describe('Directive: ElemResized', () => {
-  it('should create an instance', () => {
-    const directive = new ElemResizedDirective()
-    expect(directive).toBeTruthy()
-  })
-})
+// describe('Directive: ElemResized', () => {
+//   it('should create an instance', () => {
+//     const directive = new ElemResizedDirective()
+//     expect(directive).toBeTruthy()
+//   })
+// })

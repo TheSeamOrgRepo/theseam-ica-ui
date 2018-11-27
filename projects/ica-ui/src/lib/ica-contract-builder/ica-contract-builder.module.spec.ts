@@ -1,13 +1,13 @@
-import { IcaContractBuilderModule } from './ica-contract-builder.module'
+// import { IcaContractBuilderModule } from './ica-contract-builder.module'
 
-describe('IcaContractBuilderModule', () => {
-  let icaContractBuilderModule: IcaContractBuilderModule
+// describe('IcaContractBuilderModule', () => {
+//   let icaContractBuilderModule: IcaContractBuilderModule
 
-  beforeEach(() => {
-    icaContractBuilderModule = new IcaContractBuilderModule()
-  })
+//   beforeEach(() => {
+//     icaContractBuilderModule = new IcaContractBuilderModule()
+//   })
 
-  it('should create an instance', () => {
-    expect(icaContractBuilderModule).toBeTruthy()
-  })
-})
+//   it('should create an instance', () => {
+//     expect(icaContractBuilderModule).toBeTruthy()
+//   })
+// })

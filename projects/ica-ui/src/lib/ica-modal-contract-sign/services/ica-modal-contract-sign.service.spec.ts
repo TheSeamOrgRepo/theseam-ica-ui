@@ -1,16 +1,16 @@
-/* tslint:disable:no-unused-variable */
+// /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing'
-import { IcaModalContractSignService } from './ica-modal-contract-sign.service'
+// import { TestBed, async, inject } from '@angular/core/testing'
+// import { IcaModalContractSignService } from './ica-modal-contract-sign.service'
 
-describe('Service: IcaModalContractSign', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [IcaModalContractSignService]
-    })
-  })
+// describe('Service: IcaModalContractSign', () => {
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       providers: [IcaModalContractSignService]
+//     })
+//   })
 
-  it('should ...', inject([IcaModalContractSignService], (service: IcaModalContractSignService) => {
-    expect(service).toBeTruthy()
-  }))
-})
+//   it('should ...', inject([IcaModalContractSignService], (service: IcaModalContractSignService) => {
+//     expect(service).toBeTruthy()
+//   }))
+// })
