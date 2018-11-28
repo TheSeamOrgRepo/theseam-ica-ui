@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { IcaTableHeaderColumnItem, IcaTableRowColumnItem, IcaModalFilePreviewService, IRowAction } from '@theseam/ica-ui'
+import { IcaTableHeaderColumnItem, IcaTableRowColumnItem, IcaModalFilePreviewService, IRowAction, IcaTableColumn } from '@theseam/ica-ui'
 
 @Component({
   selector: 'app-contracts',
@@ -9,218 +9,218 @@ import { IcaTableHeaderColumnItem, IcaTableRowColumnItem, IcaModalFilePreviewSer
 })
 export class ContractsComponent implements OnInit {
 
-  public contractsTableColumns: IcaTableHeaderColumnItem[] = [
-    { name: 'refNum', label: 'Reference Number' },
-    { name: 'blkStat', label: 'Blockchain Status' },
-    { name: 'countPart', label: 'Counterparty' },
-    { name: 'typ', label: 'Type' },
-    { name: 'quant', label: 'Quantity' },
-    { name: 'price', label: 'Price' },
-    { name: 'shDate', label: 'Shipment Date' },
-    { name: 'stat', label: 'Status' }
+  public contractsTableColumns: IcaTableColumn[] = [
+    { prop: 'refNum', name: 'Reference Number' },
+    { prop: 'blkStat', name: 'Blockchain Status' },
+    { prop: 'countPart', name: 'Counterparty' },
+    { prop: 'typ', name: 'Type' },
+    { prop: 'quant', name: 'Quantity' },
+    { prop: 'price', name: 'Price' },
+    { prop: 'shDate', name: 'Shipment Date' },
+    { prop: 'stat', name: 'Status' }
   ]
 
-  public contractsTableRows: Array<IcaTableRowColumnItem[]> = [
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Up to date' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Closed', cssClass: 'closed' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Purchase' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Pending', cssClass: 'pending' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Up to date' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Closed', cssClass: 'closed' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Purchase' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Pending', cssClass: 'pending' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Up to date' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Closed', cssClass: 'closed' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Purchase' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Pending', cssClass: 'pending' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Up to date' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Closed', cssClass: 'closed' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Purchase' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Pending', cssClass: 'pending' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Up to date' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Closed', cssClass: 'closed' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Purchase' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Active', cssClass: 'active' }
-    ],
-    [
-      { name: 'refNum', label: '501135-501132-171119' },
-      { name: 'blkStat', label: 'Syncing' },
-      { name: 'countPart', label: 'Allenberg Cotton Co' },
-      { name: 'typ', label: 'Sale' },
-      { name: 'quant', label: '1000 Metric Tons' },
-      { name: 'price', label: '87.5 c/lb' },
-      { name: 'shDate', label: '06/23/18' },
-      { name: 'stat', label: 'Pending', cssClass: 'pending' }
-    ]
+  public contractsTableRows = [
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Up to date',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Closed'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Purchase',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Pending'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Purchase',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Purchase',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Purchase',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Pending'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Pending'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Purchase',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Pending'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Closed'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Closed'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Active'
+    },
+    {
+      refNum: '501135-501132-171119',
+      blkStat: 'Syncing',
+      countPart: 'Allenberg Cotton Co',
+      typ: 'Sale',
+      quant: '1000 Metric Tons',
+      price: '87.5 c/lb',
+      shDate: '06/23/18',
+      stat: 'Pending'
+    }
   ]
 
   constructor(

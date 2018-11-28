@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th *ngIf="hasCheckboxes"><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></th>
-            <th *ngFor="let col of columns">{{ col.label }}</th>
+            <th *ngFor="let col of columns">{{ col.name || col.prop }}</th>
             <th *ngIf="hasActions"><div class="hide-vis">Actions</div></th>
         </tr>
     </thead>
@@ -10,41 +10,11 @@
     <tbody>
         <tr *ngFor="let row of rows">
             <td *ngIf="hasCheckboxes"><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></td>
-            <td *ngFor="let rowCol of row" [class]="rowCol?.cssClass">{{ rowCol.label }}</td>
+            <!-- <td *ngFor="let col of columns" [class]="getRowColCss(row, col)">{{ row[col.prop] }}</td> -->
+            <td *ngFor="let col of columns">{{ row[col.prop] }}</td>
             <td *ngIf="hasActions">
                 <ica-table-actions-dropdown (action)="onRowAction(row, $event)"></ica-table-actions-dropdown>
             </td>
         </tr>
     </tbody>
 </table>
-
-<!-- <table [class]="'table table--dashboard ' + (tableCssClasses || '')">
-    <thead>
-        <tr>
-            <th><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></th>
-            <th *ngFor="let col of columns">{{ col.label }}</th>
-            <th *ngIf="hasActions"><div class="hide-vis">Actions</div></th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr *ngFor="let row of rowsData$">
-            <td><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></td>
-            <td *ngFor="let rowCol of row" [class]="rowCol?.cssClass">{{ rowCol.label }}</td>
-            <td *ngIf="hasActions">
-                <ica-table-actions-dropdown (action)="onRowAction(row, $event)"></ica-table-actions-dropdown>
-            </td>
-        </tr>
-    </tbody>
-</table> -->
-
-<!-- <table cdk-table [dataSource]="dataSource" [class]="'table table--dashboard ' + (tableCssClasses || '')">
-
-    <ng-container *ngFor="let col of displayedColumns" [cdkColumnDef]="col">
-        <th cdk-header-cell *cdkHeaderCellDef>{{ columnNames[col] }}</th>
-        <td cdk-cell *cdkCellDef="let element" [class]="element?.cssClass">{{ element[col].label }}</td>
-    </ng-container>
-
-    <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
-    <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
-</table> -->

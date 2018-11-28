@@ -10,6 +10,6 @@ export interface IcaTableRowColumnItem {
 }
 
 export interface IcaTableColumn {
-  label: string
+  name: string
   prop: string
 }
