@@ -1,12 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnDestroy } from '@angular/core'
+import { untilDestroyed } from 'ngx-take-until-destroy'
+import { BehaviorSubject, Observable, of, from } from 'rxjs'
+import { map, switchMap, toArray } from 'rxjs/operators'
+
+import { IcaTablePaginationComponent, IRowAction, icaTableTextFilter, IcaTableColumn } from './../../../ica-table/index'
 
 import { IcaCompaniesTableFiltersComponent } from './../ica-companies-table-filters/ica-companies-table-filters.component'
-import { IcaTablePaginationComponent } from './../../../ica-table/components/ica-table-pagination/ica-table-pagination.component'
-import { IRowAction } from './../../../ica-table/components/ica-table/ica-table.component'
-import { tableTextFilter } from '../../../ica-table/utils/index'
-import { BehaviorSubject, Observable } from 'rxjs'
-import { untilDestroyed } from 'ngx-take-until-destroy'
-import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'ica-companies',
@@ -15,15 +14,19 @@ import { map } from 'rxjs/operators'
 })
 export class IcaCompaniesComponent implements OnInit, OnDestroy {
 
-  private _companiesTableRows = new BehaviorSubject<any[]>([])
-  public companiesTableRows$: Observable<any[]>
-
   public dataLength$: Observable<number>
 
-  @Input() companiesTableColumns
+  @Input()
+  get companiesTableColumns() { return this._companiesTableColumns.value }
+  set companiesTableColumns(value: IcaTableColumn[]) { this._companiesTableColumns.next(value) }
+  private _companiesTableColumns = new BehaviorSubject<IcaTableColumn[]>([])
+  public companiesTableColumns$: Observable<IcaTableColumn[]>
+
   @Input()
   get companiesTableRows() { return this._companiesTableRows.value }
   set companiesTableRows(value: any[]) { this._companiesTableRows.next(value) }
+  private _companiesTableRows = new BehaviorSubject<any[]>([])
+  public companiesTableRows$: Observable<any[]>
 
   @Output() rowAction = new EventEmitter<IRowAction>()
 
@@ -39,14 +42,15 @@ export class IcaCompaniesComponent implements OnInit, OnDestroy {
         if (this.companiesTableRows) { this.companiesTableRows = [ ...this.companiesTableRows ] }
       })
 
-    this.tableFilters.textFilter$
-      .pipe(untilDestroyed(this))
-      .subscribe(_ => {
-        if (this.companiesTableRows) { this.companiesTableRows = [ ...this.companiesTableRows ] }
-      })
+    this.companiesTableColumns$ = this._companiesTableColumns.asObservable()
+
+    const columnProps$ = this.companiesTableColumns$
+      .pipe(switchMap(cols => from(cols).pipe(map(c => c.prop), toArray())))
+
+    const textFilter$ = this.tableFilters.textFilter$
 
     const rows$ = this._companiesTableRows.asObservable().pipe(
-      map(data => tableTextFilter(data, this.tableFilters.textFilter))
+      icaTableTextFilter(textFilter$, columnProps$),
     )
 
     this.companiesTableRows$ = rows$.pipe(

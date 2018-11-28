@@ -8,7 +8,7 @@ import { BehaviorSubject } from 'rxjs'
 })
 export class IcaContractsTableFiltersComponent implements OnInit {
 
-  private textFilterSubject = new BehaviorSubject<string>(undefined)
+  private textFilterSubject = new BehaviorSubject<string>('')
   public textFilter$ = this.textFilterSubject.asObservable()
 
   get textFilter() { return this.textFilterSubject.value }
@@ -16,11 +16,11 @@ export class IcaContractsTableFiltersComponent implements OnInit {
 
   types = [
     { label: 'All', value: 'all' },
-    { label: 'Sale', value: 'Sale' },
-    { label: 'Purchase', value: 'Purchase' }
+    { label: 'Sale', value: 'sale' },
+    { label: 'Purchase', value: 'purchase' }
   ]
 
-  private typeFilterSubject = new BehaviorSubject<string>('all')
+  private typeFilterSubject = new BehaviorSubject<string>(this.types[0].value)
   public typeFilter$ = this.typeFilterSubject.asObservable()
 
   get typeFilter() { return this.typeFilterSubject.value }
@@ -33,7 +33,7 @@ export class IcaContractsTableFiltersComponent implements OnInit {
     { label: 'Closed', value: 'closed' }
   ]
 
-  private statusFilterSubject = new BehaviorSubject<string>('all')
+  private statusFilterSubject = new BehaviorSubject<string>(this.status[0].value)
   public statusFilter$ = this.statusFilterSubject.asObservable()
 
   get statusFilter() { return this.statusFilterSubject.value }

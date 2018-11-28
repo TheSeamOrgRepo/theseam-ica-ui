@@ -10,8 +10,7 @@
     <tbody>
         <tr *ngFor="let row of rows">
             <td *ngIf="hasCheckboxes"><div class="form-field form-field--contract form-field--checkbox"><label class="form-field__checkbox"><input type="checkbox" value="val1"> <span></span></label></div></td>
-            <!-- <td *ngFor="let col of columns" [class]="getRowColCss(row, col)">{{ row[col.prop] }}</td> -->
-            <td *ngFor="let col of columns">{{ row[col.prop] }}</td>
+            <td *ngFor="let col of columns" [attr.data-cell-prop]="col.prop" [attr.data-cell-text]="row[col.prop]">{{ row[col.prop] }}</td>
             <td *ngIf="hasActions">
                 <ica-table-actions-dropdown (action)="onRowAction(row, $event)"></ica-table-actions-dropdown>
             </td>

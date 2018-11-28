@@ -1,5 +1,5 @@
 import { Observable, from } from 'rxjs'
-import { filter, switchMap, toArray, groupBy, map } from 'rxjs/operators'
+import { filter, switchMap, toArray, map } from 'rxjs/operators'
 
 import { IIcaUiNotification } from '../ica-notifications.models'
 

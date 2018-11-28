@@ -1,12 +1,11 @@
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, OnDestroy } from '@angular/core'
+import { Component, OnInit, Input, OnDestroy, ViewChild, EventEmitter, Output } from '@angular/core'
+import { BehaviorSubject, Observable, from } from 'rxjs'
 import { untilDestroyed } from 'ngx-take-until-destroy'
-import { BehaviorSubject, Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { map, switchMap, toArray } from 'rxjs/operators'
 
-import { IRowAction } from './../../../ica-table/components/ica-table/ica-table.component'
-import { IcaTablePaginationComponent } from './../../../ica-table/components/ica-table-pagination/ica-table-pagination.component'
+import { IcaTablePaginationComponent, IRowAction, icaTableTextFilter, IcaTableColumn } from './../../../ica-table/index'
+
 import { IcaDocumentsTableFiltersComponent } from '../ica-documents-table-filters/ica-documents-table-filters.component'
-import { tableTextFilter } from './../../../ica-table/utils'
 
 @Component({
   selector: 'ica-documents',
@@ -15,15 +14,19 @@ import { tableTextFilter } from './../../../ica-table/utils'
 })
 export class IcaDocumentsComponent implements OnInit, OnDestroy {
 
-  private _documentsTableRows = new BehaviorSubject<any[]>([])
-  public documentsTableRows$: Observable<any[]>
-
   public dataLength$: Observable<number>
 
-  @Input() documentsTableColumns
+  @Input()
+  get documentsTableColumns() { return this._documentsTableColumns.value }
+  set documentsTableColumns(value: IcaTableColumn[]) { this._documentsTableColumns.next(value) }
+  private _documentsTableColumns = new BehaviorSubject<IcaTableColumn[]>([])
+  public documentsTableColumns$: Observable<IcaTableColumn[]>
+
   @Input()
   get documentsTableRows() { return this._documentsTableRows.value }
   set documentsTableRows(value: any[]) { this._documentsTableRows.next(value) }
+  private _documentsTableRows = new BehaviorSubject<any[]>([])
+  public documentsTableRows$: Observable<any[]>
 
   @Output() clickNewDocumentBtn = new EventEmitter<void>()
   @Output() rowAction = new EventEmitter<IRowAction>()
@@ -40,15 +43,16 @@ export class IcaDocumentsComponent implements OnInit, OnDestroy {
         if (this.documentsTableRows) { this.documentsTableRows = [ ...this.documentsTableRows ] }
       })
 
-    this.tableFilters.textFilter$
-      .pipe(untilDestroyed(this))
-      .subscribe(_ => {
-        if (this.documentsTableRows) { this.documentsTableRows = [ ...this.documentsTableRows ] }
-      })
+      this.documentsTableColumns$ = this._documentsTableColumns.asObservable()
 
-    const rows$ = this._documentsTableRows.asObservable().pipe(
-      map(data => tableTextFilter(data, this.tableFilters.textFilter))
-    )
+      const columnProps$ = this.documentsTableColumns$
+        .pipe(switchMap(cols => from(cols).pipe(map(c => c.prop), toArray())))
+
+      const textFilter$ = this.tableFilters.textFilter$
+
+      const rows$ = this._documentsTableRows.asObservable().pipe(
+        icaTableTextFilter(textFilter$, columnProps$),
+      )
 
     this.documentsTableRows$ = rows$.pipe(
       map(data => {

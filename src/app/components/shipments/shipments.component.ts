@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { IcaTableHeaderColumnItem, IcaTableRowColumnItem } from '@theseam/ica-ui'
+import { IcaTableColumn } from '@theseam/ica-ui'
 
 @Component({
   selector: 'app-shipments',
@@ -9,48 +9,44 @@ import { IcaTableHeaderColumnItem, IcaTableRowColumnItem } from '@theseam/ica-ui
 })
 export class ShipmentsComponent implements OnInit {
 
-  public shipmentsTableColumns: IcaTableHeaderColumnItem[] = [
-    { name: 'shpmnt', label: 'Shipment' },
-    { name: 'cnt', label: 'Contract' },
-    { name: 'orig', label: 'Origin' },
-    { name: 'dest', label: 'Destination' },
-    { name: 'carr', label: 'Carrier' },
-    { name: 'creatr', label: 'Creator' },
-    { name: 'ownr', label: 'Owner' },
-    { name: 'date', label: 'Date' }
+  public shipmentsTableColumns: IcaTableColumn[] = [
+    { prop: 'shpmnt', name: 'Shipment' },
+    { prop: 'cnt', name: 'Contract' },
+    { prop: 'orig', name: 'Origin' },
+    { prop: 'dest', name: 'Destination' },
+    { prop: 'carr', name: 'Carrier' },
+    { prop: 'ownr', name: 'Owner' },
+    { prop: 'date', name: 'Date' }
   ]
 
-  public shipmentsTableRows: Array<IcaTableRowColumnItem[]> = [
-    [
-      { name: 'shpmnt', label: '123456' },
-      { name: 'cnt', label: '501135-501132-171119' },
-      { name: 'orig', label: 'Memphis, TN' },
-      { name: 'dest', label: 'Laredo, TX' },
-      { name: 'carr', label: 'Southeaster Freight' },
-      { name: 'creatr', label: 'Test User' },
-      { name: 'ownr', label: 'Allendberg Cotton Co' },
-      { name: 'date', label: '06/23/18' }
-    ],
-    [
-      { name: 'shpmnt', label: '123456' },
-      { name: 'cnt', label: '501135-501132-171119' },
-      { name: 'orig', label: 'Memphis, TN' },
-      { name: 'dest', label: 'Laredo, TX' },
-      { name: 'carr', label: 'Southeaster Freight' },
-      { name: 'creatr', label: 'Test User' },
-      { name: 'ownr', label: 'Allendberg Cotton Co' },
-      { name: 'date', label: '06/23/18' }
-    ],
-    [
-      { name: 'shpmnt', label: '123456' },
-      { name: 'cnt', label: '501135-501132-171119' },
-      { name: 'orig', label: 'Memphis, TN' },
-      { name: 'dest', label: 'Laredo, TX' },
-      { name: 'carr', label: 'Southeaster Freight' },
-      { name: 'creatr', label: 'Test User' },
-      { name: 'ownr', label: 'Allendberg Cotton Co' },
-      { name: 'date', label: '06/23/18' }
-    ]
+  public shipmentsTableRows = [
+    {
+      shpmnt: '123456',
+      cnt: '501135-501132-171119',
+      orig: 'Memphis, TN',
+      dest: 'Laredo, TX',
+      carr: 'Southeaster Freight',
+      ownr: 'Allendberg Cotton Co',
+      date: '06/23/18'
+    },
+    {
+      shpmnt: '123456',
+      cnt: '501135-501132-171119',
+      orig: 'Memphis, TN',
+      dest: 'Laredo, TX',
+      carr: 'Southeaster Freight',
+      ownr: 'Allendberg Cotton Co',
+      date: '06/23/18'
+    },
+    {
+      shpmnt: '123456',
+      cnt: '501135-501132-171119',
+      orig: 'Memphis, TN',
+      dest: 'Laredo, TX',
+      carr: 'Southeaster Freight',
+      ownr: 'Allendberg Cotton Co',
+      date: '06/23/18'
+    }
   ]
 
   constructor() { }

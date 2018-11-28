@@ -1,12 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnDestroy } from '@angular/core'
 import { untilDestroyed } from 'ngx-take-until-destroy'
-import { BehaviorSubject, Observable, from } from 'rxjs'
-import { map, switchMap, toArray, tap } from 'rxjs/operators'
+import { BehaviorSubject, Observable, of, from } from 'rxjs'
+import { map, switchMap, toArray } from 'rxjs/operators'
+
+import { IcaTablePaginationComponent, IRowAction, icaTableTextFilter, IcaTableColumn } from './../../../ica-table/index'
 
 import { IcaContractsTableFiltersComponent } from './../ica-contracts-table-filters/ica-contracts-table-filters.component'
-import { IcaTablePaginationComponent } from './../../../ica-table/components/ica-table-pagination/ica-table-pagination.component'
-import { IRowAction } from './../../../ica-table/components/ica-table/ica-table.component'
-import { tableTextFilter, icaTableTextFilter } from '../../../ica-table/utils/index'
 
 @Component({
   selector: 'ica-contracts',
@@ -17,7 +16,11 @@ export class IcaContractsComponent implements OnInit, OnDestroy {
 
   public dataLength$: Observable<number>
 
-  @Input() contractsTableColumns
+  @Input()
+  get contractsTableColumns() { return this._contractsTableColumns.value }
+  set contractsTableColumns(value: IcaTableColumn[]) { this._contractsTableColumns.next(value) }
+  private _contractsTableColumns = new BehaviorSubject<IcaTableColumn[]>([])
+  public contractsTableColumns$: Observable<IcaTableColumn[]>
 
   @Input()
   get contractsTableRows() { return this._contractsTableRows.value }
@@ -39,43 +42,19 @@ export class IcaContractsComponent implements OnInit, OnDestroy {
         if (this.contractsTableRows) { this.contractsTableRows = [ ...this.contractsTableRows ] }
       })
 
-    this.tableFilters.textFilter$
-      .pipe(untilDestroyed(this))
-      .subscribe(_ => {
-        if (this.contractsTableRows) { this.contractsTableRows = [ ...this.contractsTableRows ] }
-      })
+    this.contractsTableColumns$ = this._contractsTableColumns.asObservable()
 
-    this.tableFilters.typeFilter$
-      .pipe(untilDestroyed(this))
-      .subscribe(type => {
-        if (this.contractsTableRows) { this.contractsTableRows = [ ...this.contractsTableRows ] }
-      })
+    const columnProps$ = this.contractsTableColumns$
+      .pipe(switchMap(cols => from(cols).pipe(map(c => c.prop), toArray())))
 
-    // const rows$ = this._contractsTableRows.asObservable().pipe(
-    //   tap(console.log),
-    //   switchMap(rows => from(rows).pipe(
-    //     // map(data => {
-    //     //   if (this.tableFilters.typeFilter && this.tableFilters.typeFilter !== 'all') {
-    //     //     return data.filter(d => `${d[3]}`.toLowerCase().indexOf(this.tableFilters.typeFilter) !== -1)
-    //     //   }
-    //     //   return data
-    //     // }),
-    //     // map(data => {
-    //     //   if (this.tableFilters.statusFilter && this.tableFilters.statusFilter !== 'all') {
-    //     //     return data.filter(d => `${d[7]}`.toLowerCase().indexOf(this.tableFilters.statusFilter) !== -1)
-    //     //   }
-    //     //   return data
-    //     // }),
-    //     // map(data => tableTextFilter(data, this.tableFilters.textFilter)),
-    //     // tap(console.log),
-    //     icaTableTextFilter(this.tableFilters.textFilter, this.contractsTableColumns),
-    //     toArray()
-    //   ))
-    // )
+    const typeFilter$ = this.tableFilters.typeFilter$.pipe(map(v => (v === 'all') ? undefined : v))
+    const statusFilter$ = this.tableFilters.statusFilter$.pipe(map(v => (v === 'all') ? undefined : v))
+    const textFilter$ = this.tableFilters.textFilter$
 
     const rows$ = this._contractsTableRows.asObservable().pipe(
-      tap(rows => console.log(this, this.tableFilters.textFilter)),
-      icaTableTextFilter(this.tableFilters.textFilter, this.contractsTableColumns),
+      icaTableTextFilter(typeFilter$, of(['typ'])),
+      icaTableTextFilter(statusFilter$, of(['stat'])),
+      icaTableTextFilter(textFilter$, columnProps$),
     )
 
     this.contractsTableRows$ = rows$.pipe(

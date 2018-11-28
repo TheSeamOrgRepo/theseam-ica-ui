@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 
-import { IcaTableHeaderColumnItem, IcaTableRowColumnItem, IcaModalFilePreviewService, IRowAction, IcaTableColumn } from '@theseam/ica-ui'
+import { IcaModalFilePreviewService, IRowAction, IcaTableColumn } from '@theseam/ica-ui'
 
 @Component({
   selector: 'app-contracts',
@@ -11,7 +11,6 @@ export class ContractsComponent implements OnInit {
 
   public contractsTableColumns: IcaTableColumn[] = [
     { prop: 'refNum', name: 'Reference Number' },
-    { prop: 'blkStat', name: 'Blockchain Status' },
     { prop: 'countPart', name: 'Counterparty' },
     { prop: 'typ', name: 'Type' },
     { prop: 'quant', name: 'Quantity' },
@@ -23,7 +22,6 @@ export class ContractsComponent implements OnInit {
   public contractsTableRows = [
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -33,7 +31,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Up to date',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -43,7 +40,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Purchase',
       quant: '1000 Metric Tons',
@@ -53,7 +49,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -63,7 +58,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -73,7 +67,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -83,7 +76,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Purchase',
       quant: '1000 Metric Tons',
@@ -93,7 +85,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Purchase',
       quant: '1000 Metric Tons',
@@ -103,7 +94,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Purchase',
       quant: '1000 Metric Tons',
@@ -113,7 +103,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -123,7 +112,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -133,7 +121,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Purchase',
       quant: '1000 Metric Tons',
@@ -143,7 +130,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -153,7 +139,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -163,7 +148,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -173,7 +157,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -183,7 +166,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -193,7 +175,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -203,7 +184,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',
@@ -213,7 +193,6 @@ export class ContractsComponent implements OnInit {
     },
     {
       refNum: '501135-501132-171119',
-      blkStat: 'Syncing',
       countPart: 'Allenberg Cotton Co',
       typ: 'Sale',
       quant: '1000 Metric Tons',

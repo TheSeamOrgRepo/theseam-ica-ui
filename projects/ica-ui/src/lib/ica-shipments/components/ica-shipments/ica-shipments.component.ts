@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, OnDestroy, ViewChild } from '@angular/core'
+import { BehaviorSubject, Observable, from } from 'rxjs'
+import { untilDestroyed } from 'ngx-take-until-destroy'
+import { map, switchMap, toArray } from 'rxjs/operators'
+
+import { IcaTablePaginationComponent, icaTableTextFilter, IcaTableColumn } from './../../../ica-table/index'
 
 import { IcaShipmentsTableFiltersComponent } from './../ica-shipments-table-filters/ica-shipments-table-filters.component'
-import { IcaTablePaginationComponent } from './../../../ica-table/components/ica-table-pagination/ica-table-pagination.component'
-import { tableTextFilter } from '../../../ica-table/utils'
-import { BehaviorSubject, Observable } from 'rxjs'
-import { untilDestroyed } from 'ngx-take-until-destroy'
-import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'ica-shipments',
@@ -14,15 +14,19 @@ import { map } from 'rxjs/operators'
 })
 export class IcaShipmentsComponent implements OnInit, OnDestroy {
 
-  private _shipmentsTableRows = new BehaviorSubject<any[]>([])
-  public shipmentsTableRows$: Observable<any[]>
-
   public dataLength$: Observable<number>
 
-  @Input() shipmentsTableColumns
+  @Input()
+  get shipmentsTableColumns() { return this._shipmentsTableColumns.value }
+  set shipmentsTableColumns(value: IcaTableColumn[]) { this._shipmentsTableColumns.next(value) }
+  private _shipmentsTableColumns = new BehaviorSubject<IcaTableColumn[]>([])
+  public shipmentsTableColumns$: Observable<IcaTableColumn[]>
+
   @Input()
   get shipmentsTableRows() { return this._shipmentsTableRows.value }
   set shipmentsTableRows(value: any[]) { this._shipmentsTableRows.next(value) }
+  private _shipmentsTableRows = new BehaviorSubject<any[]>([])
+  public shipmentsTableRows$: Observable<any[]>
 
   @ViewChild(IcaTablePaginationComponent) paginator: IcaTablePaginationComponent
   @ViewChild(IcaShipmentsTableFiltersComponent) tableFilters: IcaShipmentsTableFiltersComponent
@@ -36,14 +40,15 @@ export class IcaShipmentsComponent implements OnInit, OnDestroy {
         if (this.shipmentsTableRows) { this.shipmentsTableRows = [ ...this.shipmentsTableRows ] }
       })
 
-    this.tableFilters.textFilter$
-      .pipe(untilDestroyed(this))
-      .subscribe(_ => {
-        if (this.shipmentsTableRows) { this.shipmentsTableRows = [ ...this.shipmentsTableRows ] }
-      })
+    this.shipmentsTableColumns$ = this._shipmentsTableColumns.asObservable()
+
+    const columnProps$ = this.shipmentsTableColumns$
+      .pipe(switchMap(cols => from(cols).pipe(map(c => c.prop), toArray())))
+
+    const textFilter$ = this.tableFilters.textFilter$
 
     const rows$ = this._shipmentsTableRows.asObservable().pipe(
-      map(data => tableTextFilter(data, this.tableFilters.textFilter))
+      icaTableTextFilter(textFilter$, columnProps$),
     )
 
     this.shipmentsTableRows$ = rows$.pipe(

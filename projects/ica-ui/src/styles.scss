@@ -4,15 +4,29 @@
 // Minor style tweaks
 //
 
-// .login__left:before { background-image: radial-gradient(50% 120%, #415365 0%, #1E2A36 100%); }
+// NOTE: This should fix the gradient syntax warning
+// .login__left:before { background-image: radial-gradient(50% 120% at center, #415365 0%, #1E2A36 100%); }
 
 // NOTE: Should be fixed in next SF commit
 .notification-panel__item { width: 100%; }
 
+// NOTE: Temporary while deciding new table syntax for specifying cell css
+.table--contracts {
+    td[data-cell-prop=stat] {
+        &[data-cell-text=Active] {
+            color: $green;
+        }
 
+        &[data-cell-text=Pending] {
+            color: $yellow-dark;
+        }
 
+        &[data-cell-text=Closed] {
+            color: $red;
+        }
+    }
+}
 
-// Gradient has outdated direction syntax. New syntax is like `closest-side at 0 0` instead of `0 0, closest-side`.
 
 
 

@@ -1,35 +1,27 @@
-import { Observable, of, from } from 'rxjs'
-import { switchMap, filter, tap, toArray } from 'rxjs/operators'
+import { Observable, of, from, combineLatest } from 'rxjs'
+import { switchMap, filter, toArray, map } from 'rxjs/operators'
 
-import { IcaTableRowColumnItem, IcaTableColumn } from '../ica-table.models'
-
-export const tableTextFilter = (data: IcaTableRowColumnItem[][], filterText: string): IcaTableRowColumnItem[][] => {
-  if (filterText && filterText.trim().length > 0) {
-    return data.filter(d => {
-      return !!d.find(di => `${di.label}`.toLowerCase().indexOf(filterText) !== -1)
-    })
-  }
-  return data
-}
-
-export const icaTableTextFilter = (filterText: string, columns: IcaTableColumn[]) => (source: Observable<any[]>) =>
-  source.pipe(
-    tap(_ => console.log('filterText', filterText)),
-    tap(rows => console.log('rows', rows, filterText, !(filterText && filterText.trim().length > 0))),
-    switchMap(rows => !(filterText && filterText.trim().length > 0)
-      ? of(rows)
-      : from(rows).pipe(
-          tap(row => console.log('row', row)),
-          filter(row => {
-            for (const col of columns) {
-              console.log(`${row[col.prop]}`.toLowerCase(), filterText, `${row[col.prop]}`.toLowerCase().indexOf(filterText) !== -1)
-              if (`${row[col.prop]}`.toLowerCase().indexOf(filterText) !== -1) {
-                return true
-              }
-            }
-            return false
-          }),
-          toArray()
-        )
-    )
+export const icaTableFilterRowsByColumns = (rows: any[], columns: string[], filterText: string) =>
+  from(rows).pipe(
+    filter(row => {
+      for (const col of columns) {
+        if (`${row[col]}`.toLowerCase().indexOf(filterText) !== -1) { return true }
+      }
+      return false
+    }),
+    toArray()
   )
+
+export const icaTableTextFilter = (filterText$: Observable<string>, columns$: Observable<string[]>) =>
+  (source: Observable<any[]>) => {
+  const _filterText$ = filterText$.pipe(map(v => (v && v.length > 0) ? v : undefined))
+  const _columns$ = columns$.pipe(map(v => (v && v.length > 0) ? v : undefined))
+
+  return source.pipe(
+    switchMap(rows => combineLatest(_filterText$, _columns$).pipe(
+      switchMap(([filterText, columns]) => (!filterText || !columns)
+        ? of(rows)
+        : icaTableFilterRowsByColumns(rows, columns, filterText))
+    ))
+  )
+}
