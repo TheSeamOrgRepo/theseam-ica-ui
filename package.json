@@ -48,7 +48,7 @@
     "core-js": "^2.5.7",
     "css-element-queries": "^1.1.1",
     "del": "^3.0.0",
-    "json-ptr": "^1.1.1",
+    "json-ptr": "^2.1.0",
     "just-wait": "^1.0.11",
     "ng-animate": "^0.3.4",
     "ngx-json-viewer": "^2.4.0",
