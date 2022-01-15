@@ -85,7 +85,7 @@
     "ng-packagr": "^4.4.0",
     "outdent": "^0.7.0",
     "protractor": "^5.4.1",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "ts-node": "^7.0.1",
     "tsickle": "^0.34.0",
     "tslib": "^1.9.3",
